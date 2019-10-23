@@ -1,0 +1,5 @@
++define+SYNTHESIS
++define+DEBUG=0
+-pvalue+width_p=128
+-pvalue+els_p=1024
+/home/tanglingshu/bsg_microdesign/results/basejump_stl_dev-regression/basejump_stl/bsg_dataflow/bsg_serial_in_parallel_out.v

@@ -1,0 +1,9 @@
++define+SYNTHESIS
++define+DEBUG=0
+-pvalue+els_p=4096
+-pvalue+width_p=128
+-pvalue+read_write_same_addr_p=0
+/home/tanglingshu/bsg_microdesign/results/basejump_stl_dev-regression/basejump_stl/bsg_misc/bsg_defines.v
+/home/tanglingshu/bsg_microdesign/results/basejump_stl_dev-regression/basejump_stl/bsg_mem/bsg_mem_1r1w_sync.v
+/home/tanglingshu/bsg_microdesign/results/basejump_stl_dev-regression/basejump_stl/bsg_misc/bsg_clkgate_optional.v
+/home/tanglingshu/bsg_microdesign/results/basejump_stl_dev-regression/basejump_stl/bsg_mem/bsg_mem_1r1w_sync_synth.v
