@@ -20,10 +20,11 @@ Each top level folder is similar to the structure of basejump_stl. Within each s
 |   |   |   |   |-- vclk_40_FO4.constraints.tcl
 :   :   :   :   :
 :   :   :   |-- top.v
-
+```
 The top.v file contains the actual Verilog version of the original design plus a wrapper called top that wraps the overall design. The key is that all designs, regardless of their names or parameters, will be called top.
 
 The constraints.tcl file contains the standard timing constraints for a design. It will also source an async script which will help define the additional constraints needed for an async design. Below is a snippet of a constraints.tcl file:
+
 ```
 create_clock -period [expr $::env(FO4_VAL)*30] -name vclk
 set_clock_uncertainty 0 [get_clock vclk]
