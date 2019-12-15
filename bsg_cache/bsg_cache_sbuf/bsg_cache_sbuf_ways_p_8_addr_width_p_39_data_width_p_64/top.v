@@ -1,5 +1,56 @@
 
 
+module top
+(
+  clk_i,
+  reset_i,
+  sbuf_entry_i,
+  v_i,
+  sbuf_entry_o,
+  v_o,
+  yumi_i,
+  empty_o,
+  bypass_addr_i,
+  bypass_v_i,
+  bypass_data_o,
+  bypass_mask_o
+);
+
+  input [113:0] sbuf_entry_i;
+  output [113:0] sbuf_entry_o;
+  input [38:0] bypass_addr_i;
+  output [63:0] bypass_data_o;
+  output [7:0] bypass_mask_o;
+  input clk_i;
+  input reset_i;
+  input v_i;
+  input yumi_i;
+  input bypass_v_i;
+  output v_o;
+  output empty_o;
+
+  bsg_cache_sbuf
+  wrapper
+  (
+    .sbuf_entry_i(sbuf_entry_i),
+    .sbuf_entry_o(sbuf_entry_o),
+    .bypass_addr_i(bypass_addr_i),
+    .bypass_data_o(bypass_data_o),
+    .bypass_mask_o(bypass_mask_o),
+    .clk_i(clk_i),
+    .reset_i(reset_i),
+    .v_i(v_i),
+    .yumi_i(yumi_i),
+    .bypass_v_i(bypass_v_i),
+    .v_o(v_o),
+    .empty_o(empty_o)
+  );
+
+
+endmodule
+
+
+
 module bsg_cache_sbuf_queue_width_p114
 (
   clk_i,
@@ -107,7 +158,7 @@ endmodule
 
 
 
-module bsg_cache_sbuf_data_width_p64_addr_width_p39_ways_p8
+module bsg_cache_sbuf
 (
   clk_i,
   reset_i,

@@ -1,0 +1,10 @@
++define+SYNTHESIS
++define+DEBUG=0
+-pvalue+ways_p=8
+-pvalue+addr_width_p=39
+-pvalue+data_width_p=64
+/mnt/users/ssd1/homes/tanglingshu/bsg_microdesign/results/basejump_stl_dev-regression/basejump_stl/bsg_cache/bsg_cache_pkg.v
+/mnt/users/ssd1/homes/tanglingshu/bsg_microdesign/results/basejump_stl_dev-regression/basejump_stl/bsg_misc/bsg_defines.v
+/mnt/users/ssd1/homes/tanglingshu/bsg_microdesign/results/basejump_stl_dev-regression/basejump_stl/bsg_cache/bsg_cache_sbuf.v
+/mnt/users/ssd1/homes/tanglingshu/bsg_microdesign/results/basejump_stl_dev-regression/basejump_stl/bsg_cache/bsg_cache_sbuf_queue.v
+/mnt/users/ssd1/homes/tanglingshu/bsg_microdesign/results/basejump_stl_dev-regression/basejump_stl/bsg_misc/bsg_mux_segmented.v

@@ -1,5 +1,158 @@
 
 
+module top
+(
+  clk_i,
+  reset_i,
+  dma_pkt_i,
+  dma_pkt_v_i,
+  dma_pkt_yumi_o,
+  dma_data_o,
+  dma_data_v_o,
+  dma_data_ready_i,
+  dma_data_i,
+  dma_data_v_i,
+  dma_data_yumi_o,
+  axi_awid_o,
+  axi_awaddr_o,
+  axi_awlen_o,
+  axi_awsize_o,
+  axi_awburst_o,
+  axi_awcache_o,
+  axi_awprot_o,
+  axi_awlock_o,
+  axi_awvalid_o,
+  axi_awready_i,
+  axi_wdata_o,
+  axi_wstrb_o,
+  axi_wlast_o,
+  axi_wvalid_o,
+  axi_wready_i,
+  axi_bid_i,
+  axi_bresp_i,
+  axi_bvalid_i,
+  axi_bready_o,
+  axi_arid_o,
+  axi_araddr_o,
+  axi_arlen_o,
+  axi_arsize_o,
+  axi_arburst_o,
+  axi_arcache_o,
+  axi_arprot_o,
+  axi_arlock_o,
+  axi_arvalid_o,
+  axi_arready_i,
+  axi_rid_i,
+  axi_rdata_i,
+  axi_rresp_i,
+  axi_rlast_i,
+  axi_rvalid_i,
+  axi_rready_o
+);
+
+  input [159:0] dma_pkt_i;
+  input [3:0] dma_pkt_v_i;
+  output [3:0] dma_pkt_yumi_o;
+  output [255:0] dma_data_o;
+  output [3:0] dma_data_v_o;
+  input [3:0] dma_data_ready_i;
+  input [255:0] dma_data_i;
+  input [3:0] dma_data_v_i;
+  output [3:0] dma_data_yumi_o;
+  output [5:0] axi_awid_o;
+  output [4:0] axi_awaddr_o;
+  output [7:0] axi_awlen_o;
+  output [2:0] axi_awsize_o;
+  output [1:0] axi_awburst_o;
+  output [3:0] axi_awcache_o;
+  output [2:0] axi_awprot_o;
+  output [63:0] axi_wdata_o;
+  output [7:0] axi_wstrb_o;
+  input [5:0] axi_bid_i;
+  input [1:0] axi_bresp_i;
+  output [5:0] axi_arid_o;
+  output [4:0] axi_araddr_o;
+  output [7:0] axi_arlen_o;
+  output [2:0] axi_arsize_o;
+  output [1:0] axi_arburst_o;
+  output [3:0] axi_arcache_o;
+  output [2:0] axi_arprot_o;
+  input [5:0] axi_rid_i;
+  input [63:0] axi_rdata_i;
+  input [1:0] axi_rresp_i;
+  input clk_i;
+  input reset_i;
+  input axi_awready_i;
+  input axi_wready_i;
+  input axi_bvalid_i;
+  input axi_arready_i;
+  input axi_rlast_i;
+  input axi_rvalid_i;
+  output axi_awlock_o;
+  output axi_awvalid_o;
+  output axi_wlast_o;
+  output axi_wvalid_o;
+  output axi_bready_o;
+  output axi_arlock_o;
+  output axi_arvalid_o;
+  output axi_rready_o;
+
+  bsg_cache_to_axi
+  wrapper
+  (
+    .dma_pkt_i(dma_pkt_i),
+    .dma_pkt_v_i(dma_pkt_v_i),
+    .dma_pkt_yumi_o(dma_pkt_yumi_o),
+    .dma_data_o(dma_data_o),
+    .dma_data_v_o(dma_data_v_o),
+    .dma_data_ready_i(dma_data_ready_i),
+    .dma_data_i(dma_data_i),
+    .dma_data_v_i(dma_data_v_i),
+    .dma_data_yumi_o(dma_data_yumi_o),
+    .axi_awid_o(axi_awid_o),
+    .axi_awaddr_o(axi_awaddr_o),
+    .axi_awlen_o(axi_awlen_o),
+    .axi_awsize_o(axi_awsize_o),
+    .axi_awburst_o(axi_awburst_o),
+    .axi_awcache_o(axi_awcache_o),
+    .axi_awprot_o(axi_awprot_o),
+    .axi_wdata_o(axi_wdata_o),
+    .axi_wstrb_o(axi_wstrb_o),
+    .axi_bid_i(axi_bid_i),
+    .axi_bresp_i(axi_bresp_i),
+    .axi_arid_o(axi_arid_o),
+    .axi_araddr_o(axi_araddr_o),
+    .axi_arlen_o(axi_arlen_o),
+    .axi_arsize_o(axi_arsize_o),
+    .axi_arburst_o(axi_arburst_o),
+    .axi_arcache_o(axi_arcache_o),
+    .axi_arprot_o(axi_arprot_o),
+    .axi_rid_i(axi_rid_i),
+    .axi_rdata_i(axi_rdata_i),
+    .axi_rresp_i(axi_rresp_i),
+    .clk_i(clk_i),
+    .reset_i(reset_i),
+    .axi_awready_i(axi_awready_i),
+    .axi_wready_i(axi_wready_i),
+    .axi_bvalid_i(axi_bvalid_i),
+    .axi_arready_i(axi_arready_i),
+    .axi_rlast_i(axi_rlast_i),
+    .axi_rvalid_i(axi_rvalid_i),
+    .axi_awlock_o(axi_awlock_o),
+    .axi_awvalid_o(axi_awvalid_o),
+    .axi_wlast_o(axi_wlast_o),
+    .axi_wvalid_o(axi_wvalid_o),
+    .axi_bready_o(axi_bready_o),
+    .axi_arlock_o(axi_arlock_o),
+    .axi_arvalid_o(axi_arvalid_o),
+    .axi_rready_o(axi_rready_o)
+  );
+
+
+endmodule
+
+
+
 module bsg_round_robin_arb_inputs_p4
 (
   clk_i,
@@ -2450,7 +2603,7 @@ endmodule
 
 
 
-module bsg_cache_to_axi_addr_width_p39_block_size_in_words_p8_data_width_p64_num_cache_p4_axi_id_width_p6_axi_addr_width_p5_axi_data_width_p64_axi_burst_len_p1
+module bsg_cache_to_axi
 (
   clk_i,
   reset_i,

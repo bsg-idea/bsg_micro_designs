@@ -1,5 +1,74 @@
 
 
+module top
+(
+  clk_i,
+  reset_i,
+  cache_pkt_i,
+  v_i,
+  ready_o,
+  data_o,
+  v_o,
+  yumi_i,
+  dma_pkt_o,
+  dma_pkt_v_o,
+  dma_pkt_yumi_i,
+  dma_data_i,
+  dma_data_v_i,
+  dma_data_ready_o,
+  dma_data_o,
+  dma_data_v_o,
+  dma_data_yumi_i,
+  v_we_o
+);
+
+  input [68:0] cache_pkt_i;
+  output [31:0] data_o;
+  output [28:0] dma_pkt_o;
+  input [31:0] dma_data_i;
+  output [31:0] dma_data_o;
+  input clk_i;
+  input reset_i;
+  input v_i;
+  input yumi_i;
+  input dma_pkt_yumi_i;
+  input dma_data_v_i;
+  input dma_data_yumi_i;
+  output ready_o;
+  output v_o;
+  output dma_pkt_v_o;
+  output dma_data_ready_o;
+  output dma_data_v_o;
+  output v_we_o;
+
+  bsg_cache
+  wrapper
+  (
+    .cache_pkt_i(cache_pkt_i),
+    .data_o(data_o),
+    .dma_pkt_o(dma_pkt_o),
+    .dma_data_i(dma_data_i),
+    .dma_data_o(dma_data_o),
+    .clk_i(clk_i),
+    .reset_i(reset_i),
+    .v_i(v_i),
+    .yumi_i(yumi_i),
+    .dma_pkt_yumi_i(dma_pkt_yumi_i),
+    .dma_data_v_i(dma_data_v_i),
+    .dma_data_yumi_i(dma_data_yumi_i),
+    .ready_o(ready_o),
+    .v_o(v_o),
+    .dma_pkt_v_o(dma_pkt_v_o),
+    .dma_data_ready_o(dma_data_ready_o),
+    .dma_data_v_o(dma_data_v_o),
+    .v_we_o(v_we_o)
+  );
+
+
+endmodule
+
+
+
 module bsg_cache_pkt_decode_data_width_p32_addr_width_p28
 (
   cache_pkt_i,
@@ -32511,7 +32580,7 @@ endmodule
 
 
 
-module bsg_cache_addr_width_p28_data_width_p32_block_size_in_words_p4_sets_p64_ways_p4
+module bsg_cache
 (
   clk_i,
   reset_i,
