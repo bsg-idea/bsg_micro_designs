@@ -8,7 +8,7 @@ def main():
   dl_file = open(os.environ['TOP_DIR'] + '/cfg/design_list.txt', 'r')
   for each_line in dl_file:
     os.chdir(os.environ['TOP_DIR'] + '/' + each_line.rstrip('\n'))
-    for param_dir, tcl, sdc in os.walk('.'):
+    for param_dir, tcl, sdc in os.walk(os.environ['TOP_DIR'] + '/' + each_line.rstrip('\n')):
       for sdc_file in sdc:
         if sdc_file.endswith(".sdc"):
           yosys_tcl_path = param_dir.replace('sdc','yosys_tcl')
@@ -18,10 +18,11 @@ def main():
           clk_per, clk_port = clock_info(os.path.join(param_dir,sdc_file))
           #print (clk_per)
           #print (clk_port)
-
           # extract design name from each_line
           output_v_name = param_dir.split('/')[-2] + '.' + sdc_file.split('.')[0] + '.yosys.v'
           #print (output_v_name)
+          if not os.path.exists(os.environ['TOP_DIR'] + '/results/' + output_v_name.split('.')[0]):
+            os.mkdir(os.environ['TOP_DIR'] + '/results/' + output_v_name.split('.')[0])
           yosys_tcl_creation(yosys_tcl_path, os.path.join(param_dir,sdc_file), output_v_name, clk_per, clk_port, param_dir.replace('sdc','top.v'))
           os.chdir(os.environ['TOP_DIR'] + '/' + each_line.rstrip('\n'))
 
@@ -33,7 +34,7 @@ def rreplace(str, old, new, occurence):
 def yosys_tcl_creation( yosys_tcl_path, in_sdc_file, out_v_file, clock_period, clock_port, in_v_file ):
   os.chdir(yosys_tcl_path)
   yosys_tcl_name = rreplace(out_v_file, '.v', '.tcl', 1)
-  #print(yosys_tcl_name)
+  print(yosys_tcl_name)
   f = open(yosys_tcl_name,"w+")
   f.write('yosys -import\n\n' \
           'set design_name top\n' \
@@ -53,9 +54,15 @@ def yosys_tcl_creation( yosys_tcl_path, in_sdc_file, out_v_file, clock_period, c
           'opt\n' \
           'abc -D $clock_period -constr $in_sdc_file -liberty $lib_file -showtmp\n' \
           'stat -liberty $lib_file\n' \
-          'write_verilog -noattr -noexpr -nohex -nodec $out_v_file\n' \
+          'write_verilog -noattr -noexpr -nohex -nodec ' + os.environ['TOP_DIR'] + '/results/' + out_v_file.split('.')[0] + '/$out_v_file\n' \
   )
   f.close()
+  yosys_run(yosys_tcl_name, os.environ['TOP_DIR'] + '/results/' + out_v_file.split('.')[0])
+
+def yosys_run( yosys_tcl_name , result_path):
+  yosys_tool_path = os.path.join(os.environ['TOP_DIR'], 'tools/yosys')
+  yosys_output_log = os.path.join(result_path, yosys_tcl_name.replace('yosys.tcl','yosys.output.log'))
+  os.system(yosys_tool_path + '/yosys ./' + yosys_tcl_name + ' > ' + yosys_output_log)
 
 def clock_info ( sdc_input_path ):
   with open (sdc_input_path) as f:
