@@ -1,5 +1,38 @@
 
 
+module top
+(
+  iclk_i,
+  iclk_reset_i,
+  oclk_i,
+  iclk_data_i,
+  iclk_data_o,
+  oclk_data_o
+);
+
+  input [63:0] iclk_data_i;
+  output [63:0] iclk_data_o;
+  output [63:0] oclk_data_o;
+  input iclk_i;
+  input iclk_reset_i;
+  input oclk_i;
+
+  bsg_launch_sync_sync
+  wrapper
+  (
+    .iclk_data_i(iclk_data_i),
+    .iclk_data_o(iclk_data_o),
+    .oclk_data_o(oclk_data_o),
+    .iclk_i(iclk_i),
+    .iclk_reset_i(iclk_reset_i),
+    .oclk_i(oclk_i)
+  );
+
+
+endmodule
+
+
+
 module bsg_launch_sync_sync_posedge_8_unit
 (
   iclk_i,
@@ -43,7 +76,7 @@ endmodule
 
 
 
-module bsg_launch_sync_sync_width_p64
+module bsg_launch_sync_sync
 (
   iclk_i,
   iclk_reset_i,
