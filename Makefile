@@ -42,13 +42,12 @@ tcl_to_sdc:
 yosys_run:
 	python3 $(TOP_DIR)/scripts/py/yosys_run.py $(TOP_DIR)/cfg/design_list.txt
 # dump out the data in a csv file
-datadump:
+data_dump:
 	python3 $(TOP_DIR)/scripts/py/data_dump.py
 
 # cleaning up
 clean_tools: 
-	rm -rf $(SV2V_BUILD_DIR)
-	rm -rf $(YOSYS_BUILD_DIR)
+	rm -rf ./tools
 
 clean:
 	rm -rf $(OUTPUT_DIR)
