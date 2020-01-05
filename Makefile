@@ -1,4 +1,4 @@
-export 	TOP_DIR:=$(shell git rev-parse --show-toplevel)
+export TOP_DIR:=$(shell git rev-parse --show-toplevel)
 
 
 export OUTPUT_DIR	?=$(CURDIR)/results
@@ -42,8 +42,8 @@ tcl_to_sdc:
 yosys_run:
 	python3 $(TOP_DIR)/scripts/py/yosys_run.py $(TOP_DIR)/cfg/design_list.txt
 # dump out the data in a csv file
-# datadump:
-
+datadump:
+	python3 $(TOP_DIR)/scripts/py/data_dump.py
 
 # cleaning up
 clean_tools: 

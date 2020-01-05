@@ -37,7 +37,7 @@ def rreplace(str, old, new, occurence):
 def yosys_tcl_creation( yosys_tcl_path, in_sdc_file, out_v_file, clock_period, clock_port, in_v_file, result_path_per_design ):
   os.chdir(yosys_tcl_path)
   yosys_tcl_name = rreplace(out_v_file, '.v', '.tcl', 1)
-  print(yosys_tcl_name)
+  #print(yosys_tcl_name)
   f = open(yosys_tcl_name,"w+")
   f.write('yosys -import\n\n' \
           'set design_name top\n' \
