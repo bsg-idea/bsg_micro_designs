@@ -11,6 +11,8 @@ def main():
   #read each design in the design list, replace the fo4 value and load value
   dl_file = open(os.environ['TOP_DIR'] + '/cfg/design_list.txt', 'r')
   for each_line in dl_file:
+    if each_line == '\n' or each_line == '':
+      break
     os.chdir(os.environ['TOP_DIR'] + '/' + each_line.rstrip('\n'))
     os.system("find . -type f -name '*.tcl' -print0 | xargs -0 sed -i'' -e 's/$::env(FO4_VAL)/" + os.environ['FO4_VALUE'] + "/g'")
     os.system("find . -type f -name '*.tcl' -print0 | xargs -0 sed -i'' -e 's#\[load_of \[get_lib_pin \*\/$::env(LOAD)\]\]#" + os.environ['LOAD_VALUE'] + "#g'")
@@ -27,7 +29,7 @@ def main():
           os.system('make DESIGN_CONSTRAINTS_FILE=' + os.path.join(param_dir,const) + ' -C ' + os.environ['TOP_DIR'] + '/tools/bsg_sv2v')
           os.system('mv ' + os.environ['TOP_DIR'] + '/results/gcd.elab.v.sdc ' + sdc_path + '/' + sdc_name) 
   
-  print("INFO: tcl_to_sdc is complete!\n)
+  print("INFO: tcl_to_sdc is complete!\n")
     
 if __name__ == '__main__':
   main()

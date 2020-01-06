@@ -8,6 +8,8 @@ def main():
   design_list = sys.argv[1]
   dl_file = open(os.environ['TOP_DIR'] + '/cfg/design_list.txt', 'r')
   for each_line in dl_file:
+    if each_line == '\n' or each_line == '':
+      break
     os.chdir(os.environ['TOP_DIR'] + '/' + each_line.rstrip('\n'))
     for param_dir, tcl, sdc in os.walk(os.environ['TOP_DIR'] + '/' + each_line.rstrip('\n')):
       for sdc_file in sdc:
