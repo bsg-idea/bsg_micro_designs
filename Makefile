@@ -1,8 +1,7 @@
 export TOP_DIR:=$(shell git rev-parse --show-toplevel)
 
-
 export OUTPUT_DIR	?=$(CURDIR)/results
-
+export LIB_PATH		?=/gro/cad/pdk/saed90/synopsys/SAED90_EDK/SAED_EDK90nm/Digital_Standard_cell_Library/synopsys/models/saed90nm_typ.lib
 # License file
 export LM_LICENSE_FILE ?=
 #

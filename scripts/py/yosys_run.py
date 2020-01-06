@@ -1,9 +1,10 @@
 import sys
 import os
 
-lib_file = '/gro/cad/pdk/saed90/synopsys/SAED90_EDK/SAED_EDK90nm/Digital_Standard_cell_Library/synopsys/models/saed90nm_typ.lib'
+#lib_file = '/gro/cad/pdk/saed90/synopsys/SAED90_EDK/SAED_EDK90nm/Digital_Standard_cell_Library/synopsys/models/saed90nm_typ.lib'
 
 def main():
+  print('INFO: yosys_run is running...\n')
   design_list = sys.argv[1]
   dl_file = open(os.environ['TOP_DIR'] + '/cfg/design_list.txt', 'r')
   for each_line in dl_file:
@@ -16,28 +17,24 @@ def main():
             os.mkdir(yosys_tcl_path)
           # extracting clock info
           clk_per, clk_port = clock_info(os.path.join(param_dir,sdc_file))
-          #print (clk_per)
-          #print (clk_port)
           # extract design name from each_line
           output_v_name = param_dir.split('/')[-2] + '.' + sdc_file.split('.')[0] + '.yosys.v'
-          #print (output_v_name)
-          #print(os.environ['TOP_DIR'] + '/results/' + each_line.split('/')[-1].rstrip('\n') + '/' +output_v_name.split('.')[0])
-          #exit()
           result_path_per_design = os.environ['TOP_DIR'] + '/results/' + each_line.split('/')[-1].rstrip('\n') + '/' +output_v_name.split('.')[0]
           if not os.path.exists(result_path_per_design):
             os.makedirs(result_path_per_design)
           yosys_tcl_creation(yosys_tcl_path, os.path.join(param_dir,sdc_file), output_v_name, clk_per, clk_port, param_dir.replace('sdc','top.v'), result_path_per_design)
           os.chdir(os.environ['TOP_DIR'] + '/' + each_line.rstrip('\n'))
-
+  print('INFO: yosys_run is complete!\n')
 
 def rreplace(str, old, new, occurence):
   li = str.rsplit(old, occurence)
   return new.join(li)
 
+# generating yosys tcl scripts for each design
 def yosys_tcl_creation( yosys_tcl_path, in_sdc_file, out_v_file, clock_period, clock_port, in_v_file, result_path_per_design ):
+  lib_file = os.environ['LIB_PATH']
   os.chdir(yosys_tcl_path)
   yosys_tcl_name = rreplace(out_v_file, '.v', '.tcl', 1)
-  #print(yosys_tcl_name)
   f = open(yosys_tcl_name,"w+")
   f.write('yosys -import\n\n' \
           'set design_name top\n' \
@@ -62,11 +59,13 @@ def yosys_tcl_creation( yosys_tcl_path, in_sdc_file, out_v_file, clock_period, c
   f.close()
   yosys_run(yosys_tcl_name, result_path_per_design)
 
+# running yosys with a given tcl
 def yosys_run( yosys_tcl_name , result_path):
   yosys_tool_path = os.path.join(os.environ['TOP_DIR'], 'tools/yosys')
   yosys_output_log = os.path.join(result_path, yosys_tcl_name.replace('yosys.tcl','yosys.output.log'))
   os.system(yosys_tool_path + '/yosys ./' + yosys_tcl_name + ' > ' + yosys_output_log)
 
+# returns the clock_port and the clock_period for yosys_tcl_creation
 def clock_info ( sdc_input_path ):
   with open (sdc_input_path) as f:
     lines = f.readlines()
