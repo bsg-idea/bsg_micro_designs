@@ -1,22 +1,26 @@
 export TOP_DIR:=$(shell git rev-parse --show-toplevel)
 
 export OUTPUT_DIR	?=$(CURDIR)/results
-export LIB_PATH		?=/gro/cad/pdk/saed90/synopsys/SAED90_EDK/SAED_EDK90nm/Digital_Standard_cell_Library/synopsys/models/saed90nm_typ.lib
-# License file
-export LM_LICENSE_FILE ?=
-#
-# # DesignCompiler dc_shell binary
-export DC_SHELL ?=
 
-# values used to replace the environment variables in the constraint.tcl file
+# License file
+export LM_LICENSE_FILE 	?=
+# DesignCompiler dc_shell binary
+export DC_SHELL 	?=
+# Liberty File Path
+export LIB_PATH		?=
+
+
+
+# Values used to replace the environment variables in the constraint.tcl file
 export FO4_VALUE	?=35
 export LOAD_VALUE	?=1.5
+export BSG_DIR		?=$(CURDIR)/..
 
 # tools directory definition
 SV2V_BUILD_DIR	:=$(TOP_DIR)/tools/bsg_sv2v
 YOSYS_BUILD_DIR	:=$(TOP_DIR)/tools/yosys
 
-
+# to run all
 all: tools tcl_to_sdc yosys_run data_dump
 
 # making tools
@@ -40,6 +44,7 @@ tcl_to_sdc:
 # push micro_designs + SDC files through yosys
 yosys_run:
 	python3 $(TOP_DIR)/scripts/py/yosys_run.py $(TOP_DIR)/cfg/design_list.txt
+
 # dump out the data in a csv file
 data_dump:
 	python3 $(TOP_DIR)/scripts/py/data_dump.py
