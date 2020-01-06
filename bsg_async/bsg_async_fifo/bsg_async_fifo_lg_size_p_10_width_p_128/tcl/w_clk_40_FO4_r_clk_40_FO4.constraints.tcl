@@ -11,5 +11,5 @@ set_load [load_of [get_lib_pin */$::env(LOAD)]] [all_outputs]
 set_output_delay 0 -clock rclk [get_ports r_data_o]
 set_output_delay 0 -clock rclk [get_ports r_valid_o]
 set_output_delay 0 -clock wclk [get_ports w_full_o]
-source $::env(PATH)/bsg_micro_designs/common/constraints/bsg_async/bsg_async.constraints.tcl
+source $::env(BSG_DIR)/bsg_micro_designs/common/constraints/bsg_async/bsg_async.constraints.tcl
 bsg_async

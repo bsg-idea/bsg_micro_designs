@@ -7,5 +7,5 @@ set_input_delay 0 -clock wh_clk [get_ports wh_*_i]
 set_load [load_of [get_lib_pin */$::env(LOAD)]] [all_outputs]
 set_output_delay 0 -clock ral_clk [get_ports ral_*_o]
 set_output_delay 0 -clock wh_clk [get_ports wh_*_o]
-source $::env(PATH)/<new_repo_name>/common/constraints/bsg_async/bsg_async.constraints.tcl
+source $::env(BSG_DIR)/bsg_micro_designs/common/constraints/bsg_async/bsg_async.constraints.tcl
 bsg_async
