@@ -1,0 +1,13 @@
++define+SYNTHESIS
++define+DEBUG=0
+-pvalue+fifo_els_p=500
+-pvalue+ring_width_p=1000
+/mnt/users/ssd1/homes/tanglingshu/bsg_microdesign/results/basejump_stl_dev-regression/basejump_stl/bsg_misc/bsg_defines.v
+/mnt/users/ssd1/homes/tanglingshu/bsg_microdesign/results/basejump_stl_dev-regression/basejump_stl/bsg_fsb/bsg_fsb_pkg.v
+/mnt/users/ssd1/homes/tanglingshu/bsg_microdesign/results/basejump_stl_dev-regression/basejump_stl/bsg_fsb/bsg_fsb_node_async_buffer.v
+/mnt/users/ssd1/homes/tanglingshu/bsg_microdesign/results/basejump_stl_dev-regression/basejump_stl/bsg_async/bsg_async_fifo.v
+/mnt/users/ssd1/homes/tanglingshu/bsg_microdesign/results/basejump_stl_dev-regression/basejump_stl/bsg_mem/bsg_mem_1r1w.v
+/mnt/users/ssd1/homes/tanglingshu/bsg_microdesign/results/basejump_stl_dev-regression/basejump_stl/bsg_mem/bsg_mem_1r1w_synth.v
+/mnt/users/ssd1/homes/tanglingshu/bsg_microdesign/results/basejump_stl_dev-regression/basejump_stl/bsg_async/bsg_async_ptr_gray.v
+/mnt/users/ssd1/homes/tanglingshu/bsg_microdesign/results/basejump_stl_dev-regression/basejump_stl/bsg_async/bsg_launch_sync_sync.v
+/mnt/users/ssd1/homes/tanglingshu/bsg_microdesign/results/basejump_stl_dev-regression/basejump_stl/bsg_async/bsg_sync_sync.v
