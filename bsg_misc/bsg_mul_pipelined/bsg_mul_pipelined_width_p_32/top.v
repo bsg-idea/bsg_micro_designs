@@ -2,7 +2,7 @@
 
 module top
 (
-  clock_i,
+  clk_i,
   en_i,
   x_i,
   y_i,
@@ -13,7 +13,7 @@ module top
   input [31:0] x_i;
   input [31:0] y_i;
   output [63:0] z_o;
-  input clock_i;
+  input clk_i;
   input en_i;
   input signed_i;
 
@@ -23,7 +23,7 @@ module top
     .x_i(x_i),
     .y_i(y_i),
     .z_o(z_o),
-    .clock_i(clock_i),
+    .clk_i(clk_i),
     .en_i(en_i),
     .signed_i(signed_i)
   );
@@ -4066,9 +4066,109 @@ endmodule
 
 
 
+module bsg_dff_en_00000010_1
+(
+  clk_i,
+  data_i,
+  en_i,
+  data_o
+);
+
+  input [15:0] data_i;
+  output [15:0] data_o;
+  input clk_i;
+  input en_i;
+  reg [15:0] data_o;
+
+  always @(posedge clk_i) begin
+    if(en_i) begin
+      { data_o[15:0] } <= { data_i[15:0] };
+    end 
+  end
+
+
+endmodule
+
+
+
+module bsg_dff_en_0000000a_1
+(
+  clk_i,
+  data_i,
+  en_i,
+  data_o
+);
+
+  input [9:0] data_i;
+  output [9:0] data_o;
+  input clk_i;
+  input en_i;
+  reg [9:0] data_o;
+
+  always @(posedge clk_i) begin
+    if(en_i) begin
+      { data_o[9:0] } <= { data_i[9:0] };
+    end 
+  end
+
+
+endmodule
+
+
+
+module bsg_dff_en_0000000c_1
+(
+  clk_i,
+  data_i,
+  en_i,
+  data_o
+);
+
+  input [11:0] data_i;
+  output [11:0] data_o;
+  input clk_i;
+  input en_i;
+  reg [11:0] data_o;
+
+  always @(posedge clk_i) begin
+    if(en_i) begin
+      { data_o[11:0] } <= { data_i[11:0] };
+    end 
+  end
+
+
+endmodule
+
+
+
+module bsg_dff_en_0000000e_1
+(
+  clk_i,
+  data_i,
+  en_i,
+  data_o
+);
+
+  input [13:0] data_i;
+  output [13:0] data_o;
+  input clk_i;
+  input en_i;
+  reg [13:0] data_o;
+
+  always @(posedge clk_i) begin
+    if(en_i) begin
+      { data_o[13:0] } <= { data_i[13:0] };
+    end 
+  end
+
+
+endmodule
+
+
+
 module bsg_dff_en_rep_rep_7_100_645646362a201000_1
 (
-  clock_i,
+  clk_i,
   en_i,
   data_i,
   data_o
@@ -4076,76 +4176,76 @@ module bsg_dff_en_rep_rep_7_100_645646362a201000_1
 
   input [99:0] data_i;
   output [99:0] data_o;
-  input clock_i;
+  input clk_i;
   input en_i;
   wire [99:0] data_o;
 
-  bsg_dff_en
+  bsg_dff_en_00000010_1
   rof_0__bde
   (
-    .clock_i(clock_i),
-    .en_i(en_i),
+    .clk_i(clk_i),
     .data_i(data_i[15:0]),
+    .en_i(en_i),
     .data_o(data_o[15:0])
   );
 
 
-  bsg_dff_en
+  bsg_dff_en_00000010_1
   rof_1__bde
   (
-    .clock_i(clock_i),
-    .en_i(en_i),
+    .clk_i(clk_i),
     .data_i(data_i[31:16]),
+    .en_i(en_i),
     .data_o(data_o[31:16])
   );
 
 
-  bsg_dff_en
+  bsg_dff_en_0000000a_1
   rof_2__bde
   (
-    .clock_i(clock_i),
-    .en_i(en_i),
+    .clk_i(clk_i),
     .data_i(data_i[41:32]),
+    .en_i(en_i),
     .data_o(data_o[41:32])
   );
 
 
-  bsg_dff_en
+  bsg_dff_en_0000000c_1
   rof_3__bde
   (
-    .clock_i(clock_i),
-    .en_i(en_i),
+    .clk_i(clk_i),
     .data_i(data_i[53:42]),
+    .en_i(en_i),
     .data_o(data_o[53:42])
   );
 
 
-  bsg_dff_en
+  bsg_dff_en_00000010_1
   rof_4__bde
   (
-    .clock_i(clock_i),
-    .en_i(en_i),
+    .clk_i(clk_i),
     .data_i(data_i[69:54]),
+    .en_i(en_i),
     .data_o(data_o[69:54])
   );
 
 
-  bsg_dff_en
+  bsg_dff_en_00000010_1
   rof_5__bde
   (
-    .clock_i(clock_i),
-    .en_i(en_i),
+    .clk_i(clk_i),
     .data_i(data_i[85:70]),
+    .en_i(en_i),
     .data_o(data_o[85:70])
   );
 
 
-  bsg_dff_en
+  bsg_dff_en_0000000e_1
   rof_6__bde
   (
-    .clock_i(clock_i),
-    .en_i(en_i),
+    .clk_i(clk_i),
     .data_i(data_i[99:86]),
+    .en_i(en_i),
     .data_o(data_o[99:86])
   );
 
@@ -5347,6 +5447,131 @@ endmodule
 
 
 
+module bsg_dff_en_width_p11_harden_p1
+(
+  clk_i,
+  data_i,
+  en_i,
+  data_o
+);
+
+  input [10:0] data_i;
+  output [10:0] data_o;
+  input clk_i;
+  input en_i;
+  reg [10:0] data_o;
+
+  always @(posedge clk_i) begin
+    if(en_i) begin
+      { data_o[10:0] } <= { data_i[10:0] };
+    end 
+  end
+
+
+endmodule
+
+
+
+module bsg_dff_en_width_p8_harden_p1
+(
+  clk_i,
+  data_i,
+  en_i,
+  data_o
+);
+
+  input [7:0] data_i;
+  output [7:0] data_o;
+  input clk_i;
+  input en_i;
+  reg [7:0] data_o;
+
+  always @(posedge clk_i) begin
+    if(en_i) begin
+      { data_o[7:0] } <= { data_i[7:0] };
+    end 
+  end
+
+
+endmodule
+
+
+
+module bsg_dff_en_width_p7_harden_p1
+(
+  clk_i,
+  data_i,
+  en_i,
+  data_o
+);
+
+  input [6:0] data_i;
+  output [6:0] data_o;
+  input clk_i;
+  input en_i;
+  reg [6:0] data_o;
+
+  always @(posedge clk_i) begin
+    if(en_i) begin
+      { data_o[6:0] } <= { data_i[6:0] };
+    end 
+  end
+
+
+endmodule
+
+
+
+module bsg_dff_en_width_p6_harden_p1
+(
+  clk_i,
+  data_i,
+  en_i,
+  data_o
+);
+
+  input [5:0] data_i;
+  output [5:0] data_o;
+  input clk_i;
+  input en_i;
+  reg [5:0] data_o;
+
+  always @(posedge clk_i) begin
+    if(en_i) begin
+      { data_o[5:0] } <= { data_i[5:0] };
+    end 
+  end
+
+
+endmodule
+
+
+
+module bsg_dff_en_width_p5_harden_p1
+(
+  clk_i,
+  data_i,
+  en_i,
+  data_o
+);
+
+  input [4:0] data_i;
+  output [4:0] data_o;
+  input clk_i;
+  input en_i;
+  reg [4:0] data_o;
+
+  always @(posedge clk_i) begin
+    if(en_i) begin
+      { data_o[4:0] } <= { data_i[4:0] };
+    end 
+  end
+
+
+endmodule
+
+
+
 module bsg_mul_csa_rep_34_5_221b130b0500_1
 (
   a_i,
@@ -5743,7 +5968,7 @@ endmodule
 
 module bsg_mul_32_32_harden_p1_pipeline_p1
 (
-  clock_i,
+  clk_i,
   en_i,
   x_i,
   y_i,
@@ -5754,7 +5979,7 @@ module bsg_mul_32_32_harden_p1_pipeline_p1
   input [31:0] x_i;
   input [31:0] y_i;
   output [63:0] z_o;
-  input clock_i;
+  input clk_i;
   input en_i;
   input signed_i;
   wire [63:0] z_o;
@@ -5854,7 +6079,7 @@ module bsg_mul_32_32_harden_p1_pipeline_p1
   bsg_dff_en_rep_rep_7_100_645646362a201000_1
   pipe_dffe_c42_03_r
   (
-    .clock_i(clock_i),
+    .clk_i(clk_i),
     .en_i(en_i),
     .data_i(pipe_c42_03_trans),
     .data_o(pipe_c42_03_trans_r)
@@ -5904,52 +6129,52 @@ module bsg_mul_32_32_harden_p1_pipeline_p1
   );
 
 
-  bsg_dff_en
+  bsg_dff_en_width_p11_harden_p1
   pipe0_dffe_gb_dot_r
   (
-    .clock_i(clock_i),
-    .en_i(en_i),
+    .clk_i(clk_i),
     .data_i(gb_dot[10:0]),
+    .en_i(en_i),
     .data_o(gb_dot_r)
   );
 
 
-  bsg_dff_en
+  bsg_dff_en_width_p8_harden_p1
   pipe0_dffe_c42_01s_r
   (
-    .clock_i(clock_i),
-    .en_i(en_i),
+    .clk_i(clk_i),
     .data_i(c42_01s[7:0]),
+    .en_i(en_i),
     .data_o(c42_01s_r)
   );
 
 
-  bsg_dff_en
+  bsg_dff_en_width_p7_harden_p1
   pipe0_dffe_c42_01c_r
   (
-    .clock_i(clock_i),
-    .en_i(en_i),
+    .clk_i(clk_i),
     .data_i(c42_01c[6:0]),
+    .en_i(en_i),
     .data_o(c42_01c_r)
   );
 
 
-  bsg_dff_en
+  bsg_dff_en_width_p6_harden_p1
   pipe0_dffe_s30_r
   (
-    .clock_i(clock_i),
-    .en_i(en_i),
+    .clk_i(clk_i),
     .data_i(s30[5:0]),
+    .en_i(en_i),
     .data_o(s30_r)
   );
 
 
-  bsg_dff_en
+  bsg_dff_en_width_p5_harden_p1
   pipe0_dffe_c30_r
   (
-    .clock_i(clock_i),
-    .en_i(en_i),
+    .clk_i(clk_i),
     .data_i(c30[4:0]),
+    .en_i(en_i),
     .data_o(c30_r)
   );
 
@@ -5974,7 +6199,7 @@ endmodule
 
 module bsg_mul_pipelined
 (
-  clock_i,
+  clk_i,
   en_i,
   x_i,
   y_i,
@@ -5985,7 +6210,7 @@ module bsg_mul_pipelined
   input [31:0] x_i;
   input [31:0] y_i;
   output [63:0] z_o;
-  input clock_i;
+  input clk_i;
   input en_i;
   input signed_i;
   wire [63:0] z_o;
@@ -5993,7 +6218,7 @@ module bsg_mul_pipelined
   bsg_mul_32_32_harden_p1_pipeline_p1
   fi32_m32
   (
-    .clock_i(clock_i),
+    .clk_i(clk_i),
     .en_i(en_i),
     .x_i(x_i),
     .y_i(y_i),

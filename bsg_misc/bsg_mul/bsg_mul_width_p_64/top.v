@@ -1,9 +1,7 @@
 
 
-module bsg_mul_pipelined_width_p64_pipeline_p0_harden_p1
+module top
 (
-  clock_i,
-  en_i,
   x_i,
   y_i,
   signed_i,
@@ -13,16 +11,23 @@ module bsg_mul_pipelined_width_p64_pipeline_p0_harden_p1
   input [63:0] x_i;
   input [63:0] y_i;
   output [127:0] z_o;
-  input clock_i;
-  input en_i;
   input signed_i;
-  wire [127:0] z_o;
+
+  bsg_mul
+  wrapper
+  (
+    .x_i(x_i),
+    .y_i(y_i),
+    .z_o(z_o),
+    .signed_i(signed_i)
+  );
+
 
 endmodule
 
 
 
-module bsg_mul_width_p64
+module bsg_mul
 (
   x_i,
   y_i,
@@ -36,7 +41,7 @@ module bsg_mul_width_p64
   input signed_i;
   wire [127:0] z_o;
 
-  bsg_mul_pipelined_width_p64_pipeline_p0_harden_p1
+  bsg_mul_pipelined
   bmp
   (
     .clock_i(1'b0),
