@@ -5,11 +5,11 @@
 ###################################################################
 set sdc_version 2.1
 
-set_load -pin_load ${PIN_LOAD} [get_ports {addr_o[3]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {addr_o[2]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {addr_o[1]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {addr_o[0]}]
-set_load -pin_load ${PIN_LOAD} [get_ports v_o]
+set_load -pin_load 1.5 [get_ports {addr_o[3]}]
+set_load -pin_load 1.5 [get_ports {addr_o[2]}]
+set_load -pin_load 1.5 [get_ports {addr_o[1]}]
+set_load -pin_load 1.5 [get_ports {addr_o[0]}]
+set_load -pin_load 1.5 [get_ports v_o]
 create_clock -name vclk  -period 80  -waveform {0 40}
 set_clock_uncertainty 0  [get_clocks vclk]
 set_input_delay -clock vclk  0  [get_ports {i[15]}]

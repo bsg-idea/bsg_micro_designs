@@ -18,13 +18,14 @@ def main():
           if not os.path.exists(yosys_tcl_path):
             os.mkdir(yosys_tcl_path)
           # extracting clock info
-          clk_per, clk_port = clock_info(os.path.join(param_dir,sdc_file))
+          #clk_per, clk_port = clock_info(os.path.join(param_dir,sdc_file))
+          clk_per = clock_info(os.path.join(param_dir,sdc_file))
           # extract design name from each_line
           output_v_name = param_dir.split('/')[-2] + '.' + sdc_file.split('.')[0] + '.yosys.v'
           result_path_per_design = os.environ['TOP_DIR'] + '/results/' + each_line.split('/')[-1].rstrip('\n') + '/' +output_v_name.split('.')[0]
           if not os.path.exists(result_path_per_design):
             os.makedirs(result_path_per_design)
-          yosys_tcl_creation(yosys_tcl_path, os.path.join(param_dir,sdc_file), output_v_name, clk_per, clk_port, param_dir.replace('sdc','top.v'), result_path_per_design)
+          yosys_tcl_creation(yosys_tcl_path, os.path.join(param_dir,sdc_file), output_v_name, clk_per, param_dir.replace('sdc','top.v'), result_path_per_design)
           os.chdir(os.environ['TOP_DIR'] + '/' + each_line.rstrip('\n'))
   print('INFO: yosys_run is complete!\n')
 
@@ -33,7 +34,8 @@ def rreplace(str, old, new, occurence):
   return new.join(li)
 
 # generating yosys tcl scripts for each design
-def yosys_tcl_creation( yosys_tcl_path, in_sdc_file, out_v_file, clock_period, clock_port, in_v_file, result_path_per_design ):
+def yosys_tcl_creation( yosys_tcl_path, in_sdc_file, out_v_file, clock_period, in_v_file, result_path_per_design ):
+  print (in_v_file)
   lib_file = os.environ['LIB_PATH']
   os.chdir(yosys_tcl_path)
   yosys_tcl_name = rreplace(out_v_file, '.v', '.tcl', 1)
@@ -42,7 +44,7 @@ def yosys_tcl_creation( yosys_tcl_path, in_sdc_file, out_v_file, clock_period, c
           'set design_name top\n' \
           'set lib_file ' + lib_file + '\n' 
           'set clock_period ' + clock_period + '\n' \
-          'set clock_port ' + clock_port + '\n' \
+          #'set clock_port ' + clock_port + '\n' \
           'set run_dir ' + os.environ['TOP_DIR'] + '/tools/yosys\n' \
           'set in_v_file ' + in_v_file + '\n' \
           'set in_sdc_file ' + in_sdc_file + '\n' \
@@ -69,16 +71,18 @@ def yosys_run( yosys_tcl_name , result_path):
 
 # returns the clock_port and the clock_period for yosys_tcl_creation
 def clock_info ( sdc_input_path ):
+  #clk_port = 0
   with open (sdc_input_path) as f:
     lines = f.readlines()
     for each_line in lines:
       if each_line.startswith('create_clock'):
         clk_period = each_line.split()[4]
-      if each_line.startswith('set_input_delay'):
-        if 'clk' in each_line.split()[5]:
-          clk_port = each_line.split()[5].replace(']','')
+      #if each_line.startswith('set_input_delay'):
+        #if 'clk' in each_line.split()[5]:
+          #clk_port = each_line.split()[5].replace(']','')
 
-  return clk_period, clk_port   
-    
+  #return clk_period, clk_port   
+  return clk_period
+  
 if __name__ == '__main__':
   main()

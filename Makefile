@@ -21,7 +21,8 @@ SV2V_BUILD_DIR	:=$(TOP_DIR)/tools/bsg_sv2v
 YOSYS_BUILD_DIR	:=$(TOP_DIR)/tools/yosys
 
 # to run all
-all: tools tcl_to_sdc yosys_run data_dump
+#all: tools tcl_to_sdc yosys_run data_dump
+all: tools yosys_run data_dump
 
 # making tools
 tools: $(SV2V_BUILD_DIR) $(YOSYS_BUILD_DIR)

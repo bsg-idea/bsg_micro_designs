@@ -1,5 +1,29 @@
 
 
+module top
+(
+  oclk_i,
+  iclk_data_i,
+  oclk_data_o
+);
+
+  input [63:0] iclk_data_i;
+  output [63:0] oclk_data_o;
+  input oclk_i;
+
+  bsg_sync_sync
+  wrapper
+  (
+    .iclk_data_i(iclk_data_i),
+    .oclk_data_o(oclk_data_o),
+    .oclk_i(oclk_i)
+  );
+
+
+endmodule
+
+
+
 module bsg_sync_sync_8_unit
 (
   oclk_i,
@@ -24,7 +48,7 @@ endmodule
 
 
 
-module bsg_sync_sync_width_p64
+module bsg_sync_sync
 (
   oclk_i,
   iclk_data_i,
