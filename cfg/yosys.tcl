@@ -17,24 +17,8 @@ techmap
 dfflibmap -liberty $lib_file
 opt
 
-abc -D $clock_period   \
-    -constr  $in_sdc_file \
-    -liberty $lib_file \
-    -showtmp           \
-    -script [join "
-      +read_constr,$in_sdc_file;
-      strash;
-      ifraig;
-      retime,-D,{D},-M,6;
-      strash;
-      dch,-f;
-      map,-p,-M,1,{D},-f;
-      topo;
-      dnsize;
-      buffer,-p;
-      upsize;
-    "]
-
+abc -D $clock_period -constr $in_sdc_file -liberty $lib_file -showtmp
+stat -liberty $lib_file
 hilomap -hicell LOGIC1_X1 Z -locell LOGIC0_X1 Z
 setundef -zero
 splitnets
