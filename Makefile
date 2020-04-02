@@ -2,19 +2,13 @@ export TOP_DIR:=$(shell git rev-parse --show-toplevel)
 
 export OUTPUT_DIR	?=$(CURDIR)/results
 
-# License file
-export LM_LICENSE_FILE 	?=
-# DesignCompiler dc_shell binary
-export DC_SHELL 	?=
 # Liberty File Path
-export LIB_FILE		?=
+export LIB_FILE		?= /gro/cad/pdk/saed90/synopsys/SAED90_EDK/SAED_EDK90nm/Digital_Standard_cell_Library/synopsys/models/saed90nm_typ.lib
 
 # Ask users for the following values
 export FO4_VAL			:=
 export PIN_LOAD			:=
 export DESIGN_NAME		:=
-export SYNTH_YOSYS_IN_V		:=
-export SYNTH_YOSYS_OUT_v	:=
 
 # Exporting the following environment variables for substitution later
 # FO4 set
@@ -38,39 +32,57 @@ export FO4_90_DIV_2 = $(shell echo $$(($(FO4_90)/2)))
 export FO4_100_DIV_2 = $(shell echo $$(($(FO4_100)/2)))
 
 # pre-defined variables
-export FILES		:= $(shell find $(TOP_DIR)/$(DESIGN_NAME) -type f -name '*.sdc')
-export SYNTH_RUN_DIR	:= $(OUTPUT_DIR) 
+export FILES			:= $(shell find $(TOP_DIR)/*/$(DESIGN_NAME) -name '*.sdc')
+export SYNTH_RUN_DIR	:= $(OUTPUT_DIR)
+DESIGN_SIZE_DUP 		:= $(foreach p, $(FILES), $(shell echo $p | rev | cut -d/ -f3 | rev))
+export DESIGN_SIZE 		:= $(sort $(DESIGN_SIZE_DUP))
 
-#tools directory definition
-SV2V_BUILD_DIR	:=$(TOP_DIR)/tools/bsg_sv2v
+# tools directory definition
 YOSYS_BUILD_DIR	:=$(TOP_DIR)/tools/yosys
 
+# input list
+#LIST ?= /dev/null
+#export DESIGN_LIST = $(shell cat $(LIST))
+#FILES := $(foreach p, $(DESIGN_LIST), $(shell find $(TOP_DIR)/*/$p -name '*.sdc'))
+
 # to run all
-all: tools yosys_run data_dump
+all: tools envsub_sdc yosys_run data_dump
 
 # making tools
-tools: $(SV2V_BUILD_DIR) $(YOSYS_BUILD_DIR)
+tools: $(YOSYS_BUILD_DIR)
 
-$(SV2V_BUILD_DIR):
-	mkdir -p $(@D)
-	git clone git@github.com:bespoke-silicon-group/bsg_sv2v.git $@
-	cd $@; make tools
+#$(SV2V_BUILD_DIR):
+#	mkdir -p $(@D)
+#	git clone git@github.com:bespoke-silicon-group/bsg_sv2v.git $@
+#	cd $@; make tools
 
 $(YOSYS_BUILD_DIR):
 	mkdir -p $(@D)
 	git clone git@github.com:YosysHQ/yosys.git $@
 	cd $@; make
 
-# push micro_designs + SDC files through yosys
-yosys_run: $(FILES)
-	@for file in $^; do \
-		$(eval export CLOCK_PERIOD :=$(shell cat $$file | grep "^create_clock" | cut -d " " -f 6)); \
-		$(eval export SYNTH_YOSYS_IN_SDC := $$file); \
-		envsubst < $$file > $(OUTPUT_DIR)/temp.txt && mv $(OUTPUT_DIR)/temp.txt $$file; \
-		cd $(YOSYS_BUILD_DIR) && \
-			(yosys -c $(TOP_DIR)/cfg/yosys.tcl) 2>&1 | tee -i logs/$@.log; \
-	done
+# envsub selected sdc files
+envsub_sdc:
+	mkdir -p $(OUTPUT_DIR)
+	@echo "========================================="
+	@echo "RUNNING ENVIRONMENT VARIABLE SUBSTITUTION"
+	@echo "========================================="
+	@$(foreach p, $(FILES), envsubst < $p > $(OUTPUT_DIR)/temp.txt && mv $(OUTPUT_DIR)/temp.txt $p;) 
 
+# running the design with yosys and logging into a .log file
+yosys_run: result_folder
+	@$(foreach p, $(FILES), export CLOCK_PERIOD=$(shell cat $p | grep "^create_clock" | cut -d " " -f 6) \
+	&& export SYNTH_YOSYS_IN_SDC=$p \
+	&& export SYNTH_YOSYS_IN_V=$(dir $p)../top.v \
+	&& export SYNTH_YOSYS_OUT_V=$(OUTPUT_DIR)/yosys_out_v/$(DESIGN_NAME)/$(basename $(notdir $p)).yosys.v \
+	&& $(YOSYS_BUILD_DIR)/yosys -c $(TOP_DIR)/cfg/yosys.tcl 2>&1 | tee -i $(OUTPUT_DIR)/logs/$(DESIGN_NAME)/$(shell echo $p | rev | cut -d/ -f3 | rev)/$(notdir $p).log;) 
+
+# generating the result folder first
+result_folder:
+	mkdir -p $(OUTPUT_DIR)/reports
+	mkdir -p $(OUTPUT_DIR)/yosys_out_v/$(DESIGN_NAME)
+	@$(foreach ds, $(DESIGN_SIZE), mkdir -p $(OUTPUT_DIR)/logs/$(DESIGN_NAME)/$(ds);)
+	
 # dump out the data in a csv file
 data_dump:
 	python3 $(TOP_DIR)/scripts/py/data_dump.py
