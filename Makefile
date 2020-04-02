@@ -3,12 +3,13 @@ export TOP_DIR:=$(shell git rev-parse --show-toplevel)
 export OUTPUT_DIR	?=$(CURDIR)/results
 
 # Liberty File Path
-export LIB_FILE		?= 
+export LIB_FILE		?= $(TOP_DIR)/tools/yosys/tests/liberty/normal.lib
+
 
 # Ask users for the following values
-export FO4_VAL			:=
-export PIN_LOAD			:=
-export DESIGN_NAME		:=
+export FO4_VAL		?= 30
+export PIN_LOAD		?= 1.0
+export DESIGN_NAME	?= bsg_adder_cin
 
 # Exporting the following environment variables for substitution later
 # FO4 set
@@ -32,10 +33,10 @@ export FO4_90_DIV_2 = $(shell echo $$(($(FO4_90)/2)))
 export FO4_100_DIV_2 = $(shell echo $$(($(FO4_100)/2)))
 
 # pre-defined variables
-export FILES			:= $(shell find $(TOP_DIR)/*/$(DESIGN_NAME) -name '*.sdc')
+export FILES		:= $(shell find $(TOP_DIR)/*/$(DESIGN_NAME) -name '*.sdc')
 export SYNTH_RUN_DIR	:= $(OUTPUT_DIR)
-DESIGN_SIZE_DUP 		:= $(foreach p, $(FILES), $(shell echo $p | rev | cut -d/ -f3 | rev))
-export DESIGN_SIZE 		:= $(sort $(DESIGN_SIZE_DUP))
+DESIGN_SIZE_DUP 	:= $(foreach p, $(FILES), $(shell echo $p | rev | cut -d/ -f3 | rev))
+export DESIGN_SIZE 	:= $(sort $(DESIGN_SIZE_DUP))
 
 # tools directory definition
 YOSYS_BUILD_DIR	:=$(TOP_DIR)/tools/yosys
