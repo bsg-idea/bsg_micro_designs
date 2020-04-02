@@ -4,6 +4,7 @@ module top
 (
   clk_i,
   reset_i,
+  dram_size_i,
   dma_pkt_i,
   dma_pkt_v_i,
   dma_pkt_yumi_o,
@@ -27,6 +28,7 @@ module top
   app_rd_data_end_i
 );
 
+  input [2:0] dram_size_i;
   input [65:0] dma_pkt_i;
   input [1:0] dma_pkt_v_i;
   output [1:0] dma_pkt_yumi_o;
@@ -54,6 +56,7 @@ module top
   bsg_cache_to_dram_ctrl
   wrapper
   (
+    .dram_size_i(dram_size_i),
     .dma_pkt_i(dma_pkt_i),
     .dma_pkt_v_i(dma_pkt_v_i),
     .dma_pkt_yumi_o(dma_pkt_yumi_o),
@@ -2620,6 +2623,7 @@ module bsg_cache_to_dram_ctrl
 (
   clk_i,
   reset_i,
+  dram_size_i,
   dma_pkt_i,
   dma_pkt_v_i,
   dma_pkt_yumi_o,
@@ -2643,6 +2647,7 @@ module bsg_cache_to_dram_ctrl
   app_rd_data_end_i
 );
 
+  input [2:0] dram_size_i;
   input [65:0] dma_pkt_i;
   input [1:0] dma_pkt_v_i;
   output [1:0] dma_pkt_yumi_o;
@@ -2671,8 +2676,8 @@ module bsg_cache_to_dram_ctrl
   wire [2:0] app_cmd_o,req_cnt_n;
   wire [31:0] app_wdf_data_o;
   wire [3:0] app_wdf_mask_o;
-  wire app_en_o,app_wdf_wren_o,app_wdf_end_o,N0,N1,N2,N3,N4,N5,N6,N7,N8,rr_v_lo,
-  rr_yumi_li,rx_v_li,rx_ready_lo,tx_v_li,tx_ready_lo,req_state_n,N9,N10,N11,N12,N13,N14,
+  wire app_en_o,app_wdf_wren_o,app_wdf_end_o,N0,N1,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11,N12,
+  N13,N14,rr_v_lo,rr_yumi_li,rx_v_li,rx_ready_lo,tx_v_li,tx_ready_lo,req_state_n,
   N15,N16,N17,N18,N19,N20,N21,N22,N23,N24,N25,N26,N27,N28,N29,N30,N31,N32,N33,N34,
   N35,N36,N37,N38,N39,N40,N41,N42,N43,N44,N45,N46,N47,N48,N49,N50,N51,N52,N53,N54,
   N55,N56,N57,N58,N59,N60,N61,N62,N63,N64,N65,N66,N67,N68,N69,N70,N71,N72,N73,N74,
@@ -2680,11 +2685,14 @@ module bsg_cache_to_dram_ctrl
   N95,N96,N97,N98,N99,N100,N101,N102,N103,N104,N105,N106,N107,N108,N109,N110,N111,
   N112,N113,N114,N115,N116,N117,N118,N119,N120,N121,N122,N123,N124,N125,N126,N127,
   N128,N129,N130,N131,N132,N133,N134,N135,N136,N137,N138,N139,N140,N141,N142,N143,
-  N144;
+  N144,N145,N146,N147,N148,N149,N150,N151,N152,N153,N154,N155,N156,N157,N158,N159,
+  N160,N161,N162,N163,N164,N165,N166,N167,N168,N169;
   wire [32:0] dma_pkt;
   wire [0:0] rr_tag_lo;
   reg [31:0] addr_n;
   reg write_not_read_r,req_state_r;
+  reg [0:0] tag_r;
+  reg [31:24] addr_r;
   reg [32:0] app_addr_o;
   reg [2:0] req_cnt_r;
   assign app_cmd_o[1] = 1'b0;
@@ -2711,7 +2719,7 @@ module bsg_cache_to_dram_ctrl
     .clk_i(clk_i),
     .reset_i(reset_i),
     .v_i(rx_v_li),
-    .tag_i(app_addr_o[32]),
+    .tag_i(tag_r[0]),
     .ready_o(rx_ready_lo),
     .dma_data_o(dma_data_o),
     .dma_data_v_o(dma_data_v_o),
@@ -2728,7 +2736,7 @@ module bsg_cache_to_dram_ctrl
     .clk_i(clk_i),
     .reset_i(reset_i),
     .v_i(tx_v_li),
-    .tag_i(app_addr_o[32]),
+    .tag_i(tag_r[0]),
     .ready_o(tx_ready_lo),
     .dma_data_i(dma_data_i),
     .dma_data_v_i(dma_data_v_i),
@@ -2740,311 +2748,343 @@ module bsg_cache_to_dram_ctrl
     .app_wdf_rdy_i(app_wdf_rdy_i)
   );
 
-  assign N140 = req_cnt_r[1] & req_cnt_r[2];
-  assign N141 = req_cnt_r[0] & N140;
-  assign { N56, N55, N54, N53, N52, N51, N50, N49, N48, N47, N46, N45, N44, N43, N42, N41, N40, N39, N38, N37, N36, N35, N34, N33, N32, N31, N30, N29, N28, N27, N26, N25 } = app_addr_o[31:0] + { N22, 1'b0, 1'b0 };
-  assign { N59, N58, N57 } = req_cnt_r + 1'b1;
-  assign N11 = (N0)? rr_tag_lo[0] : 
-               (N1)? app_addr_o[32] : 1'b0;
+  assign N107 = N104 & N105;
+  assign N108 = N107 & N106;
+  assign N109 = dram_size_i[2] | dram_size_i[1];
+  assign N110 = N109 | N106;
+  assign N112 = dram_size_i[2] | N105;
+  assign N113 = N112 | dram_size_i[0];
+  assign N115 = N112 | N106;
+  assign N117 = N104 | dram_size_i[1];
+  assign N118 = N117 | dram_size_i[0];
+  assign N120 = dram_size_i[2] & dram_size_i[0];
+  assign N121 = dram_size_i[2] & dram_size_i[1];
+  assign N165 = req_cnt_r[1] & req_cnt_r[2];
+  assign N166 = req_cnt_r[0] & N165;
+  assign { N62, N61, N60, N59, N58, N57, N56, N55, N54, N53, N52, N51, N50, N49, N48, N47, N46, N45, N44, N43, N42, N41, N40, N39, N38, N37, N36, N35, N34, N33, N32, N31 } = { addr_r, app_addr_o[23:0] } + { N28, 1'b0, 1'b0 };
+  assign { N65, N64, N63 } = req_cnt_r + 1'b1;
+  assign N17 = (N0)? rr_tag_lo[0] : 
+               (N1)? tag_r[0] : 1'b0;
   assign N0 = rr_v_lo;
-  assign N1 = N10;
-  assign N12 = (N0)? dma_pkt[32] : 
+  assign N1 = N16;
+  assign N18 = (N0)? dma_pkt[32] : 
                (N1)? write_not_read_r : 1'b0;
-  assign { N15, N14, N13 } = (N0)? { 1'b0, 1'b0, 1'b0 } : 
+  assign { N21, N20, N19 } = (N0)? { 1'b0, 1'b0, 1'b0 } : 
                              (N1)? req_cnt_r : 1'b0;
-  assign N16 = (N0)? 1'b1 : 
+  assign N22 = (N0)? 1'b1 : 
                (N1)? req_state_r : 1'b0;
-  assign N19 = (N2)? tx_ready_lo : 
+  assign N25 = (N2)? tx_ready_lo : 
                (N3)? rx_ready_lo : 1'b0;
   assign N2 = write_not_read_r;
-  assign N3 = N18;
-  assign { N62, N61, N60 } = (N4)? { N59, N58, N57 } : 
-                             (N23)? req_cnt_r : 1'b0;
-  assign N4 = N22;
-  assign N64 = ~N63;
-  assign req_state_n = (N5)? N16 : 
-                       (N6)? N64 : 1'b0;
-  assign N5 = N9;
+  assign N3 = N24;
+  assign { N68, N67, N66 } = (N4)? { N65, N64, N63 } : 
+                             (N29)? req_cnt_r : 1'b0;
+  assign N4 = N28;
+  assign N70 = ~N69;
+  assign req_state_n = (N5)? N22 : 
+                       (N6)? N70 : 1'b0;
+  assign N5 = N15;
   assign N6 = req_state_r;
   assign rr_yumi_li = (N5)? rr_v_lo : 
                       (N6)? 1'b0 : 1'b0;
-  assign N65 = (N5)? rr_v_lo : 
+  assign N71 = (N5)? rr_v_lo : 
                (N6)? 1'b1 : 1'b0;
-  assign { N97, N96, N95, N94, N93, N92, N91, N90, N89, N88, N87, N86, N85, N84, N83, N82, N81, N80, N79, N78, N77, N76, N75, N74, N73, N72, N71, N70, N69, N68, N67, N66 } = (N5)? dma_pkt[31:0] : 
-                                                                                                                                                                              (N6)? { N56, N55, N54, N53, N52, N51, N50, N49, N48, N47, N46, N45, N44, N43, N42, N41, N40, N39, N38, N37, N36, N35, N34, N33, N32, N31, N30, N29, N28, N27, N26, N25 } : 1'b0;
-  assign req_cnt_n = (N5)? { N15, N14, N13 } : 
-                     (N6)? { N62, N61, N60 } : 1'b0;
+  assign { N103, N102, N101, N100, N99, N98, N97, N96, N95, N94, N93, N92, N91, N90, N89, N88, N87, N86, N85, N84, N83, N82, N81, N80, N79, N78, N77, N76, N75, N74, N73, N72 } = (N5)? dma_pkt[31:0] : 
+                                                                                                                                                                                  (N6)? { N62, N61, N60, N59, N58, N57, N56, N55, N54, N53, N52, N51, N50, N49, N48, N47, N46, N45, N44, N43, N42, N41, N40, N39, N38, N37, N36, N35, N34, N33, N32, N31 } : 1'b0;
+  assign req_cnt_n = (N5)? { N21, N20, N19 } : 
+                     (N6)? { N68, N67, N66 } : 1'b0;
   assign app_en_o = (N5)? 1'b0 : 
-                    (N6)? N19 : 1'b0;
+                    (N6)? N25 : 1'b0;
   assign app_cmd_o[0] = (N5)? 1'b0 : 
-                        (N6)? N18 : 1'b0;
+                        (N6)? N24 : 1'b0;
   assign rx_v_li = (N5)? 1'b0 : 
-                   (N6)? N20 : 1'b0;
+                   (N6)? N26 : 1'b0;
   assign tx_v_li = (N5)? 1'b0 : 
-                   (N6)? N21 : 1'b0;
-  assign N100 = (N7)? 1'b0 : 
-                (N8)? req_state_n : 1'b0;
-  assign N7 = N99;
-  assign N8 = N98;
-  assign N101 = (N7)? 1'b0 : 
-                (N8)? N11 : 1'b0;
-  assign { N133, N132, N131, N130, N129, N128, N127, N126, N125, N124, N123, N122, N121, N120, N119, N118, N117, N116, N115, N114, N113, N112, N111, N110, N109, N108, N107, N106, N105, N104, N103, N102 } = (N7)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 } : 
-                                                                                                                                                                                                              (N8)? addr_n : 1'b0;
-  assign { N136, N135, N134 } = (N7)? { 1'b0, 1'b0, 1'b0 } : 
-                                (N8)? req_cnt_n : 1'b0;
-  assign N137 = (N7)? 1'b0 : 
-                (N8)? N12 : 1'b0;
-  assign N9 = ~req_state_r;
-  assign N10 = ~rr_v_lo;
-  assign N17 = req_state_r;
-  assign N18 = ~write_not_read_r;
-  assign N20 = N142 & app_rdy_i;
-  assign N142 = N18 & rx_ready_lo;
-  assign N21 = N143 & app_rdy_i;
-  assign N143 = write_not_read_r & tx_ready_lo;
-  assign N22 = app_rdy_i & N19;
-  assign N23 = ~N22;
-  assign N24 = N17 & N22;
-  assign N63 = N144 & N141;
-  assign N144 = app_rdy_i & N19;
-  assign N98 = ~reset_i;
-  assign N99 = reset_i;
-  assign N138 = req_state_r & N98;
-  assign N139 = ~N138;
+                   (N6)? N27 : 1'b0;
+  assign app_addr_o[32:24] = (N7)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, tag_r[0:0] } : 
+                             (N8)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, tag_r[0:0], addr_r[24:24] } : 
+                             (N9)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, tag_r[0:0], addr_r[25:24] } : 
+                             (N10)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, tag_r[0:0], addr_r[26:24] } : 
+                             (N11)? { 1'b0, 1'b0, 1'b0, 1'b0, tag_r[0:0], addr_r[27:24] } : 
+                             (N12)? { tag_r[0:0], addr_r } : 1'b0;
+  assign N7 = N108;
+  assign N8 = N111;
+  assign N9 = N114;
+  assign N10 = N116;
+  assign N11 = N119;
+  assign N12 = N122;
+  assign N125 = (N13)? 1'b0 : 
+                (N14)? req_state_n : 1'b0;
+  assign N13 = N124;
+  assign N14 = N123;
+  assign N126 = (N13)? 1'b0 : 
+                (N14)? N17 : 1'b0;
+  assign { N158, N157, N156, N155, N154, N153, N152, N151, N150, N149, N148, N147, N146, N145, N144, N143, N142, N141, N140, N139, N138, N137, N136, N135, N134, N133, N132, N131, N130, N129, N128, N127 } = (N13)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 } : 
+                                                                                                                                                                                                              (N14)? addr_n : 1'b0;
+  assign { N161, N160, N159 } = (N13)? { 1'b0, 1'b0, 1'b0 } : 
+                                (N14)? req_cnt_n : 1'b0;
+  assign N162 = (N13)? 1'b0 : 
+                (N14)? N18 : 1'b0;
+  assign N15 = ~req_state_r;
+  assign N16 = ~rr_v_lo;
+  assign N23 = req_state_r;
+  assign N24 = ~write_not_read_r;
+  assign N26 = N167 & app_rdy_i;
+  assign N167 = N24 & rx_ready_lo;
+  assign N27 = N168 & app_rdy_i;
+  assign N168 = write_not_read_r & tx_ready_lo;
+  assign N28 = app_rdy_i & N25;
+  assign N29 = ~N28;
+  assign N30 = N23 & N28;
+  assign N69 = N169 & N166;
+  assign N169 = app_rdy_i & N25;
+  assign N104 = ~dram_size_i[2];
+  assign N105 = ~dram_size_i[1];
+  assign N106 = ~dram_size_i[0];
+  assign N111 = ~N110;
+  assign N114 = ~N113;
+  assign N116 = ~N115;
+  assign N119 = ~N118;
+  assign N122 = N120 | N121;
+  assign N123 = ~reset_i;
+  assign N124 = reset_i;
+  assign N163 = req_state_r & N123;
+  assign N164 = ~N163;
 
-  always @(N97 or N65) begin
-    if(N65) begin
-      { addr_n[31:31] } <= { N97 };
+  always @(N103 or N71) begin
+    if(N71) begin
+      { addr_n[31:31] } <= { N103 };
     end 
   end
 
 
-  always @(N96 or N65) begin
-    if(N65) begin
-      { addr_n[30:30] } <= { N96 };
+  always @(N102 or N71) begin
+    if(N71) begin
+      { addr_n[30:30] } <= { N102 };
     end 
   end
 
 
-  always @(N95 or N65) begin
-    if(N65) begin
-      { addr_n[29:29] } <= { N95 };
+  always @(N101 or N71) begin
+    if(N71) begin
+      { addr_n[29:29] } <= { N101 };
     end 
   end
 
 
-  always @(N94 or N65) begin
-    if(N65) begin
-      { addr_n[28:28] } <= { N94 };
+  always @(N100 or N71) begin
+    if(N71) begin
+      { addr_n[28:28] } <= { N100 };
     end 
   end
 
 
-  always @(N93 or N65) begin
-    if(N65) begin
-      { addr_n[27:27] } <= { N93 };
+  always @(N99 or N71) begin
+    if(N71) begin
+      { addr_n[27:27] } <= { N99 };
     end 
   end
 
 
-  always @(N92 or N65) begin
-    if(N65) begin
-      { addr_n[26:26] } <= { N92 };
+  always @(N98 or N71) begin
+    if(N71) begin
+      { addr_n[26:26] } <= { N98 };
     end 
   end
 
 
-  always @(N91 or N65) begin
-    if(N65) begin
-      { addr_n[25:25] } <= { N91 };
+  always @(N97 or N71) begin
+    if(N71) begin
+      { addr_n[25:25] } <= { N97 };
     end 
   end
 
 
-  always @(N90 or N65) begin
-    if(N65) begin
-      { addr_n[24:24] } <= { N90 };
+  always @(N96 or N71) begin
+    if(N71) begin
+      { addr_n[24:24] } <= { N96 };
     end 
   end
 
 
-  always @(N89 or N65) begin
-    if(N65) begin
-      { addr_n[23:23] } <= { N89 };
+  always @(N95 or N71) begin
+    if(N71) begin
+      { addr_n[23:23] } <= { N95 };
     end 
   end
 
 
-  always @(N88 or N65) begin
-    if(N65) begin
-      { addr_n[22:22] } <= { N88 };
+  always @(N94 or N71) begin
+    if(N71) begin
+      { addr_n[22:22] } <= { N94 };
     end 
   end
 
 
-  always @(N87 or N65) begin
-    if(N65) begin
-      { addr_n[21:21] } <= { N87 };
+  always @(N93 or N71) begin
+    if(N71) begin
+      { addr_n[21:21] } <= { N93 };
     end 
   end
 
 
-  always @(N86 or N65) begin
-    if(N65) begin
-      { addr_n[20:20] } <= { N86 };
+  always @(N92 or N71) begin
+    if(N71) begin
+      { addr_n[20:20] } <= { N92 };
     end 
   end
 
 
-  always @(N85 or N65) begin
-    if(N65) begin
-      { addr_n[19:19] } <= { N85 };
+  always @(N91 or N71) begin
+    if(N71) begin
+      { addr_n[19:19] } <= { N91 };
     end 
   end
 
 
-  always @(N84 or N65) begin
-    if(N65) begin
-      { addr_n[18:18] } <= { N84 };
+  always @(N90 or N71) begin
+    if(N71) begin
+      { addr_n[18:18] } <= { N90 };
     end 
   end
 
 
-  always @(N83 or N65) begin
-    if(N65) begin
-      { addr_n[17:17] } <= { N83 };
+  always @(N89 or N71) begin
+    if(N71) begin
+      { addr_n[17:17] } <= { N89 };
     end 
   end
 
 
-  always @(N82 or N65) begin
-    if(N65) begin
-      { addr_n[16:16] } <= { N82 };
+  always @(N88 or N71) begin
+    if(N71) begin
+      { addr_n[16:16] } <= { N88 };
     end 
   end
 
 
-  always @(N81 or N65) begin
-    if(N65) begin
-      { addr_n[15:15] } <= { N81 };
+  always @(N87 or N71) begin
+    if(N71) begin
+      { addr_n[15:15] } <= { N87 };
     end 
   end
 
 
-  always @(N80 or N65) begin
-    if(N65) begin
-      { addr_n[14:14] } <= { N80 };
+  always @(N86 or N71) begin
+    if(N71) begin
+      { addr_n[14:14] } <= { N86 };
     end 
   end
 
 
-  always @(N79 or N65) begin
-    if(N65) begin
-      { addr_n[13:13] } <= { N79 };
+  always @(N85 or N71) begin
+    if(N71) begin
+      { addr_n[13:13] } <= { N85 };
     end 
   end
 
 
-  always @(N78 or N65) begin
-    if(N65) begin
-      { addr_n[12:12] } <= { N78 };
+  always @(N84 or N71) begin
+    if(N71) begin
+      { addr_n[12:12] } <= { N84 };
     end 
   end
 
 
-  always @(N77 or N65) begin
-    if(N65) begin
-      { addr_n[11:11] } <= { N77 };
+  always @(N83 or N71) begin
+    if(N71) begin
+      { addr_n[11:11] } <= { N83 };
     end 
   end
 
 
-  always @(N76 or N65) begin
-    if(N65) begin
-      { addr_n[10:10] } <= { N76 };
+  always @(N82 or N71) begin
+    if(N71) begin
+      { addr_n[10:10] } <= { N82 };
     end 
   end
 
 
-  always @(N75 or N65) begin
-    if(N65) begin
-      { addr_n[9:9] } <= { N75 };
+  always @(N81 or N71) begin
+    if(N71) begin
+      { addr_n[9:9] } <= { N81 };
     end 
   end
 
 
-  always @(N74 or N65) begin
-    if(N65) begin
-      { addr_n[8:8] } <= { N74 };
+  always @(N80 or N71) begin
+    if(N71) begin
+      { addr_n[8:8] } <= { N80 };
     end 
   end
 
 
-  always @(N73 or N65) begin
-    if(N65) begin
-      { addr_n[7:7] } <= { N73 };
+  always @(N79 or N71) begin
+    if(N71) begin
+      { addr_n[7:7] } <= { N79 };
     end 
   end
 
 
-  always @(N72 or N65) begin
-    if(N65) begin
-      { addr_n[6:6] } <= { N72 };
+  always @(N78 or N71) begin
+    if(N71) begin
+      { addr_n[6:6] } <= { N78 };
     end 
   end
 
 
-  always @(N71 or N65) begin
-    if(N65) begin
-      { addr_n[5:5] } <= { N71 };
+  always @(N77 or N71) begin
+    if(N71) begin
+      { addr_n[5:5] } <= { N77 };
     end 
   end
 
 
-  always @(N70 or N65) begin
-    if(N65) begin
-      { addr_n[4:4] } <= { N70 };
+  always @(N76 or N71) begin
+    if(N71) begin
+      { addr_n[4:4] } <= { N76 };
     end 
   end
 
 
-  always @(N69 or N65) begin
-    if(N65) begin
-      { addr_n[3:3] } <= { N69 };
+  always @(N75 or N71) begin
+    if(N71) begin
+      { addr_n[3:3] } <= { N75 };
     end 
   end
 
 
-  always @(N68 or N65) begin
-    if(N65) begin
-      { addr_n[2:2] } <= { N68 };
+  always @(N74 or N71) begin
+    if(N71) begin
+      { addr_n[2:2] } <= { N74 };
     end 
   end
 
 
-  always @(N67 or N65) begin
-    if(N65) begin
-      { addr_n[1:1] } <= { N67 };
+  always @(N73 or N71) begin
+    if(N71) begin
+      { addr_n[1:1] } <= { N73 };
     end 
   end
 
 
-  always @(N66 or N65) begin
-    if(N65) begin
-      { addr_n[0:0] } <= { N66 };
+  always @(N72 or N71) begin
+    if(N71) begin
+      { addr_n[0:0] } <= { N72 };
     end 
   end
 
 
   always @(posedge clk_i) begin
-    if(N139) begin
-      write_not_read_r <= N137;
-      { app_addr_o[32:32] } <= { N101 };
+    if(N164) begin
+      write_not_read_r <= N162;
+      { tag_r[0:0] } <= { N126 };
     end 
     if(1'b1) begin
-      req_state_r <= N100;
-      { app_addr_o[31:0] } <= { N133, N132, N131, N130, N129, N128, N127, N126, N125, N124, N123, N122, N121, N120, N119, N118, N117, N116, N115, N114, N113, N112, N111, N110, N109, N108, N107, N106, N105, N104, N103, N102 };
-      { req_cnt_r[2:0] } <= { N136, N135, N134 };
+      req_state_r <= N125;
+      { addr_r[31:24] } <= { N158, N157, N156, N155, N154, N153, N152, N151 };
+      { app_addr_o[23:0] } <= { N150, N149, N148, N147, N146, N145, N144, N143, N142, N141, N140, N139, N138, N137, N136, N135, N134, N133, N132, N131, N130, N129, N128, N127 };
+      { req_cnt_r[2:0] } <= { N161, N160, N159 };
     end 
   end
 

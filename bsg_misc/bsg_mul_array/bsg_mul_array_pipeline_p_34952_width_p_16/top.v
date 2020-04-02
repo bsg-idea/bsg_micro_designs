@@ -1,5 +1,38 @@
 
 
+module top
+(
+  clk_i,
+  rst_i,
+  v_i,
+  a_i,
+  b_i,
+  o
+);
+
+  input [15:0] a_i;
+  input [15:0] b_i;
+  output [31:0] o;
+  input clk_i;
+  input rst_i;
+  input v_i;
+
+  bsg_mul_array
+  wrapper
+  (
+    .a_i(a_i),
+    .b_i(b_i),
+    .o(o),
+    .clk_i(clk_i),
+    .rst_i(rst_i),
+    .v_i(v_i)
+  );
+
+
+endmodule
+
+
+
 module bsg_and_width_p16
 (
   a_i,
@@ -1493,7 +1526,7 @@ endmodule
 
 
 
-module bsg_mul_array_width_p16_pipeline_p34952
+module bsg_mul_array
 (
   clk_i,
   rst_i,

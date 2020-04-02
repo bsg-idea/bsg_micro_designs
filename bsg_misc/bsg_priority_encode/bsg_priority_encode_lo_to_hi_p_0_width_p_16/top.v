@@ -1,5 +1,29 @@
 
 
+module top
+(
+  i,
+  addr_o,
+  v_o
+);
+
+  input [15:0] i;
+  output [3:0] addr_o;
+  output v_o;
+
+  bsg_priority_encode
+  wrapper
+  (
+    .i(i),
+    .addr_o(addr_o),
+    .v_o(v_o)
+  );
+
+
+endmodule
+
+
+
 module bsg_scan_width_p16_or_p1_lo_to_hi_p0
 (
   i,
@@ -313,7 +337,7 @@ endmodule
 
 
 
-module bsg_priority_encode_width_p16_lo_to_hi_p0
+module bsg_priority_encode
 (
   i,
   addr_o,

@@ -27256,8 +27256,12 @@ module bsg_mem_1rw_sync_mask_write_byte_synth_els_p256_latch_last_read_p1_data_w
   input v_i;
   input w_i;
   wire [127:0] data_o;
-  wire n_0_net_,n_1_net_,n_2_net_,n_3_net_,n_4_net_,n_5_net_,n_6_net_,n_7_net_,
-  n_8_net_,n_9_net_,n_10_net_,n_11_net_,n_12_net_,n_13_net_,n_14_net_,n_15_net_;
+  wire N0,N1,n_0_net__0_,n_1_net_,N2,N3,n_2_net__0_,n_3_net_,N4,n_4_net__0_,n_5_net_,
+  N5,n_6_net__0_,n_7_net_,N6,n_8_net__0_,n_9_net_,N7,n_10_net__0_,n_11_net_,N8,
+  n_12_net__0_,n_13_net_,N9,n_14_net__0_,n_15_net_,N10,n_16_net__0_,n_17_net_,N11,
+  n_18_net__0_,n_19_net_,N12,n_20_net__0_,n_21_net_,N13,n_22_net__0_,n_23_net_,N14,
+  n_24_net__0_,n_25_net_,N15,n_26_net__0_,n_27_net_,N16,n_28_net__0_,n_29_net_,N17,
+  n_30_net__0_,n_31_net_,N18;
 
   bsg_mem_1rw_sync_width_p8_els_p256_latch_last_read_p1_addr_width_lp8
   bk_0__mem_1rw_sync
@@ -27266,8 +27270,8 @@ module bsg_mem_1rw_sync_mask_write_byte_synth_els_p256_latch_last_read_p1_data_w
     .reset_i(reset_i),
     .data_i(data_i[7:0]),
     .addr_i(addr_i),
-    .v_i(v_i),
-    .w_i(n_0_net_),
+    .v_i(n_0_net__0_),
+    .w_i(n_1_net_),
     .data_o(data_o[7:0])
   );
 
@@ -27279,8 +27283,8 @@ module bsg_mem_1rw_sync_mask_write_byte_synth_els_p256_latch_last_read_p1_data_w
     .reset_i(reset_i),
     .data_i(data_i[15:8]),
     .addr_i(addr_i),
-    .v_i(v_i),
-    .w_i(n_1_net_),
+    .v_i(n_2_net__0_),
+    .w_i(n_3_net_),
     .data_o(data_o[15:8])
   );
 
@@ -27292,8 +27296,8 @@ module bsg_mem_1rw_sync_mask_write_byte_synth_els_p256_latch_last_read_p1_data_w
     .reset_i(reset_i),
     .data_i(data_i[23:16]),
     .addr_i(addr_i),
-    .v_i(v_i),
-    .w_i(n_2_net_),
+    .v_i(n_4_net__0_),
+    .w_i(n_5_net_),
     .data_o(data_o[23:16])
   );
 
@@ -27305,8 +27309,8 @@ module bsg_mem_1rw_sync_mask_write_byte_synth_els_p256_latch_last_read_p1_data_w
     .reset_i(reset_i),
     .data_i(data_i[31:24]),
     .addr_i(addr_i),
-    .v_i(v_i),
-    .w_i(n_3_net_),
+    .v_i(n_6_net__0_),
+    .w_i(n_7_net_),
     .data_o(data_o[31:24])
   );
 
@@ -27318,8 +27322,8 @@ module bsg_mem_1rw_sync_mask_write_byte_synth_els_p256_latch_last_read_p1_data_w
     .reset_i(reset_i),
     .data_i(data_i[39:32]),
     .addr_i(addr_i),
-    .v_i(v_i),
-    .w_i(n_4_net_),
+    .v_i(n_8_net__0_),
+    .w_i(n_9_net_),
     .data_o(data_o[39:32])
   );
 
@@ -27331,8 +27335,8 @@ module bsg_mem_1rw_sync_mask_write_byte_synth_els_p256_latch_last_read_p1_data_w
     .reset_i(reset_i),
     .data_i(data_i[47:40]),
     .addr_i(addr_i),
-    .v_i(v_i),
-    .w_i(n_5_net_),
+    .v_i(n_10_net__0_),
+    .w_i(n_11_net_),
     .data_o(data_o[47:40])
   );
 
@@ -27344,8 +27348,8 @@ module bsg_mem_1rw_sync_mask_write_byte_synth_els_p256_latch_last_read_p1_data_w
     .reset_i(reset_i),
     .data_i(data_i[55:48]),
     .addr_i(addr_i),
-    .v_i(v_i),
-    .w_i(n_6_net_),
+    .v_i(n_12_net__0_),
+    .w_i(n_13_net_),
     .data_o(data_o[55:48])
   );
 
@@ -27357,8 +27361,8 @@ module bsg_mem_1rw_sync_mask_write_byte_synth_els_p256_latch_last_read_p1_data_w
     .reset_i(reset_i),
     .data_i(data_i[63:56]),
     .addr_i(addr_i),
-    .v_i(v_i),
-    .w_i(n_7_net_),
+    .v_i(n_14_net__0_),
+    .w_i(n_15_net_),
     .data_o(data_o[63:56])
   );
 
@@ -27370,8 +27374,8 @@ module bsg_mem_1rw_sync_mask_write_byte_synth_els_p256_latch_last_read_p1_data_w
     .reset_i(reset_i),
     .data_i(data_i[71:64]),
     .addr_i(addr_i),
-    .v_i(v_i),
-    .w_i(n_8_net_),
+    .v_i(n_16_net__0_),
+    .w_i(n_17_net_),
     .data_o(data_o[71:64])
   );
 
@@ -27383,8 +27387,8 @@ module bsg_mem_1rw_sync_mask_write_byte_synth_els_p256_latch_last_read_p1_data_w
     .reset_i(reset_i),
     .data_i(data_i[79:72]),
     .addr_i(addr_i),
-    .v_i(v_i),
-    .w_i(n_9_net_),
+    .v_i(n_18_net__0_),
+    .w_i(n_19_net_),
     .data_o(data_o[79:72])
   );
 
@@ -27396,8 +27400,8 @@ module bsg_mem_1rw_sync_mask_write_byte_synth_els_p256_latch_last_read_p1_data_w
     .reset_i(reset_i),
     .data_i(data_i[87:80]),
     .addr_i(addr_i),
-    .v_i(v_i),
-    .w_i(n_10_net_),
+    .v_i(n_20_net__0_),
+    .w_i(n_21_net_),
     .data_o(data_o[87:80])
   );
 
@@ -27409,8 +27413,8 @@ module bsg_mem_1rw_sync_mask_write_byte_synth_els_p256_latch_last_read_p1_data_w
     .reset_i(reset_i),
     .data_i(data_i[95:88]),
     .addr_i(addr_i),
-    .v_i(v_i),
-    .w_i(n_11_net_),
+    .v_i(n_22_net__0_),
+    .w_i(n_23_net_),
     .data_o(data_o[95:88])
   );
 
@@ -27422,8 +27426,8 @@ module bsg_mem_1rw_sync_mask_write_byte_synth_els_p256_latch_last_read_p1_data_w
     .reset_i(reset_i),
     .data_i(data_i[103:96]),
     .addr_i(addr_i),
-    .v_i(v_i),
-    .w_i(n_12_net_),
+    .v_i(n_24_net__0_),
+    .w_i(n_25_net_),
     .data_o(data_o[103:96])
   );
 
@@ -27435,8 +27439,8 @@ module bsg_mem_1rw_sync_mask_write_byte_synth_els_p256_latch_last_read_p1_data_w
     .reset_i(reset_i),
     .data_i(data_i[111:104]),
     .addr_i(addr_i),
-    .v_i(v_i),
-    .w_i(n_13_net_),
+    .v_i(n_26_net__0_),
+    .w_i(n_27_net_),
     .data_o(data_o[111:104])
   );
 
@@ -27448,8 +27452,8 @@ module bsg_mem_1rw_sync_mask_write_byte_synth_els_p256_latch_last_read_p1_data_w
     .reset_i(reset_i),
     .data_i(data_i[119:112]),
     .addr_i(addr_i),
-    .v_i(v_i),
-    .w_i(n_14_net_),
+    .v_i(n_28_net__0_),
+    .w_i(n_29_net_),
     .data_o(data_o[119:112])
   );
 
@@ -27461,27 +27465,78 @@ module bsg_mem_1rw_sync_mask_write_byte_synth_els_p256_latch_last_read_p1_data_w
     .reset_i(reset_i),
     .data_i(data_i[127:120]),
     .addr_i(addr_i),
-    .v_i(v_i),
-    .w_i(n_15_net_),
+    .v_i(n_30_net__0_),
+    .w_i(n_31_net_),
     .data_o(data_o[127:120])
   );
 
-  assign n_0_net_ = w_i & write_mask_i[0];
-  assign n_1_net_ = w_i & write_mask_i[1];
-  assign n_2_net_ = w_i & write_mask_i[2];
-  assign n_3_net_ = w_i & write_mask_i[3];
-  assign n_4_net_ = w_i & write_mask_i[4];
-  assign n_5_net_ = w_i & write_mask_i[5];
-  assign n_6_net_ = w_i & write_mask_i[6];
-  assign n_7_net_ = w_i & write_mask_i[7];
-  assign n_8_net_ = w_i & write_mask_i[8];
-  assign n_9_net_ = w_i & write_mask_i[9];
-  assign n_10_net_ = w_i & write_mask_i[10];
-  assign n_11_net_ = w_i & write_mask_i[11];
-  assign n_12_net_ = w_i & write_mask_i[12];
-  assign n_13_net_ = w_i & write_mask_i[13];
-  assign n_14_net_ = w_i & write_mask_i[14];
-  assign n_15_net_ = w_i & write_mask_i[15];
+  assign N3 = (N0)? write_mask_i[0] : 
+              (N1)? 1'b1 : 1'b0;
+  assign N0 = w_i;
+  assign N1 = N2;
+  assign N4 = (N0)? write_mask_i[1] : 
+              (N1)? 1'b1 : 1'b0;
+  assign N5 = (N0)? write_mask_i[2] : 
+              (N1)? 1'b1 : 1'b0;
+  assign N6 = (N0)? write_mask_i[3] : 
+              (N1)? 1'b1 : 1'b0;
+  assign N7 = (N0)? write_mask_i[4] : 
+              (N1)? 1'b1 : 1'b0;
+  assign N8 = (N0)? write_mask_i[5] : 
+              (N1)? 1'b1 : 1'b0;
+  assign N9 = (N0)? write_mask_i[6] : 
+              (N1)? 1'b1 : 1'b0;
+  assign N10 = (N0)? write_mask_i[7] : 
+               (N1)? 1'b1 : 1'b0;
+  assign N11 = (N0)? write_mask_i[8] : 
+               (N1)? 1'b1 : 1'b0;
+  assign N12 = (N0)? write_mask_i[9] : 
+               (N1)? 1'b1 : 1'b0;
+  assign N13 = (N0)? write_mask_i[10] : 
+               (N1)? 1'b1 : 1'b0;
+  assign N14 = (N0)? write_mask_i[11] : 
+               (N1)? 1'b1 : 1'b0;
+  assign N15 = (N0)? write_mask_i[12] : 
+               (N1)? 1'b1 : 1'b0;
+  assign N16 = (N0)? write_mask_i[13] : 
+               (N1)? 1'b1 : 1'b0;
+  assign N17 = (N0)? write_mask_i[14] : 
+               (N1)? 1'b1 : 1'b0;
+  assign N18 = (N0)? write_mask_i[15] : 
+               (N1)? 1'b1 : 1'b0;
+  assign n_1_net_ = w_i & write_mask_i[0];
+  assign N2 = ~w_i;
+  assign n_0_net__0_ = v_i & N3;
+  assign n_3_net_ = w_i & write_mask_i[1];
+  assign n_2_net__0_ = v_i & N4;
+  assign n_5_net_ = w_i & write_mask_i[2];
+  assign n_4_net__0_ = v_i & N5;
+  assign n_7_net_ = w_i & write_mask_i[3];
+  assign n_6_net__0_ = v_i & N6;
+  assign n_9_net_ = w_i & write_mask_i[4];
+  assign n_8_net__0_ = v_i & N7;
+  assign n_11_net_ = w_i & write_mask_i[5];
+  assign n_10_net__0_ = v_i & N8;
+  assign n_13_net_ = w_i & write_mask_i[6];
+  assign n_12_net__0_ = v_i & N9;
+  assign n_15_net_ = w_i & write_mask_i[7];
+  assign n_14_net__0_ = v_i & N10;
+  assign n_17_net_ = w_i & write_mask_i[8];
+  assign n_16_net__0_ = v_i & N11;
+  assign n_19_net_ = w_i & write_mask_i[9];
+  assign n_18_net__0_ = v_i & N12;
+  assign n_21_net_ = w_i & write_mask_i[10];
+  assign n_20_net__0_ = v_i & N13;
+  assign n_23_net_ = w_i & write_mask_i[11];
+  assign n_22_net__0_ = v_i & N14;
+  assign n_25_net_ = w_i & write_mask_i[12];
+  assign n_24_net__0_ = v_i & N15;
+  assign n_27_net_ = w_i & write_mask_i[13];
+  assign n_26_net__0_ = v_i & N16;
+  assign n_29_net_ = w_i & write_mask_i[14];
+  assign n_28_net__0_ = v_i & N17;
+  assign n_31_net_ = w_i & write_mask_i[15];
+  assign n_30_net__0_ = v_i & N18;
 
 endmodule
 

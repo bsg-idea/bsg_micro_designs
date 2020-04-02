@@ -1,2 +1,0 @@
-bsg_misc/bsg_abs
-bsg_misc/bsg_and
