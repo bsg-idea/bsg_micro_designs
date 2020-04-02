@@ -38,9 +38,6 @@ set_output_delay -clock clk  0  [get_ports {data_mem_data_o[1]}]
 set_output_delay -clock clk  0  [get_ports {data_mem_data_o[0]}]
 set_output_delay -clock clk  0  [get_ports dma_evict_o]
 ```
-Note that there are 3 environment variables that need to be set in order for the tcl file effective. 
-FO4_VAL: the FO4 value of your process node
-PIN_LOAD: used for output pin loads
 
 ## Yosys Example and How to run
 Prerequisites:
@@ -58,10 +55,9 @@ or you can run the following command but set the values in <>
 ```
 make FO4_VAL=<value> PIN_LOAD=<value> DESIGN_NAME=<name> LIB_FILE=<path-to-liberty>
 ```
-For a more meaningful result, please fill in the following variables:
-
-FO4_VAL:the FO4 value of your process node
-PIN_LOAD: used for output loads
-DESIGN_NAME: name of your design
-LIB_FILE: liberty file path
+For a more meaningful result, please fill in the following variables
+1) FO4_VAL: the FO4 value of your process node
+2) PIN_LOAD: used for output loads
+3) DESIGN_NAME: name of your design
+4) LIB_FILE: liberty file path
 
