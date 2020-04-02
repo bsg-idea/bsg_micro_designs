@@ -57,7 +57,7 @@ yosys_run: envsub_sdc result_folder
 	@$(foreach p, $(FILES), export CLOCK_PERIOD=$(shell cat $p | grep "^create_clock" | cut -d " " -f 6) \
 	&& export SYNTH_YOSYS_IN_SDC=$p \
 	&& export SYNTH_YOSYS_IN_V=$(dir $p)../top.v \
-	&& export SYNTH_YOSYS_OUT_V=$(OUTPUT_DIR)/yosys_out_v/$(DESIGN_NAME)/$(basename $(notdir $p)).yosys.v \
+	&& export SYNTH_YOSYS_OUT_V=$(OUTPUT_DIR)/yosys_out_v/$(DESIGN_NAME)/$(shell echo $p | rev | cut -d/ -f3 | rev)/yosys_out.v \
 	&& $(YOSYS_BUILD_DIR)/yosys -c $(TOP_DIR)/cfg/yosys.tcl 2>&1 | tee -i $(OUTPUT_DIR)/logs/$(DESIGN_NAME)/$(shell echo $p | rev | cut -d/ -f3 | rev)/$(notdir $p).log;) 
 
 # envsub selected sdc files
@@ -71,8 +71,7 @@ envsub_sdc:
 # generating the result folder first
 result_folder:
 	mkdir -p $(OUTPUT_DIR)/reports
-	mkdir -p $(OUTPUT_DIR)/yosys_out_v/$(DESIGN_NAME)
-	@$(foreach ds, $(DESIGN_SIZE), mkdir -p $(OUTPUT_DIR)/logs/$(DESIGN_NAME)/$(ds);)
+	@$(foreach ds, $(DESIGN_SIZE), mkdir -p $(OUTPUT_DIR)/logs/$(DESIGN_NAME)/$(ds); mkdir -p $(OUTPUT_DIR)/yosys_out_v/$(DESIGN_NAME)/$(ds);)
 	
 # dump out the data in a csv file
 data_dump:
