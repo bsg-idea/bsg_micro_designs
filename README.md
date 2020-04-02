@@ -1,5 +1,5 @@
 # BSG Micro Designs Overview
-In an effort to support the open source hardware development, the bsg_micro_designs repository contains the Verilog version of basejump_stl designs (https://github.com/bespoke-silicon-group/basejump_stl). The designs in this repository were translated from Systemverilog to verilog, through bsg_sv2v (https://github.com/bespoke-silicon-group/bsg_sv2v), to be complient with most of the open source CAD tools. Furthermore, you may synthesize the RTL designs in this repository through Yosys (https://github.com/YosysHQ/yosys) to obtain performance and area metrics. 
+In an effort to support the open source hardware development, the bsg_micro_designs repository contains the Verilog version of basejump_stl designs (https://github.com/bespoke-silicon-group/basejump_stl). The designs in this repository were translated from Systemverilog to verilog, through bsg_sv2v (https://github.com/bespoke-silicon-group/bsg_sv2v), to be complient with most of the open source CAD tools. Furthermore, you can synthesize the RTL designs in this repository through Yosys (https://github.com/YosysHQ/yosys) to obtain performance and area metrics. 
 
 ## Structure
 Each top level folder is similar to the structure of basejump_stl. Within each specific design folders there are four more folders based on the parameters. Within each of the four parameter based folders, you'll see a "top.v" and a sdc folder that contains the constraints.sdc file. See image below:
@@ -39,9 +39,8 @@ set_output_delay -clock clk  0  [get_ports {data_mem_data_o[0]}]
 set_output_delay -clock clk  0  [get_ports dma_evict_o]
 ```
 Note that there are 3 environment variables that need to be set in order for the tcl file effective. 
-FO4_30:the FO4 value of your process node, in this example this value will be set to 30x the FO4 value
+FO4_VAL: the FO4 value of your process node
 PIN_LOAD: used for output pin loads
-FO4_30_DIV_2: this will help create a clock waveform with an equal duty cycle
 
 ## Yosys Example and How to run
 Prerequisites:
@@ -50,26 +49,19 @@ Prerequisites:
 3) Python 3.x
 4) Synopsys Design Compiler
 
-Steps to run:
-1) Edit the cfg/design_list.txt file to synthesize your desired RTL designs
-2) Open the Makefile in the root of the repository and set the following two variables:
-```
-export LM_LICENSE_FILE ?= <YOUR LICENSE FILE HERE>
-export DC_SHELL ?= <YOUR DC_SHELL BINARY HERE>
-```
-The above variables are required by bsg_sv2v
-3) Run the following command to setup bsg_sv2v and yosys:
-```
-make tools
-```
-or
-
-4) Simply run make to setup your tools, synthesize your design, and output the result
+### Steps to run:
+Either run
 ```
 make
 ```
+or you can run the following command but set the values in <>
+```
+make FO4_VAL=<value> PIN_LOAD=<value> DESIGN_NAME=<name> LIB_FILE=<path-to-liberty>
+```
 For a more meaningful result, please fill in the following variables:
+
 FO4_VAL:the FO4 value of your process node
-LOAD: used for output loads
-LIB_PATH: liberty file path (yosys uses its own default file for this)
+PIN_LOAD: used for output loads
+DESIGN_NAME: name of your design
+LIB_FILE: liberty file path
 
