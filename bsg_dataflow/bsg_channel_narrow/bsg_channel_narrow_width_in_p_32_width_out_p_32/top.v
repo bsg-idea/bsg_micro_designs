@@ -50,7 +50,7 @@ module bsg_channel_narrow
   input deque_i;
   output deque_o;
   wire [31:0] data_o;
-  wire deque_o,deque_i;
+  wire deque_o;
   assign deque_o = deque_i;
   assign data_o[31] = data_i[31];
   assign data_o[30] = data_i[30];

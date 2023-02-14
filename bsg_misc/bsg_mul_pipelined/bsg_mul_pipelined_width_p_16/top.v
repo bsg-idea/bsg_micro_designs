@@ -44,94 +44,103 @@ module bsg_mul_SDN_width_p16
   output [26:0] SDN_o;
   input signed_i;
   wire [26:0] SDN_o;
-  wire N0,N1,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11,N12,N13,N14,N15,N16,N17,N18,N19,N20,N21,
-  N22,N23,N24,N25,N26,N27,N28,N29,N30,N31,N32,N33,N34,N35,N36,N37,N38,N39,N40,N41,
-  N42,N43,N44,N45,N46,N47,N48,N49,N50,N51,N52,N53,N54;
-  wire [1:0] rof_8__trip;
-  assign SDN_o[21] = x_i[15];
-  assign SDN_o[18] = x_i[13];
-  assign SDN_o[15] = x_i[11];
-  assign SDN_o[12] = x_i[9];
-  assign SDN_o[9] = x_i[7];
-  assign SDN_o[6] = x_i[5];
-  assign SDN_o[3] = x_i[3];
-  assign SDN_o[0] = x_i[1];
+  wire SDN_o_7__0_,SDN_o_6__0_,SDN_o_5__0_,SDN_o_4__0_,SDN_o_3__0_,SDN_o_2__0_,
+  SDN_o_1__0_,SDN_o_0__0_,N0,N1,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11,N12,N13,N14,N15,N16,N17,
+  N18,N19,N20,N21,N22,N23,N24,N25,N26,N27,N28,N29,N30,N31,N32,N33,N34,N35,N36,N37,
+  N38,N39,N40,N41,N42,N43,N44,N45,N46,N47,N48,N49,N50,N51,N52,N53,N54;
+  wire [1:0] \rof_8_.trip ;
+  assign SDN_o_7__0_ = x_i[15];
+  assign SDN_o[21] = SDN_o_7__0_;
+  assign SDN_o_6__0_ = x_i[13];
+  assign SDN_o[18] = SDN_o_6__0_;
+  assign SDN_o_5__0_ = x_i[11];
+  assign SDN_o[15] = SDN_o_5__0_;
+  assign SDN_o_4__0_ = x_i[9];
+  assign SDN_o[12] = SDN_o_4__0_;
+  assign SDN_o_3__0_ = x_i[7];
+  assign SDN_o[9] = SDN_o_3__0_;
+  assign SDN_o_2__0_ = x_i[5];
+  assign SDN_o[6] = SDN_o_2__0_;
+  assign SDN_o_1__0_ = x_i[3];
+  assign SDN_o[3] = SDN_o_1__0_;
+  assign SDN_o_0__0_ = x_i[1];
+  assign SDN_o[0] = SDN_o_0__0_;
   assign SDN_o[1] = N2 | N5;
   assign N2 = N0 & N1;
   assign N0 = x_i[0] & 1'b0;
-  assign N1 = ~x_i[1];
-  assign N5 = N4 & x_i[1];
+  assign N1 = ~SDN_o_0__0_;
+  assign N5 = N4 & SDN_o_0__0_;
   assign N4 = ~N3;
   assign N3 = x_i[0] | 1'b0;
   assign SDN_o[2] = 1'b0 ^ x_i[0];
   assign SDN_o[4] = N8 | N11;
   assign N8 = N6 & N7;
-  assign N6 = x_i[2] & x_i[1];
-  assign N7 = ~x_i[3];
-  assign N11 = N10 & x_i[3];
+  assign N6 = x_i[2] & SDN_o_0__0_;
+  assign N7 = ~SDN_o_1__0_;
+  assign N11 = N10 & SDN_o_1__0_;
   assign N10 = ~N9;
-  assign N9 = x_i[2] | x_i[1];
-  assign SDN_o[5] = x_i[1] ^ x_i[2];
+  assign N9 = x_i[2] | SDN_o_0__0_;
+  assign SDN_o[5] = SDN_o_0__0_ ^ x_i[2];
   assign SDN_o[7] = N14 | N17;
   assign N14 = N12 & N13;
-  assign N12 = x_i[4] & x_i[3];
-  assign N13 = ~x_i[5];
-  assign N17 = N16 & x_i[5];
+  assign N12 = x_i[4] & SDN_o_1__0_;
+  assign N13 = ~SDN_o_2__0_;
+  assign N17 = N16 & SDN_o_2__0_;
   assign N16 = ~N15;
-  assign N15 = x_i[4] | x_i[3];
-  assign SDN_o[8] = x_i[3] ^ x_i[4];
+  assign N15 = x_i[4] | SDN_o_1__0_;
+  assign SDN_o[8] = SDN_o_1__0_ ^ x_i[4];
   assign SDN_o[10] = N20 | N23;
   assign N20 = N18 & N19;
-  assign N18 = x_i[6] & x_i[5];
-  assign N19 = ~x_i[7];
-  assign N23 = N22 & x_i[7];
+  assign N18 = x_i[6] & SDN_o_2__0_;
+  assign N19 = ~SDN_o_3__0_;
+  assign N23 = N22 & SDN_o_3__0_;
   assign N22 = ~N21;
-  assign N21 = x_i[6] | x_i[5];
-  assign SDN_o[11] = x_i[5] ^ x_i[6];
+  assign N21 = x_i[6] | SDN_o_2__0_;
+  assign SDN_o[11] = SDN_o_2__0_ ^ x_i[6];
   assign SDN_o[13] = N26 | N29;
   assign N26 = N24 & N25;
-  assign N24 = x_i[8] & x_i[7];
-  assign N25 = ~x_i[9];
-  assign N29 = N28 & x_i[9];
+  assign N24 = x_i[8] & SDN_o_3__0_;
+  assign N25 = ~SDN_o_4__0_;
+  assign N29 = N28 & SDN_o_4__0_;
   assign N28 = ~N27;
-  assign N27 = x_i[8] | x_i[7];
-  assign SDN_o[14] = x_i[7] ^ x_i[8];
+  assign N27 = x_i[8] | SDN_o_3__0_;
+  assign SDN_o[14] = SDN_o_3__0_ ^ x_i[8];
   assign SDN_o[16] = N32 | N35;
   assign N32 = N30 & N31;
-  assign N30 = x_i[10] & x_i[9];
-  assign N31 = ~x_i[11];
-  assign N35 = N34 & x_i[11];
+  assign N30 = x_i[10] & SDN_o_4__0_;
+  assign N31 = ~SDN_o_5__0_;
+  assign N35 = N34 & SDN_o_5__0_;
   assign N34 = ~N33;
-  assign N33 = x_i[10] | x_i[9];
-  assign SDN_o[17] = x_i[9] ^ x_i[10];
+  assign N33 = x_i[10] | SDN_o_4__0_;
+  assign SDN_o[17] = SDN_o_4__0_ ^ x_i[10];
   assign SDN_o[19] = N38 | N41;
   assign N38 = N36 & N37;
-  assign N36 = x_i[12] & x_i[11];
-  assign N37 = ~x_i[13];
-  assign N41 = N40 & x_i[13];
+  assign N36 = x_i[12] & SDN_o_5__0_;
+  assign N37 = ~SDN_o_6__0_;
+  assign N41 = N40 & SDN_o_6__0_;
   assign N40 = ~N39;
-  assign N39 = x_i[12] | x_i[11];
-  assign SDN_o[20] = x_i[11] ^ x_i[12];
+  assign N39 = x_i[12] | SDN_o_5__0_;
+  assign SDN_o[20] = SDN_o_5__0_ ^ x_i[12];
   assign SDN_o[22] = N44 | N47;
   assign N44 = N42 & N43;
-  assign N42 = x_i[14] & x_i[13];
-  assign N43 = ~x_i[15];
-  assign N47 = N46 & x_i[15];
+  assign N42 = x_i[14] & SDN_o_6__0_;
+  assign N43 = ~SDN_o_7__0_;
+  assign N47 = N46 & SDN_o_7__0_;
   assign N46 = ~N45;
-  assign N45 = x_i[14] | x_i[13];
-  assign SDN_o[23] = x_i[13] ^ x_i[14];
+  assign N45 = x_i[14] | SDN_o_6__0_;
+  assign SDN_o[23] = SDN_o_6__0_ ^ x_i[14];
   assign SDN_o[24] = 1'b0 & N48;
   assign N48 = ~signed_i;
-  assign rof_8__trip[1] = 1'b0 & N48;
-  assign rof_8__trip[0] = x_i[15] & N48;
+  assign \rof_8_.trip [1] = 1'b0 & N48;
+  assign \rof_8_.trip [0] = SDN_o_7__0_ & N48;
   assign SDN_o[25] = N51 | N54;
   assign N51 = N49 & N50;
-  assign N49 = rof_8__trip[1] & rof_8__trip[0];
+  assign N49 = \rof_8_.trip [1] & \rof_8_.trip [0];
   assign N50 = ~SDN_o[24];
   assign N54 = N53 & SDN_o[24];
   assign N53 = ~N52;
-  assign N52 = rof_8__trip[1] | rof_8__trip[0];
-  assign SDN_o[26] = rof_8__trip[0] ^ rof_8__trip[1];
+  assign N52 = \rof_8_.trip [1] | \rof_8_.trip [0];
+  assign SDN_o[26] = \rof_8_.trip [0] ^ \rof_8_.trip [1];
 
 endmodule
 
@@ -474,7 +483,7 @@ module bsg_mul_booth_4_block_rep_00000006_080402_000000_80c8ec_000000
   wire [5:1] ci_local;
 
   bsg_mul_booth_4_block_000002_000000_00000c_000000
-  rof_0__b4b
+  \rof_0_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(cr_i),
@@ -486,7 +495,7 @@ module bsg_mul_booth_4_block_rep_00000006_080402_000000_80c8ec_000000
 
 
   bsg_mul_booth_4_block_000000_000000_00000e_000000
-  rof_1__b4b
+  \rof_1_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[1]),
@@ -498,7 +507,7 @@ module bsg_mul_booth_4_block_rep_00000006_080402_000000_80c8ec_000000
 
 
   bsg_mul_booth_4_block_000004_000000_000008_000000
-  rof_2__b4b
+  \rof_2_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[2]),
@@ -510,7 +519,7 @@ module bsg_mul_booth_4_block_rep_00000006_080402_000000_80c8ec_000000
 
 
   bsg_mul_booth_4_block_000000_000000_00000c_000000
-  rof_3__b4b
+  \rof_3_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[3]),
@@ -522,7 +531,7 @@ module bsg_mul_booth_4_block_rep_00000006_080402_000000_80c8ec_000000
 
 
   bsg_mul_booth_4_block_000008_000000_000000_000000
-  rof_4__b4b
+  \rof_4_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[4]),
@@ -534,7 +543,7 @@ module bsg_mul_booth_4_block_rep_00000006_080402_000000_80c8ec_000000
 
 
   bsg_mul_booth_4_block_000000_000000_000008_000000
-  rof_5__b4b
+  \rof_5_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[5]),
@@ -657,7 +666,7 @@ module bsg_mul_booth_4_block_rep_00000008_00000000_00000000_00000000_00000000
   wire [7:1] ci_local;
 
   bsg_mul_booth_4_block_00000000_00000000_00000000_00000000
-  rof_0__b4b
+  \rof_0_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(cr_i),
@@ -669,7 +678,7 @@ module bsg_mul_booth_4_block_rep_00000008_00000000_00000000_00000000_00000000
 
 
   bsg_mul_booth_4_block_00000000_00000000_00000000_00000000
-  rof_1__b4b
+  \rof_1_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[1]),
@@ -681,7 +690,7 @@ module bsg_mul_booth_4_block_rep_00000008_00000000_00000000_00000000_00000000
 
 
   bsg_mul_booth_4_block_00000000_00000000_00000000_00000000
-  rof_2__b4b
+  \rof_2_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[2]),
@@ -693,7 +702,7 @@ module bsg_mul_booth_4_block_rep_00000008_00000000_00000000_00000000_00000000
 
 
   bsg_mul_booth_4_block_00000000_00000000_00000000_00000000
-  rof_3__b4b
+  \rof_3_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[3]),
@@ -705,7 +714,7 @@ module bsg_mul_booth_4_block_rep_00000008_00000000_00000000_00000000_00000000
 
 
   bsg_mul_booth_4_block_00000000_00000000_00000000_00000000
-  rof_4__b4b
+  \rof_4_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[4]),
@@ -717,7 +726,7 @@ module bsg_mul_booth_4_block_rep_00000008_00000000_00000000_00000000_00000000
 
 
   bsg_mul_booth_4_block_00000000_00000000_00000000_00000000
-  rof_5__b4b
+  \rof_5_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[5]),
@@ -729,7 +738,7 @@ module bsg_mul_booth_4_block_rep_00000008_00000000_00000000_00000000_00000000
 
 
   bsg_mul_booth_4_block_00000000_00000000_00000000_00000000
-  rof_6__b4b
+  \rof_6_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[6]),
@@ -741,7 +750,7 @@ module bsg_mul_booth_4_block_rep_00000008_00000000_00000000_00000000_00000000
 
 
   bsg_mul_booth_4_block_00000000_00000000_00000000_00000000
-  rof_7__b4b
+  \rof_7_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[7]),
@@ -916,7 +925,7 @@ module bsg_mul_booth_4_block_rep_00000006_000000_300000_000000_000000
   wire [5:1] ci_local;
 
   bsg_mul_booth_4_block_000000_000000_000000_000000
-  rof_0__b4b
+  \rof_0_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(cr_i),
@@ -928,7 +937,7 @@ module bsg_mul_booth_4_block_rep_00000006_000000_300000_000000_000000
 
 
   bsg_mul_booth_4_block_000000_000000_000000_000000
-  rof_1__b4b
+  \rof_1_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[1]),
@@ -940,7 +949,7 @@ module bsg_mul_booth_4_block_rep_00000006_000000_300000_000000_000000
 
 
   bsg_mul_booth_4_block_000000_000000_000000_000000
-  rof_2__b4b
+  \rof_2_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[2]),
@@ -952,7 +961,7 @@ module bsg_mul_booth_4_block_rep_00000006_000000_300000_000000_000000
 
 
   bsg_mul_booth_4_block_000000_000000_000000_000000
-  rof_3__b4b
+  \rof_3_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[3]),
@@ -964,7 +973,7 @@ module bsg_mul_booth_4_block_rep_00000006_000000_300000_000000_000000
 
 
   bsg_mul_booth_4_block_000000_000000_000000_000000
-  rof_4__b4b
+  \rof_4_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[4]),
@@ -976,7 +985,7 @@ module bsg_mul_booth_4_block_rep_00000006_000000_300000_000000_000000
 
 
   bsg_mul_booth_4_block_000000_000003_000000_000000
-  rof_5__b4b
+  \rof_5_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[5]),
@@ -1249,7 +1258,7 @@ module bsg_mul_booth_4_block_rep_00000005_00000_08040_77331_80402
   wire [4:1] ci_local;
 
   bsg_mul_booth_4_block_00000_00000_00001_00002
-  rof_0__b4b
+  \rof_0_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(cr_i),
@@ -1261,7 +1270,7 @@ module bsg_mul_booth_4_block_rep_00000005_00000_08040_77331_80402
 
 
   bsg_mul_booth_4_block_00000_00004_00003_00000
-  rof_1__b4b
+  \rof_1_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[1]),
@@ -1273,7 +1282,7 @@ module bsg_mul_booth_4_block_rep_00000005_00000_08040_77331_80402
 
 
   bsg_mul_booth_4_block_00000_00000_00003_00004
-  rof_2__b4b
+  \rof_2_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[2]),
@@ -1285,7 +1294,7 @@ module bsg_mul_booth_4_block_rep_00000005_00000_08040_77331_80402
 
 
   bsg_mul_booth_4_block_00000_00008_00007_00000
-  rof_3__b4b
+  \rof_3_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[3]),
@@ -1297,7 +1306,7 @@ module bsg_mul_booth_4_block_rep_00000005_00000_08040_77331_80402
 
 
   bsg_mul_booth_4_block_00000_00000_00007_00008
-  rof_4__b4b
+  \rof_4_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[4]),
@@ -1381,7 +1390,7 @@ module bsg_mul_B4B_rep_rep_4_25_19140e0600_0_16_1
   wire [3:1] carries;
 
   bsg_mul_B4B_rep_00000006_0000000000_16_080402_000000_80c8ec_000000_1
-  rof_0__br
+  \rof_0_.br 
   (
     .SDN_i(SDN_i),
     .cr_i(cr_i),
@@ -1394,7 +1403,7 @@ module bsg_mul_B4B_rep_rep_4_25_19140e0600_0_16_1
 
 
   bsg_mul_B4B_rep_00000008_0000000006_16_00000000_00000000_00000000_00000000_1
-  rof_1__br
+  \rof_1_.br 
   (
     .SDN_i(SDN_i),
     .cr_i(carries[1]),
@@ -1407,7 +1416,7 @@ module bsg_mul_B4B_rep_rep_4_25_19140e0600_0_16_1
 
 
   bsg_mul_B4B_rep_00000006_000000000e_16_000000_300000_000000_000000_1
-  rof_2__br
+  \rof_2_.br 
   (
     .SDN_i(SDN_i),
     .cr_i(carries[2]),
@@ -1420,7 +1429,7 @@ module bsg_mul_B4B_rep_rep_4_25_19140e0600_0_16_1
 
 
   bsg_mul_B4B_rep_00000005_0000000014_16_00000_08040_77331_80402_1
-  rof_3__br
+  \rof_3_.br 
   (
     .SDN_i(SDN_i),
     .cr_i(carries[3]),
@@ -1775,7 +1784,7 @@ module bsg_mul_booth_4_block_rep_00000008_08040201_00000000_80c8ecfe_00000000
   wire [7:1] ci_local;
 
   bsg_mul_booth_4_block_00000001_00000000_0000000e_00000000
-  rof_0__b4b
+  \rof_0_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(cr_i),
@@ -1787,7 +1796,7 @@ module bsg_mul_booth_4_block_rep_00000008_08040201_00000000_80c8ecfe_00000000
 
 
   bsg_mul_booth_4_block_00000000_00000000_0000000f_00000000
-  rof_1__b4b
+  \rof_1_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[1]),
@@ -1799,7 +1808,7 @@ module bsg_mul_booth_4_block_rep_00000008_08040201_00000000_80c8ecfe_00000000
 
 
   bsg_mul_booth_4_block_00000002_00000000_0000000c_00000000
-  rof_2__b4b
+  \rof_2_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[2]),
@@ -1811,7 +1820,7 @@ module bsg_mul_booth_4_block_rep_00000008_08040201_00000000_80c8ecfe_00000000
 
 
   bsg_mul_booth_4_block_00000000_00000000_0000000e_00000000
-  rof_3__b4b
+  \rof_3_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[3]),
@@ -1823,7 +1832,7 @@ module bsg_mul_booth_4_block_rep_00000008_08040201_00000000_80c8ecfe_00000000
 
 
   bsg_mul_booth_4_block_00000004_00000000_00000008_00000000
-  rof_4__b4b
+  \rof_4_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[4]),
@@ -1835,7 +1844,7 @@ module bsg_mul_booth_4_block_rep_00000008_08040201_00000000_80c8ecfe_00000000
 
 
   bsg_mul_booth_4_block_00000000_00000000_0000000c_00000000
-  rof_5__b4b
+  \rof_5_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[5]),
@@ -1847,7 +1856,7 @@ module bsg_mul_booth_4_block_rep_00000008_08040201_00000000_80c8ecfe_00000000
 
 
   bsg_mul_booth_4_block_00000008_00000000_00000000_00000000
-  rof_6__b4b
+  \rof_6_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[6]),
@@ -1859,7 +1868,7 @@ module bsg_mul_booth_4_block_rep_00000008_08040201_00000000_80c8ecfe_00000000
 
 
   bsg_mul_booth_4_block_00000000_00000000_00000008_00000000
-  rof_7__b4b
+  \rof_7_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[7]),
@@ -1932,7 +1941,7 @@ module bsg_mul_booth_4_block_rep_00000006_000000_000000_000000_000000
   wire [5:1] ci_local;
 
   bsg_mul_booth_4_block_000000_000000_000000_000000
-  rof_0__b4b
+  \rof_0_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(cr_i),
@@ -1944,7 +1953,7 @@ module bsg_mul_booth_4_block_rep_00000006_000000_000000_000000_000000
 
 
   bsg_mul_booth_4_block_000000_000000_000000_000000
-  rof_1__b4b
+  \rof_1_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[1]),
@@ -1956,7 +1965,7 @@ module bsg_mul_booth_4_block_rep_00000006_000000_000000_000000_000000
 
 
   bsg_mul_booth_4_block_000000_000000_000000_000000
-  rof_2__b4b
+  \rof_2_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[2]),
@@ -1968,7 +1977,7 @@ module bsg_mul_booth_4_block_rep_00000006_000000_000000_000000_000000
 
 
   bsg_mul_booth_4_block_000000_000000_000000_000000
-  rof_3__b4b
+  \rof_3_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[3]),
@@ -1980,7 +1989,7 @@ module bsg_mul_booth_4_block_rep_00000006_000000_000000_000000_000000
 
 
   bsg_mul_booth_4_block_000000_000000_000000_000000
-  rof_4__b4b
+  \rof_4_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[4]),
@@ -1992,7 +2001,7 @@ module bsg_mul_booth_4_block_rep_00000006_000000_000000_000000_000000
 
 
   bsg_mul_booth_4_block_000000_000000_000000_000000
-  rof_5__b4b
+  \rof_5_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[5]),
@@ -2116,7 +2125,7 @@ module bsg_mul_booth_4_block_rep_00000006_000000_100000_000000_000000
   wire [5:1] ci_local;
 
   bsg_mul_booth_4_block_000000_000000_000000_000000
-  rof_0__b4b
+  \rof_0_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(cr_i),
@@ -2128,7 +2137,7 @@ module bsg_mul_booth_4_block_rep_00000006_000000_100000_000000_000000
 
 
   bsg_mul_booth_4_block_000000_000000_000000_000000
-  rof_1__b4b
+  \rof_1_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[1]),
@@ -2140,7 +2149,7 @@ module bsg_mul_booth_4_block_rep_00000006_000000_100000_000000_000000
 
 
   bsg_mul_booth_4_block_000000_000000_000000_000000
-  rof_2__b4b
+  \rof_2_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[2]),
@@ -2152,7 +2161,7 @@ module bsg_mul_booth_4_block_rep_00000006_000000_100000_000000_000000
 
 
   bsg_mul_booth_4_block_000000_000000_000000_000000
-  rof_3__b4b
+  \rof_3_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[3]),
@@ -2164,7 +2173,7 @@ module bsg_mul_booth_4_block_rep_00000006_000000_100000_000000_000000
 
 
   bsg_mul_booth_4_block_000000_000000_000000_000000
-  rof_4__b4b
+  \rof_4_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[4]),
@@ -2176,7 +2185,7 @@ module bsg_mul_booth_4_block_rep_00000006_000000_100000_000000_000000
 
 
   bsg_mul_booth_4_block_000000_000001_000000_000000
-  rof_5__b4b
+  \rof_5_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[5]),
@@ -2507,7 +2516,7 @@ module bsg_mul_booth_4_block_rep_00000006_000000_804020_733110_040201
   wire [5:1] ci_local;
 
   bsg_mul_booth_4_block_000000_000000_000000_000001
-  rof_0__b4b
+  \rof_0_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(cr_i),
@@ -2519,7 +2528,7 @@ module bsg_mul_booth_4_block_rep_00000006_000000_804020_733110_040201
 
 
   bsg_mul_booth_4_block_000000_000002_000001_000000
-  rof_1__b4b
+  \rof_1_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[1]),
@@ -2531,7 +2540,7 @@ module bsg_mul_booth_4_block_rep_00000006_000000_804020_733110_040201
 
 
   bsg_mul_booth_4_block_000000_000000_000001_000002
-  rof_2__b4b
+  \rof_2_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[2]),
@@ -2543,7 +2552,7 @@ module bsg_mul_booth_4_block_rep_00000006_000000_804020_733110_040201
 
 
   bsg_mul_booth_4_block_000000_000004_000003_000000
-  rof_3__b4b
+  \rof_3_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[3]),
@@ -2555,7 +2564,7 @@ module bsg_mul_booth_4_block_rep_00000006_000000_804020_733110_040201
 
 
   bsg_mul_booth_4_block_000000_000000_000003_000004
-  rof_4__b4b
+  \rof_4_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[4]),
@@ -2567,7 +2576,7 @@ module bsg_mul_booth_4_block_rep_00000006_000000_804020_733110_040201
 
 
   bsg_mul_booth_4_block_000000_000008_000007_000000
-  rof_5__b4b
+  \rof_5_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[5]),
@@ -2651,7 +2660,7 @@ module bsg_mul_B4B_rep_rep_4_26_1a140e0800_n2_16_1
   wire [3:1] carries;
 
   bsg_mul_B4B_rep_00000008_00fffffffe_16_08040201_00000000_80c8ecfe_00000000_1
-  rof_0__br
+  \rof_0_.br 
   (
     .SDN_i(SDN_i),
     .cr_i(cr_i),
@@ -2664,7 +2673,7 @@ module bsg_mul_B4B_rep_rep_4_26_1a140e0800_n2_16_1
 
 
   bsg_mul_B4B_rep_00000006_0100000006_16_000000_000000_000000_000000_1
-  rof_1__br
+  \rof_1_.br 
   (
     .SDN_i(SDN_i),
     .cr_i(carries[1]),
@@ -2677,7 +2686,7 @@ module bsg_mul_B4B_rep_rep_4_26_1a140e0800_n2_16_1
 
 
   bsg_mul_B4B_rep_00000006_010000000c_16_000000_100000_000000_000000_1
-  rof_2__br
+  \rof_2_.br 
   (
     .SDN_i(SDN_i),
     .cr_i(carries[2]),
@@ -2690,7 +2699,7 @@ module bsg_mul_B4B_rep_rep_4_26_1a140e0800_n2_16_1
 
 
   bsg_mul_B4B_rep_00000006_0100000012_16_000000_804020_733110_040201_1
-  rof_3__br
+  \rof_3_.br 
   (
     .SDN_i(SDN_i),
     .cr_i(carries[3]),
@@ -2725,7 +2734,7 @@ module bsg_mul_comp42_rep_0000000008
   wire [7:1] ci_local;
 
   bsg_mul_comp42
-  rof_0__c
+  \rof_0_.c 
   (
     .i({ i[24:24], i[16:16], i[8:8], i[0:0] }),
     .cr_i(cr_i),
@@ -2736,7 +2745,7 @@ module bsg_mul_comp42_rep_0000000008
 
 
   bsg_mul_comp42
-  rof_1__c
+  \rof_1_.c 
   (
     .i({ i[25:25], i[17:17], i[9:9], i[1:1] }),
     .cr_i(ci_local[1]),
@@ -2747,7 +2756,7 @@ module bsg_mul_comp42_rep_0000000008
 
 
   bsg_mul_comp42
-  rof_2__c
+  \rof_2_.c 
   (
     .i({ i[26:26], i[18:18], i[10:10], i[2:2] }),
     .cr_i(ci_local[2]),
@@ -2758,7 +2767,7 @@ module bsg_mul_comp42_rep_0000000008
 
 
   bsg_mul_comp42
-  rof_3__c
+  \rof_3_.c 
   (
     .i({ i[27:27], i[19:19], i[11:11], i[3:3] }),
     .cr_i(ci_local[3]),
@@ -2769,7 +2778,7 @@ module bsg_mul_comp42_rep_0000000008
 
 
   bsg_mul_comp42
-  rof_4__c
+  \rof_4_.c 
   (
     .i({ i[28:28], i[20:20], i[12:12], i[4:4] }),
     .cr_i(ci_local[4]),
@@ -2780,7 +2789,7 @@ module bsg_mul_comp42_rep_0000000008
 
 
   bsg_mul_comp42
-  rof_5__c
+  \rof_5_.c 
   (
     .i({ i[29:29], i[21:21], i[13:13], i[5:5] }),
     .cr_i(ci_local[5]),
@@ -2791,7 +2800,7 @@ module bsg_mul_comp42_rep_0000000008
 
 
   bsg_mul_comp42
-  rof_6__c
+  \rof_6_.c 
   (
     .i({ i[30:30], i[22:22], i[14:14], i[6:6] }),
     .cr_i(ci_local[6]),
@@ -2802,7 +2811,7 @@ module bsg_mul_comp42_rep_0000000008
 
 
   bsg_mul_comp42
-  rof_7__c
+  \rof_7_.c 
   (
     .i({ i[31:31], i[23:23], i[15:15], i[7:7] }),
     .cr_i(ci_local[7]),
@@ -2835,7 +2844,7 @@ module bsg_mul_comp42_rep_0000000006
   wire [5:1] ci_local;
 
   bsg_mul_comp42
-  rof_0__c
+  \rof_0_.c 
   (
     .i({ i[18:18], i[12:12], i[6:6], i[0:0] }),
     .cr_i(cr_i),
@@ -2846,7 +2855,7 @@ module bsg_mul_comp42_rep_0000000006
 
 
   bsg_mul_comp42
-  rof_1__c
+  \rof_1_.c 
   (
     .i({ i[19:19], i[13:13], i[7:7], i[1:1] }),
     .cr_i(ci_local[1]),
@@ -2857,7 +2866,7 @@ module bsg_mul_comp42_rep_0000000006
 
 
   bsg_mul_comp42
-  rof_2__c
+  \rof_2_.c 
   (
     .i({ i[20:20], i[14:14], i[8:8], i[2:2] }),
     .cr_i(ci_local[2]),
@@ -2868,7 +2877,7 @@ module bsg_mul_comp42_rep_0000000006
 
 
   bsg_mul_comp42
-  rof_3__c
+  \rof_3_.c 
   (
     .i({ i[21:21], i[15:15], i[9:9], i[3:3] }),
     .cr_i(ci_local[3]),
@@ -2879,7 +2888,7 @@ module bsg_mul_comp42_rep_0000000006
 
 
   bsg_mul_comp42
-  rof_4__c
+  \rof_4_.c 
   (
     .i({ i[22:22], i[16:16], i[10:10], i[4:4] }),
     .cr_i(ci_local[4]),
@@ -2890,7 +2899,7 @@ module bsg_mul_comp42_rep_0000000006
 
 
   bsg_mul_comp42
-  rof_5__c
+  \rof_5_.c 
   (
     .i({ i[23:23], i[17:17], i[11:11], i[5:5] }),
     .cr_i(ci_local[5]),
@@ -2923,7 +2932,7 @@ module bsg_mul_comp42_rep_rep_4_26_1a140e0800
   wire [3:1] carries;
 
   bsg_mul_comp42_rep_0000000008
-  rof_0__cr
+  \rof_0_.cr 
   (
     .i({ i[85:78], i[59:52], i[33:26], i[7:0] }),
     .cr_i(cr_i),
@@ -2934,7 +2943,7 @@ module bsg_mul_comp42_rep_rep_4_26_1a140e0800
 
 
   bsg_mul_comp42_rep_0000000006
-  rof_1__cr
+  \rof_1_.cr 
   (
     .i({ i[91:86], i[65:60], i[39:34], i[13:8] }),
     .cr_i(carries[1]),
@@ -2945,7 +2954,7 @@ module bsg_mul_comp42_rep_rep_4_26_1a140e0800
 
 
   bsg_mul_comp42_rep_0000000006
-  rof_2__cr
+  \rof_2_.cr 
   (
     .i({ i[97:92], i[71:66], i[45:40], i[19:14] }),
     .cr_i(carries[2]),
@@ -2956,7 +2965,7 @@ module bsg_mul_comp42_rep_rep_4_26_1a140e0800
 
 
   bsg_mul_comp42_rep_0000000006
-  rof_3__cr
+  \rof_3_.cr 
   (
     .i({ i[103:98], i[77:72], i[51:46], i[25:20] }),
     .cr_i(carries[3]),
@@ -3071,7 +3080,7 @@ module bsg_mul_pipelined
   wire [31:0] z_o;
 
   bsg_mul_16_16_harden_p1
-  fi16_m16
+  \fi16.m16 
   (
     .x_i(x_i),
     .y_i(y_i),

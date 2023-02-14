@@ -35,6 +35,7 @@ module bsg_hash_bank_reverse
   input [0:0] bank_i;
   output [31:0] o;
   wire [31:0] o;
+  wire o_1_,o_0_;
   assign o[2] = 1'b0;
   assign o[3] = 1'b0;
   assign o[4] = 1'b0;
@@ -65,8 +66,10 @@ module bsg_hash_bank_reverse
   assign o[29] = 1'b0;
   assign o[30] = 1'b0;
   assign o[31] = 1'b0;
-  assign o[1] = index_i[1];
-  assign o[0] = index_i[2];
+  assign o_1_ = index_i[1];
+  assign o[1] = o_1_;
+  assign o_0_ = index_i[2];
+  assign o[0] = o_0_;
 
 endmodule
 

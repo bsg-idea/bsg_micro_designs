@@ -1,28 +1,28 @@
 ###################################################################
 
-# Created by write_sdc on Sun Jan 19 21:02:33 2020
+# Created by write_sdc on Tue Feb 14 11:25:30 2023
 
 ###################################################################
 set sdc_version 2.1
 
-set_load -pin_load ${PIN_LOAD} [get_ports {bank_o[0]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {index_o[15]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {index_o[14]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {index_o[13]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {index_o[12]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {index_o[11]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {index_o[10]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {index_o[9]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {index_o[8]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {index_o[7]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {index_o[6]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {index_o[5]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {index_o[4]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {index_o[3]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {index_o[2]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {index_o[1]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {index_o[0]}]
-create_clock -name vclk  -period ${FO4_40} -waveform {0 ${FO4_40_DIV_2}}
+set_load -pin_load 1 [get_ports {bank_o[0]}]
+set_load -pin_load 1 [get_ports {index_o[15]}]
+set_load -pin_load 1 [get_ports {index_o[14]}]
+set_load -pin_load 1 [get_ports {index_o[13]}]
+set_load -pin_load 1 [get_ports {index_o[12]}]
+set_load -pin_load 1 [get_ports {index_o[11]}]
+set_load -pin_load 1 [get_ports {index_o[10]}]
+set_load -pin_load 1 [get_ports {index_o[9]}]
+set_load -pin_load 1 [get_ports {index_o[8]}]
+set_load -pin_load 1 [get_ports {index_o[7]}]
+set_load -pin_load 1 [get_ports {index_o[6]}]
+set_load -pin_load 1 [get_ports {index_o[5]}]
+set_load -pin_load 1 [get_ports {index_o[4]}]
+set_load -pin_load 1 [get_ports {index_o[3]}]
+set_load -pin_load 1 [get_ports {index_o[2]}]
+set_load -pin_load 1 [get_ports {index_o[1]}]
+set_load -pin_load 1 [get_ports {index_o[0]}]
+create_clock -name vclk  -period 40  -waveform {0 20}
 set_clock_uncertainty 0  [get_clocks vclk]
 set_input_delay -clock vclk  0  [get_ports {i[15]}]
 set_input_delay -clock vclk  0  [get_ports {i[14]}]

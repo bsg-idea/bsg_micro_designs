@@ -133,7 +133,7 @@ module bsg_mul_array_row_32_0_0
   output c_o;
   wire [31:0] a_o,b_o,s_o,pp;
   wire [1:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_0_;
   assign a_o[31] = a_i[31];
   assign a_o[30] = a_i[30];
   assign a_o[29] = a_i[29];
@@ -198,14 +198,16 @@ module bsg_mul_array_row_32_0_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[1] = s_o[0];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[1] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p32
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1] }),
+    .b_i({ b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1] }),
     .o(pp)
   );
 
@@ -215,7 +217,7 @@ module bsg_mul_array_row_32_0_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[31:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[31:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -256,7 +258,7 @@ module bsg_mul_array_row_32_1_0
   output c_o;
   wire [31:0] a_o,b_o,s_o,pp;
   wire [2:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_1_,prod_accum_o_0_;
   assign a_o[31] = a_i[31];
   assign a_o[30] = a_i[30];
   assign a_o[29] = a_i[29];
@@ -321,15 +323,18 @@ module bsg_mul_array_row_32_1_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[2] = s_o[0];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[2] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p32
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2] }),
+    .b_i({ b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2] }),
     .o(pp)
   );
 
@@ -339,7 +344,7 @@ module bsg_mul_array_row_32_1_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[31:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[31:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -380,7 +385,7 @@ module bsg_mul_array_row_32_2_0
   output c_o;
   wire [31:0] a_o,b_o,s_o,pp;
   wire [3:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_2_,prod_accum_o_1_,prod_accum_o_0_;
   assign a_o[31] = a_i[31];
   assign a_o[30] = a_i[30];
   assign a_o[29] = a_i[29];
@@ -445,16 +450,20 @@ module bsg_mul_array_row_32_2_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[3] = s_o[0];
-  assign prod_accum_o[2] = prod_accum_i[2];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[3] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_2_ = prod_accum_i[2];
+  assign prod_accum_o[2] = prod_accum_o_2_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p32
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3] }),
+    .b_i({ b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3] }),
     .o(pp)
   );
 
@@ -464,7 +473,7 @@ module bsg_mul_array_row_32_2_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[31:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[31:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -505,7 +514,7 @@ module bsg_mul_array_row_32_3_0
   output c_o;
   wire [31:0] a_o,b_o,s_o,pp;
   wire [4:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_3_,prod_accum_o_2_,prod_accum_o_1_,prod_accum_o_0_;
   assign a_o[31] = a_i[31];
   assign a_o[30] = a_i[30];
   assign a_o[29] = a_i[29];
@@ -570,17 +579,22 @@ module bsg_mul_array_row_32_3_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[4] = s_o[0];
-  assign prod_accum_o[3] = prod_accum_i[3];
-  assign prod_accum_o[2] = prod_accum_i[2];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[4] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_3_ = prod_accum_i[3];
+  assign prod_accum_o[3] = prod_accum_o_3_;
+  assign prod_accum_o_2_ = prod_accum_i[2];
+  assign prod_accum_o[2] = prod_accum_o_2_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p32
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[4:4], b_i[4:4], b_i[4:4], b_i[4:4], b_i[4:4], b_i[4:4], b_i[4:4], b_i[4:4], b_i[4:4], b_i[4:4], b_i[4:4], b_i[4:4], b_i[4:4], b_i[4:4], b_i[4:4], b_i[4:4], b_i[4:4], b_i[4:4], b_i[4:4], b_i[4:4], b_i[4:4], b_i[4:4], b_i[4:4], b_i[4:4], b_i[4:4], b_i[4:4], b_i[4:4], b_i[4:4], b_i[4:4], b_i[4:4], b_i[4:4], b_i[4:4] }),
+    .b_i({ b_o[4:4], b_o[4:4], b_o[4:4], b_o[4:4], b_o[4:4], b_o[4:4], b_o[4:4], b_o[4:4], b_o[4:4], b_o[4:4], b_o[4:4], b_o[4:4], b_o[4:4], b_o[4:4], b_o[4:4], b_o[4:4], b_o[4:4], b_o[4:4], b_o[4:4], b_o[4:4], b_o[4:4], b_o[4:4], b_o[4:4], b_o[4:4], b_o[4:4], b_o[4:4], b_o[4:4], b_o[4:4], b_o[4:4], b_o[4:4], b_o[4:4], b_o[4:4] }),
     .o(pp)
   );
 
@@ -590,7 +604,7 @@ module bsg_mul_array_row_32_3_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[31:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[31:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -631,7 +645,8 @@ module bsg_mul_array_row_32_4_0
   output c_o;
   wire [31:0] a_o,b_o,s_o,pp;
   wire [5:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_4_,prod_accum_o_3_,prod_accum_o_2_,prod_accum_o_1_,
+  prod_accum_o_0_;
   assign a_o[31] = a_i[31];
   assign a_o[30] = a_i[30];
   assign a_o[29] = a_i[29];
@@ -696,18 +711,24 @@ module bsg_mul_array_row_32_4_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[5] = s_o[0];
-  assign prod_accum_o[4] = prod_accum_i[4];
-  assign prod_accum_o[3] = prod_accum_i[3];
-  assign prod_accum_o[2] = prod_accum_i[2];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[5] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_4_ = prod_accum_i[4];
+  assign prod_accum_o[4] = prod_accum_o_4_;
+  assign prod_accum_o_3_ = prod_accum_i[3];
+  assign prod_accum_o[3] = prod_accum_o_3_;
+  assign prod_accum_o_2_ = prod_accum_i[2];
+  assign prod_accum_o[2] = prod_accum_o_2_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p32
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5] }),
+    .b_i({ b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5] }),
     .o(pp)
   );
 
@@ -717,7 +738,7 @@ module bsg_mul_array_row_32_4_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[31:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[31:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -758,7 +779,8 @@ module bsg_mul_array_row_32_5_0
   output c_o;
   wire [31:0] a_o,b_o,s_o,pp;
   wire [6:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_5_,prod_accum_o_4_,prod_accum_o_3_,prod_accum_o_2_,
+  prod_accum_o_1_,prod_accum_o_0_;
   assign a_o[31] = a_i[31];
   assign a_o[30] = a_i[30];
   assign a_o[29] = a_i[29];
@@ -823,19 +845,26 @@ module bsg_mul_array_row_32_5_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[6] = s_o[0];
-  assign prod_accum_o[5] = prod_accum_i[5];
-  assign prod_accum_o[4] = prod_accum_i[4];
-  assign prod_accum_o[3] = prod_accum_i[3];
-  assign prod_accum_o[2] = prod_accum_i[2];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[6] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_5_ = prod_accum_i[5];
+  assign prod_accum_o[5] = prod_accum_o_5_;
+  assign prod_accum_o_4_ = prod_accum_i[4];
+  assign prod_accum_o[4] = prod_accum_o_4_;
+  assign prod_accum_o_3_ = prod_accum_i[3];
+  assign prod_accum_o[3] = prod_accum_o_3_;
+  assign prod_accum_o_2_ = prod_accum_i[2];
+  assign prod_accum_o[2] = prod_accum_o_2_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p32
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6] }),
+    .b_i({ b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6] }),
     .o(pp)
   );
 
@@ -845,7 +874,7 @@ module bsg_mul_array_row_32_5_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[31:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[31:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -886,7 +915,8 @@ module bsg_mul_array_row_32_6_0
   output c_o;
   wire [31:0] a_o,b_o,s_o,pp;
   wire [7:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_6_,prod_accum_o_5_,prod_accum_o_4_,prod_accum_o_3_,
+  prod_accum_o_2_,prod_accum_o_1_,prod_accum_o_0_;
   assign a_o[31] = a_i[31];
   assign a_o[30] = a_i[30];
   assign a_o[29] = a_i[29];
@@ -951,20 +981,28 @@ module bsg_mul_array_row_32_6_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[7] = s_o[0];
-  assign prod_accum_o[6] = prod_accum_i[6];
-  assign prod_accum_o[5] = prod_accum_i[5];
-  assign prod_accum_o[4] = prod_accum_i[4];
-  assign prod_accum_o[3] = prod_accum_i[3];
-  assign prod_accum_o[2] = prod_accum_i[2];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[7] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_6_ = prod_accum_i[6];
+  assign prod_accum_o[6] = prod_accum_o_6_;
+  assign prod_accum_o_5_ = prod_accum_i[5];
+  assign prod_accum_o[5] = prod_accum_o_5_;
+  assign prod_accum_o_4_ = prod_accum_i[4];
+  assign prod_accum_o[4] = prod_accum_o_4_;
+  assign prod_accum_o_3_ = prod_accum_i[3];
+  assign prod_accum_o[3] = prod_accum_o_3_;
+  assign prod_accum_o_2_ = prod_accum_i[2];
+  assign prod_accum_o[2] = prod_accum_o_2_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p32
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7] }),
+    .b_i({ b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7] }),
     .o(pp)
   );
 
@@ -974,7 +1012,7 @@ module bsg_mul_array_row_32_6_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[31:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[31:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -1013,16 +1051,137 @@ module bsg_mul_array_row_32_7_1
   input v_i;
   input c_i;
   output c_o;
-  wire N0,N1,pc,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11,N12,N13,N14,N15,N16,N17,N18,N19,N20,
-  N21,N22,N23,N24,N25,N26,N27,N28,N29,N30,N31,N32,N33,N34,N35,N36,N37,N38,N39,N40,
-  N41,N42,N43,N44,N45,N46,N47,N48,N49,N50,N51,N52,N53,N54,N55,N56,N57,N58,N59,N60,
-  N61,N62,N63,N64,N65,N66,N67,N68,N69,N70,N71,N72,N73,N74,N75,N76,N77,N78,N79,N80,
-  N81,N82,N83,N84,N85,N86,N87,N88,N89,N90,N91,N92,N93,N94,N95,N96,N97,N98,N99,N100,
-  N101,N102,N103,N104,N105,N106,N107,N108,N109,N110,N111,N112,N113;
-  wire [31:0] pp,ps;
-  reg [8:0] prod_accum_o;
-  reg [31:0] a_o,b_o,s_o;
-  reg c_o;
+  wire [31:0] a_o,b_o,s_o,pp,ps;
+  wire [8:0] prod_accum_o;
+  wire c_o,pc;
+  reg prod_accum_o_8_sv2v_reg,prod_accum_o_7_sv2v_reg,prod_accum_o_6_sv2v_reg,
+  prod_accum_o_5_sv2v_reg,prod_accum_o_4_sv2v_reg,prod_accum_o_3_sv2v_reg,
+  prod_accum_o_2_sv2v_reg,prod_accum_o_1_sv2v_reg,prod_accum_o_0_sv2v_reg,a_o_31_sv2v_reg,
+  a_o_30_sv2v_reg,a_o_29_sv2v_reg,a_o_28_sv2v_reg,a_o_27_sv2v_reg,a_o_26_sv2v_reg,
+  a_o_25_sv2v_reg,a_o_24_sv2v_reg,a_o_23_sv2v_reg,a_o_22_sv2v_reg,a_o_21_sv2v_reg,
+  a_o_20_sv2v_reg,a_o_19_sv2v_reg,a_o_18_sv2v_reg,a_o_17_sv2v_reg,a_o_16_sv2v_reg,
+  a_o_15_sv2v_reg,a_o_14_sv2v_reg,a_o_13_sv2v_reg,a_o_12_sv2v_reg,a_o_11_sv2v_reg,
+  a_o_10_sv2v_reg,a_o_9_sv2v_reg,a_o_8_sv2v_reg,a_o_7_sv2v_reg,a_o_6_sv2v_reg,
+  a_o_5_sv2v_reg,a_o_4_sv2v_reg,a_o_3_sv2v_reg,a_o_2_sv2v_reg,a_o_1_sv2v_reg,a_o_0_sv2v_reg,
+  b_o_31_sv2v_reg,b_o_30_sv2v_reg,b_o_29_sv2v_reg,b_o_28_sv2v_reg,b_o_27_sv2v_reg,
+  b_o_26_sv2v_reg,b_o_25_sv2v_reg,b_o_24_sv2v_reg,b_o_23_sv2v_reg,b_o_22_sv2v_reg,
+  b_o_21_sv2v_reg,b_o_20_sv2v_reg,b_o_19_sv2v_reg,b_o_18_sv2v_reg,b_o_17_sv2v_reg,
+  b_o_16_sv2v_reg,b_o_15_sv2v_reg,b_o_14_sv2v_reg,b_o_13_sv2v_reg,b_o_12_sv2v_reg,
+  b_o_11_sv2v_reg,b_o_10_sv2v_reg,b_o_9_sv2v_reg,b_o_8_sv2v_reg,b_o_7_sv2v_reg,
+  b_o_6_sv2v_reg,b_o_5_sv2v_reg,b_o_4_sv2v_reg,b_o_3_sv2v_reg,b_o_2_sv2v_reg,
+  b_o_1_sv2v_reg,b_o_0_sv2v_reg,s_o_31_sv2v_reg,s_o_30_sv2v_reg,s_o_29_sv2v_reg,
+  s_o_28_sv2v_reg,s_o_27_sv2v_reg,s_o_26_sv2v_reg,s_o_25_sv2v_reg,s_o_24_sv2v_reg,
+  s_o_23_sv2v_reg,s_o_22_sv2v_reg,s_o_21_sv2v_reg,s_o_20_sv2v_reg,s_o_19_sv2v_reg,
+  s_o_18_sv2v_reg,s_o_17_sv2v_reg,s_o_16_sv2v_reg,s_o_15_sv2v_reg,s_o_14_sv2v_reg,
+  s_o_13_sv2v_reg,s_o_12_sv2v_reg,s_o_11_sv2v_reg,s_o_10_sv2v_reg,s_o_9_sv2v_reg,
+  s_o_8_sv2v_reg,s_o_7_sv2v_reg,s_o_6_sv2v_reg,s_o_5_sv2v_reg,s_o_4_sv2v_reg,s_o_3_sv2v_reg,
+  s_o_2_sv2v_reg,s_o_1_sv2v_reg,s_o_0_sv2v_reg,c_o_sv2v_reg;
+  assign prod_accum_o[8] = prod_accum_o_8_sv2v_reg;
+  assign prod_accum_o[7] = prod_accum_o_7_sv2v_reg;
+  assign prod_accum_o[6] = prod_accum_o_6_sv2v_reg;
+  assign prod_accum_o[5] = prod_accum_o_5_sv2v_reg;
+  assign prod_accum_o[4] = prod_accum_o_4_sv2v_reg;
+  assign prod_accum_o[3] = prod_accum_o_3_sv2v_reg;
+  assign prod_accum_o[2] = prod_accum_o_2_sv2v_reg;
+  assign prod_accum_o[1] = prod_accum_o_1_sv2v_reg;
+  assign prod_accum_o[0] = prod_accum_o_0_sv2v_reg;
+  assign a_o[31] = a_o_31_sv2v_reg;
+  assign a_o[30] = a_o_30_sv2v_reg;
+  assign a_o[29] = a_o_29_sv2v_reg;
+  assign a_o[28] = a_o_28_sv2v_reg;
+  assign a_o[27] = a_o_27_sv2v_reg;
+  assign a_o[26] = a_o_26_sv2v_reg;
+  assign a_o[25] = a_o_25_sv2v_reg;
+  assign a_o[24] = a_o_24_sv2v_reg;
+  assign a_o[23] = a_o_23_sv2v_reg;
+  assign a_o[22] = a_o_22_sv2v_reg;
+  assign a_o[21] = a_o_21_sv2v_reg;
+  assign a_o[20] = a_o_20_sv2v_reg;
+  assign a_o[19] = a_o_19_sv2v_reg;
+  assign a_o[18] = a_o_18_sv2v_reg;
+  assign a_o[17] = a_o_17_sv2v_reg;
+  assign a_o[16] = a_o_16_sv2v_reg;
+  assign a_o[15] = a_o_15_sv2v_reg;
+  assign a_o[14] = a_o_14_sv2v_reg;
+  assign a_o[13] = a_o_13_sv2v_reg;
+  assign a_o[12] = a_o_12_sv2v_reg;
+  assign a_o[11] = a_o_11_sv2v_reg;
+  assign a_o[10] = a_o_10_sv2v_reg;
+  assign a_o[9] = a_o_9_sv2v_reg;
+  assign a_o[8] = a_o_8_sv2v_reg;
+  assign a_o[7] = a_o_7_sv2v_reg;
+  assign a_o[6] = a_o_6_sv2v_reg;
+  assign a_o[5] = a_o_5_sv2v_reg;
+  assign a_o[4] = a_o_4_sv2v_reg;
+  assign a_o[3] = a_o_3_sv2v_reg;
+  assign a_o[2] = a_o_2_sv2v_reg;
+  assign a_o[1] = a_o_1_sv2v_reg;
+  assign a_o[0] = a_o_0_sv2v_reg;
+  assign b_o[31] = b_o_31_sv2v_reg;
+  assign b_o[30] = b_o_30_sv2v_reg;
+  assign b_o[29] = b_o_29_sv2v_reg;
+  assign b_o[28] = b_o_28_sv2v_reg;
+  assign b_o[27] = b_o_27_sv2v_reg;
+  assign b_o[26] = b_o_26_sv2v_reg;
+  assign b_o[25] = b_o_25_sv2v_reg;
+  assign b_o[24] = b_o_24_sv2v_reg;
+  assign b_o[23] = b_o_23_sv2v_reg;
+  assign b_o[22] = b_o_22_sv2v_reg;
+  assign b_o[21] = b_o_21_sv2v_reg;
+  assign b_o[20] = b_o_20_sv2v_reg;
+  assign b_o[19] = b_o_19_sv2v_reg;
+  assign b_o[18] = b_o_18_sv2v_reg;
+  assign b_o[17] = b_o_17_sv2v_reg;
+  assign b_o[16] = b_o_16_sv2v_reg;
+  assign b_o[15] = b_o_15_sv2v_reg;
+  assign b_o[14] = b_o_14_sv2v_reg;
+  assign b_o[13] = b_o_13_sv2v_reg;
+  assign b_o[12] = b_o_12_sv2v_reg;
+  assign b_o[11] = b_o_11_sv2v_reg;
+  assign b_o[10] = b_o_10_sv2v_reg;
+  assign b_o[9] = b_o_9_sv2v_reg;
+  assign b_o[8] = b_o_8_sv2v_reg;
+  assign b_o[7] = b_o_7_sv2v_reg;
+  assign b_o[6] = b_o_6_sv2v_reg;
+  assign b_o[5] = b_o_5_sv2v_reg;
+  assign b_o[4] = b_o_4_sv2v_reg;
+  assign b_o[3] = b_o_3_sv2v_reg;
+  assign b_o[2] = b_o_2_sv2v_reg;
+  assign b_o[1] = b_o_1_sv2v_reg;
+  assign b_o[0] = b_o_0_sv2v_reg;
+  assign s_o[31] = s_o_31_sv2v_reg;
+  assign s_o[30] = s_o_30_sv2v_reg;
+  assign s_o[29] = s_o_29_sv2v_reg;
+  assign s_o[28] = s_o_28_sv2v_reg;
+  assign s_o[27] = s_o_27_sv2v_reg;
+  assign s_o[26] = s_o_26_sv2v_reg;
+  assign s_o[25] = s_o_25_sv2v_reg;
+  assign s_o[24] = s_o_24_sv2v_reg;
+  assign s_o[23] = s_o_23_sv2v_reg;
+  assign s_o[22] = s_o_22_sv2v_reg;
+  assign s_o[21] = s_o_21_sv2v_reg;
+  assign s_o[20] = s_o_20_sv2v_reg;
+  assign s_o[19] = s_o_19_sv2v_reg;
+  assign s_o[18] = s_o_18_sv2v_reg;
+  assign s_o[17] = s_o_17_sv2v_reg;
+  assign s_o[16] = s_o_16_sv2v_reg;
+  assign s_o[15] = s_o_15_sv2v_reg;
+  assign s_o[14] = s_o_14_sv2v_reg;
+  assign s_o[13] = s_o_13_sv2v_reg;
+  assign s_o[12] = s_o_12_sv2v_reg;
+  assign s_o[11] = s_o_11_sv2v_reg;
+  assign s_o[10] = s_o_10_sv2v_reg;
+  assign s_o[9] = s_o_9_sv2v_reg;
+  assign s_o[8] = s_o_8_sv2v_reg;
+  assign s_o[7] = s_o_7_sv2v_reg;
+  assign s_o[6] = s_o_6_sv2v_reg;
+  assign s_o[5] = s_o_5_sv2v_reg;
+  assign s_o[4] = s_o_4_sv2v_reg;
+  assign s_o[3] = s_o_3_sv2v_reg;
+  assign s_o[2] = s_o_2_sv2v_reg;
+  assign s_o[1] = s_o_1_sv2v_reg;
+  assign s_o[0] = s_o_0_sv2v_reg;
+  assign c_o = c_o_sv2v_reg;
 
   bsg_and_width_p32
   and0
@@ -1042,35 +1201,222 @@ module bsg_mul_array_row_32_7_1
     .c_o(pc)
   );
 
-  assign { N34, N33, N32, N31, N30, N29, N28, N27, N26, N25, N24, N23, N22, N21, N20, N19, N18, N17, N16, N15, N14, N13, N12, N11, N10, N9, N8, N7, N6, N5, N4, N3 } = (N0)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 } : 
-                                                                                                                                                                       (N1)? a_i : 1'b0;
-  assign N0 = rst_i;
-  assign N1 = N2;
-  assign { N66, N65, N64, N63, N62, N61, N60, N59, N58, N57, N56, N55, N54, N53, N52, N51, N50, N49, N48, N47, N46, N45, N44, N43, N42, N41, N40, N39, N38, N37, N36, N35 } = (N0)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 } : 
-                                                                                                                                                                              (N1)? b_i : 1'b0;
-  assign { N98, N97, N96, N95, N94, N93, N92, N91, N90, N89, N88, N87, N86, N85, N84, N83, N82, N81, N80, N79, N78, N77, N76, N75, N74, N73, N72, N71, N70, N69, N68, N67 } = (N0)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 } : 
-                                                                                                                                                                              (N1)? ps : 1'b0;
-  assign N99 = (N0)? 1'b0 : 
-               (N1)? pc : 1'b0;
-  assign { N108, N107, N106, N105, N104, N103, N102, N101, N100 } = (N0)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 } : 
-                                                                    (N1)? { ps[0:0], prod_accum_i } : 1'b0;
-  assign N2 = ~rst_i;
-  assign N109 = ~v_i;
-  assign N110 = N109 & N2;
-  assign N111 = ~N110;
-  assign N112 = N109 & N2;
-  assign N113 = ~N112;
 
   always @(posedge clk_i) begin
-    if(N111) begin
-      { prod_accum_o[8:8], prod_accum_o[1:0] } <= { N108, N101, N100 };
-      { a_o[31:0] } <= { N34, N33, N32, N31, N30, N29, N28, N27, N26, N25, N24, N23, N22, N21, N20, N19, N18, N17, N16, N15, N14, N13, N12, N11, N10, N9, N8, N7, N6, N5, N4, N3 };
-      { b_o[31:0] } <= { N66, N65, N64, N63, N62, N61, N60, N59, N58, N57, N56, N55, N54, N53, N52, N51, N50, N49, N48, N47, N46, N45, N44, N43, N42, N41, N40, N39, N38, N37, N36, N35 };
-      { s_o[31:0] } <= { N98, N97, N96, N95, N94, N93, N92, N91, N90, N89, N88, N87, N86, N85, N84, N83, N82, N81, N80, N79, N78, N77, N76, N75, N74, N73, N72, N71, N70, N69, N68, N67 };
-      c_o <= N99;
-    end 
-    if(N113) begin
-      { prod_accum_o[7:2] } <= { N107, N106, N105, N104, N103, N102 };
+    if(rst_i) begin
+      prod_accum_o_8_sv2v_reg <= 1'b0;
+      prod_accum_o_7_sv2v_reg <= 1'b0;
+      prod_accum_o_6_sv2v_reg <= 1'b0;
+      prod_accum_o_5_sv2v_reg <= 1'b0;
+      prod_accum_o_4_sv2v_reg <= 1'b0;
+      prod_accum_o_3_sv2v_reg <= 1'b0;
+      prod_accum_o_2_sv2v_reg <= 1'b0;
+      prod_accum_o_1_sv2v_reg <= 1'b0;
+      prod_accum_o_0_sv2v_reg <= 1'b0;
+      a_o_31_sv2v_reg <= 1'b0;
+      a_o_30_sv2v_reg <= 1'b0;
+      a_o_29_sv2v_reg <= 1'b0;
+      a_o_28_sv2v_reg <= 1'b0;
+      a_o_27_sv2v_reg <= 1'b0;
+      a_o_26_sv2v_reg <= 1'b0;
+      a_o_25_sv2v_reg <= 1'b0;
+      a_o_24_sv2v_reg <= 1'b0;
+      a_o_23_sv2v_reg <= 1'b0;
+      a_o_22_sv2v_reg <= 1'b0;
+      a_o_21_sv2v_reg <= 1'b0;
+      a_o_20_sv2v_reg <= 1'b0;
+      a_o_19_sv2v_reg <= 1'b0;
+      a_o_18_sv2v_reg <= 1'b0;
+      a_o_17_sv2v_reg <= 1'b0;
+      a_o_16_sv2v_reg <= 1'b0;
+      a_o_15_sv2v_reg <= 1'b0;
+      a_o_14_sv2v_reg <= 1'b0;
+      a_o_13_sv2v_reg <= 1'b0;
+      a_o_12_sv2v_reg <= 1'b0;
+      a_o_11_sv2v_reg <= 1'b0;
+      a_o_10_sv2v_reg <= 1'b0;
+      a_o_9_sv2v_reg <= 1'b0;
+      a_o_8_sv2v_reg <= 1'b0;
+      a_o_7_sv2v_reg <= 1'b0;
+      a_o_6_sv2v_reg <= 1'b0;
+      a_o_5_sv2v_reg <= 1'b0;
+      a_o_4_sv2v_reg <= 1'b0;
+      a_o_3_sv2v_reg <= 1'b0;
+      a_o_2_sv2v_reg <= 1'b0;
+      a_o_1_sv2v_reg <= 1'b0;
+      a_o_0_sv2v_reg <= 1'b0;
+      b_o_31_sv2v_reg <= 1'b0;
+      b_o_30_sv2v_reg <= 1'b0;
+      b_o_29_sv2v_reg <= 1'b0;
+      b_o_28_sv2v_reg <= 1'b0;
+      b_o_27_sv2v_reg <= 1'b0;
+      b_o_26_sv2v_reg <= 1'b0;
+      b_o_25_sv2v_reg <= 1'b0;
+      b_o_24_sv2v_reg <= 1'b0;
+      b_o_23_sv2v_reg <= 1'b0;
+      b_o_22_sv2v_reg <= 1'b0;
+      b_o_21_sv2v_reg <= 1'b0;
+      b_o_20_sv2v_reg <= 1'b0;
+      b_o_19_sv2v_reg <= 1'b0;
+      b_o_18_sv2v_reg <= 1'b0;
+      b_o_17_sv2v_reg <= 1'b0;
+      b_o_16_sv2v_reg <= 1'b0;
+      b_o_15_sv2v_reg <= 1'b0;
+      b_o_14_sv2v_reg <= 1'b0;
+      b_o_13_sv2v_reg <= 1'b0;
+      b_o_12_sv2v_reg <= 1'b0;
+      b_o_11_sv2v_reg <= 1'b0;
+      b_o_10_sv2v_reg <= 1'b0;
+      b_o_9_sv2v_reg <= 1'b0;
+      b_o_8_sv2v_reg <= 1'b0;
+      b_o_7_sv2v_reg <= 1'b0;
+      b_o_6_sv2v_reg <= 1'b0;
+      b_o_5_sv2v_reg <= 1'b0;
+      b_o_4_sv2v_reg <= 1'b0;
+      b_o_3_sv2v_reg <= 1'b0;
+      b_o_2_sv2v_reg <= 1'b0;
+      b_o_1_sv2v_reg <= 1'b0;
+      b_o_0_sv2v_reg <= 1'b0;
+      s_o_31_sv2v_reg <= 1'b0;
+      s_o_30_sv2v_reg <= 1'b0;
+      s_o_29_sv2v_reg <= 1'b0;
+      s_o_28_sv2v_reg <= 1'b0;
+      s_o_27_sv2v_reg <= 1'b0;
+      s_o_26_sv2v_reg <= 1'b0;
+      s_o_25_sv2v_reg <= 1'b0;
+      s_o_24_sv2v_reg <= 1'b0;
+      s_o_23_sv2v_reg <= 1'b0;
+      s_o_22_sv2v_reg <= 1'b0;
+      s_o_21_sv2v_reg <= 1'b0;
+      s_o_20_sv2v_reg <= 1'b0;
+      s_o_19_sv2v_reg <= 1'b0;
+      s_o_18_sv2v_reg <= 1'b0;
+      s_o_17_sv2v_reg <= 1'b0;
+      s_o_16_sv2v_reg <= 1'b0;
+      s_o_15_sv2v_reg <= 1'b0;
+      s_o_14_sv2v_reg <= 1'b0;
+      s_o_13_sv2v_reg <= 1'b0;
+      s_o_12_sv2v_reg <= 1'b0;
+      s_o_11_sv2v_reg <= 1'b0;
+      s_o_10_sv2v_reg <= 1'b0;
+      s_o_9_sv2v_reg <= 1'b0;
+      s_o_8_sv2v_reg <= 1'b0;
+      s_o_7_sv2v_reg <= 1'b0;
+      s_o_6_sv2v_reg <= 1'b0;
+      s_o_5_sv2v_reg <= 1'b0;
+      s_o_4_sv2v_reg <= 1'b0;
+      s_o_3_sv2v_reg <= 1'b0;
+      s_o_2_sv2v_reg <= 1'b0;
+      s_o_1_sv2v_reg <= 1'b0;
+      s_o_0_sv2v_reg <= 1'b0;
+      c_o_sv2v_reg <= 1'b0;
+    end else if(v_i) begin
+      prod_accum_o_8_sv2v_reg <= ps[0];
+      prod_accum_o_7_sv2v_reg <= prod_accum_i[7];
+      prod_accum_o_6_sv2v_reg <= prod_accum_i[6];
+      prod_accum_o_5_sv2v_reg <= prod_accum_i[5];
+      prod_accum_o_4_sv2v_reg <= prod_accum_i[4];
+      prod_accum_o_3_sv2v_reg <= prod_accum_i[3];
+      prod_accum_o_2_sv2v_reg <= prod_accum_i[2];
+      prod_accum_o_1_sv2v_reg <= prod_accum_i[1];
+      prod_accum_o_0_sv2v_reg <= prod_accum_i[0];
+      a_o_31_sv2v_reg <= a_i[31];
+      a_o_30_sv2v_reg <= a_i[30];
+      a_o_29_sv2v_reg <= a_i[29];
+      a_o_28_sv2v_reg <= a_i[28];
+      a_o_27_sv2v_reg <= a_i[27];
+      a_o_26_sv2v_reg <= a_i[26];
+      a_o_25_sv2v_reg <= a_i[25];
+      a_o_24_sv2v_reg <= a_i[24];
+      a_o_23_sv2v_reg <= a_i[23];
+      a_o_22_sv2v_reg <= a_i[22];
+      a_o_21_sv2v_reg <= a_i[21];
+      a_o_20_sv2v_reg <= a_i[20];
+      a_o_19_sv2v_reg <= a_i[19];
+      a_o_18_sv2v_reg <= a_i[18];
+      a_o_17_sv2v_reg <= a_i[17];
+      a_o_16_sv2v_reg <= a_i[16];
+      a_o_15_sv2v_reg <= a_i[15];
+      a_o_14_sv2v_reg <= a_i[14];
+      a_o_13_sv2v_reg <= a_i[13];
+      a_o_12_sv2v_reg <= a_i[12];
+      a_o_11_sv2v_reg <= a_i[11];
+      a_o_10_sv2v_reg <= a_i[10];
+      a_o_9_sv2v_reg <= a_i[9];
+      a_o_8_sv2v_reg <= a_i[8];
+      a_o_7_sv2v_reg <= a_i[7];
+      a_o_6_sv2v_reg <= a_i[6];
+      a_o_5_sv2v_reg <= a_i[5];
+      a_o_4_sv2v_reg <= a_i[4];
+      a_o_3_sv2v_reg <= a_i[3];
+      a_o_2_sv2v_reg <= a_i[2];
+      a_o_1_sv2v_reg <= a_i[1];
+      a_o_0_sv2v_reg <= a_i[0];
+      b_o_31_sv2v_reg <= b_i[31];
+      b_o_30_sv2v_reg <= b_i[30];
+      b_o_29_sv2v_reg <= b_i[29];
+      b_o_28_sv2v_reg <= b_i[28];
+      b_o_27_sv2v_reg <= b_i[27];
+      b_o_26_sv2v_reg <= b_i[26];
+      b_o_25_sv2v_reg <= b_i[25];
+      b_o_24_sv2v_reg <= b_i[24];
+      b_o_23_sv2v_reg <= b_i[23];
+      b_o_22_sv2v_reg <= b_i[22];
+      b_o_21_sv2v_reg <= b_i[21];
+      b_o_20_sv2v_reg <= b_i[20];
+      b_o_19_sv2v_reg <= b_i[19];
+      b_o_18_sv2v_reg <= b_i[18];
+      b_o_17_sv2v_reg <= b_i[17];
+      b_o_16_sv2v_reg <= b_i[16];
+      b_o_15_sv2v_reg <= b_i[15];
+      b_o_14_sv2v_reg <= b_i[14];
+      b_o_13_sv2v_reg <= b_i[13];
+      b_o_12_sv2v_reg <= b_i[12];
+      b_o_11_sv2v_reg <= b_i[11];
+      b_o_10_sv2v_reg <= b_i[10];
+      b_o_9_sv2v_reg <= b_i[9];
+      b_o_8_sv2v_reg <= b_i[8];
+      b_o_7_sv2v_reg <= b_i[7];
+      b_o_6_sv2v_reg <= b_i[6];
+      b_o_5_sv2v_reg <= b_i[5];
+      b_o_4_sv2v_reg <= b_i[4];
+      b_o_3_sv2v_reg <= b_i[3];
+      b_o_2_sv2v_reg <= b_i[2];
+      b_o_1_sv2v_reg <= b_i[1];
+      b_o_0_sv2v_reg <= b_i[0];
+      s_o_31_sv2v_reg <= ps[31];
+      s_o_30_sv2v_reg <= ps[30];
+      s_o_29_sv2v_reg <= ps[29];
+      s_o_28_sv2v_reg <= ps[28];
+      s_o_27_sv2v_reg <= ps[27];
+      s_o_26_sv2v_reg <= ps[26];
+      s_o_25_sv2v_reg <= ps[25];
+      s_o_24_sv2v_reg <= ps[24];
+      s_o_23_sv2v_reg <= ps[23];
+      s_o_22_sv2v_reg <= ps[22];
+      s_o_21_sv2v_reg <= ps[21];
+      s_o_20_sv2v_reg <= ps[20];
+      s_o_19_sv2v_reg <= ps[19];
+      s_o_18_sv2v_reg <= ps[18];
+      s_o_17_sv2v_reg <= ps[17];
+      s_o_16_sv2v_reg <= ps[16];
+      s_o_15_sv2v_reg <= ps[15];
+      s_o_14_sv2v_reg <= ps[14];
+      s_o_13_sv2v_reg <= ps[13];
+      s_o_12_sv2v_reg <= ps[12];
+      s_o_11_sv2v_reg <= ps[11];
+      s_o_10_sv2v_reg <= ps[10];
+      s_o_9_sv2v_reg <= ps[9];
+      s_o_8_sv2v_reg <= ps[8];
+      s_o_7_sv2v_reg <= ps[7];
+      s_o_6_sv2v_reg <= ps[6];
+      s_o_5_sv2v_reg <= ps[5];
+      s_o_4_sv2v_reg <= ps[4];
+      s_o_3_sv2v_reg <= ps[3];
+      s_o_2_sv2v_reg <= ps[2];
+      s_o_1_sv2v_reg <= ps[1];
+      s_o_0_sv2v_reg <= ps[0];
+      c_o_sv2v_reg <= pc;
     end 
   end
 
@@ -1111,7 +1457,8 @@ module bsg_mul_array_row_32_8_0
   output c_o;
   wire [31:0] a_o,b_o,s_o,pp;
   wire [9:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_8_,prod_accum_o_7_,prod_accum_o_6_,prod_accum_o_5_,
+  prod_accum_o_4_,prod_accum_o_3_,prod_accum_o_2_,prod_accum_o_1_,prod_accum_o_0_;
   assign a_o[31] = a_i[31];
   assign a_o[30] = a_i[30];
   assign a_o[29] = a_i[29];
@@ -1176,22 +1523,32 @@ module bsg_mul_array_row_32_8_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[9] = s_o[0];
-  assign prod_accum_o[8] = prod_accum_i[8];
-  assign prod_accum_o[7] = prod_accum_i[7];
-  assign prod_accum_o[6] = prod_accum_i[6];
-  assign prod_accum_o[5] = prod_accum_i[5];
-  assign prod_accum_o[4] = prod_accum_i[4];
-  assign prod_accum_o[3] = prod_accum_i[3];
-  assign prod_accum_o[2] = prod_accum_i[2];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[9] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_8_ = prod_accum_i[8];
+  assign prod_accum_o[8] = prod_accum_o_8_;
+  assign prod_accum_o_7_ = prod_accum_i[7];
+  assign prod_accum_o[7] = prod_accum_o_7_;
+  assign prod_accum_o_6_ = prod_accum_i[6];
+  assign prod_accum_o[6] = prod_accum_o_6_;
+  assign prod_accum_o_5_ = prod_accum_i[5];
+  assign prod_accum_o[5] = prod_accum_o_5_;
+  assign prod_accum_o_4_ = prod_accum_i[4];
+  assign prod_accum_o[4] = prod_accum_o_4_;
+  assign prod_accum_o_3_ = prod_accum_i[3];
+  assign prod_accum_o[3] = prod_accum_o_3_;
+  assign prod_accum_o_2_ = prod_accum_i[2];
+  assign prod_accum_o[2] = prod_accum_o_2_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p32
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9] }),
+    .b_i({ b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9] }),
     .o(pp)
   );
 
@@ -1201,7 +1558,7 @@ module bsg_mul_array_row_32_8_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[31:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[31:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -1242,7 +1599,9 @@ module bsg_mul_array_row_32_9_0
   output c_o;
   wire [31:0] a_o,b_o,s_o,pp;
   wire [10:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_9_,prod_accum_o_8_,prod_accum_o_7_,prod_accum_o_6_,
+  prod_accum_o_5_,prod_accum_o_4_,prod_accum_o_3_,prod_accum_o_2_,prod_accum_o_1_,
+  prod_accum_o_0_;
   assign a_o[31] = a_i[31];
   assign a_o[30] = a_i[30];
   assign a_o[29] = a_i[29];
@@ -1307,23 +1666,34 @@ module bsg_mul_array_row_32_9_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[10] = s_o[0];
-  assign prod_accum_o[9] = prod_accum_i[9];
-  assign prod_accum_o[8] = prod_accum_i[8];
-  assign prod_accum_o[7] = prod_accum_i[7];
-  assign prod_accum_o[6] = prod_accum_i[6];
-  assign prod_accum_o[5] = prod_accum_i[5];
-  assign prod_accum_o[4] = prod_accum_i[4];
-  assign prod_accum_o[3] = prod_accum_i[3];
-  assign prod_accum_o[2] = prod_accum_i[2];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[10] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_9_ = prod_accum_i[9];
+  assign prod_accum_o[9] = prod_accum_o_9_;
+  assign prod_accum_o_8_ = prod_accum_i[8];
+  assign prod_accum_o[8] = prod_accum_o_8_;
+  assign prod_accum_o_7_ = prod_accum_i[7];
+  assign prod_accum_o[7] = prod_accum_o_7_;
+  assign prod_accum_o_6_ = prod_accum_i[6];
+  assign prod_accum_o[6] = prod_accum_o_6_;
+  assign prod_accum_o_5_ = prod_accum_i[5];
+  assign prod_accum_o[5] = prod_accum_o_5_;
+  assign prod_accum_o_4_ = prod_accum_i[4];
+  assign prod_accum_o[4] = prod_accum_o_4_;
+  assign prod_accum_o_3_ = prod_accum_i[3];
+  assign prod_accum_o[3] = prod_accum_o_3_;
+  assign prod_accum_o_2_ = prod_accum_i[2];
+  assign prod_accum_o[2] = prod_accum_o_2_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p32
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10] }),
+    .b_i({ b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10] }),
     .o(pp)
   );
 
@@ -1333,7 +1703,7 @@ module bsg_mul_array_row_32_9_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[31:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[31:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -1374,7 +1744,9 @@ module bsg_mul_array_row_32_10_0
   output c_o;
   wire [31:0] a_o,b_o,s_o,pp;
   wire [11:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_10_,prod_accum_o_9_,prod_accum_o_8_,prod_accum_o_7_,
+  prod_accum_o_6_,prod_accum_o_5_,prod_accum_o_4_,prod_accum_o_3_,prod_accum_o_2_,
+  prod_accum_o_1_,prod_accum_o_0_;
   assign a_o[31] = a_i[31];
   assign a_o[30] = a_i[30];
   assign a_o[29] = a_i[29];
@@ -1439,24 +1811,36 @@ module bsg_mul_array_row_32_10_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[11] = s_o[0];
-  assign prod_accum_o[10] = prod_accum_i[10];
-  assign prod_accum_o[9] = prod_accum_i[9];
-  assign prod_accum_o[8] = prod_accum_i[8];
-  assign prod_accum_o[7] = prod_accum_i[7];
-  assign prod_accum_o[6] = prod_accum_i[6];
-  assign prod_accum_o[5] = prod_accum_i[5];
-  assign prod_accum_o[4] = prod_accum_i[4];
-  assign prod_accum_o[3] = prod_accum_i[3];
-  assign prod_accum_o[2] = prod_accum_i[2];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[11] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_10_ = prod_accum_i[10];
+  assign prod_accum_o[10] = prod_accum_o_10_;
+  assign prod_accum_o_9_ = prod_accum_i[9];
+  assign prod_accum_o[9] = prod_accum_o_9_;
+  assign prod_accum_o_8_ = prod_accum_i[8];
+  assign prod_accum_o[8] = prod_accum_o_8_;
+  assign prod_accum_o_7_ = prod_accum_i[7];
+  assign prod_accum_o[7] = prod_accum_o_7_;
+  assign prod_accum_o_6_ = prod_accum_i[6];
+  assign prod_accum_o[6] = prod_accum_o_6_;
+  assign prod_accum_o_5_ = prod_accum_i[5];
+  assign prod_accum_o[5] = prod_accum_o_5_;
+  assign prod_accum_o_4_ = prod_accum_i[4];
+  assign prod_accum_o[4] = prod_accum_o_4_;
+  assign prod_accum_o_3_ = prod_accum_i[3];
+  assign prod_accum_o[3] = prod_accum_o_3_;
+  assign prod_accum_o_2_ = prod_accum_i[2];
+  assign prod_accum_o[2] = prod_accum_o_2_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p32
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11] }),
+    .b_i({ b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11] }),
     .o(pp)
   );
 
@@ -1466,7 +1850,7 @@ module bsg_mul_array_row_32_10_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[31:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[31:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -1507,7 +1891,9 @@ module bsg_mul_array_row_32_11_0
   output c_o;
   wire [31:0] a_o,b_o,s_o,pp;
   wire [12:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_11_,prod_accum_o_10_,prod_accum_o_9_,prod_accum_o_8_,
+  prod_accum_o_7_,prod_accum_o_6_,prod_accum_o_5_,prod_accum_o_4_,prod_accum_o_3_,
+  prod_accum_o_2_,prod_accum_o_1_,prod_accum_o_0_;
   assign a_o[31] = a_i[31];
   assign a_o[30] = a_i[30];
   assign a_o[29] = a_i[29];
@@ -1572,25 +1958,38 @@ module bsg_mul_array_row_32_11_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[12] = s_o[0];
-  assign prod_accum_o[11] = prod_accum_i[11];
-  assign prod_accum_o[10] = prod_accum_i[10];
-  assign prod_accum_o[9] = prod_accum_i[9];
-  assign prod_accum_o[8] = prod_accum_i[8];
-  assign prod_accum_o[7] = prod_accum_i[7];
-  assign prod_accum_o[6] = prod_accum_i[6];
-  assign prod_accum_o[5] = prod_accum_i[5];
-  assign prod_accum_o[4] = prod_accum_i[4];
-  assign prod_accum_o[3] = prod_accum_i[3];
-  assign prod_accum_o[2] = prod_accum_i[2];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[12] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_11_ = prod_accum_i[11];
+  assign prod_accum_o[11] = prod_accum_o_11_;
+  assign prod_accum_o_10_ = prod_accum_i[10];
+  assign prod_accum_o[10] = prod_accum_o_10_;
+  assign prod_accum_o_9_ = prod_accum_i[9];
+  assign prod_accum_o[9] = prod_accum_o_9_;
+  assign prod_accum_o_8_ = prod_accum_i[8];
+  assign prod_accum_o[8] = prod_accum_o_8_;
+  assign prod_accum_o_7_ = prod_accum_i[7];
+  assign prod_accum_o[7] = prod_accum_o_7_;
+  assign prod_accum_o_6_ = prod_accum_i[6];
+  assign prod_accum_o[6] = prod_accum_o_6_;
+  assign prod_accum_o_5_ = prod_accum_i[5];
+  assign prod_accum_o[5] = prod_accum_o_5_;
+  assign prod_accum_o_4_ = prod_accum_i[4];
+  assign prod_accum_o[4] = prod_accum_o_4_;
+  assign prod_accum_o_3_ = prod_accum_i[3];
+  assign prod_accum_o[3] = prod_accum_o_3_;
+  assign prod_accum_o_2_ = prod_accum_i[2];
+  assign prod_accum_o[2] = prod_accum_o_2_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p32
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[12:12], b_i[12:12], b_i[12:12], b_i[12:12], b_i[12:12], b_i[12:12], b_i[12:12], b_i[12:12], b_i[12:12], b_i[12:12], b_i[12:12], b_i[12:12], b_i[12:12], b_i[12:12], b_i[12:12], b_i[12:12], b_i[12:12], b_i[12:12], b_i[12:12], b_i[12:12], b_i[12:12], b_i[12:12], b_i[12:12], b_i[12:12], b_i[12:12], b_i[12:12], b_i[12:12], b_i[12:12], b_i[12:12], b_i[12:12], b_i[12:12], b_i[12:12] }),
+    .b_i({ b_o[12:12], b_o[12:12], b_o[12:12], b_o[12:12], b_o[12:12], b_o[12:12], b_o[12:12], b_o[12:12], b_o[12:12], b_o[12:12], b_o[12:12], b_o[12:12], b_o[12:12], b_o[12:12], b_o[12:12], b_o[12:12], b_o[12:12], b_o[12:12], b_o[12:12], b_o[12:12], b_o[12:12], b_o[12:12], b_o[12:12], b_o[12:12], b_o[12:12], b_o[12:12], b_o[12:12], b_o[12:12], b_o[12:12], b_o[12:12], b_o[12:12], b_o[12:12] }),
     .o(pp)
   );
 
@@ -1600,7 +1999,7 @@ module bsg_mul_array_row_32_11_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[31:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[31:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -1641,7 +2040,9 @@ module bsg_mul_array_row_32_12_0
   output c_o;
   wire [31:0] a_o,b_o,s_o,pp;
   wire [13:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_12_,prod_accum_o_11_,prod_accum_o_10_,prod_accum_o_9_,
+  prod_accum_o_8_,prod_accum_o_7_,prod_accum_o_6_,prod_accum_o_5_,prod_accum_o_4_,
+  prod_accum_o_3_,prod_accum_o_2_,prod_accum_o_1_,prod_accum_o_0_;
   assign a_o[31] = a_i[31];
   assign a_o[30] = a_i[30];
   assign a_o[29] = a_i[29];
@@ -1706,26 +2107,40 @@ module bsg_mul_array_row_32_12_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[13] = s_o[0];
-  assign prod_accum_o[12] = prod_accum_i[12];
-  assign prod_accum_o[11] = prod_accum_i[11];
-  assign prod_accum_o[10] = prod_accum_i[10];
-  assign prod_accum_o[9] = prod_accum_i[9];
-  assign prod_accum_o[8] = prod_accum_i[8];
-  assign prod_accum_o[7] = prod_accum_i[7];
-  assign prod_accum_o[6] = prod_accum_i[6];
-  assign prod_accum_o[5] = prod_accum_i[5];
-  assign prod_accum_o[4] = prod_accum_i[4];
-  assign prod_accum_o[3] = prod_accum_i[3];
-  assign prod_accum_o[2] = prod_accum_i[2];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[13] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_12_ = prod_accum_i[12];
+  assign prod_accum_o[12] = prod_accum_o_12_;
+  assign prod_accum_o_11_ = prod_accum_i[11];
+  assign prod_accum_o[11] = prod_accum_o_11_;
+  assign prod_accum_o_10_ = prod_accum_i[10];
+  assign prod_accum_o[10] = prod_accum_o_10_;
+  assign prod_accum_o_9_ = prod_accum_i[9];
+  assign prod_accum_o[9] = prod_accum_o_9_;
+  assign prod_accum_o_8_ = prod_accum_i[8];
+  assign prod_accum_o[8] = prod_accum_o_8_;
+  assign prod_accum_o_7_ = prod_accum_i[7];
+  assign prod_accum_o[7] = prod_accum_o_7_;
+  assign prod_accum_o_6_ = prod_accum_i[6];
+  assign prod_accum_o[6] = prod_accum_o_6_;
+  assign prod_accum_o_5_ = prod_accum_i[5];
+  assign prod_accum_o[5] = prod_accum_o_5_;
+  assign prod_accum_o_4_ = prod_accum_i[4];
+  assign prod_accum_o[4] = prod_accum_o_4_;
+  assign prod_accum_o_3_ = prod_accum_i[3];
+  assign prod_accum_o[3] = prod_accum_o_3_;
+  assign prod_accum_o_2_ = prod_accum_i[2];
+  assign prod_accum_o[2] = prod_accum_o_2_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p32
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13] }),
+    .b_i({ b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13] }),
     .o(pp)
   );
 
@@ -1735,7 +2150,7 @@ module bsg_mul_array_row_32_12_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[31:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[31:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -1776,7 +2191,9 @@ module bsg_mul_array_row_32_13_0
   output c_o;
   wire [31:0] a_o,b_o,s_o,pp;
   wire [14:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_13_,prod_accum_o_12_,prod_accum_o_11_,prod_accum_o_10_,
+  prod_accum_o_9_,prod_accum_o_8_,prod_accum_o_7_,prod_accum_o_6_,prod_accum_o_5_,
+  prod_accum_o_4_,prod_accum_o_3_,prod_accum_o_2_,prod_accum_o_1_,prod_accum_o_0_;
   assign a_o[31] = a_i[31];
   assign a_o[30] = a_i[30];
   assign a_o[29] = a_i[29];
@@ -1841,27 +2258,42 @@ module bsg_mul_array_row_32_13_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[14] = s_o[0];
-  assign prod_accum_o[13] = prod_accum_i[13];
-  assign prod_accum_o[12] = prod_accum_i[12];
-  assign prod_accum_o[11] = prod_accum_i[11];
-  assign prod_accum_o[10] = prod_accum_i[10];
-  assign prod_accum_o[9] = prod_accum_i[9];
-  assign prod_accum_o[8] = prod_accum_i[8];
-  assign prod_accum_o[7] = prod_accum_i[7];
-  assign prod_accum_o[6] = prod_accum_i[6];
-  assign prod_accum_o[5] = prod_accum_i[5];
-  assign prod_accum_o[4] = prod_accum_i[4];
-  assign prod_accum_o[3] = prod_accum_i[3];
-  assign prod_accum_o[2] = prod_accum_i[2];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[14] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_13_ = prod_accum_i[13];
+  assign prod_accum_o[13] = prod_accum_o_13_;
+  assign prod_accum_o_12_ = prod_accum_i[12];
+  assign prod_accum_o[12] = prod_accum_o_12_;
+  assign prod_accum_o_11_ = prod_accum_i[11];
+  assign prod_accum_o[11] = prod_accum_o_11_;
+  assign prod_accum_o_10_ = prod_accum_i[10];
+  assign prod_accum_o[10] = prod_accum_o_10_;
+  assign prod_accum_o_9_ = prod_accum_i[9];
+  assign prod_accum_o[9] = prod_accum_o_9_;
+  assign prod_accum_o_8_ = prod_accum_i[8];
+  assign prod_accum_o[8] = prod_accum_o_8_;
+  assign prod_accum_o_7_ = prod_accum_i[7];
+  assign prod_accum_o[7] = prod_accum_o_7_;
+  assign prod_accum_o_6_ = prod_accum_i[6];
+  assign prod_accum_o[6] = prod_accum_o_6_;
+  assign prod_accum_o_5_ = prod_accum_i[5];
+  assign prod_accum_o[5] = prod_accum_o_5_;
+  assign prod_accum_o_4_ = prod_accum_i[4];
+  assign prod_accum_o[4] = prod_accum_o_4_;
+  assign prod_accum_o_3_ = prod_accum_i[3];
+  assign prod_accum_o[3] = prod_accum_o_3_;
+  assign prod_accum_o_2_ = prod_accum_i[2];
+  assign prod_accum_o[2] = prod_accum_o_2_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p32
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14] }),
+    .b_i({ b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14] }),
     .o(pp)
   );
 
@@ -1871,7 +2303,7 @@ module bsg_mul_array_row_32_13_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[31:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[31:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -1912,7 +2344,10 @@ module bsg_mul_array_row_32_14_0
   output c_o;
   wire [31:0] a_o,b_o,s_o,pp;
   wire [15:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_14_,prod_accum_o_13_,prod_accum_o_12_,prod_accum_o_11_,
+  prod_accum_o_10_,prod_accum_o_9_,prod_accum_o_8_,prod_accum_o_7_,prod_accum_o_6_,
+  prod_accum_o_5_,prod_accum_o_4_,prod_accum_o_3_,prod_accum_o_2_,prod_accum_o_1_,
+  prod_accum_o_0_;
   assign a_o[31] = a_i[31];
   assign a_o[30] = a_i[30];
   assign a_o[29] = a_i[29];
@@ -1977,28 +2412,44 @@ module bsg_mul_array_row_32_14_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[15] = s_o[0];
-  assign prod_accum_o[14] = prod_accum_i[14];
-  assign prod_accum_o[13] = prod_accum_i[13];
-  assign prod_accum_o[12] = prod_accum_i[12];
-  assign prod_accum_o[11] = prod_accum_i[11];
-  assign prod_accum_o[10] = prod_accum_i[10];
-  assign prod_accum_o[9] = prod_accum_i[9];
-  assign prod_accum_o[8] = prod_accum_i[8];
-  assign prod_accum_o[7] = prod_accum_i[7];
-  assign prod_accum_o[6] = prod_accum_i[6];
-  assign prod_accum_o[5] = prod_accum_i[5];
-  assign prod_accum_o[4] = prod_accum_i[4];
-  assign prod_accum_o[3] = prod_accum_i[3];
-  assign prod_accum_o[2] = prod_accum_i[2];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[15] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_14_ = prod_accum_i[14];
+  assign prod_accum_o[14] = prod_accum_o_14_;
+  assign prod_accum_o_13_ = prod_accum_i[13];
+  assign prod_accum_o[13] = prod_accum_o_13_;
+  assign prod_accum_o_12_ = prod_accum_i[12];
+  assign prod_accum_o[12] = prod_accum_o_12_;
+  assign prod_accum_o_11_ = prod_accum_i[11];
+  assign prod_accum_o[11] = prod_accum_o_11_;
+  assign prod_accum_o_10_ = prod_accum_i[10];
+  assign prod_accum_o[10] = prod_accum_o_10_;
+  assign prod_accum_o_9_ = prod_accum_i[9];
+  assign prod_accum_o[9] = prod_accum_o_9_;
+  assign prod_accum_o_8_ = prod_accum_i[8];
+  assign prod_accum_o[8] = prod_accum_o_8_;
+  assign prod_accum_o_7_ = prod_accum_i[7];
+  assign prod_accum_o[7] = prod_accum_o_7_;
+  assign prod_accum_o_6_ = prod_accum_i[6];
+  assign prod_accum_o[6] = prod_accum_o_6_;
+  assign prod_accum_o_5_ = prod_accum_i[5];
+  assign prod_accum_o[5] = prod_accum_o_5_;
+  assign prod_accum_o_4_ = prod_accum_i[4];
+  assign prod_accum_o[4] = prod_accum_o_4_;
+  assign prod_accum_o_3_ = prod_accum_i[3];
+  assign prod_accum_o[3] = prod_accum_o_3_;
+  assign prod_accum_o_2_ = prod_accum_i[2];
+  assign prod_accum_o[2] = prod_accum_o_2_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p32
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15] }),
+    .b_i({ b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15] }),
     .o(pp)
   );
 
@@ -2008,7 +2459,7 @@ module bsg_mul_array_row_32_14_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[31:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[31:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -2047,17 +2498,148 @@ module bsg_mul_array_row_32_15_1
   input v_i;
   input c_i;
   output c_o;
-  wire N0,N1,pc,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11,N12,N13,N14,N15,N16,N17,N18,N19,N20,
-  N21,N22,N23,N24,N25,N26,N27,N28,N29,N30,N31,N32,N33,N34,N35,N36,N37,N38,N39,N40,
-  N41,N42,N43,N44,N45,N46,N47,N48,N49,N50,N51,N52,N53,N54,N55,N56,N57,N58,N59,N60,
-  N61,N62,N63,N64,N65,N66,N67,N68,N69,N70,N71,N72,N73,N74,N75,N76,N77,N78,N79,N80,
-  N81,N82,N83,N84,N85,N86,N87,N88,N89,N90,N91,N92,N93,N94,N95,N96,N97,N98,N99,N100,
-  N101,N102,N103,N104,N105,N106,N107,N108,N109,N110,N111,N112,N113,N114,N115,N116,
-  N117,N118,N119,N120,N121;
-  wire [31:0] pp,ps;
-  reg [16:0] prod_accum_o;
-  reg [31:0] a_o,b_o,s_o;
-  reg c_o;
+  wire [31:0] a_o,b_o,s_o,pp,ps;
+  wire [16:0] prod_accum_o;
+  wire c_o,pc;
+  reg prod_accum_o_16_sv2v_reg,prod_accum_o_15_sv2v_reg,prod_accum_o_14_sv2v_reg,
+  prod_accum_o_13_sv2v_reg,prod_accum_o_12_sv2v_reg,prod_accum_o_11_sv2v_reg,
+  prod_accum_o_10_sv2v_reg,prod_accum_o_9_sv2v_reg,prod_accum_o_8_sv2v_reg,
+  prod_accum_o_7_sv2v_reg,prod_accum_o_6_sv2v_reg,prod_accum_o_5_sv2v_reg,prod_accum_o_4_sv2v_reg,
+  prod_accum_o_3_sv2v_reg,prod_accum_o_2_sv2v_reg,prod_accum_o_1_sv2v_reg,
+  prod_accum_o_0_sv2v_reg,a_o_31_sv2v_reg,a_o_30_sv2v_reg,a_o_29_sv2v_reg,a_o_28_sv2v_reg,
+  a_o_27_sv2v_reg,a_o_26_sv2v_reg,a_o_25_sv2v_reg,a_o_24_sv2v_reg,a_o_23_sv2v_reg,
+  a_o_22_sv2v_reg,a_o_21_sv2v_reg,a_o_20_sv2v_reg,a_o_19_sv2v_reg,a_o_18_sv2v_reg,
+  a_o_17_sv2v_reg,a_o_16_sv2v_reg,a_o_15_sv2v_reg,a_o_14_sv2v_reg,a_o_13_sv2v_reg,
+  a_o_12_sv2v_reg,a_o_11_sv2v_reg,a_o_10_sv2v_reg,a_o_9_sv2v_reg,a_o_8_sv2v_reg,
+  a_o_7_sv2v_reg,a_o_6_sv2v_reg,a_o_5_sv2v_reg,a_o_4_sv2v_reg,a_o_3_sv2v_reg,
+  a_o_2_sv2v_reg,a_o_1_sv2v_reg,a_o_0_sv2v_reg,b_o_31_sv2v_reg,b_o_30_sv2v_reg,
+  b_o_29_sv2v_reg,b_o_28_sv2v_reg,b_o_27_sv2v_reg,b_o_26_sv2v_reg,b_o_25_sv2v_reg,
+  b_o_24_sv2v_reg,b_o_23_sv2v_reg,b_o_22_sv2v_reg,b_o_21_sv2v_reg,b_o_20_sv2v_reg,
+  b_o_19_sv2v_reg,b_o_18_sv2v_reg,b_o_17_sv2v_reg,b_o_16_sv2v_reg,b_o_15_sv2v_reg,
+  b_o_14_sv2v_reg,b_o_13_sv2v_reg,b_o_12_sv2v_reg,b_o_11_sv2v_reg,b_o_10_sv2v_reg,
+  b_o_9_sv2v_reg,b_o_8_sv2v_reg,b_o_7_sv2v_reg,b_o_6_sv2v_reg,b_o_5_sv2v_reg,b_o_4_sv2v_reg,
+  b_o_3_sv2v_reg,b_o_2_sv2v_reg,b_o_1_sv2v_reg,b_o_0_sv2v_reg,s_o_31_sv2v_reg,
+  s_o_30_sv2v_reg,s_o_29_sv2v_reg,s_o_28_sv2v_reg,s_o_27_sv2v_reg,s_o_26_sv2v_reg,
+  s_o_25_sv2v_reg,s_o_24_sv2v_reg,s_o_23_sv2v_reg,s_o_22_sv2v_reg,s_o_21_sv2v_reg,
+  s_o_20_sv2v_reg,s_o_19_sv2v_reg,s_o_18_sv2v_reg,s_o_17_sv2v_reg,s_o_16_sv2v_reg,
+  s_o_15_sv2v_reg,s_o_14_sv2v_reg,s_o_13_sv2v_reg,s_o_12_sv2v_reg,s_o_11_sv2v_reg,
+  s_o_10_sv2v_reg,s_o_9_sv2v_reg,s_o_8_sv2v_reg,s_o_7_sv2v_reg,s_o_6_sv2v_reg,
+  s_o_5_sv2v_reg,s_o_4_sv2v_reg,s_o_3_sv2v_reg,s_o_2_sv2v_reg,s_o_1_sv2v_reg,
+  s_o_0_sv2v_reg,c_o_sv2v_reg;
+  assign prod_accum_o[16] = prod_accum_o_16_sv2v_reg;
+  assign prod_accum_o[15] = prod_accum_o_15_sv2v_reg;
+  assign prod_accum_o[14] = prod_accum_o_14_sv2v_reg;
+  assign prod_accum_o[13] = prod_accum_o_13_sv2v_reg;
+  assign prod_accum_o[12] = prod_accum_o_12_sv2v_reg;
+  assign prod_accum_o[11] = prod_accum_o_11_sv2v_reg;
+  assign prod_accum_o[10] = prod_accum_o_10_sv2v_reg;
+  assign prod_accum_o[9] = prod_accum_o_9_sv2v_reg;
+  assign prod_accum_o[8] = prod_accum_o_8_sv2v_reg;
+  assign prod_accum_o[7] = prod_accum_o_7_sv2v_reg;
+  assign prod_accum_o[6] = prod_accum_o_6_sv2v_reg;
+  assign prod_accum_o[5] = prod_accum_o_5_sv2v_reg;
+  assign prod_accum_o[4] = prod_accum_o_4_sv2v_reg;
+  assign prod_accum_o[3] = prod_accum_o_3_sv2v_reg;
+  assign prod_accum_o[2] = prod_accum_o_2_sv2v_reg;
+  assign prod_accum_o[1] = prod_accum_o_1_sv2v_reg;
+  assign prod_accum_o[0] = prod_accum_o_0_sv2v_reg;
+  assign a_o[31] = a_o_31_sv2v_reg;
+  assign a_o[30] = a_o_30_sv2v_reg;
+  assign a_o[29] = a_o_29_sv2v_reg;
+  assign a_o[28] = a_o_28_sv2v_reg;
+  assign a_o[27] = a_o_27_sv2v_reg;
+  assign a_o[26] = a_o_26_sv2v_reg;
+  assign a_o[25] = a_o_25_sv2v_reg;
+  assign a_o[24] = a_o_24_sv2v_reg;
+  assign a_o[23] = a_o_23_sv2v_reg;
+  assign a_o[22] = a_o_22_sv2v_reg;
+  assign a_o[21] = a_o_21_sv2v_reg;
+  assign a_o[20] = a_o_20_sv2v_reg;
+  assign a_o[19] = a_o_19_sv2v_reg;
+  assign a_o[18] = a_o_18_sv2v_reg;
+  assign a_o[17] = a_o_17_sv2v_reg;
+  assign a_o[16] = a_o_16_sv2v_reg;
+  assign a_o[15] = a_o_15_sv2v_reg;
+  assign a_o[14] = a_o_14_sv2v_reg;
+  assign a_o[13] = a_o_13_sv2v_reg;
+  assign a_o[12] = a_o_12_sv2v_reg;
+  assign a_o[11] = a_o_11_sv2v_reg;
+  assign a_o[10] = a_o_10_sv2v_reg;
+  assign a_o[9] = a_o_9_sv2v_reg;
+  assign a_o[8] = a_o_8_sv2v_reg;
+  assign a_o[7] = a_o_7_sv2v_reg;
+  assign a_o[6] = a_o_6_sv2v_reg;
+  assign a_o[5] = a_o_5_sv2v_reg;
+  assign a_o[4] = a_o_4_sv2v_reg;
+  assign a_o[3] = a_o_3_sv2v_reg;
+  assign a_o[2] = a_o_2_sv2v_reg;
+  assign a_o[1] = a_o_1_sv2v_reg;
+  assign a_o[0] = a_o_0_sv2v_reg;
+  assign b_o[31] = b_o_31_sv2v_reg;
+  assign b_o[30] = b_o_30_sv2v_reg;
+  assign b_o[29] = b_o_29_sv2v_reg;
+  assign b_o[28] = b_o_28_sv2v_reg;
+  assign b_o[27] = b_o_27_sv2v_reg;
+  assign b_o[26] = b_o_26_sv2v_reg;
+  assign b_o[25] = b_o_25_sv2v_reg;
+  assign b_o[24] = b_o_24_sv2v_reg;
+  assign b_o[23] = b_o_23_sv2v_reg;
+  assign b_o[22] = b_o_22_sv2v_reg;
+  assign b_o[21] = b_o_21_sv2v_reg;
+  assign b_o[20] = b_o_20_sv2v_reg;
+  assign b_o[19] = b_o_19_sv2v_reg;
+  assign b_o[18] = b_o_18_sv2v_reg;
+  assign b_o[17] = b_o_17_sv2v_reg;
+  assign b_o[16] = b_o_16_sv2v_reg;
+  assign b_o[15] = b_o_15_sv2v_reg;
+  assign b_o[14] = b_o_14_sv2v_reg;
+  assign b_o[13] = b_o_13_sv2v_reg;
+  assign b_o[12] = b_o_12_sv2v_reg;
+  assign b_o[11] = b_o_11_sv2v_reg;
+  assign b_o[10] = b_o_10_sv2v_reg;
+  assign b_o[9] = b_o_9_sv2v_reg;
+  assign b_o[8] = b_o_8_sv2v_reg;
+  assign b_o[7] = b_o_7_sv2v_reg;
+  assign b_o[6] = b_o_6_sv2v_reg;
+  assign b_o[5] = b_o_5_sv2v_reg;
+  assign b_o[4] = b_o_4_sv2v_reg;
+  assign b_o[3] = b_o_3_sv2v_reg;
+  assign b_o[2] = b_o_2_sv2v_reg;
+  assign b_o[1] = b_o_1_sv2v_reg;
+  assign b_o[0] = b_o_0_sv2v_reg;
+  assign s_o[31] = s_o_31_sv2v_reg;
+  assign s_o[30] = s_o_30_sv2v_reg;
+  assign s_o[29] = s_o_29_sv2v_reg;
+  assign s_o[28] = s_o_28_sv2v_reg;
+  assign s_o[27] = s_o_27_sv2v_reg;
+  assign s_o[26] = s_o_26_sv2v_reg;
+  assign s_o[25] = s_o_25_sv2v_reg;
+  assign s_o[24] = s_o_24_sv2v_reg;
+  assign s_o[23] = s_o_23_sv2v_reg;
+  assign s_o[22] = s_o_22_sv2v_reg;
+  assign s_o[21] = s_o_21_sv2v_reg;
+  assign s_o[20] = s_o_20_sv2v_reg;
+  assign s_o[19] = s_o_19_sv2v_reg;
+  assign s_o[18] = s_o_18_sv2v_reg;
+  assign s_o[17] = s_o_17_sv2v_reg;
+  assign s_o[16] = s_o_16_sv2v_reg;
+  assign s_o[15] = s_o_15_sv2v_reg;
+  assign s_o[14] = s_o_14_sv2v_reg;
+  assign s_o[13] = s_o_13_sv2v_reg;
+  assign s_o[12] = s_o_12_sv2v_reg;
+  assign s_o[11] = s_o_11_sv2v_reg;
+  assign s_o[10] = s_o_10_sv2v_reg;
+  assign s_o[9] = s_o_9_sv2v_reg;
+  assign s_o[8] = s_o_8_sv2v_reg;
+  assign s_o[7] = s_o_7_sv2v_reg;
+  assign s_o[6] = s_o_6_sv2v_reg;
+  assign s_o[5] = s_o_5_sv2v_reg;
+  assign s_o[4] = s_o_4_sv2v_reg;
+  assign s_o[3] = s_o_3_sv2v_reg;
+  assign s_o[2] = s_o_2_sv2v_reg;
+  assign s_o[1] = s_o_1_sv2v_reg;
+  assign s_o[0] = s_o_0_sv2v_reg;
+  assign c_o = c_o_sv2v_reg;
 
   bsg_and_width_p32
   and0
@@ -2077,35 +2659,238 @@ module bsg_mul_array_row_32_15_1
     .c_o(pc)
   );
 
-  assign { N34, N33, N32, N31, N30, N29, N28, N27, N26, N25, N24, N23, N22, N21, N20, N19, N18, N17, N16, N15, N14, N13, N12, N11, N10, N9, N8, N7, N6, N5, N4, N3 } = (N0)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 } : 
-                                                                                                                                                                       (N1)? a_i : 1'b0;
-  assign N0 = rst_i;
-  assign N1 = N2;
-  assign { N66, N65, N64, N63, N62, N61, N60, N59, N58, N57, N56, N55, N54, N53, N52, N51, N50, N49, N48, N47, N46, N45, N44, N43, N42, N41, N40, N39, N38, N37, N36, N35 } = (N0)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 } : 
-                                                                                                                                                                              (N1)? b_i : 1'b0;
-  assign { N98, N97, N96, N95, N94, N93, N92, N91, N90, N89, N88, N87, N86, N85, N84, N83, N82, N81, N80, N79, N78, N77, N76, N75, N74, N73, N72, N71, N70, N69, N68, N67 } = (N0)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 } : 
-                                                                                                                                                                              (N1)? ps : 1'b0;
-  assign N99 = (N0)? 1'b0 : 
-               (N1)? pc : 1'b0;
-  assign { N116, N115, N114, N113, N112, N111, N110, N109, N108, N107, N106, N105, N104, N103, N102, N101, N100 } = (N0)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 } : 
-                                                                                                                    (N1)? { ps[0:0], prod_accum_i } : 1'b0;
-  assign N2 = ~rst_i;
-  assign N117 = ~v_i;
-  assign N118 = N117 & N2;
-  assign N119 = ~N118;
-  assign N120 = N117 & N2;
-  assign N121 = ~N120;
 
   always @(posedge clk_i) begin
-    if(N119) begin
-      { prod_accum_o[16:16], prod_accum_o[1:0] } <= { N116, N101, N100 };
-      { a_o[31:0] } <= { N34, N33, N32, N31, N30, N29, N28, N27, N26, N25, N24, N23, N22, N21, N20, N19, N18, N17, N16, N15, N14, N13, N12, N11, N10, N9, N8, N7, N6, N5, N4, N3 };
-      { b_o[31:0] } <= { N66, N65, N64, N63, N62, N61, N60, N59, N58, N57, N56, N55, N54, N53, N52, N51, N50, N49, N48, N47, N46, N45, N44, N43, N42, N41, N40, N39, N38, N37, N36, N35 };
-      { s_o[31:0] } <= { N98, N97, N96, N95, N94, N93, N92, N91, N90, N89, N88, N87, N86, N85, N84, N83, N82, N81, N80, N79, N78, N77, N76, N75, N74, N73, N72, N71, N70, N69, N68, N67 };
-      c_o <= N99;
-    end 
-    if(N121) begin
-      { prod_accum_o[15:2] } <= { N115, N114, N113, N112, N111, N110, N109, N108, N107, N106, N105, N104, N103, N102 };
+    if(rst_i) begin
+      prod_accum_o_16_sv2v_reg <= 1'b0;
+      prod_accum_o_15_sv2v_reg <= 1'b0;
+      prod_accum_o_14_sv2v_reg <= 1'b0;
+      prod_accum_o_13_sv2v_reg <= 1'b0;
+      prod_accum_o_12_sv2v_reg <= 1'b0;
+      prod_accum_o_11_sv2v_reg <= 1'b0;
+      prod_accum_o_10_sv2v_reg <= 1'b0;
+      prod_accum_o_9_sv2v_reg <= 1'b0;
+      prod_accum_o_8_sv2v_reg <= 1'b0;
+      prod_accum_o_7_sv2v_reg <= 1'b0;
+      prod_accum_o_6_sv2v_reg <= 1'b0;
+      prod_accum_o_5_sv2v_reg <= 1'b0;
+      prod_accum_o_4_sv2v_reg <= 1'b0;
+      prod_accum_o_3_sv2v_reg <= 1'b0;
+      prod_accum_o_2_sv2v_reg <= 1'b0;
+      prod_accum_o_1_sv2v_reg <= 1'b0;
+      prod_accum_o_0_sv2v_reg <= 1'b0;
+      a_o_31_sv2v_reg <= 1'b0;
+      a_o_30_sv2v_reg <= 1'b0;
+      a_o_29_sv2v_reg <= 1'b0;
+      a_o_28_sv2v_reg <= 1'b0;
+      a_o_27_sv2v_reg <= 1'b0;
+      a_o_26_sv2v_reg <= 1'b0;
+      a_o_25_sv2v_reg <= 1'b0;
+      a_o_24_sv2v_reg <= 1'b0;
+      a_o_23_sv2v_reg <= 1'b0;
+      a_o_22_sv2v_reg <= 1'b0;
+      a_o_21_sv2v_reg <= 1'b0;
+      a_o_20_sv2v_reg <= 1'b0;
+      a_o_19_sv2v_reg <= 1'b0;
+      a_o_18_sv2v_reg <= 1'b0;
+      a_o_17_sv2v_reg <= 1'b0;
+      a_o_16_sv2v_reg <= 1'b0;
+      a_o_15_sv2v_reg <= 1'b0;
+      a_o_14_sv2v_reg <= 1'b0;
+      a_o_13_sv2v_reg <= 1'b0;
+      a_o_12_sv2v_reg <= 1'b0;
+      a_o_11_sv2v_reg <= 1'b0;
+      a_o_10_sv2v_reg <= 1'b0;
+      a_o_9_sv2v_reg <= 1'b0;
+      a_o_8_sv2v_reg <= 1'b0;
+      a_o_7_sv2v_reg <= 1'b0;
+      a_o_6_sv2v_reg <= 1'b0;
+      a_o_5_sv2v_reg <= 1'b0;
+      a_o_4_sv2v_reg <= 1'b0;
+      a_o_3_sv2v_reg <= 1'b0;
+      a_o_2_sv2v_reg <= 1'b0;
+      a_o_1_sv2v_reg <= 1'b0;
+      a_o_0_sv2v_reg <= 1'b0;
+      b_o_31_sv2v_reg <= 1'b0;
+      b_o_30_sv2v_reg <= 1'b0;
+      b_o_29_sv2v_reg <= 1'b0;
+      b_o_28_sv2v_reg <= 1'b0;
+      b_o_27_sv2v_reg <= 1'b0;
+      b_o_26_sv2v_reg <= 1'b0;
+      b_o_25_sv2v_reg <= 1'b0;
+      b_o_24_sv2v_reg <= 1'b0;
+      b_o_23_sv2v_reg <= 1'b0;
+      b_o_22_sv2v_reg <= 1'b0;
+      b_o_21_sv2v_reg <= 1'b0;
+      b_o_20_sv2v_reg <= 1'b0;
+      b_o_19_sv2v_reg <= 1'b0;
+      b_o_18_sv2v_reg <= 1'b0;
+      b_o_17_sv2v_reg <= 1'b0;
+      b_o_16_sv2v_reg <= 1'b0;
+      b_o_15_sv2v_reg <= 1'b0;
+      b_o_14_sv2v_reg <= 1'b0;
+      b_o_13_sv2v_reg <= 1'b0;
+      b_o_12_sv2v_reg <= 1'b0;
+      b_o_11_sv2v_reg <= 1'b0;
+      b_o_10_sv2v_reg <= 1'b0;
+      b_o_9_sv2v_reg <= 1'b0;
+      b_o_8_sv2v_reg <= 1'b0;
+      b_o_7_sv2v_reg <= 1'b0;
+      b_o_6_sv2v_reg <= 1'b0;
+      b_o_5_sv2v_reg <= 1'b0;
+      b_o_4_sv2v_reg <= 1'b0;
+      b_o_3_sv2v_reg <= 1'b0;
+      b_o_2_sv2v_reg <= 1'b0;
+      b_o_1_sv2v_reg <= 1'b0;
+      b_o_0_sv2v_reg <= 1'b0;
+      s_o_31_sv2v_reg <= 1'b0;
+      s_o_30_sv2v_reg <= 1'b0;
+      s_o_29_sv2v_reg <= 1'b0;
+      s_o_28_sv2v_reg <= 1'b0;
+      s_o_27_sv2v_reg <= 1'b0;
+      s_o_26_sv2v_reg <= 1'b0;
+      s_o_25_sv2v_reg <= 1'b0;
+      s_o_24_sv2v_reg <= 1'b0;
+      s_o_23_sv2v_reg <= 1'b0;
+      s_o_22_sv2v_reg <= 1'b0;
+      s_o_21_sv2v_reg <= 1'b0;
+      s_o_20_sv2v_reg <= 1'b0;
+      s_o_19_sv2v_reg <= 1'b0;
+      s_o_18_sv2v_reg <= 1'b0;
+      s_o_17_sv2v_reg <= 1'b0;
+      s_o_16_sv2v_reg <= 1'b0;
+      s_o_15_sv2v_reg <= 1'b0;
+      s_o_14_sv2v_reg <= 1'b0;
+      s_o_13_sv2v_reg <= 1'b0;
+      s_o_12_sv2v_reg <= 1'b0;
+      s_o_11_sv2v_reg <= 1'b0;
+      s_o_10_sv2v_reg <= 1'b0;
+      s_o_9_sv2v_reg <= 1'b0;
+      s_o_8_sv2v_reg <= 1'b0;
+      s_o_7_sv2v_reg <= 1'b0;
+      s_o_6_sv2v_reg <= 1'b0;
+      s_o_5_sv2v_reg <= 1'b0;
+      s_o_4_sv2v_reg <= 1'b0;
+      s_o_3_sv2v_reg <= 1'b0;
+      s_o_2_sv2v_reg <= 1'b0;
+      s_o_1_sv2v_reg <= 1'b0;
+      s_o_0_sv2v_reg <= 1'b0;
+      c_o_sv2v_reg <= 1'b0;
+    end else if(v_i) begin
+      prod_accum_o_16_sv2v_reg <= ps[0];
+      prod_accum_o_15_sv2v_reg <= prod_accum_i[15];
+      prod_accum_o_14_sv2v_reg <= prod_accum_i[14];
+      prod_accum_o_13_sv2v_reg <= prod_accum_i[13];
+      prod_accum_o_12_sv2v_reg <= prod_accum_i[12];
+      prod_accum_o_11_sv2v_reg <= prod_accum_i[11];
+      prod_accum_o_10_sv2v_reg <= prod_accum_i[10];
+      prod_accum_o_9_sv2v_reg <= prod_accum_i[9];
+      prod_accum_o_8_sv2v_reg <= prod_accum_i[8];
+      prod_accum_o_7_sv2v_reg <= prod_accum_i[7];
+      prod_accum_o_6_sv2v_reg <= prod_accum_i[6];
+      prod_accum_o_5_sv2v_reg <= prod_accum_i[5];
+      prod_accum_o_4_sv2v_reg <= prod_accum_i[4];
+      prod_accum_o_3_sv2v_reg <= prod_accum_i[3];
+      prod_accum_o_2_sv2v_reg <= prod_accum_i[2];
+      prod_accum_o_1_sv2v_reg <= prod_accum_i[1];
+      prod_accum_o_0_sv2v_reg <= prod_accum_i[0];
+      a_o_31_sv2v_reg <= a_i[31];
+      a_o_30_sv2v_reg <= a_i[30];
+      a_o_29_sv2v_reg <= a_i[29];
+      a_o_28_sv2v_reg <= a_i[28];
+      a_o_27_sv2v_reg <= a_i[27];
+      a_o_26_sv2v_reg <= a_i[26];
+      a_o_25_sv2v_reg <= a_i[25];
+      a_o_24_sv2v_reg <= a_i[24];
+      a_o_23_sv2v_reg <= a_i[23];
+      a_o_22_sv2v_reg <= a_i[22];
+      a_o_21_sv2v_reg <= a_i[21];
+      a_o_20_sv2v_reg <= a_i[20];
+      a_o_19_sv2v_reg <= a_i[19];
+      a_o_18_sv2v_reg <= a_i[18];
+      a_o_17_sv2v_reg <= a_i[17];
+      a_o_16_sv2v_reg <= a_i[16];
+      a_o_15_sv2v_reg <= a_i[15];
+      a_o_14_sv2v_reg <= a_i[14];
+      a_o_13_sv2v_reg <= a_i[13];
+      a_o_12_sv2v_reg <= a_i[12];
+      a_o_11_sv2v_reg <= a_i[11];
+      a_o_10_sv2v_reg <= a_i[10];
+      a_o_9_sv2v_reg <= a_i[9];
+      a_o_8_sv2v_reg <= a_i[8];
+      a_o_7_sv2v_reg <= a_i[7];
+      a_o_6_sv2v_reg <= a_i[6];
+      a_o_5_sv2v_reg <= a_i[5];
+      a_o_4_sv2v_reg <= a_i[4];
+      a_o_3_sv2v_reg <= a_i[3];
+      a_o_2_sv2v_reg <= a_i[2];
+      a_o_1_sv2v_reg <= a_i[1];
+      a_o_0_sv2v_reg <= a_i[0];
+      b_o_31_sv2v_reg <= b_i[31];
+      b_o_30_sv2v_reg <= b_i[30];
+      b_o_29_sv2v_reg <= b_i[29];
+      b_o_28_sv2v_reg <= b_i[28];
+      b_o_27_sv2v_reg <= b_i[27];
+      b_o_26_sv2v_reg <= b_i[26];
+      b_o_25_sv2v_reg <= b_i[25];
+      b_o_24_sv2v_reg <= b_i[24];
+      b_o_23_sv2v_reg <= b_i[23];
+      b_o_22_sv2v_reg <= b_i[22];
+      b_o_21_sv2v_reg <= b_i[21];
+      b_o_20_sv2v_reg <= b_i[20];
+      b_o_19_sv2v_reg <= b_i[19];
+      b_o_18_sv2v_reg <= b_i[18];
+      b_o_17_sv2v_reg <= b_i[17];
+      b_o_16_sv2v_reg <= b_i[16];
+      b_o_15_sv2v_reg <= b_i[15];
+      b_o_14_sv2v_reg <= b_i[14];
+      b_o_13_sv2v_reg <= b_i[13];
+      b_o_12_sv2v_reg <= b_i[12];
+      b_o_11_sv2v_reg <= b_i[11];
+      b_o_10_sv2v_reg <= b_i[10];
+      b_o_9_sv2v_reg <= b_i[9];
+      b_o_8_sv2v_reg <= b_i[8];
+      b_o_7_sv2v_reg <= b_i[7];
+      b_o_6_sv2v_reg <= b_i[6];
+      b_o_5_sv2v_reg <= b_i[5];
+      b_o_4_sv2v_reg <= b_i[4];
+      b_o_3_sv2v_reg <= b_i[3];
+      b_o_2_sv2v_reg <= b_i[2];
+      b_o_1_sv2v_reg <= b_i[1];
+      b_o_0_sv2v_reg <= b_i[0];
+      s_o_31_sv2v_reg <= ps[31];
+      s_o_30_sv2v_reg <= ps[30];
+      s_o_29_sv2v_reg <= ps[29];
+      s_o_28_sv2v_reg <= ps[28];
+      s_o_27_sv2v_reg <= ps[27];
+      s_o_26_sv2v_reg <= ps[26];
+      s_o_25_sv2v_reg <= ps[25];
+      s_o_24_sv2v_reg <= ps[24];
+      s_o_23_sv2v_reg <= ps[23];
+      s_o_22_sv2v_reg <= ps[22];
+      s_o_21_sv2v_reg <= ps[21];
+      s_o_20_sv2v_reg <= ps[20];
+      s_o_19_sv2v_reg <= ps[19];
+      s_o_18_sv2v_reg <= ps[18];
+      s_o_17_sv2v_reg <= ps[17];
+      s_o_16_sv2v_reg <= ps[16];
+      s_o_15_sv2v_reg <= ps[15];
+      s_o_14_sv2v_reg <= ps[14];
+      s_o_13_sv2v_reg <= ps[13];
+      s_o_12_sv2v_reg <= ps[12];
+      s_o_11_sv2v_reg <= ps[11];
+      s_o_10_sv2v_reg <= ps[10];
+      s_o_9_sv2v_reg <= ps[9];
+      s_o_8_sv2v_reg <= ps[8];
+      s_o_7_sv2v_reg <= ps[7];
+      s_o_6_sv2v_reg <= ps[6];
+      s_o_5_sv2v_reg <= ps[5];
+      s_o_4_sv2v_reg <= ps[4];
+      s_o_3_sv2v_reg <= ps[3];
+      s_o_2_sv2v_reg <= ps[2];
+      s_o_1_sv2v_reg <= ps[1];
+      s_o_0_sv2v_reg <= ps[0];
+      c_o_sv2v_reg <= pc;
     end 
   end
 
@@ -2146,7 +2931,10 @@ module bsg_mul_array_row_32_16_0
   output c_o;
   wire [31:0] a_o,b_o,s_o,pp;
   wire [17:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_16_,prod_accum_o_15_,prod_accum_o_14_,prod_accum_o_13_,
+  prod_accum_o_12_,prod_accum_o_11_,prod_accum_o_10_,prod_accum_o_9_,
+  prod_accum_o_8_,prod_accum_o_7_,prod_accum_o_6_,prod_accum_o_5_,prod_accum_o_4_,
+  prod_accum_o_3_,prod_accum_o_2_,prod_accum_o_1_,prod_accum_o_0_;
   assign a_o[31] = a_i[31];
   assign a_o[30] = a_i[30];
   assign a_o[29] = a_i[29];
@@ -2211,30 +2999,48 @@ module bsg_mul_array_row_32_16_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[17] = s_o[0];
-  assign prod_accum_o[16] = prod_accum_i[16];
-  assign prod_accum_o[15] = prod_accum_i[15];
-  assign prod_accum_o[14] = prod_accum_i[14];
-  assign prod_accum_o[13] = prod_accum_i[13];
-  assign prod_accum_o[12] = prod_accum_i[12];
-  assign prod_accum_o[11] = prod_accum_i[11];
-  assign prod_accum_o[10] = prod_accum_i[10];
-  assign prod_accum_o[9] = prod_accum_i[9];
-  assign prod_accum_o[8] = prod_accum_i[8];
-  assign prod_accum_o[7] = prod_accum_i[7];
-  assign prod_accum_o[6] = prod_accum_i[6];
-  assign prod_accum_o[5] = prod_accum_i[5];
-  assign prod_accum_o[4] = prod_accum_i[4];
-  assign prod_accum_o[3] = prod_accum_i[3];
-  assign prod_accum_o[2] = prod_accum_i[2];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[17] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_16_ = prod_accum_i[16];
+  assign prod_accum_o[16] = prod_accum_o_16_;
+  assign prod_accum_o_15_ = prod_accum_i[15];
+  assign prod_accum_o[15] = prod_accum_o_15_;
+  assign prod_accum_o_14_ = prod_accum_i[14];
+  assign prod_accum_o[14] = prod_accum_o_14_;
+  assign prod_accum_o_13_ = prod_accum_i[13];
+  assign prod_accum_o[13] = prod_accum_o_13_;
+  assign prod_accum_o_12_ = prod_accum_i[12];
+  assign prod_accum_o[12] = prod_accum_o_12_;
+  assign prod_accum_o_11_ = prod_accum_i[11];
+  assign prod_accum_o[11] = prod_accum_o_11_;
+  assign prod_accum_o_10_ = prod_accum_i[10];
+  assign prod_accum_o[10] = prod_accum_o_10_;
+  assign prod_accum_o_9_ = prod_accum_i[9];
+  assign prod_accum_o[9] = prod_accum_o_9_;
+  assign prod_accum_o_8_ = prod_accum_i[8];
+  assign prod_accum_o[8] = prod_accum_o_8_;
+  assign prod_accum_o_7_ = prod_accum_i[7];
+  assign prod_accum_o[7] = prod_accum_o_7_;
+  assign prod_accum_o_6_ = prod_accum_i[6];
+  assign prod_accum_o[6] = prod_accum_o_6_;
+  assign prod_accum_o_5_ = prod_accum_i[5];
+  assign prod_accum_o[5] = prod_accum_o_5_;
+  assign prod_accum_o_4_ = prod_accum_i[4];
+  assign prod_accum_o[4] = prod_accum_o_4_;
+  assign prod_accum_o_3_ = prod_accum_i[3];
+  assign prod_accum_o[3] = prod_accum_o_3_;
+  assign prod_accum_o_2_ = prod_accum_i[2];
+  assign prod_accum_o[2] = prod_accum_o_2_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p32
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[17:17], b_i[17:17], b_i[17:17], b_i[17:17], b_i[17:17], b_i[17:17], b_i[17:17], b_i[17:17], b_i[17:17], b_i[17:17], b_i[17:17], b_i[17:17], b_i[17:17], b_i[17:17], b_i[17:17], b_i[17:17], b_i[17:17], b_i[17:17], b_i[17:17], b_i[17:17], b_i[17:17], b_i[17:17], b_i[17:17], b_i[17:17], b_i[17:17], b_i[17:17], b_i[17:17], b_i[17:17], b_i[17:17], b_i[17:17], b_i[17:17], b_i[17:17] }),
+    .b_i({ b_o[17:17], b_o[17:17], b_o[17:17], b_o[17:17], b_o[17:17], b_o[17:17], b_o[17:17], b_o[17:17], b_o[17:17], b_o[17:17], b_o[17:17], b_o[17:17], b_o[17:17], b_o[17:17], b_o[17:17], b_o[17:17], b_o[17:17], b_o[17:17], b_o[17:17], b_o[17:17], b_o[17:17], b_o[17:17], b_o[17:17], b_o[17:17], b_o[17:17], b_o[17:17], b_o[17:17], b_o[17:17], b_o[17:17], b_o[17:17], b_o[17:17], b_o[17:17] }),
     .o(pp)
   );
 
@@ -2244,7 +3050,7 @@ module bsg_mul_array_row_32_16_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[31:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[31:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -2285,7 +3091,10 @@ module bsg_mul_array_row_32_17_0
   output c_o;
   wire [31:0] a_o,b_o,s_o,pp;
   wire [18:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_17_,prod_accum_o_16_,prod_accum_o_15_,prod_accum_o_14_,
+  prod_accum_o_13_,prod_accum_o_12_,prod_accum_o_11_,prod_accum_o_10_,
+  prod_accum_o_9_,prod_accum_o_8_,prod_accum_o_7_,prod_accum_o_6_,prod_accum_o_5_,
+  prod_accum_o_4_,prod_accum_o_3_,prod_accum_o_2_,prod_accum_o_1_,prod_accum_o_0_;
   assign a_o[31] = a_i[31];
   assign a_o[30] = a_i[30];
   assign a_o[29] = a_i[29];
@@ -2350,31 +3159,50 @@ module bsg_mul_array_row_32_17_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[18] = s_o[0];
-  assign prod_accum_o[17] = prod_accum_i[17];
-  assign prod_accum_o[16] = prod_accum_i[16];
-  assign prod_accum_o[15] = prod_accum_i[15];
-  assign prod_accum_o[14] = prod_accum_i[14];
-  assign prod_accum_o[13] = prod_accum_i[13];
-  assign prod_accum_o[12] = prod_accum_i[12];
-  assign prod_accum_o[11] = prod_accum_i[11];
-  assign prod_accum_o[10] = prod_accum_i[10];
-  assign prod_accum_o[9] = prod_accum_i[9];
-  assign prod_accum_o[8] = prod_accum_i[8];
-  assign prod_accum_o[7] = prod_accum_i[7];
-  assign prod_accum_o[6] = prod_accum_i[6];
-  assign prod_accum_o[5] = prod_accum_i[5];
-  assign prod_accum_o[4] = prod_accum_i[4];
-  assign prod_accum_o[3] = prod_accum_i[3];
-  assign prod_accum_o[2] = prod_accum_i[2];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[18] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_17_ = prod_accum_i[17];
+  assign prod_accum_o[17] = prod_accum_o_17_;
+  assign prod_accum_o_16_ = prod_accum_i[16];
+  assign prod_accum_o[16] = prod_accum_o_16_;
+  assign prod_accum_o_15_ = prod_accum_i[15];
+  assign prod_accum_o[15] = prod_accum_o_15_;
+  assign prod_accum_o_14_ = prod_accum_i[14];
+  assign prod_accum_o[14] = prod_accum_o_14_;
+  assign prod_accum_o_13_ = prod_accum_i[13];
+  assign prod_accum_o[13] = prod_accum_o_13_;
+  assign prod_accum_o_12_ = prod_accum_i[12];
+  assign prod_accum_o[12] = prod_accum_o_12_;
+  assign prod_accum_o_11_ = prod_accum_i[11];
+  assign prod_accum_o[11] = prod_accum_o_11_;
+  assign prod_accum_o_10_ = prod_accum_i[10];
+  assign prod_accum_o[10] = prod_accum_o_10_;
+  assign prod_accum_o_9_ = prod_accum_i[9];
+  assign prod_accum_o[9] = prod_accum_o_9_;
+  assign prod_accum_o_8_ = prod_accum_i[8];
+  assign prod_accum_o[8] = prod_accum_o_8_;
+  assign prod_accum_o_7_ = prod_accum_i[7];
+  assign prod_accum_o[7] = prod_accum_o_7_;
+  assign prod_accum_o_6_ = prod_accum_i[6];
+  assign prod_accum_o[6] = prod_accum_o_6_;
+  assign prod_accum_o_5_ = prod_accum_i[5];
+  assign prod_accum_o[5] = prod_accum_o_5_;
+  assign prod_accum_o_4_ = prod_accum_i[4];
+  assign prod_accum_o[4] = prod_accum_o_4_;
+  assign prod_accum_o_3_ = prod_accum_i[3];
+  assign prod_accum_o[3] = prod_accum_o_3_;
+  assign prod_accum_o_2_ = prod_accum_i[2];
+  assign prod_accum_o[2] = prod_accum_o_2_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p32
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[18:18], b_i[18:18], b_i[18:18], b_i[18:18], b_i[18:18], b_i[18:18], b_i[18:18], b_i[18:18], b_i[18:18], b_i[18:18], b_i[18:18], b_i[18:18], b_i[18:18], b_i[18:18], b_i[18:18], b_i[18:18], b_i[18:18], b_i[18:18], b_i[18:18], b_i[18:18], b_i[18:18], b_i[18:18], b_i[18:18], b_i[18:18], b_i[18:18], b_i[18:18], b_i[18:18], b_i[18:18], b_i[18:18], b_i[18:18], b_i[18:18], b_i[18:18] }),
+    .b_i({ b_o[18:18], b_o[18:18], b_o[18:18], b_o[18:18], b_o[18:18], b_o[18:18], b_o[18:18], b_o[18:18], b_o[18:18], b_o[18:18], b_o[18:18], b_o[18:18], b_o[18:18], b_o[18:18], b_o[18:18], b_o[18:18], b_o[18:18], b_o[18:18], b_o[18:18], b_o[18:18], b_o[18:18], b_o[18:18], b_o[18:18], b_o[18:18], b_o[18:18], b_o[18:18], b_o[18:18], b_o[18:18], b_o[18:18], b_o[18:18], b_o[18:18], b_o[18:18] }),
     .o(pp)
   );
 
@@ -2384,7 +3212,7 @@ module bsg_mul_array_row_32_17_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[31:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[31:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -2425,7 +3253,11 @@ module bsg_mul_array_row_32_18_0
   output c_o;
   wire [31:0] a_o,b_o,s_o,pp;
   wire [19:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_18_,prod_accum_o_17_,prod_accum_o_16_,prod_accum_o_15_,
+  prod_accum_o_14_,prod_accum_o_13_,prod_accum_o_12_,prod_accum_o_11_,
+  prod_accum_o_10_,prod_accum_o_9_,prod_accum_o_8_,prod_accum_o_7_,prod_accum_o_6_,
+  prod_accum_o_5_,prod_accum_o_4_,prod_accum_o_3_,prod_accum_o_2_,prod_accum_o_1_,
+  prod_accum_o_0_;
   assign a_o[31] = a_i[31];
   assign a_o[30] = a_i[30];
   assign a_o[29] = a_i[29];
@@ -2490,32 +3322,52 @@ module bsg_mul_array_row_32_18_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[19] = s_o[0];
-  assign prod_accum_o[18] = prod_accum_i[18];
-  assign prod_accum_o[17] = prod_accum_i[17];
-  assign prod_accum_o[16] = prod_accum_i[16];
-  assign prod_accum_o[15] = prod_accum_i[15];
-  assign prod_accum_o[14] = prod_accum_i[14];
-  assign prod_accum_o[13] = prod_accum_i[13];
-  assign prod_accum_o[12] = prod_accum_i[12];
-  assign prod_accum_o[11] = prod_accum_i[11];
-  assign prod_accum_o[10] = prod_accum_i[10];
-  assign prod_accum_o[9] = prod_accum_i[9];
-  assign prod_accum_o[8] = prod_accum_i[8];
-  assign prod_accum_o[7] = prod_accum_i[7];
-  assign prod_accum_o[6] = prod_accum_i[6];
-  assign prod_accum_o[5] = prod_accum_i[5];
-  assign prod_accum_o[4] = prod_accum_i[4];
-  assign prod_accum_o[3] = prod_accum_i[3];
-  assign prod_accum_o[2] = prod_accum_i[2];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[19] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_18_ = prod_accum_i[18];
+  assign prod_accum_o[18] = prod_accum_o_18_;
+  assign prod_accum_o_17_ = prod_accum_i[17];
+  assign prod_accum_o[17] = prod_accum_o_17_;
+  assign prod_accum_o_16_ = prod_accum_i[16];
+  assign prod_accum_o[16] = prod_accum_o_16_;
+  assign prod_accum_o_15_ = prod_accum_i[15];
+  assign prod_accum_o[15] = prod_accum_o_15_;
+  assign prod_accum_o_14_ = prod_accum_i[14];
+  assign prod_accum_o[14] = prod_accum_o_14_;
+  assign prod_accum_o_13_ = prod_accum_i[13];
+  assign prod_accum_o[13] = prod_accum_o_13_;
+  assign prod_accum_o_12_ = prod_accum_i[12];
+  assign prod_accum_o[12] = prod_accum_o_12_;
+  assign prod_accum_o_11_ = prod_accum_i[11];
+  assign prod_accum_o[11] = prod_accum_o_11_;
+  assign prod_accum_o_10_ = prod_accum_i[10];
+  assign prod_accum_o[10] = prod_accum_o_10_;
+  assign prod_accum_o_9_ = prod_accum_i[9];
+  assign prod_accum_o[9] = prod_accum_o_9_;
+  assign prod_accum_o_8_ = prod_accum_i[8];
+  assign prod_accum_o[8] = prod_accum_o_8_;
+  assign prod_accum_o_7_ = prod_accum_i[7];
+  assign prod_accum_o[7] = prod_accum_o_7_;
+  assign prod_accum_o_6_ = prod_accum_i[6];
+  assign prod_accum_o[6] = prod_accum_o_6_;
+  assign prod_accum_o_5_ = prod_accum_i[5];
+  assign prod_accum_o[5] = prod_accum_o_5_;
+  assign prod_accum_o_4_ = prod_accum_i[4];
+  assign prod_accum_o[4] = prod_accum_o_4_;
+  assign prod_accum_o_3_ = prod_accum_i[3];
+  assign prod_accum_o[3] = prod_accum_o_3_;
+  assign prod_accum_o_2_ = prod_accum_i[2];
+  assign prod_accum_o[2] = prod_accum_o_2_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p32
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[19:19], b_i[19:19], b_i[19:19], b_i[19:19], b_i[19:19], b_i[19:19], b_i[19:19], b_i[19:19], b_i[19:19], b_i[19:19], b_i[19:19], b_i[19:19], b_i[19:19], b_i[19:19], b_i[19:19], b_i[19:19], b_i[19:19], b_i[19:19], b_i[19:19], b_i[19:19], b_i[19:19], b_i[19:19], b_i[19:19], b_i[19:19], b_i[19:19], b_i[19:19], b_i[19:19], b_i[19:19], b_i[19:19], b_i[19:19], b_i[19:19], b_i[19:19] }),
+    .b_i({ b_o[19:19], b_o[19:19], b_o[19:19], b_o[19:19], b_o[19:19], b_o[19:19], b_o[19:19], b_o[19:19], b_o[19:19], b_o[19:19], b_o[19:19], b_o[19:19], b_o[19:19], b_o[19:19], b_o[19:19], b_o[19:19], b_o[19:19], b_o[19:19], b_o[19:19], b_o[19:19], b_o[19:19], b_o[19:19], b_o[19:19], b_o[19:19], b_o[19:19], b_o[19:19], b_o[19:19], b_o[19:19], b_o[19:19], b_o[19:19], b_o[19:19], b_o[19:19] }),
     .o(pp)
   );
 
@@ -2525,7 +3377,7 @@ module bsg_mul_array_row_32_18_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[31:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[31:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -2566,7 +3418,11 @@ module bsg_mul_array_row_32_19_0
   output c_o;
   wire [31:0] a_o,b_o,s_o,pp;
   wire [20:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_19_,prod_accum_o_18_,prod_accum_o_17_,prod_accum_o_16_,
+  prod_accum_o_15_,prod_accum_o_14_,prod_accum_o_13_,prod_accum_o_12_,
+  prod_accum_o_11_,prod_accum_o_10_,prod_accum_o_9_,prod_accum_o_8_,prod_accum_o_7_,
+  prod_accum_o_6_,prod_accum_o_5_,prod_accum_o_4_,prod_accum_o_3_,prod_accum_o_2_,
+  prod_accum_o_1_,prod_accum_o_0_;
   assign a_o[31] = a_i[31];
   assign a_o[30] = a_i[30];
   assign a_o[29] = a_i[29];
@@ -2631,33 +3487,54 @@ module bsg_mul_array_row_32_19_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[20] = s_o[0];
-  assign prod_accum_o[19] = prod_accum_i[19];
-  assign prod_accum_o[18] = prod_accum_i[18];
-  assign prod_accum_o[17] = prod_accum_i[17];
-  assign prod_accum_o[16] = prod_accum_i[16];
-  assign prod_accum_o[15] = prod_accum_i[15];
-  assign prod_accum_o[14] = prod_accum_i[14];
-  assign prod_accum_o[13] = prod_accum_i[13];
-  assign prod_accum_o[12] = prod_accum_i[12];
-  assign prod_accum_o[11] = prod_accum_i[11];
-  assign prod_accum_o[10] = prod_accum_i[10];
-  assign prod_accum_o[9] = prod_accum_i[9];
-  assign prod_accum_o[8] = prod_accum_i[8];
-  assign prod_accum_o[7] = prod_accum_i[7];
-  assign prod_accum_o[6] = prod_accum_i[6];
-  assign prod_accum_o[5] = prod_accum_i[5];
-  assign prod_accum_o[4] = prod_accum_i[4];
-  assign prod_accum_o[3] = prod_accum_i[3];
-  assign prod_accum_o[2] = prod_accum_i[2];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[20] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_19_ = prod_accum_i[19];
+  assign prod_accum_o[19] = prod_accum_o_19_;
+  assign prod_accum_o_18_ = prod_accum_i[18];
+  assign prod_accum_o[18] = prod_accum_o_18_;
+  assign prod_accum_o_17_ = prod_accum_i[17];
+  assign prod_accum_o[17] = prod_accum_o_17_;
+  assign prod_accum_o_16_ = prod_accum_i[16];
+  assign prod_accum_o[16] = prod_accum_o_16_;
+  assign prod_accum_o_15_ = prod_accum_i[15];
+  assign prod_accum_o[15] = prod_accum_o_15_;
+  assign prod_accum_o_14_ = prod_accum_i[14];
+  assign prod_accum_o[14] = prod_accum_o_14_;
+  assign prod_accum_o_13_ = prod_accum_i[13];
+  assign prod_accum_o[13] = prod_accum_o_13_;
+  assign prod_accum_o_12_ = prod_accum_i[12];
+  assign prod_accum_o[12] = prod_accum_o_12_;
+  assign prod_accum_o_11_ = prod_accum_i[11];
+  assign prod_accum_o[11] = prod_accum_o_11_;
+  assign prod_accum_o_10_ = prod_accum_i[10];
+  assign prod_accum_o[10] = prod_accum_o_10_;
+  assign prod_accum_o_9_ = prod_accum_i[9];
+  assign prod_accum_o[9] = prod_accum_o_9_;
+  assign prod_accum_o_8_ = prod_accum_i[8];
+  assign prod_accum_o[8] = prod_accum_o_8_;
+  assign prod_accum_o_7_ = prod_accum_i[7];
+  assign prod_accum_o[7] = prod_accum_o_7_;
+  assign prod_accum_o_6_ = prod_accum_i[6];
+  assign prod_accum_o[6] = prod_accum_o_6_;
+  assign prod_accum_o_5_ = prod_accum_i[5];
+  assign prod_accum_o[5] = prod_accum_o_5_;
+  assign prod_accum_o_4_ = prod_accum_i[4];
+  assign prod_accum_o[4] = prod_accum_o_4_;
+  assign prod_accum_o_3_ = prod_accum_i[3];
+  assign prod_accum_o[3] = prod_accum_o_3_;
+  assign prod_accum_o_2_ = prod_accum_i[2];
+  assign prod_accum_o[2] = prod_accum_o_2_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p32
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[20:20], b_i[20:20], b_i[20:20], b_i[20:20], b_i[20:20], b_i[20:20], b_i[20:20], b_i[20:20], b_i[20:20], b_i[20:20], b_i[20:20], b_i[20:20], b_i[20:20], b_i[20:20], b_i[20:20], b_i[20:20], b_i[20:20], b_i[20:20], b_i[20:20], b_i[20:20], b_i[20:20], b_i[20:20], b_i[20:20], b_i[20:20], b_i[20:20], b_i[20:20], b_i[20:20], b_i[20:20], b_i[20:20], b_i[20:20], b_i[20:20], b_i[20:20] }),
+    .b_i({ b_o[20:20], b_o[20:20], b_o[20:20], b_o[20:20], b_o[20:20], b_o[20:20], b_o[20:20], b_o[20:20], b_o[20:20], b_o[20:20], b_o[20:20], b_o[20:20], b_o[20:20], b_o[20:20], b_o[20:20], b_o[20:20], b_o[20:20], b_o[20:20], b_o[20:20], b_o[20:20], b_o[20:20], b_o[20:20], b_o[20:20], b_o[20:20], b_o[20:20], b_o[20:20], b_o[20:20], b_o[20:20], b_o[20:20], b_o[20:20], b_o[20:20], b_o[20:20] }),
     .o(pp)
   );
 
@@ -2667,7 +3544,7 @@ module bsg_mul_array_row_32_19_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[31:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[31:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -2708,7 +3585,11 @@ module bsg_mul_array_row_32_20_0
   output c_o;
   wire [31:0] a_o,b_o,s_o,pp;
   wire [21:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_20_,prod_accum_o_19_,prod_accum_o_18_,prod_accum_o_17_,
+  prod_accum_o_16_,prod_accum_o_15_,prod_accum_o_14_,prod_accum_o_13_,
+  prod_accum_o_12_,prod_accum_o_11_,prod_accum_o_10_,prod_accum_o_9_,prod_accum_o_8_,
+  prod_accum_o_7_,prod_accum_o_6_,prod_accum_o_5_,prod_accum_o_4_,prod_accum_o_3_,
+  prod_accum_o_2_,prod_accum_o_1_,prod_accum_o_0_;
   assign a_o[31] = a_i[31];
   assign a_o[30] = a_i[30];
   assign a_o[29] = a_i[29];
@@ -2773,34 +3654,56 @@ module bsg_mul_array_row_32_20_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[21] = s_o[0];
-  assign prod_accum_o[20] = prod_accum_i[20];
-  assign prod_accum_o[19] = prod_accum_i[19];
-  assign prod_accum_o[18] = prod_accum_i[18];
-  assign prod_accum_o[17] = prod_accum_i[17];
-  assign prod_accum_o[16] = prod_accum_i[16];
-  assign prod_accum_o[15] = prod_accum_i[15];
-  assign prod_accum_o[14] = prod_accum_i[14];
-  assign prod_accum_o[13] = prod_accum_i[13];
-  assign prod_accum_o[12] = prod_accum_i[12];
-  assign prod_accum_o[11] = prod_accum_i[11];
-  assign prod_accum_o[10] = prod_accum_i[10];
-  assign prod_accum_o[9] = prod_accum_i[9];
-  assign prod_accum_o[8] = prod_accum_i[8];
-  assign prod_accum_o[7] = prod_accum_i[7];
-  assign prod_accum_o[6] = prod_accum_i[6];
-  assign prod_accum_o[5] = prod_accum_i[5];
-  assign prod_accum_o[4] = prod_accum_i[4];
-  assign prod_accum_o[3] = prod_accum_i[3];
-  assign prod_accum_o[2] = prod_accum_i[2];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[21] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_20_ = prod_accum_i[20];
+  assign prod_accum_o[20] = prod_accum_o_20_;
+  assign prod_accum_o_19_ = prod_accum_i[19];
+  assign prod_accum_o[19] = prod_accum_o_19_;
+  assign prod_accum_o_18_ = prod_accum_i[18];
+  assign prod_accum_o[18] = prod_accum_o_18_;
+  assign prod_accum_o_17_ = prod_accum_i[17];
+  assign prod_accum_o[17] = prod_accum_o_17_;
+  assign prod_accum_o_16_ = prod_accum_i[16];
+  assign prod_accum_o[16] = prod_accum_o_16_;
+  assign prod_accum_o_15_ = prod_accum_i[15];
+  assign prod_accum_o[15] = prod_accum_o_15_;
+  assign prod_accum_o_14_ = prod_accum_i[14];
+  assign prod_accum_o[14] = prod_accum_o_14_;
+  assign prod_accum_o_13_ = prod_accum_i[13];
+  assign prod_accum_o[13] = prod_accum_o_13_;
+  assign prod_accum_o_12_ = prod_accum_i[12];
+  assign prod_accum_o[12] = prod_accum_o_12_;
+  assign prod_accum_o_11_ = prod_accum_i[11];
+  assign prod_accum_o[11] = prod_accum_o_11_;
+  assign prod_accum_o_10_ = prod_accum_i[10];
+  assign prod_accum_o[10] = prod_accum_o_10_;
+  assign prod_accum_o_9_ = prod_accum_i[9];
+  assign prod_accum_o[9] = prod_accum_o_9_;
+  assign prod_accum_o_8_ = prod_accum_i[8];
+  assign prod_accum_o[8] = prod_accum_o_8_;
+  assign prod_accum_o_7_ = prod_accum_i[7];
+  assign prod_accum_o[7] = prod_accum_o_7_;
+  assign prod_accum_o_6_ = prod_accum_i[6];
+  assign prod_accum_o[6] = prod_accum_o_6_;
+  assign prod_accum_o_5_ = prod_accum_i[5];
+  assign prod_accum_o[5] = prod_accum_o_5_;
+  assign prod_accum_o_4_ = prod_accum_i[4];
+  assign prod_accum_o[4] = prod_accum_o_4_;
+  assign prod_accum_o_3_ = prod_accum_i[3];
+  assign prod_accum_o[3] = prod_accum_o_3_;
+  assign prod_accum_o_2_ = prod_accum_i[2];
+  assign prod_accum_o[2] = prod_accum_o_2_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p32
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[21:21], b_i[21:21], b_i[21:21], b_i[21:21], b_i[21:21], b_i[21:21], b_i[21:21], b_i[21:21], b_i[21:21], b_i[21:21], b_i[21:21], b_i[21:21], b_i[21:21], b_i[21:21], b_i[21:21], b_i[21:21], b_i[21:21], b_i[21:21], b_i[21:21], b_i[21:21], b_i[21:21], b_i[21:21], b_i[21:21], b_i[21:21], b_i[21:21], b_i[21:21], b_i[21:21], b_i[21:21], b_i[21:21], b_i[21:21], b_i[21:21], b_i[21:21] }),
+    .b_i({ b_o[21:21], b_o[21:21], b_o[21:21], b_o[21:21], b_o[21:21], b_o[21:21], b_o[21:21], b_o[21:21], b_o[21:21], b_o[21:21], b_o[21:21], b_o[21:21], b_o[21:21], b_o[21:21], b_o[21:21], b_o[21:21], b_o[21:21], b_o[21:21], b_o[21:21], b_o[21:21], b_o[21:21], b_o[21:21], b_o[21:21], b_o[21:21], b_o[21:21], b_o[21:21], b_o[21:21], b_o[21:21], b_o[21:21], b_o[21:21], b_o[21:21], b_o[21:21] }),
     .o(pp)
   );
 
@@ -2810,7 +3713,7 @@ module bsg_mul_array_row_32_20_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[31:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[31:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -2851,7 +3754,11 @@ module bsg_mul_array_row_32_21_0
   output c_o;
   wire [31:0] a_o,b_o,s_o,pp;
   wire [22:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_21_,prod_accum_o_20_,prod_accum_o_19_,prod_accum_o_18_,
+  prod_accum_o_17_,prod_accum_o_16_,prod_accum_o_15_,prod_accum_o_14_,
+  prod_accum_o_13_,prod_accum_o_12_,prod_accum_o_11_,prod_accum_o_10_,prod_accum_o_9_,
+  prod_accum_o_8_,prod_accum_o_7_,prod_accum_o_6_,prod_accum_o_5_,prod_accum_o_4_,
+  prod_accum_o_3_,prod_accum_o_2_,prod_accum_o_1_,prod_accum_o_0_;
   assign a_o[31] = a_i[31];
   assign a_o[30] = a_i[30];
   assign a_o[29] = a_i[29];
@@ -2916,35 +3823,58 @@ module bsg_mul_array_row_32_21_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[22] = s_o[0];
-  assign prod_accum_o[21] = prod_accum_i[21];
-  assign prod_accum_o[20] = prod_accum_i[20];
-  assign prod_accum_o[19] = prod_accum_i[19];
-  assign prod_accum_o[18] = prod_accum_i[18];
-  assign prod_accum_o[17] = prod_accum_i[17];
-  assign prod_accum_o[16] = prod_accum_i[16];
-  assign prod_accum_o[15] = prod_accum_i[15];
-  assign prod_accum_o[14] = prod_accum_i[14];
-  assign prod_accum_o[13] = prod_accum_i[13];
-  assign prod_accum_o[12] = prod_accum_i[12];
-  assign prod_accum_o[11] = prod_accum_i[11];
-  assign prod_accum_o[10] = prod_accum_i[10];
-  assign prod_accum_o[9] = prod_accum_i[9];
-  assign prod_accum_o[8] = prod_accum_i[8];
-  assign prod_accum_o[7] = prod_accum_i[7];
-  assign prod_accum_o[6] = prod_accum_i[6];
-  assign prod_accum_o[5] = prod_accum_i[5];
-  assign prod_accum_o[4] = prod_accum_i[4];
-  assign prod_accum_o[3] = prod_accum_i[3];
-  assign prod_accum_o[2] = prod_accum_i[2];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[22] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_21_ = prod_accum_i[21];
+  assign prod_accum_o[21] = prod_accum_o_21_;
+  assign prod_accum_o_20_ = prod_accum_i[20];
+  assign prod_accum_o[20] = prod_accum_o_20_;
+  assign prod_accum_o_19_ = prod_accum_i[19];
+  assign prod_accum_o[19] = prod_accum_o_19_;
+  assign prod_accum_o_18_ = prod_accum_i[18];
+  assign prod_accum_o[18] = prod_accum_o_18_;
+  assign prod_accum_o_17_ = prod_accum_i[17];
+  assign prod_accum_o[17] = prod_accum_o_17_;
+  assign prod_accum_o_16_ = prod_accum_i[16];
+  assign prod_accum_o[16] = prod_accum_o_16_;
+  assign prod_accum_o_15_ = prod_accum_i[15];
+  assign prod_accum_o[15] = prod_accum_o_15_;
+  assign prod_accum_o_14_ = prod_accum_i[14];
+  assign prod_accum_o[14] = prod_accum_o_14_;
+  assign prod_accum_o_13_ = prod_accum_i[13];
+  assign prod_accum_o[13] = prod_accum_o_13_;
+  assign prod_accum_o_12_ = prod_accum_i[12];
+  assign prod_accum_o[12] = prod_accum_o_12_;
+  assign prod_accum_o_11_ = prod_accum_i[11];
+  assign prod_accum_o[11] = prod_accum_o_11_;
+  assign prod_accum_o_10_ = prod_accum_i[10];
+  assign prod_accum_o[10] = prod_accum_o_10_;
+  assign prod_accum_o_9_ = prod_accum_i[9];
+  assign prod_accum_o[9] = prod_accum_o_9_;
+  assign prod_accum_o_8_ = prod_accum_i[8];
+  assign prod_accum_o[8] = prod_accum_o_8_;
+  assign prod_accum_o_7_ = prod_accum_i[7];
+  assign prod_accum_o[7] = prod_accum_o_7_;
+  assign prod_accum_o_6_ = prod_accum_i[6];
+  assign prod_accum_o[6] = prod_accum_o_6_;
+  assign prod_accum_o_5_ = prod_accum_i[5];
+  assign prod_accum_o[5] = prod_accum_o_5_;
+  assign prod_accum_o_4_ = prod_accum_i[4];
+  assign prod_accum_o[4] = prod_accum_o_4_;
+  assign prod_accum_o_3_ = prod_accum_i[3];
+  assign prod_accum_o[3] = prod_accum_o_3_;
+  assign prod_accum_o_2_ = prod_accum_i[2];
+  assign prod_accum_o[2] = prod_accum_o_2_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p32
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[22:22], b_i[22:22], b_i[22:22], b_i[22:22], b_i[22:22], b_i[22:22], b_i[22:22], b_i[22:22], b_i[22:22], b_i[22:22], b_i[22:22], b_i[22:22], b_i[22:22], b_i[22:22], b_i[22:22], b_i[22:22], b_i[22:22], b_i[22:22], b_i[22:22], b_i[22:22], b_i[22:22], b_i[22:22], b_i[22:22], b_i[22:22], b_i[22:22], b_i[22:22], b_i[22:22], b_i[22:22], b_i[22:22], b_i[22:22], b_i[22:22], b_i[22:22] }),
+    .b_i({ b_o[22:22], b_o[22:22], b_o[22:22], b_o[22:22], b_o[22:22], b_o[22:22], b_o[22:22], b_o[22:22], b_o[22:22], b_o[22:22], b_o[22:22], b_o[22:22], b_o[22:22], b_o[22:22], b_o[22:22], b_o[22:22], b_o[22:22], b_o[22:22], b_o[22:22], b_o[22:22], b_o[22:22], b_o[22:22], b_o[22:22], b_o[22:22], b_o[22:22], b_o[22:22], b_o[22:22], b_o[22:22], b_o[22:22], b_o[22:22], b_o[22:22], b_o[22:22] }),
     .o(pp)
   );
 
@@ -2954,7 +3884,7 @@ module bsg_mul_array_row_32_21_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[31:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[31:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -2995,7 +3925,11 @@ module bsg_mul_array_row_32_22_0
   output c_o;
   wire [31:0] a_o,b_o,s_o,pp;
   wire [23:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_22_,prod_accum_o_21_,prod_accum_o_20_,prod_accum_o_19_,
+  prod_accum_o_18_,prod_accum_o_17_,prod_accum_o_16_,prod_accum_o_15_,
+  prod_accum_o_14_,prod_accum_o_13_,prod_accum_o_12_,prod_accum_o_11_,prod_accum_o_10_,
+  prod_accum_o_9_,prod_accum_o_8_,prod_accum_o_7_,prod_accum_o_6_,prod_accum_o_5_,
+  prod_accum_o_4_,prod_accum_o_3_,prod_accum_o_2_,prod_accum_o_1_,prod_accum_o_0_;
   assign a_o[31] = a_i[31];
   assign a_o[30] = a_i[30];
   assign a_o[29] = a_i[29];
@@ -3060,36 +3994,60 @@ module bsg_mul_array_row_32_22_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[23] = s_o[0];
-  assign prod_accum_o[22] = prod_accum_i[22];
-  assign prod_accum_o[21] = prod_accum_i[21];
-  assign prod_accum_o[20] = prod_accum_i[20];
-  assign prod_accum_o[19] = prod_accum_i[19];
-  assign prod_accum_o[18] = prod_accum_i[18];
-  assign prod_accum_o[17] = prod_accum_i[17];
-  assign prod_accum_o[16] = prod_accum_i[16];
-  assign prod_accum_o[15] = prod_accum_i[15];
-  assign prod_accum_o[14] = prod_accum_i[14];
-  assign prod_accum_o[13] = prod_accum_i[13];
-  assign prod_accum_o[12] = prod_accum_i[12];
-  assign prod_accum_o[11] = prod_accum_i[11];
-  assign prod_accum_o[10] = prod_accum_i[10];
-  assign prod_accum_o[9] = prod_accum_i[9];
-  assign prod_accum_o[8] = prod_accum_i[8];
-  assign prod_accum_o[7] = prod_accum_i[7];
-  assign prod_accum_o[6] = prod_accum_i[6];
-  assign prod_accum_o[5] = prod_accum_i[5];
-  assign prod_accum_o[4] = prod_accum_i[4];
-  assign prod_accum_o[3] = prod_accum_i[3];
-  assign prod_accum_o[2] = prod_accum_i[2];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[23] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_22_ = prod_accum_i[22];
+  assign prod_accum_o[22] = prod_accum_o_22_;
+  assign prod_accum_o_21_ = prod_accum_i[21];
+  assign prod_accum_o[21] = prod_accum_o_21_;
+  assign prod_accum_o_20_ = prod_accum_i[20];
+  assign prod_accum_o[20] = prod_accum_o_20_;
+  assign prod_accum_o_19_ = prod_accum_i[19];
+  assign prod_accum_o[19] = prod_accum_o_19_;
+  assign prod_accum_o_18_ = prod_accum_i[18];
+  assign prod_accum_o[18] = prod_accum_o_18_;
+  assign prod_accum_o_17_ = prod_accum_i[17];
+  assign prod_accum_o[17] = prod_accum_o_17_;
+  assign prod_accum_o_16_ = prod_accum_i[16];
+  assign prod_accum_o[16] = prod_accum_o_16_;
+  assign prod_accum_o_15_ = prod_accum_i[15];
+  assign prod_accum_o[15] = prod_accum_o_15_;
+  assign prod_accum_o_14_ = prod_accum_i[14];
+  assign prod_accum_o[14] = prod_accum_o_14_;
+  assign prod_accum_o_13_ = prod_accum_i[13];
+  assign prod_accum_o[13] = prod_accum_o_13_;
+  assign prod_accum_o_12_ = prod_accum_i[12];
+  assign prod_accum_o[12] = prod_accum_o_12_;
+  assign prod_accum_o_11_ = prod_accum_i[11];
+  assign prod_accum_o[11] = prod_accum_o_11_;
+  assign prod_accum_o_10_ = prod_accum_i[10];
+  assign prod_accum_o[10] = prod_accum_o_10_;
+  assign prod_accum_o_9_ = prod_accum_i[9];
+  assign prod_accum_o[9] = prod_accum_o_9_;
+  assign prod_accum_o_8_ = prod_accum_i[8];
+  assign prod_accum_o[8] = prod_accum_o_8_;
+  assign prod_accum_o_7_ = prod_accum_i[7];
+  assign prod_accum_o[7] = prod_accum_o_7_;
+  assign prod_accum_o_6_ = prod_accum_i[6];
+  assign prod_accum_o[6] = prod_accum_o_6_;
+  assign prod_accum_o_5_ = prod_accum_i[5];
+  assign prod_accum_o[5] = prod_accum_o_5_;
+  assign prod_accum_o_4_ = prod_accum_i[4];
+  assign prod_accum_o[4] = prod_accum_o_4_;
+  assign prod_accum_o_3_ = prod_accum_i[3];
+  assign prod_accum_o[3] = prod_accum_o_3_;
+  assign prod_accum_o_2_ = prod_accum_i[2];
+  assign prod_accum_o[2] = prod_accum_o_2_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p32
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[23:23], b_i[23:23], b_i[23:23], b_i[23:23], b_i[23:23], b_i[23:23], b_i[23:23], b_i[23:23], b_i[23:23], b_i[23:23], b_i[23:23], b_i[23:23], b_i[23:23], b_i[23:23], b_i[23:23], b_i[23:23], b_i[23:23], b_i[23:23], b_i[23:23], b_i[23:23], b_i[23:23], b_i[23:23], b_i[23:23], b_i[23:23], b_i[23:23], b_i[23:23], b_i[23:23], b_i[23:23], b_i[23:23], b_i[23:23], b_i[23:23], b_i[23:23] }),
+    .b_i({ b_o[23:23], b_o[23:23], b_o[23:23], b_o[23:23], b_o[23:23], b_o[23:23], b_o[23:23], b_o[23:23], b_o[23:23], b_o[23:23], b_o[23:23], b_o[23:23], b_o[23:23], b_o[23:23], b_o[23:23], b_o[23:23], b_o[23:23], b_o[23:23], b_o[23:23], b_o[23:23], b_o[23:23], b_o[23:23], b_o[23:23], b_o[23:23], b_o[23:23], b_o[23:23], b_o[23:23], b_o[23:23], b_o[23:23], b_o[23:23], b_o[23:23], b_o[23:23] }),
     .o(pp)
   );
 
@@ -3099,7 +4057,7 @@ module bsg_mul_array_row_32_22_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[31:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[31:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -3138,17 +4096,158 @@ module bsg_mul_array_row_32_23_1
   input v_i;
   input c_i;
   output c_o;
-  wire N0,N1,pc,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11,N12,N13,N14,N15,N16,N17,N18,N19,N20,
-  N21,N22,N23,N24,N25,N26,N27,N28,N29,N30,N31,N32,N33,N34,N35,N36,N37,N38,N39,N40,
-  N41,N42,N43,N44,N45,N46,N47,N48,N49,N50,N51,N52,N53,N54,N55,N56,N57,N58,N59,N60,
-  N61,N62,N63,N64,N65,N66,N67,N68,N69,N70,N71,N72,N73,N74,N75,N76,N77,N78,N79,N80,
-  N81,N82,N83,N84,N85,N86,N87,N88,N89,N90,N91,N92,N93,N94,N95,N96,N97,N98,N99,N100,
-  N101,N102,N103,N104,N105,N106,N107,N108,N109,N110,N111,N112,N113,N114,N115,N116,
-  N117,N118,N119,N120,N121,N122,N123,N124,N125,N126,N127,N128,N129;
-  wire [31:0] pp,ps;
-  reg [24:0] prod_accum_o;
-  reg [31:0] a_o,b_o,s_o;
-  reg c_o;
+  wire [31:0] a_o,b_o,s_o,pp,ps;
+  wire [24:0] prod_accum_o;
+  wire c_o,pc;
+  reg prod_accum_o_24_sv2v_reg,prod_accum_o_23_sv2v_reg,prod_accum_o_22_sv2v_reg,
+  prod_accum_o_21_sv2v_reg,prod_accum_o_20_sv2v_reg,prod_accum_o_19_sv2v_reg,
+  prod_accum_o_18_sv2v_reg,prod_accum_o_17_sv2v_reg,prod_accum_o_16_sv2v_reg,
+  prod_accum_o_15_sv2v_reg,prod_accum_o_14_sv2v_reg,prod_accum_o_13_sv2v_reg,
+  prod_accum_o_12_sv2v_reg,prod_accum_o_11_sv2v_reg,prod_accum_o_10_sv2v_reg,prod_accum_o_9_sv2v_reg,
+  prod_accum_o_8_sv2v_reg,prod_accum_o_7_sv2v_reg,prod_accum_o_6_sv2v_reg,
+  prod_accum_o_5_sv2v_reg,prod_accum_o_4_sv2v_reg,prod_accum_o_3_sv2v_reg,
+  prod_accum_o_2_sv2v_reg,prod_accum_o_1_sv2v_reg,prod_accum_o_0_sv2v_reg,a_o_31_sv2v_reg,
+  a_o_30_sv2v_reg,a_o_29_sv2v_reg,a_o_28_sv2v_reg,a_o_27_sv2v_reg,a_o_26_sv2v_reg,
+  a_o_25_sv2v_reg,a_o_24_sv2v_reg,a_o_23_sv2v_reg,a_o_22_sv2v_reg,a_o_21_sv2v_reg,
+  a_o_20_sv2v_reg,a_o_19_sv2v_reg,a_o_18_sv2v_reg,a_o_17_sv2v_reg,a_o_16_sv2v_reg,
+  a_o_15_sv2v_reg,a_o_14_sv2v_reg,a_o_13_sv2v_reg,a_o_12_sv2v_reg,a_o_11_sv2v_reg,
+  a_o_10_sv2v_reg,a_o_9_sv2v_reg,a_o_8_sv2v_reg,a_o_7_sv2v_reg,a_o_6_sv2v_reg,
+  a_o_5_sv2v_reg,a_o_4_sv2v_reg,a_o_3_sv2v_reg,a_o_2_sv2v_reg,a_o_1_sv2v_reg,a_o_0_sv2v_reg,
+  b_o_31_sv2v_reg,b_o_30_sv2v_reg,b_o_29_sv2v_reg,b_o_28_sv2v_reg,b_o_27_sv2v_reg,
+  b_o_26_sv2v_reg,b_o_25_sv2v_reg,b_o_24_sv2v_reg,b_o_23_sv2v_reg,b_o_22_sv2v_reg,
+  b_o_21_sv2v_reg,b_o_20_sv2v_reg,b_o_19_sv2v_reg,b_o_18_sv2v_reg,b_o_17_sv2v_reg,
+  b_o_16_sv2v_reg,b_o_15_sv2v_reg,b_o_14_sv2v_reg,b_o_13_sv2v_reg,b_o_12_sv2v_reg,
+  b_o_11_sv2v_reg,b_o_10_sv2v_reg,b_o_9_sv2v_reg,b_o_8_sv2v_reg,b_o_7_sv2v_reg,
+  b_o_6_sv2v_reg,b_o_5_sv2v_reg,b_o_4_sv2v_reg,b_o_3_sv2v_reg,b_o_2_sv2v_reg,
+  b_o_1_sv2v_reg,b_o_0_sv2v_reg,s_o_31_sv2v_reg,s_o_30_sv2v_reg,s_o_29_sv2v_reg,
+  s_o_28_sv2v_reg,s_o_27_sv2v_reg,s_o_26_sv2v_reg,s_o_25_sv2v_reg,s_o_24_sv2v_reg,
+  s_o_23_sv2v_reg,s_o_22_sv2v_reg,s_o_21_sv2v_reg,s_o_20_sv2v_reg,s_o_19_sv2v_reg,
+  s_o_18_sv2v_reg,s_o_17_sv2v_reg,s_o_16_sv2v_reg,s_o_15_sv2v_reg,s_o_14_sv2v_reg,
+  s_o_13_sv2v_reg,s_o_12_sv2v_reg,s_o_11_sv2v_reg,s_o_10_sv2v_reg,s_o_9_sv2v_reg,
+  s_o_8_sv2v_reg,s_o_7_sv2v_reg,s_o_6_sv2v_reg,s_o_5_sv2v_reg,s_o_4_sv2v_reg,s_o_3_sv2v_reg,
+  s_o_2_sv2v_reg,s_o_1_sv2v_reg,s_o_0_sv2v_reg,c_o_sv2v_reg;
+  assign prod_accum_o[24] = prod_accum_o_24_sv2v_reg;
+  assign prod_accum_o[23] = prod_accum_o_23_sv2v_reg;
+  assign prod_accum_o[22] = prod_accum_o_22_sv2v_reg;
+  assign prod_accum_o[21] = prod_accum_o_21_sv2v_reg;
+  assign prod_accum_o[20] = prod_accum_o_20_sv2v_reg;
+  assign prod_accum_o[19] = prod_accum_o_19_sv2v_reg;
+  assign prod_accum_o[18] = prod_accum_o_18_sv2v_reg;
+  assign prod_accum_o[17] = prod_accum_o_17_sv2v_reg;
+  assign prod_accum_o[16] = prod_accum_o_16_sv2v_reg;
+  assign prod_accum_o[15] = prod_accum_o_15_sv2v_reg;
+  assign prod_accum_o[14] = prod_accum_o_14_sv2v_reg;
+  assign prod_accum_o[13] = prod_accum_o_13_sv2v_reg;
+  assign prod_accum_o[12] = prod_accum_o_12_sv2v_reg;
+  assign prod_accum_o[11] = prod_accum_o_11_sv2v_reg;
+  assign prod_accum_o[10] = prod_accum_o_10_sv2v_reg;
+  assign prod_accum_o[9] = prod_accum_o_9_sv2v_reg;
+  assign prod_accum_o[8] = prod_accum_o_8_sv2v_reg;
+  assign prod_accum_o[7] = prod_accum_o_7_sv2v_reg;
+  assign prod_accum_o[6] = prod_accum_o_6_sv2v_reg;
+  assign prod_accum_o[5] = prod_accum_o_5_sv2v_reg;
+  assign prod_accum_o[4] = prod_accum_o_4_sv2v_reg;
+  assign prod_accum_o[3] = prod_accum_o_3_sv2v_reg;
+  assign prod_accum_o[2] = prod_accum_o_2_sv2v_reg;
+  assign prod_accum_o[1] = prod_accum_o_1_sv2v_reg;
+  assign prod_accum_o[0] = prod_accum_o_0_sv2v_reg;
+  assign a_o[31] = a_o_31_sv2v_reg;
+  assign a_o[30] = a_o_30_sv2v_reg;
+  assign a_o[29] = a_o_29_sv2v_reg;
+  assign a_o[28] = a_o_28_sv2v_reg;
+  assign a_o[27] = a_o_27_sv2v_reg;
+  assign a_o[26] = a_o_26_sv2v_reg;
+  assign a_o[25] = a_o_25_sv2v_reg;
+  assign a_o[24] = a_o_24_sv2v_reg;
+  assign a_o[23] = a_o_23_sv2v_reg;
+  assign a_o[22] = a_o_22_sv2v_reg;
+  assign a_o[21] = a_o_21_sv2v_reg;
+  assign a_o[20] = a_o_20_sv2v_reg;
+  assign a_o[19] = a_o_19_sv2v_reg;
+  assign a_o[18] = a_o_18_sv2v_reg;
+  assign a_o[17] = a_o_17_sv2v_reg;
+  assign a_o[16] = a_o_16_sv2v_reg;
+  assign a_o[15] = a_o_15_sv2v_reg;
+  assign a_o[14] = a_o_14_sv2v_reg;
+  assign a_o[13] = a_o_13_sv2v_reg;
+  assign a_o[12] = a_o_12_sv2v_reg;
+  assign a_o[11] = a_o_11_sv2v_reg;
+  assign a_o[10] = a_o_10_sv2v_reg;
+  assign a_o[9] = a_o_9_sv2v_reg;
+  assign a_o[8] = a_o_8_sv2v_reg;
+  assign a_o[7] = a_o_7_sv2v_reg;
+  assign a_o[6] = a_o_6_sv2v_reg;
+  assign a_o[5] = a_o_5_sv2v_reg;
+  assign a_o[4] = a_o_4_sv2v_reg;
+  assign a_o[3] = a_o_3_sv2v_reg;
+  assign a_o[2] = a_o_2_sv2v_reg;
+  assign a_o[1] = a_o_1_sv2v_reg;
+  assign a_o[0] = a_o_0_sv2v_reg;
+  assign b_o[31] = b_o_31_sv2v_reg;
+  assign b_o[30] = b_o_30_sv2v_reg;
+  assign b_o[29] = b_o_29_sv2v_reg;
+  assign b_o[28] = b_o_28_sv2v_reg;
+  assign b_o[27] = b_o_27_sv2v_reg;
+  assign b_o[26] = b_o_26_sv2v_reg;
+  assign b_o[25] = b_o_25_sv2v_reg;
+  assign b_o[24] = b_o_24_sv2v_reg;
+  assign b_o[23] = b_o_23_sv2v_reg;
+  assign b_o[22] = b_o_22_sv2v_reg;
+  assign b_o[21] = b_o_21_sv2v_reg;
+  assign b_o[20] = b_o_20_sv2v_reg;
+  assign b_o[19] = b_o_19_sv2v_reg;
+  assign b_o[18] = b_o_18_sv2v_reg;
+  assign b_o[17] = b_o_17_sv2v_reg;
+  assign b_o[16] = b_o_16_sv2v_reg;
+  assign b_o[15] = b_o_15_sv2v_reg;
+  assign b_o[14] = b_o_14_sv2v_reg;
+  assign b_o[13] = b_o_13_sv2v_reg;
+  assign b_o[12] = b_o_12_sv2v_reg;
+  assign b_o[11] = b_o_11_sv2v_reg;
+  assign b_o[10] = b_o_10_sv2v_reg;
+  assign b_o[9] = b_o_9_sv2v_reg;
+  assign b_o[8] = b_o_8_sv2v_reg;
+  assign b_o[7] = b_o_7_sv2v_reg;
+  assign b_o[6] = b_o_6_sv2v_reg;
+  assign b_o[5] = b_o_5_sv2v_reg;
+  assign b_o[4] = b_o_4_sv2v_reg;
+  assign b_o[3] = b_o_3_sv2v_reg;
+  assign b_o[2] = b_o_2_sv2v_reg;
+  assign b_o[1] = b_o_1_sv2v_reg;
+  assign b_o[0] = b_o_0_sv2v_reg;
+  assign s_o[31] = s_o_31_sv2v_reg;
+  assign s_o[30] = s_o_30_sv2v_reg;
+  assign s_o[29] = s_o_29_sv2v_reg;
+  assign s_o[28] = s_o_28_sv2v_reg;
+  assign s_o[27] = s_o_27_sv2v_reg;
+  assign s_o[26] = s_o_26_sv2v_reg;
+  assign s_o[25] = s_o_25_sv2v_reg;
+  assign s_o[24] = s_o_24_sv2v_reg;
+  assign s_o[23] = s_o_23_sv2v_reg;
+  assign s_o[22] = s_o_22_sv2v_reg;
+  assign s_o[21] = s_o_21_sv2v_reg;
+  assign s_o[20] = s_o_20_sv2v_reg;
+  assign s_o[19] = s_o_19_sv2v_reg;
+  assign s_o[18] = s_o_18_sv2v_reg;
+  assign s_o[17] = s_o_17_sv2v_reg;
+  assign s_o[16] = s_o_16_sv2v_reg;
+  assign s_o[15] = s_o_15_sv2v_reg;
+  assign s_o[14] = s_o_14_sv2v_reg;
+  assign s_o[13] = s_o_13_sv2v_reg;
+  assign s_o[12] = s_o_12_sv2v_reg;
+  assign s_o[11] = s_o_11_sv2v_reg;
+  assign s_o[10] = s_o_10_sv2v_reg;
+  assign s_o[9] = s_o_9_sv2v_reg;
+  assign s_o[8] = s_o_8_sv2v_reg;
+  assign s_o[7] = s_o_7_sv2v_reg;
+  assign s_o[6] = s_o_6_sv2v_reg;
+  assign s_o[5] = s_o_5_sv2v_reg;
+  assign s_o[4] = s_o_4_sv2v_reg;
+  assign s_o[3] = s_o_3_sv2v_reg;
+  assign s_o[2] = s_o_2_sv2v_reg;
+  assign s_o[1] = s_o_1_sv2v_reg;
+  assign s_o[0] = s_o_0_sv2v_reg;
+  assign c_o = c_o_sv2v_reg;
 
   bsg_and_width_p32
   and0
@@ -3168,35 +4267,254 @@ module bsg_mul_array_row_32_23_1
     .c_o(pc)
   );
 
-  assign { N34, N33, N32, N31, N30, N29, N28, N27, N26, N25, N24, N23, N22, N21, N20, N19, N18, N17, N16, N15, N14, N13, N12, N11, N10, N9, N8, N7, N6, N5, N4, N3 } = (N0)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 } : 
-                                                                                                                                                                       (N1)? a_i : 1'b0;
-  assign N0 = rst_i;
-  assign N1 = N2;
-  assign { N66, N65, N64, N63, N62, N61, N60, N59, N58, N57, N56, N55, N54, N53, N52, N51, N50, N49, N48, N47, N46, N45, N44, N43, N42, N41, N40, N39, N38, N37, N36, N35 } = (N0)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 } : 
-                                                                                                                                                                              (N1)? b_i : 1'b0;
-  assign { N98, N97, N96, N95, N94, N93, N92, N91, N90, N89, N88, N87, N86, N85, N84, N83, N82, N81, N80, N79, N78, N77, N76, N75, N74, N73, N72, N71, N70, N69, N68, N67 } = (N0)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 } : 
-                                                                                                                                                                              (N1)? ps : 1'b0;
-  assign N99 = (N0)? 1'b0 : 
-               (N1)? pc : 1'b0;
-  assign { N124, N123, N122, N121, N120, N119, N118, N117, N116, N115, N114, N113, N112, N111, N110, N109, N108, N107, N106, N105, N104, N103, N102, N101, N100 } = (N0)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 } : 
-                                                                                                                                                                    (N1)? { ps[0:0], prod_accum_i } : 1'b0;
-  assign N2 = ~rst_i;
-  assign N125 = ~v_i;
-  assign N126 = N125 & N2;
-  assign N127 = ~N126;
-  assign N128 = N125 & N2;
-  assign N129 = ~N128;
 
   always @(posedge clk_i) begin
-    if(N127) begin
-      { prod_accum_o[24:24], prod_accum_o[1:0] } <= { N124, N101, N100 };
-      { a_o[31:0] } <= { N34, N33, N32, N31, N30, N29, N28, N27, N26, N25, N24, N23, N22, N21, N20, N19, N18, N17, N16, N15, N14, N13, N12, N11, N10, N9, N8, N7, N6, N5, N4, N3 };
-      { b_o[31:0] } <= { N66, N65, N64, N63, N62, N61, N60, N59, N58, N57, N56, N55, N54, N53, N52, N51, N50, N49, N48, N47, N46, N45, N44, N43, N42, N41, N40, N39, N38, N37, N36, N35 };
-      { s_o[31:0] } <= { N98, N97, N96, N95, N94, N93, N92, N91, N90, N89, N88, N87, N86, N85, N84, N83, N82, N81, N80, N79, N78, N77, N76, N75, N74, N73, N72, N71, N70, N69, N68, N67 };
-      c_o <= N99;
-    end 
-    if(N129) begin
-      { prod_accum_o[23:2] } <= { N123, N122, N121, N120, N119, N118, N117, N116, N115, N114, N113, N112, N111, N110, N109, N108, N107, N106, N105, N104, N103, N102 };
+    if(rst_i) begin
+      prod_accum_o_24_sv2v_reg <= 1'b0;
+      prod_accum_o_23_sv2v_reg <= 1'b0;
+      prod_accum_o_22_sv2v_reg <= 1'b0;
+      prod_accum_o_21_sv2v_reg <= 1'b0;
+      prod_accum_o_20_sv2v_reg <= 1'b0;
+      prod_accum_o_19_sv2v_reg <= 1'b0;
+      prod_accum_o_18_sv2v_reg <= 1'b0;
+      prod_accum_o_17_sv2v_reg <= 1'b0;
+      prod_accum_o_16_sv2v_reg <= 1'b0;
+      prod_accum_o_15_sv2v_reg <= 1'b0;
+      prod_accum_o_14_sv2v_reg <= 1'b0;
+      prod_accum_o_13_sv2v_reg <= 1'b0;
+      prod_accum_o_12_sv2v_reg <= 1'b0;
+      prod_accum_o_11_sv2v_reg <= 1'b0;
+      prod_accum_o_10_sv2v_reg <= 1'b0;
+      prod_accum_o_9_sv2v_reg <= 1'b0;
+      prod_accum_o_8_sv2v_reg <= 1'b0;
+      prod_accum_o_7_sv2v_reg <= 1'b0;
+      prod_accum_o_6_sv2v_reg <= 1'b0;
+      prod_accum_o_5_sv2v_reg <= 1'b0;
+      prod_accum_o_4_sv2v_reg <= 1'b0;
+      prod_accum_o_3_sv2v_reg <= 1'b0;
+      prod_accum_o_2_sv2v_reg <= 1'b0;
+      prod_accum_o_1_sv2v_reg <= 1'b0;
+      prod_accum_o_0_sv2v_reg <= 1'b0;
+      a_o_31_sv2v_reg <= 1'b0;
+      a_o_30_sv2v_reg <= 1'b0;
+      a_o_29_sv2v_reg <= 1'b0;
+      a_o_28_sv2v_reg <= 1'b0;
+      a_o_27_sv2v_reg <= 1'b0;
+      a_o_26_sv2v_reg <= 1'b0;
+      a_o_25_sv2v_reg <= 1'b0;
+      a_o_24_sv2v_reg <= 1'b0;
+      a_o_23_sv2v_reg <= 1'b0;
+      a_o_22_sv2v_reg <= 1'b0;
+      a_o_21_sv2v_reg <= 1'b0;
+      a_o_20_sv2v_reg <= 1'b0;
+      a_o_19_sv2v_reg <= 1'b0;
+      a_o_18_sv2v_reg <= 1'b0;
+      a_o_17_sv2v_reg <= 1'b0;
+      a_o_16_sv2v_reg <= 1'b0;
+      a_o_15_sv2v_reg <= 1'b0;
+      a_o_14_sv2v_reg <= 1'b0;
+      a_o_13_sv2v_reg <= 1'b0;
+      a_o_12_sv2v_reg <= 1'b0;
+      a_o_11_sv2v_reg <= 1'b0;
+      a_o_10_sv2v_reg <= 1'b0;
+      a_o_9_sv2v_reg <= 1'b0;
+      a_o_8_sv2v_reg <= 1'b0;
+      a_o_7_sv2v_reg <= 1'b0;
+      a_o_6_sv2v_reg <= 1'b0;
+      a_o_5_sv2v_reg <= 1'b0;
+      a_o_4_sv2v_reg <= 1'b0;
+      a_o_3_sv2v_reg <= 1'b0;
+      a_o_2_sv2v_reg <= 1'b0;
+      a_o_1_sv2v_reg <= 1'b0;
+      a_o_0_sv2v_reg <= 1'b0;
+      b_o_31_sv2v_reg <= 1'b0;
+      b_o_30_sv2v_reg <= 1'b0;
+      b_o_29_sv2v_reg <= 1'b0;
+      b_o_28_sv2v_reg <= 1'b0;
+      b_o_27_sv2v_reg <= 1'b0;
+      b_o_26_sv2v_reg <= 1'b0;
+      b_o_25_sv2v_reg <= 1'b0;
+      b_o_24_sv2v_reg <= 1'b0;
+      b_o_23_sv2v_reg <= 1'b0;
+      b_o_22_sv2v_reg <= 1'b0;
+      b_o_21_sv2v_reg <= 1'b0;
+      b_o_20_sv2v_reg <= 1'b0;
+      b_o_19_sv2v_reg <= 1'b0;
+      b_o_18_sv2v_reg <= 1'b0;
+      b_o_17_sv2v_reg <= 1'b0;
+      b_o_16_sv2v_reg <= 1'b0;
+      b_o_15_sv2v_reg <= 1'b0;
+      b_o_14_sv2v_reg <= 1'b0;
+      b_o_13_sv2v_reg <= 1'b0;
+      b_o_12_sv2v_reg <= 1'b0;
+      b_o_11_sv2v_reg <= 1'b0;
+      b_o_10_sv2v_reg <= 1'b0;
+      b_o_9_sv2v_reg <= 1'b0;
+      b_o_8_sv2v_reg <= 1'b0;
+      b_o_7_sv2v_reg <= 1'b0;
+      b_o_6_sv2v_reg <= 1'b0;
+      b_o_5_sv2v_reg <= 1'b0;
+      b_o_4_sv2v_reg <= 1'b0;
+      b_o_3_sv2v_reg <= 1'b0;
+      b_o_2_sv2v_reg <= 1'b0;
+      b_o_1_sv2v_reg <= 1'b0;
+      b_o_0_sv2v_reg <= 1'b0;
+      s_o_31_sv2v_reg <= 1'b0;
+      s_o_30_sv2v_reg <= 1'b0;
+      s_o_29_sv2v_reg <= 1'b0;
+      s_o_28_sv2v_reg <= 1'b0;
+      s_o_27_sv2v_reg <= 1'b0;
+      s_o_26_sv2v_reg <= 1'b0;
+      s_o_25_sv2v_reg <= 1'b0;
+      s_o_24_sv2v_reg <= 1'b0;
+      s_o_23_sv2v_reg <= 1'b0;
+      s_o_22_sv2v_reg <= 1'b0;
+      s_o_21_sv2v_reg <= 1'b0;
+      s_o_20_sv2v_reg <= 1'b0;
+      s_o_19_sv2v_reg <= 1'b0;
+      s_o_18_sv2v_reg <= 1'b0;
+      s_o_17_sv2v_reg <= 1'b0;
+      s_o_16_sv2v_reg <= 1'b0;
+      s_o_15_sv2v_reg <= 1'b0;
+      s_o_14_sv2v_reg <= 1'b0;
+      s_o_13_sv2v_reg <= 1'b0;
+      s_o_12_sv2v_reg <= 1'b0;
+      s_o_11_sv2v_reg <= 1'b0;
+      s_o_10_sv2v_reg <= 1'b0;
+      s_o_9_sv2v_reg <= 1'b0;
+      s_o_8_sv2v_reg <= 1'b0;
+      s_o_7_sv2v_reg <= 1'b0;
+      s_o_6_sv2v_reg <= 1'b0;
+      s_o_5_sv2v_reg <= 1'b0;
+      s_o_4_sv2v_reg <= 1'b0;
+      s_o_3_sv2v_reg <= 1'b0;
+      s_o_2_sv2v_reg <= 1'b0;
+      s_o_1_sv2v_reg <= 1'b0;
+      s_o_0_sv2v_reg <= 1'b0;
+      c_o_sv2v_reg <= 1'b0;
+    end else if(v_i) begin
+      prod_accum_o_24_sv2v_reg <= ps[0];
+      prod_accum_o_23_sv2v_reg <= prod_accum_i[23];
+      prod_accum_o_22_sv2v_reg <= prod_accum_i[22];
+      prod_accum_o_21_sv2v_reg <= prod_accum_i[21];
+      prod_accum_o_20_sv2v_reg <= prod_accum_i[20];
+      prod_accum_o_19_sv2v_reg <= prod_accum_i[19];
+      prod_accum_o_18_sv2v_reg <= prod_accum_i[18];
+      prod_accum_o_17_sv2v_reg <= prod_accum_i[17];
+      prod_accum_o_16_sv2v_reg <= prod_accum_i[16];
+      prod_accum_o_15_sv2v_reg <= prod_accum_i[15];
+      prod_accum_o_14_sv2v_reg <= prod_accum_i[14];
+      prod_accum_o_13_sv2v_reg <= prod_accum_i[13];
+      prod_accum_o_12_sv2v_reg <= prod_accum_i[12];
+      prod_accum_o_11_sv2v_reg <= prod_accum_i[11];
+      prod_accum_o_10_sv2v_reg <= prod_accum_i[10];
+      prod_accum_o_9_sv2v_reg <= prod_accum_i[9];
+      prod_accum_o_8_sv2v_reg <= prod_accum_i[8];
+      prod_accum_o_7_sv2v_reg <= prod_accum_i[7];
+      prod_accum_o_6_sv2v_reg <= prod_accum_i[6];
+      prod_accum_o_5_sv2v_reg <= prod_accum_i[5];
+      prod_accum_o_4_sv2v_reg <= prod_accum_i[4];
+      prod_accum_o_3_sv2v_reg <= prod_accum_i[3];
+      prod_accum_o_2_sv2v_reg <= prod_accum_i[2];
+      prod_accum_o_1_sv2v_reg <= prod_accum_i[1];
+      prod_accum_o_0_sv2v_reg <= prod_accum_i[0];
+      a_o_31_sv2v_reg <= a_i[31];
+      a_o_30_sv2v_reg <= a_i[30];
+      a_o_29_sv2v_reg <= a_i[29];
+      a_o_28_sv2v_reg <= a_i[28];
+      a_o_27_sv2v_reg <= a_i[27];
+      a_o_26_sv2v_reg <= a_i[26];
+      a_o_25_sv2v_reg <= a_i[25];
+      a_o_24_sv2v_reg <= a_i[24];
+      a_o_23_sv2v_reg <= a_i[23];
+      a_o_22_sv2v_reg <= a_i[22];
+      a_o_21_sv2v_reg <= a_i[21];
+      a_o_20_sv2v_reg <= a_i[20];
+      a_o_19_sv2v_reg <= a_i[19];
+      a_o_18_sv2v_reg <= a_i[18];
+      a_o_17_sv2v_reg <= a_i[17];
+      a_o_16_sv2v_reg <= a_i[16];
+      a_o_15_sv2v_reg <= a_i[15];
+      a_o_14_sv2v_reg <= a_i[14];
+      a_o_13_sv2v_reg <= a_i[13];
+      a_o_12_sv2v_reg <= a_i[12];
+      a_o_11_sv2v_reg <= a_i[11];
+      a_o_10_sv2v_reg <= a_i[10];
+      a_o_9_sv2v_reg <= a_i[9];
+      a_o_8_sv2v_reg <= a_i[8];
+      a_o_7_sv2v_reg <= a_i[7];
+      a_o_6_sv2v_reg <= a_i[6];
+      a_o_5_sv2v_reg <= a_i[5];
+      a_o_4_sv2v_reg <= a_i[4];
+      a_o_3_sv2v_reg <= a_i[3];
+      a_o_2_sv2v_reg <= a_i[2];
+      a_o_1_sv2v_reg <= a_i[1];
+      a_o_0_sv2v_reg <= a_i[0];
+      b_o_31_sv2v_reg <= b_i[31];
+      b_o_30_sv2v_reg <= b_i[30];
+      b_o_29_sv2v_reg <= b_i[29];
+      b_o_28_sv2v_reg <= b_i[28];
+      b_o_27_sv2v_reg <= b_i[27];
+      b_o_26_sv2v_reg <= b_i[26];
+      b_o_25_sv2v_reg <= b_i[25];
+      b_o_24_sv2v_reg <= b_i[24];
+      b_o_23_sv2v_reg <= b_i[23];
+      b_o_22_sv2v_reg <= b_i[22];
+      b_o_21_sv2v_reg <= b_i[21];
+      b_o_20_sv2v_reg <= b_i[20];
+      b_o_19_sv2v_reg <= b_i[19];
+      b_o_18_sv2v_reg <= b_i[18];
+      b_o_17_sv2v_reg <= b_i[17];
+      b_o_16_sv2v_reg <= b_i[16];
+      b_o_15_sv2v_reg <= b_i[15];
+      b_o_14_sv2v_reg <= b_i[14];
+      b_o_13_sv2v_reg <= b_i[13];
+      b_o_12_sv2v_reg <= b_i[12];
+      b_o_11_sv2v_reg <= b_i[11];
+      b_o_10_sv2v_reg <= b_i[10];
+      b_o_9_sv2v_reg <= b_i[9];
+      b_o_8_sv2v_reg <= b_i[8];
+      b_o_7_sv2v_reg <= b_i[7];
+      b_o_6_sv2v_reg <= b_i[6];
+      b_o_5_sv2v_reg <= b_i[5];
+      b_o_4_sv2v_reg <= b_i[4];
+      b_o_3_sv2v_reg <= b_i[3];
+      b_o_2_sv2v_reg <= b_i[2];
+      b_o_1_sv2v_reg <= b_i[1];
+      b_o_0_sv2v_reg <= b_i[0];
+      s_o_31_sv2v_reg <= ps[31];
+      s_o_30_sv2v_reg <= ps[30];
+      s_o_29_sv2v_reg <= ps[29];
+      s_o_28_sv2v_reg <= ps[28];
+      s_o_27_sv2v_reg <= ps[27];
+      s_o_26_sv2v_reg <= ps[26];
+      s_o_25_sv2v_reg <= ps[25];
+      s_o_24_sv2v_reg <= ps[24];
+      s_o_23_sv2v_reg <= ps[23];
+      s_o_22_sv2v_reg <= ps[22];
+      s_o_21_sv2v_reg <= ps[21];
+      s_o_20_sv2v_reg <= ps[20];
+      s_o_19_sv2v_reg <= ps[19];
+      s_o_18_sv2v_reg <= ps[18];
+      s_o_17_sv2v_reg <= ps[17];
+      s_o_16_sv2v_reg <= ps[16];
+      s_o_15_sv2v_reg <= ps[15];
+      s_o_14_sv2v_reg <= ps[14];
+      s_o_13_sv2v_reg <= ps[13];
+      s_o_12_sv2v_reg <= ps[12];
+      s_o_11_sv2v_reg <= ps[11];
+      s_o_10_sv2v_reg <= ps[10];
+      s_o_9_sv2v_reg <= ps[9];
+      s_o_8_sv2v_reg <= ps[8];
+      s_o_7_sv2v_reg <= ps[7];
+      s_o_6_sv2v_reg <= ps[6];
+      s_o_5_sv2v_reg <= ps[5];
+      s_o_4_sv2v_reg <= ps[4];
+      s_o_3_sv2v_reg <= ps[3];
+      s_o_2_sv2v_reg <= ps[2];
+      s_o_1_sv2v_reg <= ps[1];
+      s_o_0_sv2v_reg <= ps[0];
+      c_o_sv2v_reg <= pc;
     end 
   end
 
@@ -3237,7 +4555,12 @@ module bsg_mul_array_row_32_24_0
   output c_o;
   wire [31:0] a_o,b_o,s_o,pp;
   wire [25:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_24_,prod_accum_o_23_,prod_accum_o_22_,prod_accum_o_21_,
+  prod_accum_o_20_,prod_accum_o_19_,prod_accum_o_18_,prod_accum_o_17_,
+  prod_accum_o_16_,prod_accum_o_15_,prod_accum_o_14_,prod_accum_o_13_,prod_accum_o_12_,
+  prod_accum_o_11_,prod_accum_o_10_,prod_accum_o_9_,prod_accum_o_8_,prod_accum_o_7_,
+  prod_accum_o_6_,prod_accum_o_5_,prod_accum_o_4_,prod_accum_o_3_,prod_accum_o_2_,
+  prod_accum_o_1_,prod_accum_o_0_;
   assign a_o[31] = a_i[31];
   assign a_o[30] = a_i[30];
   assign a_o[29] = a_i[29];
@@ -3302,38 +4625,64 @@ module bsg_mul_array_row_32_24_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[25] = s_o[0];
-  assign prod_accum_o[24] = prod_accum_i[24];
-  assign prod_accum_o[23] = prod_accum_i[23];
-  assign prod_accum_o[22] = prod_accum_i[22];
-  assign prod_accum_o[21] = prod_accum_i[21];
-  assign prod_accum_o[20] = prod_accum_i[20];
-  assign prod_accum_o[19] = prod_accum_i[19];
-  assign prod_accum_o[18] = prod_accum_i[18];
-  assign prod_accum_o[17] = prod_accum_i[17];
-  assign prod_accum_o[16] = prod_accum_i[16];
-  assign prod_accum_o[15] = prod_accum_i[15];
-  assign prod_accum_o[14] = prod_accum_i[14];
-  assign prod_accum_o[13] = prod_accum_i[13];
-  assign prod_accum_o[12] = prod_accum_i[12];
-  assign prod_accum_o[11] = prod_accum_i[11];
-  assign prod_accum_o[10] = prod_accum_i[10];
-  assign prod_accum_o[9] = prod_accum_i[9];
-  assign prod_accum_o[8] = prod_accum_i[8];
-  assign prod_accum_o[7] = prod_accum_i[7];
-  assign prod_accum_o[6] = prod_accum_i[6];
-  assign prod_accum_o[5] = prod_accum_i[5];
-  assign prod_accum_o[4] = prod_accum_i[4];
-  assign prod_accum_o[3] = prod_accum_i[3];
-  assign prod_accum_o[2] = prod_accum_i[2];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[25] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_24_ = prod_accum_i[24];
+  assign prod_accum_o[24] = prod_accum_o_24_;
+  assign prod_accum_o_23_ = prod_accum_i[23];
+  assign prod_accum_o[23] = prod_accum_o_23_;
+  assign prod_accum_o_22_ = prod_accum_i[22];
+  assign prod_accum_o[22] = prod_accum_o_22_;
+  assign prod_accum_o_21_ = prod_accum_i[21];
+  assign prod_accum_o[21] = prod_accum_o_21_;
+  assign prod_accum_o_20_ = prod_accum_i[20];
+  assign prod_accum_o[20] = prod_accum_o_20_;
+  assign prod_accum_o_19_ = prod_accum_i[19];
+  assign prod_accum_o[19] = prod_accum_o_19_;
+  assign prod_accum_o_18_ = prod_accum_i[18];
+  assign prod_accum_o[18] = prod_accum_o_18_;
+  assign prod_accum_o_17_ = prod_accum_i[17];
+  assign prod_accum_o[17] = prod_accum_o_17_;
+  assign prod_accum_o_16_ = prod_accum_i[16];
+  assign prod_accum_o[16] = prod_accum_o_16_;
+  assign prod_accum_o_15_ = prod_accum_i[15];
+  assign prod_accum_o[15] = prod_accum_o_15_;
+  assign prod_accum_o_14_ = prod_accum_i[14];
+  assign prod_accum_o[14] = prod_accum_o_14_;
+  assign prod_accum_o_13_ = prod_accum_i[13];
+  assign prod_accum_o[13] = prod_accum_o_13_;
+  assign prod_accum_o_12_ = prod_accum_i[12];
+  assign prod_accum_o[12] = prod_accum_o_12_;
+  assign prod_accum_o_11_ = prod_accum_i[11];
+  assign prod_accum_o[11] = prod_accum_o_11_;
+  assign prod_accum_o_10_ = prod_accum_i[10];
+  assign prod_accum_o[10] = prod_accum_o_10_;
+  assign prod_accum_o_9_ = prod_accum_i[9];
+  assign prod_accum_o[9] = prod_accum_o_9_;
+  assign prod_accum_o_8_ = prod_accum_i[8];
+  assign prod_accum_o[8] = prod_accum_o_8_;
+  assign prod_accum_o_7_ = prod_accum_i[7];
+  assign prod_accum_o[7] = prod_accum_o_7_;
+  assign prod_accum_o_6_ = prod_accum_i[6];
+  assign prod_accum_o[6] = prod_accum_o_6_;
+  assign prod_accum_o_5_ = prod_accum_i[5];
+  assign prod_accum_o[5] = prod_accum_o_5_;
+  assign prod_accum_o_4_ = prod_accum_i[4];
+  assign prod_accum_o[4] = prod_accum_o_4_;
+  assign prod_accum_o_3_ = prod_accum_i[3];
+  assign prod_accum_o[3] = prod_accum_o_3_;
+  assign prod_accum_o_2_ = prod_accum_i[2];
+  assign prod_accum_o[2] = prod_accum_o_2_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p32
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[25:25], b_i[25:25], b_i[25:25], b_i[25:25], b_i[25:25], b_i[25:25], b_i[25:25], b_i[25:25], b_i[25:25], b_i[25:25], b_i[25:25], b_i[25:25], b_i[25:25], b_i[25:25], b_i[25:25], b_i[25:25], b_i[25:25], b_i[25:25], b_i[25:25], b_i[25:25], b_i[25:25], b_i[25:25], b_i[25:25], b_i[25:25], b_i[25:25], b_i[25:25], b_i[25:25], b_i[25:25], b_i[25:25], b_i[25:25], b_i[25:25], b_i[25:25] }),
+    .b_i({ b_o[25:25], b_o[25:25], b_o[25:25], b_o[25:25], b_o[25:25], b_o[25:25], b_o[25:25], b_o[25:25], b_o[25:25], b_o[25:25], b_o[25:25], b_o[25:25], b_o[25:25], b_o[25:25], b_o[25:25], b_o[25:25], b_o[25:25], b_o[25:25], b_o[25:25], b_o[25:25], b_o[25:25], b_o[25:25], b_o[25:25], b_o[25:25], b_o[25:25], b_o[25:25], b_o[25:25], b_o[25:25], b_o[25:25], b_o[25:25], b_o[25:25], b_o[25:25] }),
     .o(pp)
   );
 
@@ -3343,7 +4692,7 @@ module bsg_mul_array_row_32_24_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[31:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[31:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -3384,7 +4733,12 @@ module bsg_mul_array_row_32_25_0
   output c_o;
   wire [31:0] a_o,b_o,s_o,pp;
   wire [26:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_25_,prod_accum_o_24_,prod_accum_o_23_,prod_accum_o_22_,
+  prod_accum_o_21_,prod_accum_o_20_,prod_accum_o_19_,prod_accum_o_18_,
+  prod_accum_o_17_,prod_accum_o_16_,prod_accum_o_15_,prod_accum_o_14_,prod_accum_o_13_,
+  prod_accum_o_12_,prod_accum_o_11_,prod_accum_o_10_,prod_accum_o_9_,prod_accum_o_8_,
+  prod_accum_o_7_,prod_accum_o_6_,prod_accum_o_5_,prod_accum_o_4_,prod_accum_o_3_,
+  prod_accum_o_2_,prod_accum_o_1_,prod_accum_o_0_;
   assign a_o[31] = a_i[31];
   assign a_o[30] = a_i[30];
   assign a_o[29] = a_i[29];
@@ -3449,39 +4803,66 @@ module bsg_mul_array_row_32_25_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[26] = s_o[0];
-  assign prod_accum_o[25] = prod_accum_i[25];
-  assign prod_accum_o[24] = prod_accum_i[24];
-  assign prod_accum_o[23] = prod_accum_i[23];
-  assign prod_accum_o[22] = prod_accum_i[22];
-  assign prod_accum_o[21] = prod_accum_i[21];
-  assign prod_accum_o[20] = prod_accum_i[20];
-  assign prod_accum_o[19] = prod_accum_i[19];
-  assign prod_accum_o[18] = prod_accum_i[18];
-  assign prod_accum_o[17] = prod_accum_i[17];
-  assign prod_accum_o[16] = prod_accum_i[16];
-  assign prod_accum_o[15] = prod_accum_i[15];
-  assign prod_accum_o[14] = prod_accum_i[14];
-  assign prod_accum_o[13] = prod_accum_i[13];
-  assign prod_accum_o[12] = prod_accum_i[12];
-  assign prod_accum_o[11] = prod_accum_i[11];
-  assign prod_accum_o[10] = prod_accum_i[10];
-  assign prod_accum_o[9] = prod_accum_i[9];
-  assign prod_accum_o[8] = prod_accum_i[8];
-  assign prod_accum_o[7] = prod_accum_i[7];
-  assign prod_accum_o[6] = prod_accum_i[6];
-  assign prod_accum_o[5] = prod_accum_i[5];
-  assign prod_accum_o[4] = prod_accum_i[4];
-  assign prod_accum_o[3] = prod_accum_i[3];
-  assign prod_accum_o[2] = prod_accum_i[2];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[26] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_25_ = prod_accum_i[25];
+  assign prod_accum_o[25] = prod_accum_o_25_;
+  assign prod_accum_o_24_ = prod_accum_i[24];
+  assign prod_accum_o[24] = prod_accum_o_24_;
+  assign prod_accum_o_23_ = prod_accum_i[23];
+  assign prod_accum_o[23] = prod_accum_o_23_;
+  assign prod_accum_o_22_ = prod_accum_i[22];
+  assign prod_accum_o[22] = prod_accum_o_22_;
+  assign prod_accum_o_21_ = prod_accum_i[21];
+  assign prod_accum_o[21] = prod_accum_o_21_;
+  assign prod_accum_o_20_ = prod_accum_i[20];
+  assign prod_accum_o[20] = prod_accum_o_20_;
+  assign prod_accum_o_19_ = prod_accum_i[19];
+  assign prod_accum_o[19] = prod_accum_o_19_;
+  assign prod_accum_o_18_ = prod_accum_i[18];
+  assign prod_accum_o[18] = prod_accum_o_18_;
+  assign prod_accum_o_17_ = prod_accum_i[17];
+  assign prod_accum_o[17] = prod_accum_o_17_;
+  assign prod_accum_o_16_ = prod_accum_i[16];
+  assign prod_accum_o[16] = prod_accum_o_16_;
+  assign prod_accum_o_15_ = prod_accum_i[15];
+  assign prod_accum_o[15] = prod_accum_o_15_;
+  assign prod_accum_o_14_ = prod_accum_i[14];
+  assign prod_accum_o[14] = prod_accum_o_14_;
+  assign prod_accum_o_13_ = prod_accum_i[13];
+  assign prod_accum_o[13] = prod_accum_o_13_;
+  assign prod_accum_o_12_ = prod_accum_i[12];
+  assign prod_accum_o[12] = prod_accum_o_12_;
+  assign prod_accum_o_11_ = prod_accum_i[11];
+  assign prod_accum_o[11] = prod_accum_o_11_;
+  assign prod_accum_o_10_ = prod_accum_i[10];
+  assign prod_accum_o[10] = prod_accum_o_10_;
+  assign prod_accum_o_9_ = prod_accum_i[9];
+  assign prod_accum_o[9] = prod_accum_o_9_;
+  assign prod_accum_o_8_ = prod_accum_i[8];
+  assign prod_accum_o[8] = prod_accum_o_8_;
+  assign prod_accum_o_7_ = prod_accum_i[7];
+  assign prod_accum_o[7] = prod_accum_o_7_;
+  assign prod_accum_o_6_ = prod_accum_i[6];
+  assign prod_accum_o[6] = prod_accum_o_6_;
+  assign prod_accum_o_5_ = prod_accum_i[5];
+  assign prod_accum_o[5] = prod_accum_o_5_;
+  assign prod_accum_o_4_ = prod_accum_i[4];
+  assign prod_accum_o[4] = prod_accum_o_4_;
+  assign prod_accum_o_3_ = prod_accum_i[3];
+  assign prod_accum_o[3] = prod_accum_o_3_;
+  assign prod_accum_o_2_ = prod_accum_i[2];
+  assign prod_accum_o[2] = prod_accum_o_2_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p32
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[26:26], b_i[26:26], b_i[26:26], b_i[26:26], b_i[26:26], b_i[26:26], b_i[26:26], b_i[26:26], b_i[26:26], b_i[26:26], b_i[26:26], b_i[26:26], b_i[26:26], b_i[26:26], b_i[26:26], b_i[26:26], b_i[26:26], b_i[26:26], b_i[26:26], b_i[26:26], b_i[26:26], b_i[26:26], b_i[26:26], b_i[26:26], b_i[26:26], b_i[26:26], b_i[26:26], b_i[26:26], b_i[26:26], b_i[26:26], b_i[26:26], b_i[26:26] }),
+    .b_i({ b_o[26:26], b_o[26:26], b_o[26:26], b_o[26:26], b_o[26:26], b_o[26:26], b_o[26:26], b_o[26:26], b_o[26:26], b_o[26:26], b_o[26:26], b_o[26:26], b_o[26:26], b_o[26:26], b_o[26:26], b_o[26:26], b_o[26:26], b_o[26:26], b_o[26:26], b_o[26:26], b_o[26:26], b_o[26:26], b_o[26:26], b_o[26:26], b_o[26:26], b_o[26:26], b_o[26:26], b_o[26:26], b_o[26:26], b_o[26:26], b_o[26:26], b_o[26:26] }),
     .o(pp)
   );
 
@@ -3491,7 +4872,7 @@ module bsg_mul_array_row_32_25_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[31:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[31:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -3532,7 +4913,12 @@ module bsg_mul_array_row_32_26_0
   output c_o;
   wire [31:0] a_o,b_o,s_o,pp;
   wire [27:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_26_,prod_accum_o_25_,prod_accum_o_24_,prod_accum_o_23_,
+  prod_accum_o_22_,prod_accum_o_21_,prod_accum_o_20_,prod_accum_o_19_,
+  prod_accum_o_18_,prod_accum_o_17_,prod_accum_o_16_,prod_accum_o_15_,prod_accum_o_14_,
+  prod_accum_o_13_,prod_accum_o_12_,prod_accum_o_11_,prod_accum_o_10_,prod_accum_o_9_,
+  prod_accum_o_8_,prod_accum_o_7_,prod_accum_o_6_,prod_accum_o_5_,prod_accum_o_4_,
+  prod_accum_o_3_,prod_accum_o_2_,prod_accum_o_1_,prod_accum_o_0_;
   assign a_o[31] = a_i[31];
   assign a_o[30] = a_i[30];
   assign a_o[29] = a_i[29];
@@ -3597,40 +4983,68 @@ module bsg_mul_array_row_32_26_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[27] = s_o[0];
-  assign prod_accum_o[26] = prod_accum_i[26];
-  assign prod_accum_o[25] = prod_accum_i[25];
-  assign prod_accum_o[24] = prod_accum_i[24];
-  assign prod_accum_o[23] = prod_accum_i[23];
-  assign prod_accum_o[22] = prod_accum_i[22];
-  assign prod_accum_o[21] = prod_accum_i[21];
-  assign prod_accum_o[20] = prod_accum_i[20];
-  assign prod_accum_o[19] = prod_accum_i[19];
-  assign prod_accum_o[18] = prod_accum_i[18];
-  assign prod_accum_o[17] = prod_accum_i[17];
-  assign prod_accum_o[16] = prod_accum_i[16];
-  assign prod_accum_o[15] = prod_accum_i[15];
-  assign prod_accum_o[14] = prod_accum_i[14];
-  assign prod_accum_o[13] = prod_accum_i[13];
-  assign prod_accum_o[12] = prod_accum_i[12];
-  assign prod_accum_o[11] = prod_accum_i[11];
-  assign prod_accum_o[10] = prod_accum_i[10];
-  assign prod_accum_o[9] = prod_accum_i[9];
-  assign prod_accum_o[8] = prod_accum_i[8];
-  assign prod_accum_o[7] = prod_accum_i[7];
-  assign prod_accum_o[6] = prod_accum_i[6];
-  assign prod_accum_o[5] = prod_accum_i[5];
-  assign prod_accum_o[4] = prod_accum_i[4];
-  assign prod_accum_o[3] = prod_accum_i[3];
-  assign prod_accum_o[2] = prod_accum_i[2];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[27] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_26_ = prod_accum_i[26];
+  assign prod_accum_o[26] = prod_accum_o_26_;
+  assign prod_accum_o_25_ = prod_accum_i[25];
+  assign prod_accum_o[25] = prod_accum_o_25_;
+  assign prod_accum_o_24_ = prod_accum_i[24];
+  assign prod_accum_o[24] = prod_accum_o_24_;
+  assign prod_accum_o_23_ = prod_accum_i[23];
+  assign prod_accum_o[23] = prod_accum_o_23_;
+  assign prod_accum_o_22_ = prod_accum_i[22];
+  assign prod_accum_o[22] = prod_accum_o_22_;
+  assign prod_accum_o_21_ = prod_accum_i[21];
+  assign prod_accum_o[21] = prod_accum_o_21_;
+  assign prod_accum_o_20_ = prod_accum_i[20];
+  assign prod_accum_o[20] = prod_accum_o_20_;
+  assign prod_accum_o_19_ = prod_accum_i[19];
+  assign prod_accum_o[19] = prod_accum_o_19_;
+  assign prod_accum_o_18_ = prod_accum_i[18];
+  assign prod_accum_o[18] = prod_accum_o_18_;
+  assign prod_accum_o_17_ = prod_accum_i[17];
+  assign prod_accum_o[17] = prod_accum_o_17_;
+  assign prod_accum_o_16_ = prod_accum_i[16];
+  assign prod_accum_o[16] = prod_accum_o_16_;
+  assign prod_accum_o_15_ = prod_accum_i[15];
+  assign prod_accum_o[15] = prod_accum_o_15_;
+  assign prod_accum_o_14_ = prod_accum_i[14];
+  assign prod_accum_o[14] = prod_accum_o_14_;
+  assign prod_accum_o_13_ = prod_accum_i[13];
+  assign prod_accum_o[13] = prod_accum_o_13_;
+  assign prod_accum_o_12_ = prod_accum_i[12];
+  assign prod_accum_o[12] = prod_accum_o_12_;
+  assign prod_accum_o_11_ = prod_accum_i[11];
+  assign prod_accum_o[11] = prod_accum_o_11_;
+  assign prod_accum_o_10_ = prod_accum_i[10];
+  assign prod_accum_o[10] = prod_accum_o_10_;
+  assign prod_accum_o_9_ = prod_accum_i[9];
+  assign prod_accum_o[9] = prod_accum_o_9_;
+  assign prod_accum_o_8_ = prod_accum_i[8];
+  assign prod_accum_o[8] = prod_accum_o_8_;
+  assign prod_accum_o_7_ = prod_accum_i[7];
+  assign prod_accum_o[7] = prod_accum_o_7_;
+  assign prod_accum_o_6_ = prod_accum_i[6];
+  assign prod_accum_o[6] = prod_accum_o_6_;
+  assign prod_accum_o_5_ = prod_accum_i[5];
+  assign prod_accum_o[5] = prod_accum_o_5_;
+  assign prod_accum_o_4_ = prod_accum_i[4];
+  assign prod_accum_o[4] = prod_accum_o_4_;
+  assign prod_accum_o_3_ = prod_accum_i[3];
+  assign prod_accum_o[3] = prod_accum_o_3_;
+  assign prod_accum_o_2_ = prod_accum_i[2];
+  assign prod_accum_o[2] = prod_accum_o_2_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p32
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[27:27], b_i[27:27], b_i[27:27], b_i[27:27], b_i[27:27], b_i[27:27], b_i[27:27], b_i[27:27], b_i[27:27], b_i[27:27], b_i[27:27], b_i[27:27], b_i[27:27], b_i[27:27], b_i[27:27], b_i[27:27], b_i[27:27], b_i[27:27], b_i[27:27], b_i[27:27], b_i[27:27], b_i[27:27], b_i[27:27], b_i[27:27], b_i[27:27], b_i[27:27], b_i[27:27], b_i[27:27], b_i[27:27], b_i[27:27], b_i[27:27], b_i[27:27] }),
+    .b_i({ b_o[27:27], b_o[27:27], b_o[27:27], b_o[27:27], b_o[27:27], b_o[27:27], b_o[27:27], b_o[27:27], b_o[27:27], b_o[27:27], b_o[27:27], b_o[27:27], b_o[27:27], b_o[27:27], b_o[27:27], b_o[27:27], b_o[27:27], b_o[27:27], b_o[27:27], b_o[27:27], b_o[27:27], b_o[27:27], b_o[27:27], b_o[27:27], b_o[27:27], b_o[27:27], b_o[27:27], b_o[27:27], b_o[27:27], b_o[27:27], b_o[27:27], b_o[27:27] }),
     .o(pp)
   );
 
@@ -3640,7 +5054,7 @@ module bsg_mul_array_row_32_26_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[31:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[31:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -3681,7 +5095,12 @@ module bsg_mul_array_row_32_27_0
   output c_o;
   wire [31:0] a_o,b_o,s_o,pp;
   wire [28:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_27_,prod_accum_o_26_,prod_accum_o_25_,prod_accum_o_24_,
+  prod_accum_o_23_,prod_accum_o_22_,prod_accum_o_21_,prod_accum_o_20_,
+  prod_accum_o_19_,prod_accum_o_18_,prod_accum_o_17_,prod_accum_o_16_,prod_accum_o_15_,
+  prod_accum_o_14_,prod_accum_o_13_,prod_accum_o_12_,prod_accum_o_11_,prod_accum_o_10_,
+  prod_accum_o_9_,prod_accum_o_8_,prod_accum_o_7_,prod_accum_o_6_,prod_accum_o_5_,
+  prod_accum_o_4_,prod_accum_o_3_,prod_accum_o_2_,prod_accum_o_1_,prod_accum_o_0_;
   assign a_o[31] = a_i[31];
   assign a_o[30] = a_i[30];
   assign a_o[29] = a_i[29];
@@ -3746,41 +5165,70 @@ module bsg_mul_array_row_32_27_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[28] = s_o[0];
-  assign prod_accum_o[27] = prod_accum_i[27];
-  assign prod_accum_o[26] = prod_accum_i[26];
-  assign prod_accum_o[25] = prod_accum_i[25];
-  assign prod_accum_o[24] = prod_accum_i[24];
-  assign prod_accum_o[23] = prod_accum_i[23];
-  assign prod_accum_o[22] = prod_accum_i[22];
-  assign prod_accum_o[21] = prod_accum_i[21];
-  assign prod_accum_o[20] = prod_accum_i[20];
-  assign prod_accum_o[19] = prod_accum_i[19];
-  assign prod_accum_o[18] = prod_accum_i[18];
-  assign prod_accum_o[17] = prod_accum_i[17];
-  assign prod_accum_o[16] = prod_accum_i[16];
-  assign prod_accum_o[15] = prod_accum_i[15];
-  assign prod_accum_o[14] = prod_accum_i[14];
-  assign prod_accum_o[13] = prod_accum_i[13];
-  assign prod_accum_o[12] = prod_accum_i[12];
-  assign prod_accum_o[11] = prod_accum_i[11];
-  assign prod_accum_o[10] = prod_accum_i[10];
-  assign prod_accum_o[9] = prod_accum_i[9];
-  assign prod_accum_o[8] = prod_accum_i[8];
-  assign prod_accum_o[7] = prod_accum_i[7];
-  assign prod_accum_o[6] = prod_accum_i[6];
-  assign prod_accum_o[5] = prod_accum_i[5];
-  assign prod_accum_o[4] = prod_accum_i[4];
-  assign prod_accum_o[3] = prod_accum_i[3];
-  assign prod_accum_o[2] = prod_accum_i[2];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[28] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_27_ = prod_accum_i[27];
+  assign prod_accum_o[27] = prod_accum_o_27_;
+  assign prod_accum_o_26_ = prod_accum_i[26];
+  assign prod_accum_o[26] = prod_accum_o_26_;
+  assign prod_accum_o_25_ = prod_accum_i[25];
+  assign prod_accum_o[25] = prod_accum_o_25_;
+  assign prod_accum_o_24_ = prod_accum_i[24];
+  assign prod_accum_o[24] = prod_accum_o_24_;
+  assign prod_accum_o_23_ = prod_accum_i[23];
+  assign prod_accum_o[23] = prod_accum_o_23_;
+  assign prod_accum_o_22_ = prod_accum_i[22];
+  assign prod_accum_o[22] = prod_accum_o_22_;
+  assign prod_accum_o_21_ = prod_accum_i[21];
+  assign prod_accum_o[21] = prod_accum_o_21_;
+  assign prod_accum_o_20_ = prod_accum_i[20];
+  assign prod_accum_o[20] = prod_accum_o_20_;
+  assign prod_accum_o_19_ = prod_accum_i[19];
+  assign prod_accum_o[19] = prod_accum_o_19_;
+  assign prod_accum_o_18_ = prod_accum_i[18];
+  assign prod_accum_o[18] = prod_accum_o_18_;
+  assign prod_accum_o_17_ = prod_accum_i[17];
+  assign prod_accum_o[17] = prod_accum_o_17_;
+  assign prod_accum_o_16_ = prod_accum_i[16];
+  assign prod_accum_o[16] = prod_accum_o_16_;
+  assign prod_accum_o_15_ = prod_accum_i[15];
+  assign prod_accum_o[15] = prod_accum_o_15_;
+  assign prod_accum_o_14_ = prod_accum_i[14];
+  assign prod_accum_o[14] = prod_accum_o_14_;
+  assign prod_accum_o_13_ = prod_accum_i[13];
+  assign prod_accum_o[13] = prod_accum_o_13_;
+  assign prod_accum_o_12_ = prod_accum_i[12];
+  assign prod_accum_o[12] = prod_accum_o_12_;
+  assign prod_accum_o_11_ = prod_accum_i[11];
+  assign prod_accum_o[11] = prod_accum_o_11_;
+  assign prod_accum_o_10_ = prod_accum_i[10];
+  assign prod_accum_o[10] = prod_accum_o_10_;
+  assign prod_accum_o_9_ = prod_accum_i[9];
+  assign prod_accum_o[9] = prod_accum_o_9_;
+  assign prod_accum_o_8_ = prod_accum_i[8];
+  assign prod_accum_o[8] = prod_accum_o_8_;
+  assign prod_accum_o_7_ = prod_accum_i[7];
+  assign prod_accum_o[7] = prod_accum_o_7_;
+  assign prod_accum_o_6_ = prod_accum_i[6];
+  assign prod_accum_o[6] = prod_accum_o_6_;
+  assign prod_accum_o_5_ = prod_accum_i[5];
+  assign prod_accum_o[5] = prod_accum_o_5_;
+  assign prod_accum_o_4_ = prod_accum_i[4];
+  assign prod_accum_o[4] = prod_accum_o_4_;
+  assign prod_accum_o_3_ = prod_accum_i[3];
+  assign prod_accum_o[3] = prod_accum_o_3_;
+  assign prod_accum_o_2_ = prod_accum_i[2];
+  assign prod_accum_o[2] = prod_accum_o_2_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p32
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[28:28], b_i[28:28], b_i[28:28], b_i[28:28], b_i[28:28], b_i[28:28], b_i[28:28], b_i[28:28], b_i[28:28], b_i[28:28], b_i[28:28], b_i[28:28], b_i[28:28], b_i[28:28], b_i[28:28], b_i[28:28], b_i[28:28], b_i[28:28], b_i[28:28], b_i[28:28], b_i[28:28], b_i[28:28], b_i[28:28], b_i[28:28], b_i[28:28], b_i[28:28], b_i[28:28], b_i[28:28], b_i[28:28], b_i[28:28], b_i[28:28], b_i[28:28] }),
+    .b_i({ b_o[28:28], b_o[28:28], b_o[28:28], b_o[28:28], b_o[28:28], b_o[28:28], b_o[28:28], b_o[28:28], b_o[28:28], b_o[28:28], b_o[28:28], b_o[28:28], b_o[28:28], b_o[28:28], b_o[28:28], b_o[28:28], b_o[28:28], b_o[28:28], b_o[28:28], b_o[28:28], b_o[28:28], b_o[28:28], b_o[28:28], b_o[28:28], b_o[28:28], b_o[28:28], b_o[28:28], b_o[28:28], b_o[28:28], b_o[28:28], b_o[28:28], b_o[28:28] }),
     .o(pp)
   );
 
@@ -3790,7 +5238,7 @@ module bsg_mul_array_row_32_27_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[31:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[31:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -3831,7 +5279,13 @@ module bsg_mul_array_row_32_28_0
   output c_o;
   wire [31:0] a_o,b_o,s_o,pp;
   wire [29:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_28_,prod_accum_o_27_,prod_accum_o_26_,prod_accum_o_25_,
+  prod_accum_o_24_,prod_accum_o_23_,prod_accum_o_22_,prod_accum_o_21_,
+  prod_accum_o_20_,prod_accum_o_19_,prod_accum_o_18_,prod_accum_o_17_,prod_accum_o_16_,
+  prod_accum_o_15_,prod_accum_o_14_,prod_accum_o_13_,prod_accum_o_12_,prod_accum_o_11_,
+  prod_accum_o_10_,prod_accum_o_9_,prod_accum_o_8_,prod_accum_o_7_,prod_accum_o_6_,
+  prod_accum_o_5_,prod_accum_o_4_,prod_accum_o_3_,prod_accum_o_2_,prod_accum_o_1_,
+  prod_accum_o_0_;
   assign a_o[31] = a_i[31];
   assign a_o[30] = a_i[30];
   assign a_o[29] = a_i[29];
@@ -3896,42 +5350,72 @@ module bsg_mul_array_row_32_28_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[29] = s_o[0];
-  assign prod_accum_o[28] = prod_accum_i[28];
-  assign prod_accum_o[27] = prod_accum_i[27];
-  assign prod_accum_o[26] = prod_accum_i[26];
-  assign prod_accum_o[25] = prod_accum_i[25];
-  assign prod_accum_o[24] = prod_accum_i[24];
-  assign prod_accum_o[23] = prod_accum_i[23];
-  assign prod_accum_o[22] = prod_accum_i[22];
-  assign prod_accum_o[21] = prod_accum_i[21];
-  assign prod_accum_o[20] = prod_accum_i[20];
-  assign prod_accum_o[19] = prod_accum_i[19];
-  assign prod_accum_o[18] = prod_accum_i[18];
-  assign prod_accum_o[17] = prod_accum_i[17];
-  assign prod_accum_o[16] = prod_accum_i[16];
-  assign prod_accum_o[15] = prod_accum_i[15];
-  assign prod_accum_o[14] = prod_accum_i[14];
-  assign prod_accum_o[13] = prod_accum_i[13];
-  assign prod_accum_o[12] = prod_accum_i[12];
-  assign prod_accum_o[11] = prod_accum_i[11];
-  assign prod_accum_o[10] = prod_accum_i[10];
-  assign prod_accum_o[9] = prod_accum_i[9];
-  assign prod_accum_o[8] = prod_accum_i[8];
-  assign prod_accum_o[7] = prod_accum_i[7];
-  assign prod_accum_o[6] = prod_accum_i[6];
-  assign prod_accum_o[5] = prod_accum_i[5];
-  assign prod_accum_o[4] = prod_accum_i[4];
-  assign prod_accum_o[3] = prod_accum_i[3];
-  assign prod_accum_o[2] = prod_accum_i[2];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[29] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_28_ = prod_accum_i[28];
+  assign prod_accum_o[28] = prod_accum_o_28_;
+  assign prod_accum_o_27_ = prod_accum_i[27];
+  assign prod_accum_o[27] = prod_accum_o_27_;
+  assign prod_accum_o_26_ = prod_accum_i[26];
+  assign prod_accum_o[26] = prod_accum_o_26_;
+  assign prod_accum_o_25_ = prod_accum_i[25];
+  assign prod_accum_o[25] = prod_accum_o_25_;
+  assign prod_accum_o_24_ = prod_accum_i[24];
+  assign prod_accum_o[24] = prod_accum_o_24_;
+  assign prod_accum_o_23_ = prod_accum_i[23];
+  assign prod_accum_o[23] = prod_accum_o_23_;
+  assign prod_accum_o_22_ = prod_accum_i[22];
+  assign prod_accum_o[22] = prod_accum_o_22_;
+  assign prod_accum_o_21_ = prod_accum_i[21];
+  assign prod_accum_o[21] = prod_accum_o_21_;
+  assign prod_accum_o_20_ = prod_accum_i[20];
+  assign prod_accum_o[20] = prod_accum_o_20_;
+  assign prod_accum_o_19_ = prod_accum_i[19];
+  assign prod_accum_o[19] = prod_accum_o_19_;
+  assign prod_accum_o_18_ = prod_accum_i[18];
+  assign prod_accum_o[18] = prod_accum_o_18_;
+  assign prod_accum_o_17_ = prod_accum_i[17];
+  assign prod_accum_o[17] = prod_accum_o_17_;
+  assign prod_accum_o_16_ = prod_accum_i[16];
+  assign prod_accum_o[16] = prod_accum_o_16_;
+  assign prod_accum_o_15_ = prod_accum_i[15];
+  assign prod_accum_o[15] = prod_accum_o_15_;
+  assign prod_accum_o_14_ = prod_accum_i[14];
+  assign prod_accum_o[14] = prod_accum_o_14_;
+  assign prod_accum_o_13_ = prod_accum_i[13];
+  assign prod_accum_o[13] = prod_accum_o_13_;
+  assign prod_accum_o_12_ = prod_accum_i[12];
+  assign prod_accum_o[12] = prod_accum_o_12_;
+  assign prod_accum_o_11_ = prod_accum_i[11];
+  assign prod_accum_o[11] = prod_accum_o_11_;
+  assign prod_accum_o_10_ = prod_accum_i[10];
+  assign prod_accum_o[10] = prod_accum_o_10_;
+  assign prod_accum_o_9_ = prod_accum_i[9];
+  assign prod_accum_o[9] = prod_accum_o_9_;
+  assign prod_accum_o_8_ = prod_accum_i[8];
+  assign prod_accum_o[8] = prod_accum_o_8_;
+  assign prod_accum_o_7_ = prod_accum_i[7];
+  assign prod_accum_o[7] = prod_accum_o_7_;
+  assign prod_accum_o_6_ = prod_accum_i[6];
+  assign prod_accum_o[6] = prod_accum_o_6_;
+  assign prod_accum_o_5_ = prod_accum_i[5];
+  assign prod_accum_o[5] = prod_accum_o_5_;
+  assign prod_accum_o_4_ = prod_accum_i[4];
+  assign prod_accum_o[4] = prod_accum_o_4_;
+  assign prod_accum_o_3_ = prod_accum_i[3];
+  assign prod_accum_o[3] = prod_accum_o_3_;
+  assign prod_accum_o_2_ = prod_accum_i[2];
+  assign prod_accum_o[2] = prod_accum_o_2_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p32
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[29:29], b_i[29:29], b_i[29:29], b_i[29:29], b_i[29:29], b_i[29:29], b_i[29:29], b_i[29:29], b_i[29:29], b_i[29:29], b_i[29:29], b_i[29:29], b_i[29:29], b_i[29:29], b_i[29:29], b_i[29:29], b_i[29:29], b_i[29:29], b_i[29:29], b_i[29:29], b_i[29:29], b_i[29:29], b_i[29:29], b_i[29:29], b_i[29:29], b_i[29:29], b_i[29:29], b_i[29:29], b_i[29:29], b_i[29:29], b_i[29:29], b_i[29:29] }),
+    .b_i({ b_o[29:29], b_o[29:29], b_o[29:29], b_o[29:29], b_o[29:29], b_o[29:29], b_o[29:29], b_o[29:29], b_o[29:29], b_o[29:29], b_o[29:29], b_o[29:29], b_o[29:29], b_o[29:29], b_o[29:29], b_o[29:29], b_o[29:29], b_o[29:29], b_o[29:29], b_o[29:29], b_o[29:29], b_o[29:29], b_o[29:29], b_o[29:29], b_o[29:29], b_o[29:29], b_o[29:29], b_o[29:29], b_o[29:29], b_o[29:29], b_o[29:29], b_o[29:29] }),
     .o(pp)
   );
 
@@ -3941,7 +5425,7 @@ module bsg_mul_array_row_32_28_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[31:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[31:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -3982,7 +5466,13 @@ module bsg_mul_array_row_32_29_0
   output c_o;
   wire [31:0] a_o,b_o,s_o,pp;
   wire [30:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_29_,prod_accum_o_28_,prod_accum_o_27_,prod_accum_o_26_,
+  prod_accum_o_25_,prod_accum_o_24_,prod_accum_o_23_,prod_accum_o_22_,
+  prod_accum_o_21_,prod_accum_o_20_,prod_accum_o_19_,prod_accum_o_18_,prod_accum_o_17_,
+  prod_accum_o_16_,prod_accum_o_15_,prod_accum_o_14_,prod_accum_o_13_,prod_accum_o_12_,
+  prod_accum_o_11_,prod_accum_o_10_,prod_accum_o_9_,prod_accum_o_8_,prod_accum_o_7_,
+  prod_accum_o_6_,prod_accum_o_5_,prod_accum_o_4_,prod_accum_o_3_,prod_accum_o_2_,
+  prod_accum_o_1_,prod_accum_o_0_;
   assign a_o[31] = a_i[31];
   assign a_o[30] = a_i[30];
   assign a_o[29] = a_i[29];
@@ -4047,43 +5537,74 @@ module bsg_mul_array_row_32_29_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[30] = s_o[0];
-  assign prod_accum_o[29] = prod_accum_i[29];
-  assign prod_accum_o[28] = prod_accum_i[28];
-  assign prod_accum_o[27] = prod_accum_i[27];
-  assign prod_accum_o[26] = prod_accum_i[26];
-  assign prod_accum_o[25] = prod_accum_i[25];
-  assign prod_accum_o[24] = prod_accum_i[24];
-  assign prod_accum_o[23] = prod_accum_i[23];
-  assign prod_accum_o[22] = prod_accum_i[22];
-  assign prod_accum_o[21] = prod_accum_i[21];
-  assign prod_accum_o[20] = prod_accum_i[20];
-  assign prod_accum_o[19] = prod_accum_i[19];
-  assign prod_accum_o[18] = prod_accum_i[18];
-  assign prod_accum_o[17] = prod_accum_i[17];
-  assign prod_accum_o[16] = prod_accum_i[16];
-  assign prod_accum_o[15] = prod_accum_i[15];
-  assign prod_accum_o[14] = prod_accum_i[14];
-  assign prod_accum_o[13] = prod_accum_i[13];
-  assign prod_accum_o[12] = prod_accum_i[12];
-  assign prod_accum_o[11] = prod_accum_i[11];
-  assign prod_accum_o[10] = prod_accum_i[10];
-  assign prod_accum_o[9] = prod_accum_i[9];
-  assign prod_accum_o[8] = prod_accum_i[8];
-  assign prod_accum_o[7] = prod_accum_i[7];
-  assign prod_accum_o[6] = prod_accum_i[6];
-  assign prod_accum_o[5] = prod_accum_i[5];
-  assign prod_accum_o[4] = prod_accum_i[4];
-  assign prod_accum_o[3] = prod_accum_i[3];
-  assign prod_accum_o[2] = prod_accum_i[2];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[30] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_29_ = prod_accum_i[29];
+  assign prod_accum_o[29] = prod_accum_o_29_;
+  assign prod_accum_o_28_ = prod_accum_i[28];
+  assign prod_accum_o[28] = prod_accum_o_28_;
+  assign prod_accum_o_27_ = prod_accum_i[27];
+  assign prod_accum_o[27] = prod_accum_o_27_;
+  assign prod_accum_o_26_ = prod_accum_i[26];
+  assign prod_accum_o[26] = prod_accum_o_26_;
+  assign prod_accum_o_25_ = prod_accum_i[25];
+  assign prod_accum_o[25] = prod_accum_o_25_;
+  assign prod_accum_o_24_ = prod_accum_i[24];
+  assign prod_accum_o[24] = prod_accum_o_24_;
+  assign prod_accum_o_23_ = prod_accum_i[23];
+  assign prod_accum_o[23] = prod_accum_o_23_;
+  assign prod_accum_o_22_ = prod_accum_i[22];
+  assign prod_accum_o[22] = prod_accum_o_22_;
+  assign prod_accum_o_21_ = prod_accum_i[21];
+  assign prod_accum_o[21] = prod_accum_o_21_;
+  assign prod_accum_o_20_ = prod_accum_i[20];
+  assign prod_accum_o[20] = prod_accum_o_20_;
+  assign prod_accum_o_19_ = prod_accum_i[19];
+  assign prod_accum_o[19] = prod_accum_o_19_;
+  assign prod_accum_o_18_ = prod_accum_i[18];
+  assign prod_accum_o[18] = prod_accum_o_18_;
+  assign prod_accum_o_17_ = prod_accum_i[17];
+  assign prod_accum_o[17] = prod_accum_o_17_;
+  assign prod_accum_o_16_ = prod_accum_i[16];
+  assign prod_accum_o[16] = prod_accum_o_16_;
+  assign prod_accum_o_15_ = prod_accum_i[15];
+  assign prod_accum_o[15] = prod_accum_o_15_;
+  assign prod_accum_o_14_ = prod_accum_i[14];
+  assign prod_accum_o[14] = prod_accum_o_14_;
+  assign prod_accum_o_13_ = prod_accum_i[13];
+  assign prod_accum_o[13] = prod_accum_o_13_;
+  assign prod_accum_o_12_ = prod_accum_i[12];
+  assign prod_accum_o[12] = prod_accum_o_12_;
+  assign prod_accum_o_11_ = prod_accum_i[11];
+  assign prod_accum_o[11] = prod_accum_o_11_;
+  assign prod_accum_o_10_ = prod_accum_i[10];
+  assign prod_accum_o[10] = prod_accum_o_10_;
+  assign prod_accum_o_9_ = prod_accum_i[9];
+  assign prod_accum_o[9] = prod_accum_o_9_;
+  assign prod_accum_o_8_ = prod_accum_i[8];
+  assign prod_accum_o[8] = prod_accum_o_8_;
+  assign prod_accum_o_7_ = prod_accum_i[7];
+  assign prod_accum_o[7] = prod_accum_o_7_;
+  assign prod_accum_o_6_ = prod_accum_i[6];
+  assign prod_accum_o[6] = prod_accum_o_6_;
+  assign prod_accum_o_5_ = prod_accum_i[5];
+  assign prod_accum_o[5] = prod_accum_o_5_;
+  assign prod_accum_o_4_ = prod_accum_i[4];
+  assign prod_accum_o[4] = prod_accum_o_4_;
+  assign prod_accum_o_3_ = prod_accum_i[3];
+  assign prod_accum_o[3] = prod_accum_o_3_;
+  assign prod_accum_o_2_ = prod_accum_i[2];
+  assign prod_accum_o[2] = prod_accum_o_2_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p32
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[30:30], b_i[30:30], b_i[30:30], b_i[30:30], b_i[30:30], b_i[30:30], b_i[30:30], b_i[30:30], b_i[30:30], b_i[30:30], b_i[30:30], b_i[30:30], b_i[30:30], b_i[30:30], b_i[30:30], b_i[30:30], b_i[30:30], b_i[30:30], b_i[30:30], b_i[30:30], b_i[30:30], b_i[30:30], b_i[30:30], b_i[30:30], b_i[30:30], b_i[30:30], b_i[30:30], b_i[30:30], b_i[30:30], b_i[30:30], b_i[30:30], b_i[30:30] }),
+    .b_i({ b_o[30:30], b_o[30:30], b_o[30:30], b_o[30:30], b_o[30:30], b_o[30:30], b_o[30:30], b_o[30:30], b_o[30:30], b_o[30:30], b_o[30:30], b_o[30:30], b_o[30:30], b_o[30:30], b_o[30:30], b_o[30:30], b_o[30:30], b_o[30:30], b_o[30:30], b_o[30:30], b_o[30:30], b_o[30:30], b_o[30:30], b_o[30:30], b_o[30:30], b_o[30:30], b_o[30:30], b_o[30:30], b_o[30:30], b_o[30:30], b_o[30:30], b_o[30:30] }),
     .o(pp)
   );
 
@@ -4093,7 +5614,7 @@ module bsg_mul_array_row_32_29_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[31:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[31:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -4133,7 +5654,13 @@ module bsg_mul_array_row_32_30_0
   input c_i;
   output c_o;
   wire [31:0] a_o,b_o,s_o,prod_accum_o,pp;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_30_,prod_accum_o_29_,prod_accum_o_28_,prod_accum_o_27_,
+  prod_accum_o_26_,prod_accum_o_25_,prod_accum_o_24_,prod_accum_o_23_,
+  prod_accum_o_22_,prod_accum_o_21_,prod_accum_o_20_,prod_accum_o_19_,prod_accum_o_18_,
+  prod_accum_o_17_,prod_accum_o_16_,prod_accum_o_15_,prod_accum_o_14_,prod_accum_o_13_,
+  prod_accum_o_12_,prod_accum_o_11_,prod_accum_o_10_,prod_accum_o_9_,prod_accum_o_8_,
+  prod_accum_o_7_,prod_accum_o_6_,prod_accum_o_5_,prod_accum_o_4_,prod_accum_o_3_,
+  prod_accum_o_2_,prod_accum_o_1_,prod_accum_o_0_;
   assign a_o[31] = a_i[31];
   assign a_o[30] = a_i[30];
   assign a_o[29] = a_i[29];
@@ -4198,44 +5725,76 @@ module bsg_mul_array_row_32_30_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[31] = s_o[0];
-  assign prod_accum_o[30] = prod_accum_i[30];
-  assign prod_accum_o[29] = prod_accum_i[29];
-  assign prod_accum_o[28] = prod_accum_i[28];
-  assign prod_accum_o[27] = prod_accum_i[27];
-  assign prod_accum_o[26] = prod_accum_i[26];
-  assign prod_accum_o[25] = prod_accum_i[25];
-  assign prod_accum_o[24] = prod_accum_i[24];
-  assign prod_accum_o[23] = prod_accum_i[23];
-  assign prod_accum_o[22] = prod_accum_i[22];
-  assign prod_accum_o[21] = prod_accum_i[21];
-  assign prod_accum_o[20] = prod_accum_i[20];
-  assign prod_accum_o[19] = prod_accum_i[19];
-  assign prod_accum_o[18] = prod_accum_i[18];
-  assign prod_accum_o[17] = prod_accum_i[17];
-  assign prod_accum_o[16] = prod_accum_i[16];
-  assign prod_accum_o[15] = prod_accum_i[15];
-  assign prod_accum_o[14] = prod_accum_i[14];
-  assign prod_accum_o[13] = prod_accum_i[13];
-  assign prod_accum_o[12] = prod_accum_i[12];
-  assign prod_accum_o[11] = prod_accum_i[11];
-  assign prod_accum_o[10] = prod_accum_i[10];
-  assign prod_accum_o[9] = prod_accum_i[9];
-  assign prod_accum_o[8] = prod_accum_i[8];
-  assign prod_accum_o[7] = prod_accum_i[7];
-  assign prod_accum_o[6] = prod_accum_i[6];
-  assign prod_accum_o[5] = prod_accum_i[5];
-  assign prod_accum_o[4] = prod_accum_i[4];
-  assign prod_accum_o[3] = prod_accum_i[3];
-  assign prod_accum_o[2] = prod_accum_i[2];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[31] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_30_ = prod_accum_i[30];
+  assign prod_accum_o[30] = prod_accum_o_30_;
+  assign prod_accum_o_29_ = prod_accum_i[29];
+  assign prod_accum_o[29] = prod_accum_o_29_;
+  assign prod_accum_o_28_ = prod_accum_i[28];
+  assign prod_accum_o[28] = prod_accum_o_28_;
+  assign prod_accum_o_27_ = prod_accum_i[27];
+  assign prod_accum_o[27] = prod_accum_o_27_;
+  assign prod_accum_o_26_ = prod_accum_i[26];
+  assign prod_accum_o[26] = prod_accum_o_26_;
+  assign prod_accum_o_25_ = prod_accum_i[25];
+  assign prod_accum_o[25] = prod_accum_o_25_;
+  assign prod_accum_o_24_ = prod_accum_i[24];
+  assign prod_accum_o[24] = prod_accum_o_24_;
+  assign prod_accum_o_23_ = prod_accum_i[23];
+  assign prod_accum_o[23] = prod_accum_o_23_;
+  assign prod_accum_o_22_ = prod_accum_i[22];
+  assign prod_accum_o[22] = prod_accum_o_22_;
+  assign prod_accum_o_21_ = prod_accum_i[21];
+  assign prod_accum_o[21] = prod_accum_o_21_;
+  assign prod_accum_o_20_ = prod_accum_i[20];
+  assign prod_accum_o[20] = prod_accum_o_20_;
+  assign prod_accum_o_19_ = prod_accum_i[19];
+  assign prod_accum_o[19] = prod_accum_o_19_;
+  assign prod_accum_o_18_ = prod_accum_i[18];
+  assign prod_accum_o[18] = prod_accum_o_18_;
+  assign prod_accum_o_17_ = prod_accum_i[17];
+  assign prod_accum_o[17] = prod_accum_o_17_;
+  assign prod_accum_o_16_ = prod_accum_i[16];
+  assign prod_accum_o[16] = prod_accum_o_16_;
+  assign prod_accum_o_15_ = prod_accum_i[15];
+  assign prod_accum_o[15] = prod_accum_o_15_;
+  assign prod_accum_o_14_ = prod_accum_i[14];
+  assign prod_accum_o[14] = prod_accum_o_14_;
+  assign prod_accum_o_13_ = prod_accum_i[13];
+  assign prod_accum_o[13] = prod_accum_o_13_;
+  assign prod_accum_o_12_ = prod_accum_i[12];
+  assign prod_accum_o[12] = prod_accum_o_12_;
+  assign prod_accum_o_11_ = prod_accum_i[11];
+  assign prod_accum_o[11] = prod_accum_o_11_;
+  assign prod_accum_o_10_ = prod_accum_i[10];
+  assign prod_accum_o[10] = prod_accum_o_10_;
+  assign prod_accum_o_9_ = prod_accum_i[9];
+  assign prod_accum_o[9] = prod_accum_o_9_;
+  assign prod_accum_o_8_ = prod_accum_i[8];
+  assign prod_accum_o[8] = prod_accum_o_8_;
+  assign prod_accum_o_7_ = prod_accum_i[7];
+  assign prod_accum_o[7] = prod_accum_o_7_;
+  assign prod_accum_o_6_ = prod_accum_i[6];
+  assign prod_accum_o[6] = prod_accum_o_6_;
+  assign prod_accum_o_5_ = prod_accum_i[5];
+  assign prod_accum_o[5] = prod_accum_o_5_;
+  assign prod_accum_o_4_ = prod_accum_i[4];
+  assign prod_accum_o[4] = prod_accum_o_4_;
+  assign prod_accum_o_3_ = prod_accum_i[3];
+  assign prod_accum_o[3] = prod_accum_o_3_;
+  assign prod_accum_o_2_ = prod_accum_i[2];
+  assign prod_accum_o[2] = prod_accum_o_2_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p32
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[31:31], b_i[31:31], b_i[31:31], b_i[31:31], b_i[31:31], b_i[31:31], b_i[31:31], b_i[31:31], b_i[31:31], b_i[31:31], b_i[31:31], b_i[31:31], b_i[31:31], b_i[31:31], b_i[31:31], b_i[31:31], b_i[31:31], b_i[31:31], b_i[31:31], b_i[31:31], b_i[31:31], b_i[31:31], b_i[31:31], b_i[31:31], b_i[31:31], b_i[31:31], b_i[31:31], b_i[31:31], b_i[31:31], b_i[31:31], b_i[31:31], b_i[31:31] }),
+    .b_i({ b_o[31:31], b_o[31:31], b_o[31:31], b_o[31:31], b_o[31:31], b_o[31:31], b_o[31:31], b_o[31:31], b_o[31:31], b_o[31:31], b_o[31:31], b_o[31:31], b_o[31:31], b_o[31:31], b_o[31:31], b_o[31:31], b_o[31:31], b_o[31:31], b_o[31:31], b_o[31:31], b_o[31:31], b_o[31:31], b_o[31:31], b_o[31:31], b_o[31:31], b_o[31:31], b_o[31:31], b_o[31:31], b_o[31:31], b_o[31:31], b_o[31:31], b_o[31:31] }),
     .o(pp)
   );
 
@@ -4245,7 +5804,7 @@ module bsg_mul_array_row_32_30_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[31:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[31:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -4521,26 +6080,15 @@ module bsg_mul_array
   prod_accum_3__4_,prod_accum_3__3_,prod_accum_3__2_,prod_accum_3__1_,
   prod_accum_3__0_,prod_accum_2__3_,prod_accum_2__2_,prod_accum_2__1_,prod_accum_2__0_,
   prod_accum_1__2_,prod_accum_1__1_,prod_accum_1__0_,prod_accum_0__1_,prod_accum_0__0_,
-  SYNOPSYS_UNCONNECTED_1,SYNOPSYS_UNCONNECTED_2,SYNOPSYS_UNCONNECTED_3,
-  SYNOPSYS_UNCONNECTED_4,SYNOPSYS_UNCONNECTED_5,SYNOPSYS_UNCONNECTED_6,SYNOPSYS_UNCONNECTED_7,
-  SYNOPSYS_UNCONNECTED_8,SYNOPSYS_UNCONNECTED_9,SYNOPSYS_UNCONNECTED_10,
-  SYNOPSYS_UNCONNECTED_11,SYNOPSYS_UNCONNECTED_12,SYNOPSYS_UNCONNECTED_13,
-  SYNOPSYS_UNCONNECTED_14,SYNOPSYS_UNCONNECTED_15,SYNOPSYS_UNCONNECTED_16,SYNOPSYS_UNCONNECTED_17,
-  SYNOPSYS_UNCONNECTED_18,SYNOPSYS_UNCONNECTED_19,SYNOPSYS_UNCONNECTED_20,
-  SYNOPSYS_UNCONNECTED_21,SYNOPSYS_UNCONNECTED_22,SYNOPSYS_UNCONNECTED_23,
-  SYNOPSYS_UNCONNECTED_24,SYNOPSYS_UNCONNECTED_25,SYNOPSYS_UNCONNECTED_26,SYNOPSYS_UNCONNECTED_27,
-  SYNOPSYS_UNCONNECTED_28,SYNOPSYS_UNCONNECTED_29,SYNOPSYS_UNCONNECTED_30,
-  SYNOPSYS_UNCONNECTED_31,SYNOPSYS_UNCONNECTED_32,SYNOPSYS_UNCONNECTED_33,
-  SYNOPSYS_UNCONNECTED_34,SYNOPSYS_UNCONNECTED_35,SYNOPSYS_UNCONNECTED_36,SYNOPSYS_UNCONNECTED_37,
-  SYNOPSYS_UNCONNECTED_38,SYNOPSYS_UNCONNECTED_39,SYNOPSYS_UNCONNECTED_40,
-  SYNOPSYS_UNCONNECTED_41,SYNOPSYS_UNCONNECTED_42,SYNOPSYS_UNCONNECTED_43,
-  SYNOPSYS_UNCONNECTED_44,SYNOPSYS_UNCONNECTED_45,SYNOPSYS_UNCONNECTED_46,SYNOPSYS_UNCONNECTED_47,
-  SYNOPSYS_UNCONNECTED_48,SYNOPSYS_UNCONNECTED_49,SYNOPSYS_UNCONNECTED_50,
-  SYNOPSYS_UNCONNECTED_51,SYNOPSYS_UNCONNECTED_52,SYNOPSYS_UNCONNECTED_53,
-  SYNOPSYS_UNCONNECTED_54,SYNOPSYS_UNCONNECTED_55,SYNOPSYS_UNCONNECTED_56,SYNOPSYS_UNCONNECTED_57,
-  SYNOPSYS_UNCONNECTED_58,SYNOPSYS_UNCONNECTED_59,SYNOPSYS_UNCONNECTED_60,
-  SYNOPSYS_UNCONNECTED_61,SYNOPSYS_UNCONNECTED_62,SYNOPSYS_UNCONNECTED_63,
-  SYNOPSYS_UNCONNECTED_64;
+  sv2v_dc_1,sv2v_dc_2,sv2v_dc_3,sv2v_dc_4,sv2v_dc_5,sv2v_dc_6,sv2v_dc_7,sv2v_dc_8,
+  sv2v_dc_9,sv2v_dc_10,sv2v_dc_11,sv2v_dc_12,sv2v_dc_13,sv2v_dc_14,sv2v_dc_15,
+  sv2v_dc_16,sv2v_dc_17,sv2v_dc_18,sv2v_dc_19,sv2v_dc_20,sv2v_dc_21,sv2v_dc_22,sv2v_dc_23,
+  sv2v_dc_24,sv2v_dc_25,sv2v_dc_26,sv2v_dc_27,sv2v_dc_28,sv2v_dc_29,sv2v_dc_30,
+  sv2v_dc_31,sv2v_dc_32,sv2v_dc_33,sv2v_dc_34,sv2v_dc_35,sv2v_dc_36,sv2v_dc_37,
+  sv2v_dc_38,sv2v_dc_39,sv2v_dc_40,sv2v_dc_41,sv2v_dc_42,sv2v_dc_43,sv2v_dc_44,
+  sv2v_dc_45,sv2v_dc_46,sv2v_dc_47,sv2v_dc_48,sv2v_dc_49,sv2v_dc_50,sv2v_dc_51,sv2v_dc_52,
+  sv2v_dc_53,sv2v_dc_54,sv2v_dc_55,sv2v_dc_56,sv2v_dc_57,sv2v_dc_58,sv2v_dc_59,
+  sv2v_dc_60,sv2v_dc_61,sv2v_dc_62,sv2v_dc_63,sv2v_dc_64;
   wire [31:0] pp0;
   wire [959:0] a_r,b_r;
   wire [29:0] c_r;
@@ -4555,7 +6103,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_32_0_0
-  genblk1_0__genblk1_first_row
+  \genblk1_0_.genblk1.first_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -4574,7 +6122,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_32_1_0
-  genblk1_1__genblk1_mid_row
+  \genblk1_1_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -4593,7 +6141,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_32_2_0
-  genblk1_2__genblk1_mid_row
+  \genblk1_2_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -4612,7 +6160,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_32_3_0
-  genblk1_3__genblk1_mid_row
+  \genblk1_3_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -4631,7 +6179,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_32_4_0
-  genblk1_4__genblk1_mid_row
+  \genblk1_4_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -4650,7 +6198,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_32_5_0
-  genblk1_5__genblk1_mid_row
+  \genblk1_5_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -4669,7 +6217,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_32_6_0
-  genblk1_6__genblk1_mid_row
+  \genblk1_6_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -4688,7 +6236,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_32_7_1
-  genblk1_7__genblk1_mid_row
+  \genblk1_7_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -4707,7 +6255,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_32_8_0
-  genblk1_8__genblk1_mid_row
+  \genblk1_8_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -4726,7 +6274,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_32_9_0
-  genblk1_9__genblk1_mid_row
+  \genblk1_9_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -4745,7 +6293,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_32_10_0
-  genblk1_10__genblk1_mid_row
+  \genblk1_10_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -4764,7 +6312,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_32_11_0
-  genblk1_11__genblk1_mid_row
+  \genblk1_11_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -4783,7 +6331,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_32_12_0
-  genblk1_12__genblk1_mid_row
+  \genblk1_12_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -4802,7 +6350,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_32_13_0
-  genblk1_13__genblk1_mid_row
+  \genblk1_13_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -4821,7 +6369,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_32_14_0
-  genblk1_14__genblk1_mid_row
+  \genblk1_14_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -4840,7 +6388,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_32_15_1
-  genblk1_15__genblk1_mid_row
+  \genblk1_15_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -4859,7 +6407,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_32_16_0
-  genblk1_16__genblk1_mid_row
+  \genblk1_16_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -4878,7 +6426,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_32_17_0
-  genblk1_17__genblk1_mid_row
+  \genblk1_17_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -4897,7 +6445,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_32_18_0
-  genblk1_18__genblk1_mid_row
+  \genblk1_18_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -4916,7 +6464,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_32_19_0
-  genblk1_19__genblk1_mid_row
+  \genblk1_19_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -4935,7 +6483,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_32_20_0
-  genblk1_20__genblk1_mid_row
+  \genblk1_20_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -4954,7 +6502,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_32_21_0
-  genblk1_21__genblk1_mid_row
+  \genblk1_21_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -4973,7 +6521,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_32_22_0
-  genblk1_22__genblk1_mid_row
+  \genblk1_22_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -4992,7 +6540,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_32_23_1
-  genblk1_23__genblk1_mid_row
+  \genblk1_23_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -5011,7 +6559,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_32_24_0
-  genblk1_24__genblk1_mid_row
+  \genblk1_24_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -5030,7 +6578,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_32_25_0
-  genblk1_25__genblk1_mid_row
+  \genblk1_25_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -5049,7 +6597,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_32_26_0
-  genblk1_26__genblk1_mid_row
+  \genblk1_26_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -5068,7 +6616,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_32_27_0
-  genblk1_27__genblk1_mid_row
+  \genblk1_27_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -5087,7 +6635,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_32_28_0
-  genblk1_28__genblk1_mid_row
+  \genblk1_28_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -5106,7 +6654,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_32_29_0
-  genblk1_29__genblk1_mid_row
+  \genblk1_29_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -5125,7 +6673,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_32_30_0
-  genblk1_30__genblk1_last_row
+  \genblk1_30_.genblk1.last_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -5135,8 +6683,8 @@ module bsg_mul_array
     .s_i({ s_r_29__31_, s_r_29__30_, s_r_29__29_, s_r_29__28_, s_r_29__27_, s_r_29__26_, s_r_29__25_, s_r_29__24_, s_r_29__23_, s_r_29__22_, s_r_29__21_, s_r_29__20_, s_r_29__19_, s_r_29__18_, s_r_29__17_, s_r_29__16_, s_r_29__15_, s_r_29__14_, s_r_29__13_, s_r_29__12_, s_r_29__11_, s_r_29__10_, s_r_29__9_, s_r_29__8_, s_r_29__7_, s_r_29__6_, s_r_29__5_, s_r_29__4_, s_r_29__3_, s_r_29__2_, s_r_29__1_, s_r_29__0_ }),
     .c_i(c_r[29]),
     .prod_accum_i({ prod_accum_29__30_, prod_accum_29__29_, prod_accum_29__28_, prod_accum_29__27_, prod_accum_29__26_, prod_accum_29__25_, prod_accum_29__24_, prod_accum_29__23_, prod_accum_29__22_, prod_accum_29__21_, prod_accum_29__20_, prod_accum_29__19_, prod_accum_29__18_, prod_accum_29__17_, prod_accum_29__16_, prod_accum_29__15_, prod_accum_29__14_, prod_accum_29__13_, prod_accum_29__12_, prod_accum_29__11_, prod_accum_29__10_, prod_accum_29__9_, prod_accum_29__8_, prod_accum_29__7_, prod_accum_29__6_, prod_accum_29__5_, prod_accum_29__4_, prod_accum_29__3_, prod_accum_29__2_, prod_accum_29__1_, prod_accum_29__0_ }),
-    .a_o({ SYNOPSYS_UNCONNECTED_1, SYNOPSYS_UNCONNECTED_2, SYNOPSYS_UNCONNECTED_3, SYNOPSYS_UNCONNECTED_4, SYNOPSYS_UNCONNECTED_5, SYNOPSYS_UNCONNECTED_6, SYNOPSYS_UNCONNECTED_7, SYNOPSYS_UNCONNECTED_8, SYNOPSYS_UNCONNECTED_9, SYNOPSYS_UNCONNECTED_10, SYNOPSYS_UNCONNECTED_11, SYNOPSYS_UNCONNECTED_12, SYNOPSYS_UNCONNECTED_13, SYNOPSYS_UNCONNECTED_14, SYNOPSYS_UNCONNECTED_15, SYNOPSYS_UNCONNECTED_16, SYNOPSYS_UNCONNECTED_17, SYNOPSYS_UNCONNECTED_18, SYNOPSYS_UNCONNECTED_19, SYNOPSYS_UNCONNECTED_20, SYNOPSYS_UNCONNECTED_21, SYNOPSYS_UNCONNECTED_22, SYNOPSYS_UNCONNECTED_23, SYNOPSYS_UNCONNECTED_24, SYNOPSYS_UNCONNECTED_25, SYNOPSYS_UNCONNECTED_26, SYNOPSYS_UNCONNECTED_27, SYNOPSYS_UNCONNECTED_28, SYNOPSYS_UNCONNECTED_29, SYNOPSYS_UNCONNECTED_30, SYNOPSYS_UNCONNECTED_31, SYNOPSYS_UNCONNECTED_32 }),
-    .b_o({ SYNOPSYS_UNCONNECTED_33, SYNOPSYS_UNCONNECTED_34, SYNOPSYS_UNCONNECTED_35, SYNOPSYS_UNCONNECTED_36, SYNOPSYS_UNCONNECTED_37, SYNOPSYS_UNCONNECTED_38, SYNOPSYS_UNCONNECTED_39, SYNOPSYS_UNCONNECTED_40, SYNOPSYS_UNCONNECTED_41, SYNOPSYS_UNCONNECTED_42, SYNOPSYS_UNCONNECTED_43, SYNOPSYS_UNCONNECTED_44, SYNOPSYS_UNCONNECTED_45, SYNOPSYS_UNCONNECTED_46, SYNOPSYS_UNCONNECTED_47, SYNOPSYS_UNCONNECTED_48, SYNOPSYS_UNCONNECTED_49, SYNOPSYS_UNCONNECTED_50, SYNOPSYS_UNCONNECTED_51, SYNOPSYS_UNCONNECTED_52, SYNOPSYS_UNCONNECTED_53, SYNOPSYS_UNCONNECTED_54, SYNOPSYS_UNCONNECTED_55, SYNOPSYS_UNCONNECTED_56, SYNOPSYS_UNCONNECTED_57, SYNOPSYS_UNCONNECTED_58, SYNOPSYS_UNCONNECTED_59, SYNOPSYS_UNCONNECTED_60, SYNOPSYS_UNCONNECTED_61, SYNOPSYS_UNCONNECTED_62, SYNOPSYS_UNCONNECTED_63, SYNOPSYS_UNCONNECTED_64 }),
+    .a_o({ sv2v_dc_1, sv2v_dc_2, sv2v_dc_3, sv2v_dc_4, sv2v_dc_5, sv2v_dc_6, sv2v_dc_7, sv2v_dc_8, sv2v_dc_9, sv2v_dc_10, sv2v_dc_11, sv2v_dc_12, sv2v_dc_13, sv2v_dc_14, sv2v_dc_15, sv2v_dc_16, sv2v_dc_17, sv2v_dc_18, sv2v_dc_19, sv2v_dc_20, sv2v_dc_21, sv2v_dc_22, sv2v_dc_23, sv2v_dc_24, sv2v_dc_25, sv2v_dc_26, sv2v_dc_27, sv2v_dc_28, sv2v_dc_29, sv2v_dc_30, sv2v_dc_31, sv2v_dc_32 }),
+    .b_o({ sv2v_dc_33, sv2v_dc_34, sv2v_dc_35, sv2v_dc_36, sv2v_dc_37, sv2v_dc_38, sv2v_dc_39, sv2v_dc_40, sv2v_dc_41, sv2v_dc_42, sv2v_dc_43, sv2v_dc_44, sv2v_dc_45, sv2v_dc_46, sv2v_dc_47, sv2v_dc_48, sv2v_dc_49, sv2v_dc_50, sv2v_dc_51, sv2v_dc_52, sv2v_dc_53, sv2v_dc_54, sv2v_dc_55, sv2v_dc_56, sv2v_dc_57, sv2v_dc_58, sv2v_dc_59, sv2v_dc_60, sv2v_dc_61, sv2v_dc_62, sv2v_dc_63, sv2v_dc_64 }),
     .s_o(o[62:31]),
     .c_o(o[63]),
     .prod_accum_o({ prod_accum_30__31_, o[30:0] })

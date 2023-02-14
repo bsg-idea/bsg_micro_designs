@@ -52,24 +52,78 @@ module bsg_launch_sync_sync_async_reset_posedge_6_unit
   input iclk_i;
   input iclk_reset_i;
   input oclk_i;
-  reg [5:0] iclk_data_o,bsg_SYNC_1_r,oclk_data_o;
+  wire [5:0] iclk_data_o,oclk_data_o,bsg_SYNC_1_r;
+  reg iclk_data_o_5_sv2v_reg,iclk_data_o_4_sv2v_reg,iclk_data_o_3_sv2v_reg,
+  iclk_data_o_2_sv2v_reg,iclk_data_o_1_sv2v_reg,iclk_data_o_0_sv2v_reg,
+  bsg_SYNC_1_r_5_sv2v_reg,bsg_SYNC_1_r_4_sv2v_reg,bsg_SYNC_1_r_3_sv2v_reg,bsg_SYNC_1_r_2_sv2v_reg,
+  bsg_SYNC_1_r_1_sv2v_reg,bsg_SYNC_1_r_0_sv2v_reg,oclk_data_o_5_sv2v_reg,
+  oclk_data_o_4_sv2v_reg,oclk_data_o_3_sv2v_reg,oclk_data_o_2_sv2v_reg,oclk_data_o_1_sv2v_reg,
+  oclk_data_o_0_sv2v_reg;
+  assign iclk_data_o[5] = iclk_data_o_5_sv2v_reg;
+  assign iclk_data_o[4] = iclk_data_o_4_sv2v_reg;
+  assign iclk_data_o[3] = iclk_data_o_3_sv2v_reg;
+  assign iclk_data_o[2] = iclk_data_o_2_sv2v_reg;
+  assign iclk_data_o[1] = iclk_data_o_1_sv2v_reg;
+  assign iclk_data_o[0] = iclk_data_o_0_sv2v_reg;
+  assign bsg_SYNC_1_r[5] = bsg_SYNC_1_r_5_sv2v_reg;
+  assign bsg_SYNC_1_r[4] = bsg_SYNC_1_r_4_sv2v_reg;
+  assign bsg_SYNC_1_r[3] = bsg_SYNC_1_r_3_sv2v_reg;
+  assign bsg_SYNC_1_r[2] = bsg_SYNC_1_r_2_sv2v_reg;
+  assign bsg_SYNC_1_r[1] = bsg_SYNC_1_r_1_sv2v_reg;
+  assign bsg_SYNC_1_r[0] = bsg_SYNC_1_r_0_sv2v_reg;
+  assign oclk_data_o[5] = oclk_data_o_5_sv2v_reg;
+  assign oclk_data_o[4] = oclk_data_o_4_sv2v_reg;
+  assign oclk_data_o[3] = oclk_data_o_3_sv2v_reg;
+  assign oclk_data_o[2] = oclk_data_o_2_sv2v_reg;
+  assign oclk_data_o[1] = oclk_data_o_1_sv2v_reg;
+  assign oclk_data_o[0] = oclk_data_o_0_sv2v_reg;
 
-  always @(posedge iclk_i or iclk_reset_i) begin
+  always @(posedge iclk_i or posedge iclk_reset_i) begin
     if(iclk_reset_i) begin
-      { iclk_data_o[5:0] } <= { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 };
+      iclk_data_o_5_sv2v_reg <= 1'b0;
+      iclk_data_o_4_sv2v_reg <= 1'b0;
+      iclk_data_o_3_sv2v_reg <= 1'b0;
+      iclk_data_o_2_sv2v_reg <= 1'b0;
+      iclk_data_o_1_sv2v_reg <= 1'b0;
+      iclk_data_o_0_sv2v_reg <= 1'b0;
     end else if(1'b1) begin
-      { iclk_data_o[5:0] } <= { iclk_data_i[5:0] };
+      iclk_data_o_5_sv2v_reg <= iclk_data_i[5];
+      iclk_data_o_4_sv2v_reg <= iclk_data_i[4];
+      iclk_data_o_3_sv2v_reg <= iclk_data_i[3];
+      iclk_data_o_2_sv2v_reg <= iclk_data_i[2];
+      iclk_data_o_1_sv2v_reg <= iclk_data_i[1];
+      iclk_data_o_0_sv2v_reg <= iclk_data_i[0];
     end 
   end
 
 
-  always @(posedge oclk_i or iclk_reset_i) begin
+  always @(posedge oclk_i or posedge iclk_reset_i) begin
     if(iclk_reset_i) begin
-      { bsg_SYNC_1_r[5:0] } <= { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 };
-      { oclk_data_o[5:0] } <= { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 };
+      bsg_SYNC_1_r_5_sv2v_reg <= 1'b0;
+      bsg_SYNC_1_r_4_sv2v_reg <= 1'b0;
+      bsg_SYNC_1_r_3_sv2v_reg <= 1'b0;
+      bsg_SYNC_1_r_2_sv2v_reg <= 1'b0;
+      bsg_SYNC_1_r_1_sv2v_reg <= 1'b0;
+      bsg_SYNC_1_r_0_sv2v_reg <= 1'b0;
+      oclk_data_o_5_sv2v_reg <= 1'b0;
+      oclk_data_o_4_sv2v_reg <= 1'b0;
+      oclk_data_o_3_sv2v_reg <= 1'b0;
+      oclk_data_o_2_sv2v_reg <= 1'b0;
+      oclk_data_o_1_sv2v_reg <= 1'b0;
+      oclk_data_o_0_sv2v_reg <= 1'b0;
     end else if(1'b1) begin
-      { bsg_SYNC_1_r[5:0] } <= { iclk_data_o[5:0] };
-      { oclk_data_o[5:0] } <= { bsg_SYNC_1_r[5:0] };
+      bsg_SYNC_1_r_5_sv2v_reg <= iclk_data_o[5];
+      bsg_SYNC_1_r_4_sv2v_reg <= iclk_data_o[4];
+      bsg_SYNC_1_r_3_sv2v_reg <= iclk_data_o[3];
+      bsg_SYNC_1_r_2_sv2v_reg <= iclk_data_o[2];
+      bsg_SYNC_1_r_1_sv2v_reg <= iclk_data_o[1];
+      bsg_SYNC_1_r_0_sv2v_reg <= iclk_data_o[0];
+      oclk_data_o_5_sv2v_reg <= bsg_SYNC_1_r[5];
+      oclk_data_o_4_sv2v_reg <= bsg_SYNC_1_r[4];
+      oclk_data_o_3_sv2v_reg <= bsg_SYNC_1_r[3];
+      oclk_data_o_2_sv2v_reg <= bsg_SYNC_1_r[2];
+      oclk_data_o_1_sv2v_reg <= bsg_SYNC_1_r[1];
+      oclk_data_o_0_sv2v_reg <= bsg_SYNC_1_r[0];
     end 
   end
 
@@ -97,7 +151,7 @@ module bsg_launch_sync_sync_width_p6_use_negedge_for_launch_p0_use_async_reset_p
   wire [5:0] iclk_data_o,oclk_data_o;
 
   bsg_launch_sync_sync_async_reset_posedge_6_unit
-  async_p_z_blss
+  \async.p.z.blss 
   (
     .iclk_i(iclk_i),
     .iclk_reset_i(iclk_reset_i),
@@ -130,9 +184,25 @@ module bsg_async_ptr_gray
   input w_reset_i;
   input w_inc_i;
   input r_clk_i;
-  wire [5:0] w_ptr_gray_r_o,w_ptr_gray_r_rsync_o,w_ptr_p2,w_ptr_gray_n;
+  wire [5:0] w_ptr_binary_r_o,w_ptr_gray_r_o,w_ptr_gray_r_rsync_o,w_ptr_p1_r,w_ptr_p2,
+  w_ptr_gray_n;
   wire N0,N1,N2,N3,N4,N5,N6,N7;
-  reg [5:0] w_ptr_p1_r,w_ptr_binary_r_o;
+  reg w_ptr_p1_r_5_sv2v_reg,w_ptr_p1_r_4_sv2v_reg,w_ptr_p1_r_3_sv2v_reg,
+  w_ptr_p1_r_2_sv2v_reg,w_ptr_p1_r_1_sv2v_reg,w_ptr_p1_r_0_sv2v_reg,w_ptr_binary_r_o_5_sv2v_reg,
+  w_ptr_binary_r_o_4_sv2v_reg,w_ptr_binary_r_o_3_sv2v_reg,
+  w_ptr_binary_r_o_2_sv2v_reg,w_ptr_binary_r_o_1_sv2v_reg,w_ptr_binary_r_o_0_sv2v_reg;
+  assign w_ptr_p1_r[5] = w_ptr_p1_r_5_sv2v_reg;
+  assign w_ptr_p1_r[4] = w_ptr_p1_r_4_sv2v_reg;
+  assign w_ptr_p1_r[3] = w_ptr_p1_r_3_sv2v_reg;
+  assign w_ptr_p1_r[2] = w_ptr_p1_r_2_sv2v_reg;
+  assign w_ptr_p1_r[1] = w_ptr_p1_r_1_sv2v_reg;
+  assign w_ptr_p1_r[0] = w_ptr_p1_r_0_sv2v_reg;
+  assign w_ptr_binary_r_o[5] = w_ptr_binary_r_o_5_sv2v_reg;
+  assign w_ptr_binary_r_o[4] = w_ptr_binary_r_o_4_sv2v_reg;
+  assign w_ptr_binary_r_o[3] = w_ptr_binary_r_o_3_sv2v_reg;
+  assign w_ptr_binary_r_o[2] = w_ptr_binary_r_o_2_sv2v_reg;
+  assign w_ptr_binary_r_o[1] = w_ptr_binary_r_o_1_sv2v_reg;
+  assign w_ptr_binary_r_o[0] = w_ptr_binary_r_o_0_sv2v_reg;
 
   bsg_launch_sync_sync_width_p6_use_negedge_for_launch_p0_use_async_reset_p1
   ptr_sync
@@ -157,13 +227,33 @@ module bsg_async_ptr_gray
   assign N6 = w_ptr_p1_r[2] ^ w_ptr_p1_r[1];
   assign N7 = w_ptr_p1_r[1] ^ w_ptr_p1_r[0];
 
-  always @(posedge w_clk_i or w_reset_i) begin
+  always @(posedge w_clk_i or posedge w_reset_i) begin
     if(w_reset_i) begin
-      { w_ptr_p1_r[5:0] } <= { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b1 };
-      { w_ptr_binary_r_o[5:0] } <= { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 };
+      w_ptr_p1_r_5_sv2v_reg <= 1'b0;
+      w_ptr_p1_r_4_sv2v_reg <= 1'b0;
+      w_ptr_p1_r_3_sv2v_reg <= 1'b0;
+      w_ptr_p1_r_2_sv2v_reg <= 1'b0;
+      w_ptr_p1_r_1_sv2v_reg <= 1'b0;
+      w_ptr_p1_r_0_sv2v_reg <= 1'b1;
+      w_ptr_binary_r_o_5_sv2v_reg <= 1'b0;
+      w_ptr_binary_r_o_4_sv2v_reg <= 1'b0;
+      w_ptr_binary_r_o_3_sv2v_reg <= 1'b0;
+      w_ptr_binary_r_o_2_sv2v_reg <= 1'b0;
+      w_ptr_binary_r_o_1_sv2v_reg <= 1'b0;
+      w_ptr_binary_r_o_0_sv2v_reg <= 1'b0;
     end else if(w_inc_i) begin
-      { w_ptr_p1_r[5:0] } <= { w_ptr_p2[5:0] };
-      { w_ptr_binary_r_o[5:0] } <= { w_ptr_p1_r[5:0] };
+      w_ptr_p1_r_5_sv2v_reg <= w_ptr_p2[5];
+      w_ptr_p1_r_4_sv2v_reg <= w_ptr_p2[4];
+      w_ptr_p1_r_3_sv2v_reg <= w_ptr_p2[3];
+      w_ptr_p1_r_2_sv2v_reg <= w_ptr_p2[2];
+      w_ptr_p1_r_1_sv2v_reg <= w_ptr_p2[1];
+      w_ptr_p1_r_0_sv2v_reg <= w_ptr_p2[0];
+      w_ptr_binary_r_o_5_sv2v_reg <= w_ptr_p1_r[5];
+      w_ptr_binary_r_o_4_sv2v_reg <= w_ptr_p1_r[4];
+      w_ptr_binary_r_o_3_sv2v_reg <= w_ptr_p1_r[3];
+      w_ptr_binary_r_o_2_sv2v_reg <= w_ptr_p1_r[2];
+      w_ptr_binary_r_o_1_sv2v_reg <= w_ptr_p1_r[1];
+      w_ptr_binary_r_o_0_sv2v_reg <= w_ptr_p1_r[0];
     end 
   end
 

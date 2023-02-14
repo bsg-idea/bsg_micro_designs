@@ -50,38 +50,36 @@ module bsg_channel_narrow
   input deque_i;
   output deque_o;
   wire [7:0] data_o;
-  wire deque_o,N0,N1,N2,N3,N4,N5;
-  wire [0:0] count_n;
-  reg [0:0] count_r;
-  assign data_o[7] = (N5)? data_i[7] : 
+  wire deque_o,N0,N1;
+  wire [0:0] count_r,count_n;
+  reg count_r_0_sv2v_reg;
+  assign count_r[0] = count_r_0_sv2v_reg;
+  assign data_o[7] = (N1)? data_i[7] : 
                      (N0)? data_i[15] : 1'b0;
   assign N0 = count_r[0];
-  assign data_o[6] = (N5)? data_i[6] : 
+  assign data_o[6] = (N1)? data_i[6] : 
                      (N0)? data_i[14] : 1'b0;
-  assign data_o[5] = (N5)? data_i[5] : 
+  assign data_o[5] = (N1)? data_i[5] : 
                      (N0)? data_i[13] : 1'b0;
-  assign data_o[4] = (N5)? data_i[4] : 
+  assign data_o[4] = (N1)? data_i[4] : 
                      (N0)? data_i[12] : 1'b0;
-  assign data_o[3] = (N5)? data_i[3] : 
+  assign data_o[3] = (N1)? data_i[3] : 
                      (N0)? data_i[11] : 1'b0;
-  assign data_o[2] = (N5)? data_i[2] : 
+  assign data_o[2] = (N1)? data_i[2] : 
                      (N0)? data_i[10] : 1'b0;
-  assign data_o[1] = (N5)? data_i[1] : 
+  assign data_o[1] = (N1)? data_i[1] : 
                      (N0)? data_i[9] : 1'b0;
-  assign data_o[0] = (N5)? data_i[0] : 
+  assign data_o[0] = (N1)? data_i[0] : 
                      (N0)? data_i[8] : 1'b0;
   assign count_n[0] = count_r[0] ^ deque_i;
-  assign N4 = (N1)? 1'b0 : 
-              (N2)? count_n[0] : 1'b0;
-  assign N1 = reset_i;
-  assign N2 = N3;
-  assign N3 = ~reset_i;
-  assign N5 = ~count_r[0];
+  assign N1 = ~count_r[0];
   assign deque_o = deque_i & count_r[0];
 
   always @(posedge clk_i) begin
-    if(1'b1) begin
-      { count_r[0:0] } <= { N4 };
+    if(reset_i) begin
+      count_r_0_sv2v_reg <= 1'b0;
+    end else if(1'b1) begin
+      count_r_0_sv2v_reg <= count_n[0];
     end 
   end
 

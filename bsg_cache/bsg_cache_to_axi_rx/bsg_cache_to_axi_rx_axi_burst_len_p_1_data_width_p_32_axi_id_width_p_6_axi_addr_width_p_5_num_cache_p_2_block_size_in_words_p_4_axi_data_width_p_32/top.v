@@ -104,24 +104,22 @@ module bsg_circular_ptr_slots_p2_max_add_p1
   output [0:0] n_o;
   input clk;
   input reset_i;
-  wire [0:0] n_o,genblk1_genblk1_ptr_r_p1;
-  wire N0,N1,N2,N3,N4,N5,N6;
-  reg [0:0] o;
-  assign genblk1_genblk1_ptr_r_p1[0] = o[0] ^ 1'b1;
-  assign N5 = (N0)? 1'b0 : 
-              (N1)? n_o[0] : 1'b0;
-  assign N0 = reset_i;
-  assign N1 = N4;
-  assign n_o[0] = (N2)? genblk1_genblk1_ptr_r_p1[0] : 
-                  (N3)? o[0] : 1'b0;
-  assign N2 = add_i[0];
-  assign N3 = N6;
-  assign N4 = ~reset_i;
-  assign N6 = ~add_i[0];
+  wire [0:0] o,n_o,\genblk1.genblk1.ptr_r_p1 ;
+  wire N0,N1,N2;
+  reg o_0_sv2v_reg;
+  assign o[0] = o_0_sv2v_reg;
+  assign \genblk1.genblk1.ptr_r_p1 [0] = o[0] ^ 1'b1;
+  assign n_o[0] = (N0)? \genblk1.genblk1.ptr_r_p1 [0] : 
+                  (N1)? o[0] : 1'b0;
+  assign N0 = add_i[0];
+  assign N1 = N2;
+  assign N2 = ~add_i[0];
 
   always @(posedge clk) begin
-    if(1'b1) begin
-      { o[0:0] } <= { N5 };
+    if(reset_i) begin
+      o_0_sv2v_reg <= 1'b0;
+    end else if(1'b1) begin
+      o_0_sv2v_reg <= n_o[0];
     end 
   end
 
@@ -153,9 +151,10 @@ module bsg_fifo_tracker_els_p2
   output full_o;
   output empty_o;
   wire [0:0] wptr_r_o,rptr_r_o,rptr_n_o;
-  wire full_o,empty_o,N0,N1,N2,N3,N4,N5,N6,N7,N8,N9,N10,equal_ptrs,
-  SYNOPSYS_UNCONNECTED_1;
-  reg deq_r,enq_r;
+  wire full_o,empty_o,N0,N1,N2,N3,enq_r,deq_r,N4,equal_ptrs,sv2v_dc_1;
+  reg deq_r_sv2v_reg,enq_r_sv2v_reg;
+  assign deq_r = deq_r_sv2v_reg;
+  assign enq_r = enq_r_sv2v_reg;
 
   bsg_circular_ptr_slots_p2_max_add_p1
   rptr
@@ -175,32 +174,26 @@ module bsg_fifo_tracker_els_p2
     .reset_i(reset_i),
     .add_i(enq_i),
     .o(wptr_r_o[0]),
-    .n_o(SYNOPSYS_UNCONNECTED_1)
+    .n_o(sv2v_dc_1)
   );
 
   assign N0 = rptr_r_o[0] ^ wptr_r_o[0];
   assign equal_ptrs = ~N0;
-  assign N6 = (N1)? 1'b1 : 
-              (N10)? 1'b1 : 
-              (N5)? 1'b0 : 1'b0;
-  assign N1 = N3;
-  assign N7 = (N1)? 1'b0 : 
-              (N10)? enq_i : 1'b0;
-  assign N8 = (N1)? 1'b1 : 
-              (N10)? deq_i : 1'b0;
+  assign N4 = (N1)? 1'b1 : 
+              (N3)? 1'b0 : 1'b0;
+  assign N1 = N2;
   assign N2 = enq_i | deq_i;
-  assign N3 = reset_i;
-  assign N4 = N2 | N3;
-  assign N5 = ~N4;
-  assign N9 = ~N3;
-  assign N10 = N2 & N9;
+  assign N3 = ~N2;
   assign empty_o = equal_ptrs & deq_r;
   assign full_o = equal_ptrs & enq_r;
 
   always @(posedge clk_i) begin
-    if(N6) begin
-      deq_r <= N8;
-      enq_r <= N7;
+    if(reset_i) begin
+      deq_r_sv2v_reg <= 1'b1;
+      enq_r_sv2v_reg <= 1'b0;
+    end else if(N4) begin
+      deq_r_sv2v_reg <= deq_i;
+      enq_r_sv2v_reg <= enq_i;
     end 
   end
 
@@ -231,7 +224,10 @@ module bsg_mem_1r1w_synth_width_p1_els_p2_read_write_same_addr_p0_harden_p0
   input r_v_i;
   wire [0:0] r_data_o;
   wire N0,N1,N2,N3,N4,N5,N7,N8;
-  reg [1:0] mem;
+  wire [1:0] mem;
+  reg mem_1_sv2v_reg,mem_0_sv2v_reg;
+  assign mem[1] = mem_1_sv2v_reg;
+  assign mem[0] = mem_0_sv2v_reg;
   assign r_data_o[0] = (N3)? mem[0] : 
                        (N0)? mem[1] : 1'b0;
   assign N0 = r_addr_i[0];
@@ -245,10 +241,10 @@ module bsg_mem_1r1w_synth_width_p1_els_p2_read_write_same_addr_p0_harden_p0
 
   always @(posedge w_clk_i) begin
     if(N8) begin
-      { mem[1:1] } <= { w_data_i[0:0] };
+      mem_1_sv2v_reg <= w_data_i[0];
     end 
     if(N7) begin
-      { mem[0:0] } <= { w_data_i[0:0] };
+      mem_0_sv2v_reg <= w_data_i[0];
     end 
   end
 
@@ -318,7 +314,7 @@ module bsg_fifo_1r1w_small_unhardened_width_p1_els_p2_ready_THEN_valid_p0
   output ready_o;
   output v_o;
   wire [0:0] data_o,wptr_r,rptr_r;
-  wire ready_o,v_o,enque,full,empty,SYNOPSYS_UNCONNECTED_1;
+  wire ready_o,v_o,enque,full,empty,sv2v_dc_1;
 
   bsg_fifo_tracker_els_p2
   ft
@@ -329,7 +325,7 @@ module bsg_fifo_1r1w_small_unhardened_width_p1_els_p2_ready_THEN_valid_p0
     .deq_i(yumi_i),
     .wptr_r_o(wptr_r[0]),
     .rptr_r_o(rptr_r[0]),
-    .rptr_n_o(SYNOPSYS_UNCONNECTED_1),
+    .rptr_n_o(sv2v_dc_1),
     .full_o(full),
     .empty_o(empty)
   );
@@ -380,7 +376,7 @@ module bsg_fifo_1r1w_small_width_p1_els_p2
   wire ready_o,v_o;
 
   bsg_fifo_1r1w_small_unhardened_width_p1_els_p2_ready_THEN_valid_p0
-  unhardened_fifo
+  \unhardened.fifo 
   (
     .clk_i(clk_i),
     .reset_i(reset_i),
@@ -419,7 +415,84 @@ module bsg_mem_1r1w_synth_width_p32_els_p2_read_write_same_addr_p0_harden_p0
   input r_v_i;
   wire [31:0] r_data_o;
   wire N0,N1,N2,N3,N4,N5,N7,N8;
-  reg [63:0] mem;
+  wire [63:0] mem;
+  reg mem_63_sv2v_reg,mem_62_sv2v_reg,mem_61_sv2v_reg,mem_60_sv2v_reg,mem_59_sv2v_reg,
+  mem_58_sv2v_reg,mem_57_sv2v_reg,mem_56_sv2v_reg,mem_55_sv2v_reg,mem_54_sv2v_reg,
+  mem_53_sv2v_reg,mem_52_sv2v_reg,mem_51_sv2v_reg,mem_50_sv2v_reg,mem_49_sv2v_reg,
+  mem_48_sv2v_reg,mem_47_sv2v_reg,mem_46_sv2v_reg,mem_45_sv2v_reg,mem_44_sv2v_reg,
+  mem_43_sv2v_reg,mem_42_sv2v_reg,mem_41_sv2v_reg,mem_40_sv2v_reg,mem_39_sv2v_reg,
+  mem_38_sv2v_reg,mem_37_sv2v_reg,mem_36_sv2v_reg,mem_35_sv2v_reg,mem_34_sv2v_reg,
+  mem_33_sv2v_reg,mem_32_sv2v_reg,mem_31_sv2v_reg,mem_30_sv2v_reg,mem_29_sv2v_reg,
+  mem_28_sv2v_reg,mem_27_sv2v_reg,mem_26_sv2v_reg,mem_25_sv2v_reg,mem_24_sv2v_reg,
+  mem_23_sv2v_reg,mem_22_sv2v_reg,mem_21_sv2v_reg,mem_20_sv2v_reg,mem_19_sv2v_reg,
+  mem_18_sv2v_reg,mem_17_sv2v_reg,mem_16_sv2v_reg,mem_15_sv2v_reg,mem_14_sv2v_reg,
+  mem_13_sv2v_reg,mem_12_sv2v_reg,mem_11_sv2v_reg,mem_10_sv2v_reg,mem_9_sv2v_reg,
+  mem_8_sv2v_reg,mem_7_sv2v_reg,mem_6_sv2v_reg,mem_5_sv2v_reg,mem_4_sv2v_reg,
+  mem_3_sv2v_reg,mem_2_sv2v_reg,mem_1_sv2v_reg,mem_0_sv2v_reg;
+  assign mem[63] = mem_63_sv2v_reg;
+  assign mem[62] = mem_62_sv2v_reg;
+  assign mem[61] = mem_61_sv2v_reg;
+  assign mem[60] = mem_60_sv2v_reg;
+  assign mem[59] = mem_59_sv2v_reg;
+  assign mem[58] = mem_58_sv2v_reg;
+  assign mem[57] = mem_57_sv2v_reg;
+  assign mem[56] = mem_56_sv2v_reg;
+  assign mem[55] = mem_55_sv2v_reg;
+  assign mem[54] = mem_54_sv2v_reg;
+  assign mem[53] = mem_53_sv2v_reg;
+  assign mem[52] = mem_52_sv2v_reg;
+  assign mem[51] = mem_51_sv2v_reg;
+  assign mem[50] = mem_50_sv2v_reg;
+  assign mem[49] = mem_49_sv2v_reg;
+  assign mem[48] = mem_48_sv2v_reg;
+  assign mem[47] = mem_47_sv2v_reg;
+  assign mem[46] = mem_46_sv2v_reg;
+  assign mem[45] = mem_45_sv2v_reg;
+  assign mem[44] = mem_44_sv2v_reg;
+  assign mem[43] = mem_43_sv2v_reg;
+  assign mem[42] = mem_42_sv2v_reg;
+  assign mem[41] = mem_41_sv2v_reg;
+  assign mem[40] = mem_40_sv2v_reg;
+  assign mem[39] = mem_39_sv2v_reg;
+  assign mem[38] = mem_38_sv2v_reg;
+  assign mem[37] = mem_37_sv2v_reg;
+  assign mem[36] = mem_36_sv2v_reg;
+  assign mem[35] = mem_35_sv2v_reg;
+  assign mem[34] = mem_34_sv2v_reg;
+  assign mem[33] = mem_33_sv2v_reg;
+  assign mem[32] = mem_32_sv2v_reg;
+  assign mem[31] = mem_31_sv2v_reg;
+  assign mem[30] = mem_30_sv2v_reg;
+  assign mem[29] = mem_29_sv2v_reg;
+  assign mem[28] = mem_28_sv2v_reg;
+  assign mem[27] = mem_27_sv2v_reg;
+  assign mem[26] = mem_26_sv2v_reg;
+  assign mem[25] = mem_25_sv2v_reg;
+  assign mem[24] = mem_24_sv2v_reg;
+  assign mem[23] = mem_23_sv2v_reg;
+  assign mem[22] = mem_22_sv2v_reg;
+  assign mem[21] = mem_21_sv2v_reg;
+  assign mem[20] = mem_20_sv2v_reg;
+  assign mem[19] = mem_19_sv2v_reg;
+  assign mem[18] = mem_18_sv2v_reg;
+  assign mem[17] = mem_17_sv2v_reg;
+  assign mem[16] = mem_16_sv2v_reg;
+  assign mem[15] = mem_15_sv2v_reg;
+  assign mem[14] = mem_14_sv2v_reg;
+  assign mem[13] = mem_13_sv2v_reg;
+  assign mem[12] = mem_12_sv2v_reg;
+  assign mem[11] = mem_11_sv2v_reg;
+  assign mem[10] = mem_10_sv2v_reg;
+  assign mem[9] = mem_9_sv2v_reg;
+  assign mem[8] = mem_8_sv2v_reg;
+  assign mem[7] = mem_7_sv2v_reg;
+  assign mem[6] = mem_6_sv2v_reg;
+  assign mem[5] = mem_5_sv2v_reg;
+  assign mem[4] = mem_4_sv2v_reg;
+  assign mem[3] = mem_3_sv2v_reg;
+  assign mem[2] = mem_2_sv2v_reg;
+  assign mem[1] = mem_1_sv2v_reg;
+  assign mem[0] = mem_0_sv2v_reg;
   assign r_data_o[31] = (N3)? mem[31] : 
                         (N0)? mem[63] : 1'b0;
   assign N0 = r_addr_i[0];
@@ -495,10 +568,72 @@ module bsg_mem_1r1w_synth_width_p32_els_p2_read_write_same_addr_p0_harden_p0
 
   always @(posedge w_clk_i) begin
     if(N8) begin
-      { mem[63:32] } <= { w_data_i[31:0] };
+      mem_63_sv2v_reg <= w_data_i[31];
+      mem_62_sv2v_reg <= w_data_i[30];
+      mem_61_sv2v_reg <= w_data_i[29];
+      mem_60_sv2v_reg <= w_data_i[28];
+      mem_59_sv2v_reg <= w_data_i[27];
+      mem_58_sv2v_reg <= w_data_i[26];
+      mem_57_sv2v_reg <= w_data_i[25];
+      mem_56_sv2v_reg <= w_data_i[24];
+      mem_55_sv2v_reg <= w_data_i[23];
+      mem_54_sv2v_reg <= w_data_i[22];
+      mem_53_sv2v_reg <= w_data_i[21];
+      mem_52_sv2v_reg <= w_data_i[20];
+      mem_51_sv2v_reg <= w_data_i[19];
+      mem_50_sv2v_reg <= w_data_i[18];
+      mem_49_sv2v_reg <= w_data_i[17];
+      mem_48_sv2v_reg <= w_data_i[16];
+      mem_47_sv2v_reg <= w_data_i[15];
+      mem_46_sv2v_reg <= w_data_i[14];
+      mem_45_sv2v_reg <= w_data_i[13];
+      mem_44_sv2v_reg <= w_data_i[12];
+      mem_43_sv2v_reg <= w_data_i[11];
+      mem_42_sv2v_reg <= w_data_i[10];
+      mem_41_sv2v_reg <= w_data_i[9];
+      mem_40_sv2v_reg <= w_data_i[8];
+      mem_39_sv2v_reg <= w_data_i[7];
+      mem_38_sv2v_reg <= w_data_i[6];
+      mem_37_sv2v_reg <= w_data_i[5];
+      mem_36_sv2v_reg <= w_data_i[4];
+      mem_35_sv2v_reg <= w_data_i[3];
+      mem_34_sv2v_reg <= w_data_i[2];
+      mem_33_sv2v_reg <= w_data_i[1];
+      mem_32_sv2v_reg <= w_data_i[0];
     end 
     if(N7) begin
-      { mem[31:0] } <= { w_data_i[31:0] };
+      mem_31_sv2v_reg <= w_data_i[31];
+      mem_30_sv2v_reg <= w_data_i[30];
+      mem_29_sv2v_reg <= w_data_i[29];
+      mem_28_sv2v_reg <= w_data_i[28];
+      mem_27_sv2v_reg <= w_data_i[27];
+      mem_26_sv2v_reg <= w_data_i[26];
+      mem_25_sv2v_reg <= w_data_i[25];
+      mem_24_sv2v_reg <= w_data_i[24];
+      mem_23_sv2v_reg <= w_data_i[23];
+      mem_22_sv2v_reg <= w_data_i[22];
+      mem_21_sv2v_reg <= w_data_i[21];
+      mem_20_sv2v_reg <= w_data_i[20];
+      mem_19_sv2v_reg <= w_data_i[19];
+      mem_18_sv2v_reg <= w_data_i[18];
+      mem_17_sv2v_reg <= w_data_i[17];
+      mem_16_sv2v_reg <= w_data_i[16];
+      mem_15_sv2v_reg <= w_data_i[15];
+      mem_14_sv2v_reg <= w_data_i[14];
+      mem_13_sv2v_reg <= w_data_i[13];
+      mem_12_sv2v_reg <= w_data_i[12];
+      mem_11_sv2v_reg <= w_data_i[11];
+      mem_10_sv2v_reg <= w_data_i[10];
+      mem_9_sv2v_reg <= w_data_i[9];
+      mem_8_sv2v_reg <= w_data_i[8];
+      mem_7_sv2v_reg <= w_data_i[7];
+      mem_6_sv2v_reg <= w_data_i[6];
+      mem_5_sv2v_reg <= w_data_i[5];
+      mem_4_sv2v_reg <= w_data_i[4];
+      mem_3_sv2v_reg <= w_data_i[3];
+      mem_2_sv2v_reg <= w_data_i[2];
+      mem_1_sv2v_reg <= w_data_i[1];
+      mem_0_sv2v_reg <= w_data_i[0];
     end 
   end
 
@@ -568,9 +703,13 @@ module bsg_two_fifo_width_p32
   output ready_o;
   output v_o;
   wire [31:0] data_o;
-  wire ready_o,v_o,N0,N1,enq_i,n_0_net_,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11,N12,N13,N14,
-  N15,N16,N17,N18,N19,N20,N21,N22,N23,N24;
-  reg full_r,tail_r,head_r,empty_r;
+  wire ready_o,v_o,enq_i,tail_r,_0_net_,head_r,empty_r,full_r,N0,N1,N2,N3,N4,N5,N6,N7,
+  N8,N9,N10,N11,N12,N13,N14;
+  reg full_r_sv2v_reg,tail_r_sv2v_reg,head_r_sv2v_reg,empty_r_sv2v_reg;
+  assign full_r = full_r_sv2v_reg;
+  assign tail_r = tail_r_sv2v_reg;
+  assign head_r = head_r_sv2v_reg;
+  assign empty_r = empty_r_sv2v_reg;
 
   bsg_mem_1r1w_width_p32_els_p2_read_write_same_addr_p0
   mem_1r1w
@@ -580,57 +719,48 @@ module bsg_two_fifo_width_p32
     .w_v_i(enq_i),
     .w_addr_i(tail_r),
     .w_data_i(data_i),
-    .r_v_i(n_0_net_),
+    .r_v_i(_0_net_),
     .r_addr_i(head_r),
     .r_data_o(data_o)
   );
 
-  assign N9 = (N0)? 1'b1 : 
-              (N1)? N5 : 1'b0;
-  assign N0 = N3;
-  assign N1 = N2;
-  assign N10 = (N0)? 1'b0 : 
-               (N1)? N4 : 1'b0;
-  assign N11 = (N0)? 1'b1 : 
-               (N1)? yumi_i : 1'b0;
-  assign N12 = (N0)? 1'b0 : 
-               (N1)? N6 : 1'b0;
-  assign N13 = (N0)? 1'b1 : 
-               (N1)? N7 : 1'b0;
-  assign N14 = (N0)? 1'b0 : 
-               (N1)? N8 : 1'b0;
-  assign n_0_net_ = ~empty_r;
+  assign _0_net_ = ~empty_r;
   assign v_o = ~empty_r;
   assign ready_o = ~full_r;
-  assign enq_i = v_i & N15;
-  assign N15 = ~full_r;
-  assign N2 = ~reset_i;
-  assign N3 = reset_i;
-  assign N5 = enq_i;
-  assign N4 = ~tail_r;
-  assign N6 = ~head_r;
-  assign N7 = N17 | N19;
-  assign N17 = empty_r & N16;
-  assign N16 = ~enq_i;
-  assign N19 = N18 & N16;
-  assign N18 = N15 & yumi_i;
-  assign N8 = N23 | N24;
-  assign N23 = N21 & N22;
-  assign N21 = N20 & enq_i;
-  assign N20 = ~empty_r;
-  assign N22 = ~yumi_i;
-  assign N24 = full_r & N22;
+  assign enq_i = v_i & N5;
+  assign N5 = ~full_r;
+  assign N1 = enq_i;
+  assign N0 = ~tail_r;
+  assign N2 = ~head_r;
+  assign N3 = N7 | N9;
+  assign N7 = empty_r & N6;
+  assign N6 = ~enq_i;
+  assign N9 = N8 & N6;
+  assign N8 = N5 & yumi_i;
+  assign N4 = N13 | N14;
+  assign N13 = N11 & N12;
+  assign N11 = N10 & enq_i;
+  assign N10 = ~empty_r;
+  assign N12 = ~yumi_i;
+  assign N14 = full_r & N12;
 
   always @(posedge clk_i) begin
-    if(1'b1) begin
-      full_r <= N14;
-      empty_r <= N13;
+    if(reset_i) begin
+      full_r_sv2v_reg <= 1'b0;
+      empty_r_sv2v_reg <= 1'b1;
+    end else if(1'b1) begin
+      full_r_sv2v_reg <= N4;
+      empty_r_sv2v_reg <= N3;
     end 
-    if(N9) begin
-      tail_r <= N10;
+    if(reset_i) begin
+      tail_r_sv2v_reg <= 1'b0;
+    end else if(N1) begin
+      tail_r_sv2v_reg <= N0;
     end 
-    if(N11) begin
-      head_r <= N12;
+    if(reset_i) begin
+      head_r_sv2v_reg <= 1'b0;
+    end else if(yumi_i) begin
+      head_r_sv2v_reg <= N2;
     end 
   end
 
@@ -663,7 +793,7 @@ module bsg_parallel_in_serial_out_width_p32_els_p1
   wire ready_o,valid_o;
 
   bsg_two_fifo_width_p32
-  fifo_two_fifo
+  \fifo.two_fifo 
   (
     .clk_i(clk_i),
     .reset_i(reset_i),
@@ -735,22 +865,31 @@ module bsg_counter_clear_up_max_val_p3_init_val_p0
   input reset_i;
   input clear_i;
   input up_i;
-  wire N0,N1,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11;
-  reg [1:0] count_o;
-  assign { N7, N6 } = { N11, N10 } + up_i;
-  assign { N9, N8 } = (N0)? { 1'b0, 1'b0 } : 
-                      (N1)? { N7, N6 } : 1'b0;
-  assign N0 = reset_i;
-  assign N1 = N2;
-  assign { N11, N10 } = count_o * N4;
+  wire [1:0] count_o;
+  wire N0,N1,N2,N3,N4,N5,N6,N7,N8;
+  reg count_o_1_sv2v_reg,count_o_0_sv2v_reg;
+  assign count_o[1] = count_o_1_sv2v_reg;
+  assign count_o[0] = count_o_0_sv2v_reg;
+  assign N8 = reset_i | clear_i;
+  assign { N6, N5 } = count_o + up_i;
+  assign N7 = (N0)? up_i : 
+              (N1)? N5 : 1'b0;
+  assign N0 = clear_i;
+  assign N1 = N4;
   assign N2 = ~reset_i;
   assign N3 = N2;
   assign N4 = ~clear_i;
-  assign N5 = N3 & N4;
 
   always @(posedge clk_i) begin
-    if(1'b1) begin
-      { count_o[1:0] } <= { N9, N8 };
+    if(N8) begin
+      count_o_1_sv2v_reg <= 1'b0;
+    end else if(1'b1) begin
+      count_o_1_sv2v_reg <= N6;
+    end 
+    if(reset_i) begin
+      count_o_0_sv2v_reg <= 1'b0;
+    end else if(1'b1) begin
+      count_o_0_sv2v_reg <= N7;
     end 
   end
 
@@ -820,8 +959,16 @@ module bsg_cache_to_axi_rx
   wire [7:0] axi_arlen_o;
   wire [2:0] axi_arsize_o,axi_arprot_o;
   wire [3:0] axi_arcache_o;
-  wire yumi_o,axi_arlock_o,axi_arvalid_o,axi_rready_o,N0,N1,v_i,tag_fifo_v_lo,
-  tag_fifo_yumi_li,piso_v_lo,piso_yumi_li,counter_clear_li,counter_up_li,N2,N3,N4,N5,N6;
+  wire yumi_o,axi_arlock_o,axi_arvalid_o,axi_rready_o,N0,N1,dma_data_o_0__31_,
+  dma_data_o_0__30_,dma_data_o_0__29_,dma_data_o_0__28_,dma_data_o_0__27_,
+  dma_data_o_0__26_,dma_data_o_0__25_,dma_data_o_0__24_,dma_data_o_0__23_,dma_data_o_0__22_,
+  dma_data_o_0__21_,dma_data_o_0__20_,dma_data_o_0__19_,dma_data_o_0__18_,
+  dma_data_o_0__17_,dma_data_o_0__16_,dma_data_o_0__15_,dma_data_o_0__14_,dma_data_o_0__13_,
+  dma_data_o_0__12_,dma_data_o_0__11_,dma_data_o_0__10_,dma_data_o_0__9_,
+  dma_data_o_0__8_,dma_data_o_0__7_,dma_data_o_0__6_,dma_data_o_0__5_,dma_data_o_0__4_,
+  dma_data_o_0__3_,dma_data_o_0__2_,dma_data_o_0__1_,dma_data_o_0__0_,tag_fifo_v_li,
+  tag_fifo_ready_lo,tag_fifo_v_lo,tag_fifo_yumi_li,piso_v_lo,piso_yumi_li,
+  counter_clear_li,counter_up_li,N2,N3,N4,N5,N6,N7;
   wire [0:0] tag_lo;
   assign axi_arburst_o[0] = 1'b1;
   assign axi_arsize_o[1] = 1'b1;
@@ -850,51 +997,83 @@ module bsg_cache_to_axi_rx
   assign axi_arid_o[3] = 1'b0;
   assign axi_arid_o[4] = 1'b0;
   assign axi_arid_o[5] = 1'b0;
-  assign dma_data_o[63] = dma_data_o[31];
-  assign dma_data_o[62] = dma_data_o[30];
-  assign dma_data_o[61] = dma_data_o[29];
-  assign dma_data_o[60] = dma_data_o[28];
-  assign dma_data_o[59] = dma_data_o[27];
-  assign dma_data_o[58] = dma_data_o[26];
-  assign dma_data_o[57] = dma_data_o[25];
-  assign dma_data_o[56] = dma_data_o[24];
-  assign dma_data_o[55] = dma_data_o[23];
-  assign dma_data_o[54] = dma_data_o[22];
-  assign dma_data_o[53] = dma_data_o[21];
-  assign dma_data_o[52] = dma_data_o[20];
-  assign dma_data_o[51] = dma_data_o[19];
-  assign dma_data_o[50] = dma_data_o[18];
-  assign dma_data_o[49] = dma_data_o[17];
-  assign dma_data_o[48] = dma_data_o[16];
-  assign dma_data_o[47] = dma_data_o[15];
-  assign dma_data_o[46] = dma_data_o[14];
-  assign dma_data_o[45] = dma_data_o[13];
-  assign dma_data_o[44] = dma_data_o[12];
-  assign dma_data_o[43] = dma_data_o[11];
-  assign dma_data_o[42] = dma_data_o[10];
-  assign dma_data_o[41] = dma_data_o[9];
-  assign dma_data_o[40] = dma_data_o[8];
-  assign dma_data_o[39] = dma_data_o[7];
-  assign dma_data_o[38] = dma_data_o[6];
-  assign dma_data_o[37] = dma_data_o[5];
-  assign dma_data_o[36] = dma_data_o[4];
-  assign dma_data_o[35] = dma_data_o[3];
-  assign dma_data_o[34] = dma_data_o[2];
-  assign dma_data_o[33] = dma_data_o[1];
-  assign dma_data_o[32] = dma_data_o[0];
+  assign dma_data_o[31] = dma_data_o_0__31_;
+  assign dma_data_o[63] = dma_data_o_0__31_;
+  assign dma_data_o[30] = dma_data_o_0__30_;
+  assign dma_data_o[62] = dma_data_o_0__30_;
+  assign dma_data_o[29] = dma_data_o_0__29_;
+  assign dma_data_o[61] = dma_data_o_0__29_;
+  assign dma_data_o[28] = dma_data_o_0__28_;
+  assign dma_data_o[60] = dma_data_o_0__28_;
+  assign dma_data_o[27] = dma_data_o_0__27_;
+  assign dma_data_o[59] = dma_data_o_0__27_;
+  assign dma_data_o[26] = dma_data_o_0__26_;
+  assign dma_data_o[58] = dma_data_o_0__26_;
+  assign dma_data_o[25] = dma_data_o_0__25_;
+  assign dma_data_o[57] = dma_data_o_0__25_;
+  assign dma_data_o[24] = dma_data_o_0__24_;
+  assign dma_data_o[56] = dma_data_o_0__24_;
+  assign dma_data_o[23] = dma_data_o_0__23_;
+  assign dma_data_o[55] = dma_data_o_0__23_;
+  assign dma_data_o[22] = dma_data_o_0__22_;
+  assign dma_data_o[54] = dma_data_o_0__22_;
+  assign dma_data_o[21] = dma_data_o_0__21_;
+  assign dma_data_o[53] = dma_data_o_0__21_;
+  assign dma_data_o[20] = dma_data_o_0__20_;
+  assign dma_data_o[52] = dma_data_o_0__20_;
+  assign dma_data_o[19] = dma_data_o_0__19_;
+  assign dma_data_o[51] = dma_data_o_0__19_;
+  assign dma_data_o[18] = dma_data_o_0__18_;
+  assign dma_data_o[50] = dma_data_o_0__18_;
+  assign dma_data_o[17] = dma_data_o_0__17_;
+  assign dma_data_o[49] = dma_data_o_0__17_;
+  assign dma_data_o[16] = dma_data_o_0__16_;
+  assign dma_data_o[48] = dma_data_o_0__16_;
+  assign dma_data_o[15] = dma_data_o_0__15_;
+  assign dma_data_o[47] = dma_data_o_0__15_;
+  assign dma_data_o[14] = dma_data_o_0__14_;
+  assign dma_data_o[46] = dma_data_o_0__14_;
+  assign dma_data_o[13] = dma_data_o_0__13_;
+  assign dma_data_o[45] = dma_data_o_0__13_;
+  assign dma_data_o[12] = dma_data_o_0__12_;
+  assign dma_data_o[44] = dma_data_o_0__12_;
+  assign dma_data_o[11] = dma_data_o_0__11_;
+  assign dma_data_o[43] = dma_data_o_0__11_;
+  assign dma_data_o[10] = dma_data_o_0__10_;
+  assign dma_data_o[42] = dma_data_o_0__10_;
+  assign dma_data_o[9] = dma_data_o_0__9_;
+  assign dma_data_o[41] = dma_data_o_0__9_;
+  assign dma_data_o[8] = dma_data_o_0__8_;
+  assign dma_data_o[40] = dma_data_o_0__8_;
+  assign dma_data_o[7] = dma_data_o_0__7_;
+  assign dma_data_o[39] = dma_data_o_0__7_;
+  assign dma_data_o[6] = dma_data_o_0__6_;
+  assign dma_data_o[38] = dma_data_o_0__6_;
+  assign dma_data_o[5] = dma_data_o_0__5_;
+  assign dma_data_o[37] = dma_data_o_0__5_;
+  assign dma_data_o[4] = dma_data_o_0__4_;
+  assign dma_data_o[36] = dma_data_o_0__4_;
+  assign dma_data_o[3] = dma_data_o_0__3_;
+  assign dma_data_o[35] = dma_data_o_0__3_;
+  assign dma_data_o[2] = dma_data_o_0__2_;
+  assign dma_data_o[34] = dma_data_o_0__2_;
+  assign dma_data_o[1] = dma_data_o_0__1_;
+  assign dma_data_o[33] = dma_data_o_0__1_;
+  assign dma_data_o[0] = dma_data_o_0__0_;
+  assign dma_data_o[32] = dma_data_o_0__0_;
   assign axi_araddr_o[4] = axi_addr_i[4];
   assign axi_araddr_o[3] = axi_addr_i[3];
   assign axi_araddr_o[2] = axi_addr_i[2];
   assign axi_araddr_o[1] = axi_addr_i[1];
   assign axi_araddr_o[0] = axi_addr_i[0];
-  assign axi_arvalid_o = v_i;
 
   bsg_fifo_1r1w_small_width_p1_els_p2
   tag_fifo
   (
     .clk_i(clk_i),
     .reset_i(reset_i),
-    .v_i(yumi_o),
+    .v_i(tag_fifo_v_li),
+    .ready_o(tag_fifo_ready_lo),
     .data_i(tag_i[0]),
     .v_o(tag_fifo_v_lo),
     .data_o(tag_lo[0]),
@@ -911,7 +1090,7 @@ module bsg_cache_to_axi_rx
     .data_i(axi_rdata_i),
     .ready_o(axi_rready_o),
     .valid_o(piso_v_lo),
-    .data_o(dma_data_o[31:0]),
+    .data_o({ dma_data_o_0__31_, dma_data_o_0__30_, dma_data_o_0__29_, dma_data_o_0__28_, dma_data_o_0__27_, dma_data_o_0__26_, dma_data_o_0__25_, dma_data_o_0__24_, dma_data_o_0__23_, dma_data_o_0__22_, dma_data_o_0__21_, dma_data_o_0__20_, dma_data_o_0__19_, dma_data_o_0__18_, dma_data_o_0__17_, dma_data_o_0__16_, dma_data_o_0__15_, dma_data_o_0__14_, dma_data_o_0__13_, dma_data_o_0__12_, dma_data_o_0__11_, dma_data_o_0__10_, dma_data_o_0__9_, dma_data_o_0__8_, dma_data_o_0__7_, dma_data_o_0__6_, dma_data_o_0__5_, dma_data_o_0__4_, dma_data_o_0__3_, dma_data_o_0__2_, dma_data_o_0__1_, dma_data_o_0__0_ }),
     .yumi_i(piso_yumi_li)
   );
 
@@ -946,12 +1125,15 @@ module bsg_cache_to_axi_rx
                          (N4)? piso_yumi_li : 1'b0;
   assign tag_fifo_yumi_li = (N1)? piso_yumi_li : 
                             (N4)? 1'b0 : 1'b0;
-  assign yumi_o = v_i & axi_arready_i;
+  assign yumi_o = N6 & tag_fifo_ready_lo;
+  assign N6 = v_i & axi_arready_i;
+  assign tag_fifo_v_li = v_i & axi_arready_i;
+  assign axi_arvalid_o = v_i & tag_fifo_ready_lo;
   assign dma_data_v_o[1] = cache_sel[1] & piso_v_lo;
   assign dma_data_v_o[0] = cache_sel[0] & piso_v_lo;
   assign N2 = ~tag_lo[0];
-  assign piso_yumi_li = N6 & tag_fifo_v_lo;
-  assign N6 = N3 & piso_v_lo;
+  assign piso_yumi_li = N7 & tag_fifo_v_lo;
+  assign N7 = N3 & piso_v_lo;
   assign N4 = ~N5;
 
 endmodule

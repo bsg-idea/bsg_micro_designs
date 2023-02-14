@@ -1,27 +1,27 @@
 ###################################################################
 
-# Created by write_sdc on Sun Jan 19 23:54:53 2020
+# Created by write_sdc on Tue Feb 14 04:21:22 2023
 
 ###################################################################
 set sdc_version 2.1
 
-set_load -pin_load ${PIN_LOAD} [get_ports {oclk_data_o[15]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {oclk_data_o[14]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {oclk_data_o[13]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {oclk_data_o[12]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {oclk_data_o[11]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {oclk_data_o[10]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {oclk_data_o[9]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {oclk_data_o[8]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {oclk_data_o[7]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {oclk_data_o[6]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {oclk_data_o[5]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {oclk_data_o[4]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {oclk_data_o[3]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {oclk_data_o[2]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {oclk_data_o[1]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {oclk_data_o[0]}]
-create_clock [get_ports oclk_i]  -name oclk  -period ${FO4_100} -waveform {0 ${FO4_100_DIV_2}}
+set_load -pin_load 1 [get_ports {oclk_data_o[15]}]
+set_load -pin_load 1 [get_ports {oclk_data_o[14]}]
+set_load -pin_load 1 [get_ports {oclk_data_o[13]}]
+set_load -pin_load 1 [get_ports {oclk_data_o[12]}]
+set_load -pin_load 1 [get_ports {oclk_data_o[11]}]
+set_load -pin_load 1 [get_ports {oclk_data_o[10]}]
+set_load -pin_load 1 [get_ports {oclk_data_o[9]}]
+set_load -pin_load 1 [get_ports {oclk_data_o[8]}]
+set_load -pin_load 1 [get_ports {oclk_data_o[7]}]
+set_load -pin_load 1 [get_ports {oclk_data_o[6]}]
+set_load -pin_load 1 [get_ports {oclk_data_o[5]}]
+set_load -pin_load 1 [get_ports {oclk_data_o[4]}]
+set_load -pin_load 1 [get_ports {oclk_data_o[3]}]
+set_load -pin_load 1 [get_ports {oclk_data_o[2]}]
+set_load -pin_load 1 [get_ports {oclk_data_o[1]}]
+set_load -pin_load 1 [get_ports {oclk_data_o[0]}]
+create_clock [get_ports oclk_i]  -name oclk  -period 100  -waveform {0 50}
 set_clock_uncertainty 0  [get_clocks oclk]
 set_input_delay -clock oclk  0  [get_ports {iclk_data_i[15]}]
 set_input_delay -clock oclk  0  [get_ports {iclk_data_i[14]}]

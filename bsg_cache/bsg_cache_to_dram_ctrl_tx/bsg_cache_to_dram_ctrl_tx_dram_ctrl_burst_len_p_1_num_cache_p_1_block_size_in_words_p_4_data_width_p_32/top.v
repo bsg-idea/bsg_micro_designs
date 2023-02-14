@@ -68,24 +68,25 @@ module bsg_circular_ptr_slots_p4_max_add_p1
   output [1:0] n_o;
   input clk;
   input reset_i;
-  wire [1:0] n_o,genblk1_genblk1_ptr_r_p1;
-  wire N0,N1,N2,N3,N4,N5,N6,N7;
-  reg [1:0] o;
-  assign genblk1_genblk1_ptr_r_p1 = o + 1'b1;
-  assign { N6, N5 } = (N0)? { 1'b0, 1'b0 } : 
-                      (N1)? n_o : 1'b0;
-  assign N0 = reset_i;
-  assign N1 = N4;
-  assign n_o = (N2)? genblk1_genblk1_ptr_r_p1 : 
-               (N3)? o : 1'b0;
-  assign N2 = add_i[0];
-  assign N3 = N7;
-  assign N4 = ~reset_i;
-  assign N7 = ~add_i[0];
+  wire [1:0] o,n_o,\genblk1.genblk1.ptr_r_p1 ;
+  wire N0,N1,N2;
+  reg o_1_sv2v_reg,o_0_sv2v_reg;
+  assign o[1] = o_1_sv2v_reg;
+  assign o[0] = o_0_sv2v_reg;
+  assign \genblk1.genblk1.ptr_r_p1  = o + 1'b1;
+  assign n_o = (N0)? \genblk1.genblk1.ptr_r_p1  : 
+               (N1)? o : 1'b0;
+  assign N0 = add_i[0];
+  assign N1 = N2;
+  assign N2 = ~add_i[0];
 
   always @(posedge clk) begin
-    if(1'b1) begin
-      { o[1:0] } <= { N6, N5 };
+    if(reset_i) begin
+      o_1_sv2v_reg <= 1'b0;
+      o_0_sv2v_reg <= 1'b0;
+    end else if(1'b1) begin
+      o_1_sv2v_reg <= n_o[1];
+      o_0_sv2v_reg <= n_o[0];
     end 
   end
 
@@ -117,9 +118,10 @@ module bsg_fifo_tracker_els_p4
   output full_o;
   output empty_o;
   wire [1:0] wptr_r_o,rptr_r_o,rptr_n_o;
-  wire full_o,empty_o,N0,N1,N2,N3,N4,N5,N6,N7,N8,N9,equal_ptrs,SYNOPSYS_UNCONNECTED_1,
-  SYNOPSYS_UNCONNECTED_2;
-  reg deq_r,enq_r;
+  wire full_o,empty_o,N0,N1,N2,enq_r,deq_r,N3,equal_ptrs,sv2v_dc_1,sv2v_dc_2;
+  reg deq_r_sv2v_reg,enq_r_sv2v_reg;
+  assign deq_r = deq_r_sv2v_reg;
+  assign enq_r = enq_r_sv2v_reg;
 
   bsg_circular_ptr_slots_p4_max_add_p1
   rptr
@@ -139,31 +141,25 @@ module bsg_fifo_tracker_els_p4
     .reset_i(reset_i),
     .add_i(enq_i),
     .o(wptr_r_o),
-    .n_o({ SYNOPSYS_UNCONNECTED_1, SYNOPSYS_UNCONNECTED_2 })
+    .n_o({ sv2v_dc_1, sv2v_dc_2 })
   );
 
   assign equal_ptrs = rptr_r_o == wptr_r_o;
-  assign N5 = (N0)? 1'b1 : 
-              (N9)? 1'b1 : 
-              (N4)? 1'b0 : 1'b0;
-  assign N0 = N2;
-  assign N6 = (N0)? 1'b0 : 
-              (N9)? enq_i : 1'b0;
-  assign N7 = (N0)? 1'b1 : 
-              (N9)? deq_i : 1'b0;
+  assign N3 = (N0)? 1'b1 : 
+              (N2)? 1'b0 : 1'b0;
+  assign N0 = N1;
   assign N1 = enq_i | deq_i;
-  assign N2 = reset_i;
-  assign N3 = N1 | N2;
-  assign N4 = ~N3;
-  assign N8 = ~N2;
-  assign N9 = N1 & N8;
+  assign N2 = ~N1;
   assign empty_o = equal_ptrs & deq_r;
   assign full_o = equal_ptrs & enq_r;
 
   always @(posedge clk_i) begin
-    if(N5) begin
-      deq_r <= N7;
-      enq_r <= N6;
+    if(reset_i) begin
+      deq_r_sv2v_reg <= 1'b1;
+      enq_r_sv2v_reg <= 1'b0;
+    end else if(N3) begin
+      deq_r_sv2v_reg <= deq_i;
+      enq_r_sv2v_reg <= enq_i;
     end 
   end
 
@@ -194,7 +190,12 @@ module bsg_mem_1r1w_synth_width_p1_els_p4_read_write_same_addr_p0_harden_p0
   input r_v_i;
   wire [0:0] r_data_o;
   wire N0,N1,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11,N12,N13,N14,N15,N16,N17,N18,N19,N20;
-  reg [3:0] mem;
+  wire [3:0] mem;
+  reg mem_3_sv2v_reg,mem_2_sv2v_reg,mem_1_sv2v_reg,mem_0_sv2v_reg;
+  assign mem[3] = mem_3_sv2v_reg;
+  assign mem[2] = mem_2_sv2v_reg;
+  assign mem[1] = mem_1_sv2v_reg;
+  assign mem[0] = mem_0_sv2v_reg;
   assign r_data_o[0] = (N8)? mem[0] : 
                        (N10)? mem[1] : 
                        (N9)? mem[2] : 
@@ -221,16 +222,16 @@ module bsg_mem_1r1w_synth_width_p1_els_p4_read_write_same_addr_p0_harden_p0
 
   always @(posedge w_clk_i) begin
     if(N20) begin
-      { mem[3:3] } <= { w_data_i[0:0] };
+      mem_3_sv2v_reg <= w_data_i[0];
     end 
     if(N19) begin
-      { mem[2:2] } <= { w_data_i[0:0] };
+      mem_2_sv2v_reg <= w_data_i[0];
     end 
     if(N18) begin
-      { mem[1:1] } <= { w_data_i[0:0] };
+      mem_1_sv2v_reg <= w_data_i[0];
     end 
     if(N17) begin
-      { mem[0:0] } <= { w_data_i[0:0] };
+      mem_0_sv2v_reg <= w_data_i[0];
     end 
   end
 
@@ -300,7 +301,7 @@ module bsg_fifo_1r1w_small_unhardened_width_p1_els_p4_ready_THEN_valid_p0
   output ready_o;
   output v_o;
   wire [0:0] data_o;
-  wire ready_o,v_o,enque,full,empty,SYNOPSYS_UNCONNECTED_1,SYNOPSYS_UNCONNECTED_2;
+  wire ready_o,v_o,enque,full,empty,sv2v_dc_1,sv2v_dc_2;
   wire [1:0] wptr_r,rptr_r;
 
   bsg_fifo_tracker_els_p4
@@ -312,7 +313,7 @@ module bsg_fifo_1r1w_small_unhardened_width_p1_els_p4_ready_THEN_valid_p0
     .deq_i(yumi_i),
     .wptr_r_o(wptr_r),
     .rptr_r_o(rptr_r),
-    .rptr_n_o({ SYNOPSYS_UNCONNECTED_1, SYNOPSYS_UNCONNECTED_2 }),
+    .rptr_n_o({ sv2v_dc_1, sv2v_dc_2 }),
     .full_o(full),
     .empty_o(empty)
   );
@@ -363,7 +364,7 @@ module bsg_fifo_1r1w_small_width_p1_els_p4
   wire ready_o,v_o;
 
   bsg_fifo_1r1w_small_unhardened_width_p1_els_p4_ready_THEN_valid_p0
-  unhardened_fifo
+  \unhardened.fifo 
   (
     .clk_i(clk_i),
     .reset_i(reset_i),
@@ -434,23 +435,22 @@ module bsg_counter_clear_up_max_val_p0_init_val_p0
   input reset_i;
   input clear_i;
   input up_i;
-  wire N0,N1,N2,N3,N4,N5,N6,N7,N8;
-  reg [0:0] count_o;
-  assign N6 = count_o[0] ^ up_i;
-  assign N7 = (N0)? up_i : 
-              (N1)? N6 : 1'b0;
+  wire [0:0] count_o;
+  wire N0,N1,N2,N3,N4;
+  reg count_o_0_sv2v_reg;
+  assign count_o[0] = count_o_0_sv2v_reg;
+  assign N3 = count_o[0] ^ up_i;
+  assign N4 = (N0)? up_i : 
+              (N1)? N3 : 1'b0;
   assign N0 = clear_i;
-  assign N1 = N5;
-  assign N8 = (N2)? 1'b0 : 
-              (N3)? N7 : 1'b0;
-  assign N2 = reset_i;
-  assign N3 = N4;
-  assign N4 = ~reset_i;
-  assign N5 = ~clear_i;
+  assign N1 = N2;
+  assign N2 = ~clear_i;
 
   always @(posedge clk_i) begin
-    if(1'b1) begin
-      { count_o[0:0] } <= { N8 };
+    if(reset_i) begin
+      count_o_0_sv2v_reg <= 1'b0;
+    end else if(1'b1) begin
+      count_o_0_sv2v_reg <= N4;
     end 
   end
 

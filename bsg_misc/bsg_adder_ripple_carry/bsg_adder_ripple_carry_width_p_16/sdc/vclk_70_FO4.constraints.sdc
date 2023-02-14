@@ -1,28 +1,28 @@
 ###################################################################
 
-# Created by write_sdc on Sun Jan 19 19:46:05 2020
+# Created by write_sdc on Tue Feb 14 10:59:35 2023
 
 ###################################################################
 set sdc_version 2.1
 
-set_load -pin_load ${PIN_LOAD} [get_ports {s_o[15]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {s_o[14]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {s_o[13]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {s_o[12]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {s_o[11]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {s_o[10]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {s_o[9]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {s_o[8]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {s_o[7]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {s_o[6]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {s_o[5]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {s_o[4]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {s_o[3]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {s_o[2]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {s_o[1]}]
-set_load -pin_load ${PIN_LOAD} [get_ports {s_o[0]}]
-set_load -pin_load ${PIN_LOAD} [get_ports c_o]
-create_clock -name vclk  -period ${FO4_70} -waveform {0 ${FO4_70_DIV_2}}
+set_load -pin_load 1 [get_ports {s_o[15]}]
+set_load -pin_load 1 [get_ports {s_o[14]}]
+set_load -pin_load 1 [get_ports {s_o[13]}]
+set_load -pin_load 1 [get_ports {s_o[12]}]
+set_load -pin_load 1 [get_ports {s_o[11]}]
+set_load -pin_load 1 [get_ports {s_o[10]}]
+set_load -pin_load 1 [get_ports {s_o[9]}]
+set_load -pin_load 1 [get_ports {s_o[8]}]
+set_load -pin_load 1 [get_ports {s_o[7]}]
+set_load -pin_load 1 [get_ports {s_o[6]}]
+set_load -pin_load 1 [get_ports {s_o[5]}]
+set_load -pin_load 1 [get_ports {s_o[4]}]
+set_load -pin_load 1 [get_ports {s_o[3]}]
+set_load -pin_load 1 [get_ports {s_o[2]}]
+set_load -pin_load 1 [get_ports {s_o[1]}]
+set_load -pin_load 1 [get_ports {s_o[0]}]
+set_load -pin_load 1 [get_ports c_o]
+create_clock -name vclk  -period 70  -waveform {0 35}
 set_clock_uncertainty 0  [get_clocks vclk]
 set_input_delay -clock vclk  0  [get_ports {a_i[15]}]
 set_input_delay -clock vclk  0  [get_ports {a_i[14]}]

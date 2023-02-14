@@ -1,12 +1,12 @@
 ###################################################################
 
-# Created by write_sdc on Sun Jan 19 20:04:28 2020
+# Created by write_sdc on Tue Feb 14 11:08:47 2023
 
 ###################################################################
 set sdc_version 2.1
 
-set_load -pin_load ${PIN_LOAD} [get_ports clk_r_o]
-create_clock [get_ports clk_i]  -name clk  -period ${FO4_80} -waveform {0 ${FO4_80_DIV_2}}
+set_load -pin_load 1 [get_ports clk_r_o]
+create_clock [get_ports clk_i]  -name clk  -period 80  -waveform {0 40}
 set_clock_uncertainty 0  [get_clocks clk]
 set_input_delay -clock clk  0  [get_ports clk_i]
 set_input_delay -clock clk  0  [get_ports reset_i]

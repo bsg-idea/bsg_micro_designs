@@ -121,7 +121,7 @@ module bsg_priority_encode_one_hot_out_width_p16_lo_to_hi_p0
   wire [14:0] scan_lo;
 
   bsg_scan_width_p16_or_p1_lo_to_hi_p0
-  genblk1_scan
+  \genblk1.scan 
   (
     .i(i),
     .o({ o[15:15], scan_lo })

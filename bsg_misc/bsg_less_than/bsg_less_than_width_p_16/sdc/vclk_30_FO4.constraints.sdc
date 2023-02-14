@@ -1,12 +1,12 @@
 ###################################################################
 
-# Created by write_sdc on Sun Jan 19 21:07:14 2020
+# Created by write_sdc on Tue Feb 14 11:28:36 2023
 
 ###################################################################
 set sdc_version 2.1
 
-set_load -pin_load ${PIN_LOAD} [get_ports o]
-create_clock -name vclk  -period ${FO4_30} -waveform {0 ${FO4_30_DIV_2}}
+set_load -pin_load 1 [get_ports o]
+create_clock -name vclk  -period 30  -waveform {0 15}
 set_clock_uncertainty 0  [get_clocks vclk]
 set_input_delay -clock vclk  0  [get_ports {a_i[15]}]
 set_input_delay -clock vclk  0  [get_ports {a_i[14]}]

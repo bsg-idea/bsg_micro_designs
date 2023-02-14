@@ -44,13 +44,52 @@ module bsg_counter_overflow_en
   input reset_i;
   input en_i;
   output overflow_o;
+  wire [30:0] count_o;
   wire overflow_o,N0,N1,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11,N12,N13,N14,N15,N16,N17,N18,
   N19,N20,N21,N22,N23,N24,N25,N26,N27,N28,N29,N30,N31,N32,N33,N34,N35,N36,N37,N38,
   N39,N40,N41,N42,N43,N44,N45,N46,N47,N48,N49,N50,N51,N52,N53,N54,N55,N56,N57,N58,
   N59,N60,N61,N62,N63,N64,N65,N66,N67,N68,N69,N70,N71,N72,N73,N74,N75,N76,N77,N78,
   N79,N80,N81,N82,N83,N84,N85,N86,N87,N88,N89,N90,N91,N92,N93,N94,N95,N96,N97,N98,
   N99,N100,N101,N102,N103,N104,N105,N106,N107,N108,N109,N110;
-  reg [30:0] count_o;
+  reg count_o_30_sv2v_reg,count_o_29_sv2v_reg,count_o_28_sv2v_reg,count_o_27_sv2v_reg,
+  count_o_26_sv2v_reg,count_o_25_sv2v_reg,count_o_24_sv2v_reg,count_o_23_sv2v_reg,
+  count_o_22_sv2v_reg,count_o_21_sv2v_reg,count_o_20_sv2v_reg,count_o_19_sv2v_reg,
+  count_o_18_sv2v_reg,count_o_17_sv2v_reg,count_o_16_sv2v_reg,count_o_15_sv2v_reg,
+  count_o_14_sv2v_reg,count_o_13_sv2v_reg,count_o_12_sv2v_reg,count_o_11_sv2v_reg,
+  count_o_10_sv2v_reg,count_o_9_sv2v_reg,count_o_8_sv2v_reg,count_o_7_sv2v_reg,
+  count_o_6_sv2v_reg,count_o_5_sv2v_reg,count_o_4_sv2v_reg,count_o_3_sv2v_reg,
+  count_o_2_sv2v_reg,count_o_1_sv2v_reg,count_o_0_sv2v_reg;
+  assign count_o[30] = count_o_30_sv2v_reg;
+  assign count_o[29] = count_o_29_sv2v_reg;
+  assign count_o[28] = count_o_28_sv2v_reg;
+  assign count_o[27] = count_o_27_sv2v_reg;
+  assign count_o[26] = count_o_26_sv2v_reg;
+  assign count_o[25] = count_o_25_sv2v_reg;
+  assign count_o[24] = count_o_24_sv2v_reg;
+  assign count_o[23] = count_o_23_sv2v_reg;
+  assign count_o[22] = count_o_22_sv2v_reg;
+  assign count_o[21] = count_o_21_sv2v_reg;
+  assign count_o[20] = count_o_20_sv2v_reg;
+  assign count_o[19] = count_o_19_sv2v_reg;
+  assign count_o[18] = count_o_18_sv2v_reg;
+  assign count_o[17] = count_o_17_sv2v_reg;
+  assign count_o[16] = count_o_16_sv2v_reg;
+  assign count_o[15] = count_o_15_sv2v_reg;
+  assign count_o[14] = count_o_14_sv2v_reg;
+  assign count_o[13] = count_o_13_sv2v_reg;
+  assign count_o[12] = count_o_12_sv2v_reg;
+  assign count_o[11] = count_o_11_sv2v_reg;
+  assign count_o[10] = count_o_10_sv2v_reg;
+  assign count_o[9] = count_o_9_sv2v_reg;
+  assign count_o[8] = count_o_8_sv2v_reg;
+  assign count_o[7] = count_o_7_sv2v_reg;
+  assign count_o[6] = count_o_6_sv2v_reg;
+  assign count_o[5] = count_o_5_sv2v_reg;
+  assign count_o[4] = count_o_4_sv2v_reg;
+  assign count_o[3] = count_o_3_sv2v_reg;
+  assign count_o[2] = count_o_2_sv2v_reg;
+  assign count_o[1] = count_o_1_sv2v_reg;
+  assign count_o[0] = count_o_0_sv2v_reg;
   assign N70 = ~count_o[30];
   assign N71 = ~count_o[27];
   assign N72 = ~count_o[22];
@@ -109,7 +148,37 @@ module bsg_counter_overflow_en
 
   always @(posedge clk_i) begin
     if(N36) begin
-      { count_o[30:0] } <= { N67, N66, N65, N64, N63, N62, N61, N60, N59, N58, N57, N56, N55, N54, N53, N52, N51, N50, N49, N48, N47, N46, N45, N44, N43, N42, N41, N40, N39, N38, N37 };
+      count_o_30_sv2v_reg <= N67;
+      count_o_29_sv2v_reg <= N66;
+      count_o_28_sv2v_reg <= N65;
+      count_o_27_sv2v_reg <= N64;
+      count_o_26_sv2v_reg <= N63;
+      count_o_25_sv2v_reg <= N62;
+      count_o_24_sv2v_reg <= N61;
+      count_o_23_sv2v_reg <= N60;
+      count_o_22_sv2v_reg <= N59;
+      count_o_21_sv2v_reg <= N58;
+      count_o_20_sv2v_reg <= N57;
+      count_o_19_sv2v_reg <= N56;
+      count_o_18_sv2v_reg <= N55;
+      count_o_17_sv2v_reg <= N54;
+      count_o_16_sv2v_reg <= N53;
+      count_o_15_sv2v_reg <= N52;
+      count_o_14_sv2v_reg <= N51;
+      count_o_13_sv2v_reg <= N50;
+      count_o_12_sv2v_reg <= N49;
+      count_o_11_sv2v_reg <= N48;
+      count_o_10_sv2v_reg <= N47;
+      count_o_9_sv2v_reg <= N46;
+      count_o_8_sv2v_reg <= N45;
+      count_o_7_sv2v_reg <= N44;
+      count_o_6_sv2v_reg <= N43;
+      count_o_5_sv2v_reg <= N42;
+      count_o_4_sv2v_reg <= N41;
+      count_o_3_sv2v_reg <= N40;
+      count_o_2_sv2v_reg <= N39;
+      count_o_1_sv2v_reg <= N38;
+      count_o_0_sv2v_reg <= N37;
     end 
   end
 

@@ -44,169 +44,187 @@ module bsg_mul_SDN_width_p32
   output [50:0] SDN_o;
   input signed_i;
   wire [50:0] SDN_o;
-  wire N0,N1,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11,N12,N13,N14,N15,N16,N17,N18,N19,N20,N21,
-  N22,N23,N24,N25,N26,N27,N28,N29,N30,N31,N32,N33,N34,N35,N36,N37,N38,N39,N40,N41,
-  N42,N43,N44,N45,N46,N47,N48,N49,N50,N51,N52,N53,N54,N55,N56,N57,N58,N59,N60,N61,
-  N62,N63,N64,N65,N66,N67,N68,N69,N70,N71,N72,N73,N74,N75,N76,N77,N78,N79,N80,N81,
-  N82,N83,N84,N85,N86,N87,N88,N89,N90,N91,N92,N93,N94,N95,N96,N97,N98,N99,N100,N101,
-  N102;
-  wire [1:0] rof_16__trip;
-  assign SDN_o[45] = x_i[31];
-  assign SDN_o[42] = x_i[29];
-  assign SDN_o[39] = x_i[27];
-  assign SDN_o[36] = x_i[25];
-  assign SDN_o[33] = x_i[23];
-  assign SDN_o[30] = x_i[21];
-  assign SDN_o[27] = x_i[19];
-  assign SDN_o[24] = x_i[17];
-  assign SDN_o[21] = x_i[15];
-  assign SDN_o[18] = x_i[13];
-  assign SDN_o[15] = x_i[11];
-  assign SDN_o[12] = x_i[9];
-  assign SDN_o[9] = x_i[7];
-  assign SDN_o[6] = x_i[5];
-  assign SDN_o[3] = x_i[3];
-  assign SDN_o[0] = x_i[1];
+  wire SDN_o_15__0_,SDN_o_14__0_,SDN_o_13__0_,SDN_o_12__0_,SDN_o_11__0_,SDN_o_10__0_,
+  SDN_o_9__0_,SDN_o_8__0_,SDN_o_7__0_,SDN_o_6__0_,SDN_o_5__0_,SDN_o_4__0_,
+  SDN_o_3__0_,SDN_o_2__0_,SDN_o_1__0_,SDN_o_0__0_,N0,N1,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11,N12,
+  N13,N14,N15,N16,N17,N18,N19,N20,N21,N22,N23,N24,N25,N26,N27,N28,N29,N30,N31,N32,
+  N33,N34,N35,N36,N37,N38,N39,N40,N41,N42,N43,N44,N45,N46,N47,N48,N49,N50,N51,N52,
+  N53,N54,N55,N56,N57,N58,N59,N60,N61,N62,N63,N64,N65,N66,N67,N68,N69,N70,N71,N72,
+  N73,N74,N75,N76,N77,N78,N79,N80,N81,N82,N83,N84,N85,N86,N87,N88,N89,N90,N91,N92,
+  N93,N94,N95,N96,N97,N98,N99,N100,N101,N102;
+  wire [1:0] \rof_16_.trip ;
+  assign SDN_o_15__0_ = x_i[31];
+  assign SDN_o[45] = SDN_o_15__0_;
+  assign SDN_o_14__0_ = x_i[29];
+  assign SDN_o[42] = SDN_o_14__0_;
+  assign SDN_o_13__0_ = x_i[27];
+  assign SDN_o[39] = SDN_o_13__0_;
+  assign SDN_o_12__0_ = x_i[25];
+  assign SDN_o[36] = SDN_o_12__0_;
+  assign SDN_o_11__0_ = x_i[23];
+  assign SDN_o[33] = SDN_o_11__0_;
+  assign SDN_o_10__0_ = x_i[21];
+  assign SDN_o[30] = SDN_o_10__0_;
+  assign SDN_o_9__0_ = x_i[19];
+  assign SDN_o[27] = SDN_o_9__0_;
+  assign SDN_o_8__0_ = x_i[17];
+  assign SDN_o[24] = SDN_o_8__0_;
+  assign SDN_o_7__0_ = x_i[15];
+  assign SDN_o[21] = SDN_o_7__0_;
+  assign SDN_o_6__0_ = x_i[13];
+  assign SDN_o[18] = SDN_o_6__0_;
+  assign SDN_o_5__0_ = x_i[11];
+  assign SDN_o[15] = SDN_o_5__0_;
+  assign SDN_o_4__0_ = x_i[9];
+  assign SDN_o[12] = SDN_o_4__0_;
+  assign SDN_o_3__0_ = x_i[7];
+  assign SDN_o[9] = SDN_o_3__0_;
+  assign SDN_o_2__0_ = x_i[5];
+  assign SDN_o[6] = SDN_o_2__0_;
+  assign SDN_o_1__0_ = x_i[3];
+  assign SDN_o[3] = SDN_o_1__0_;
+  assign SDN_o_0__0_ = x_i[1];
+  assign SDN_o[0] = SDN_o_0__0_;
   assign SDN_o[1] = N2 | N5;
   assign N2 = N0 & N1;
   assign N0 = x_i[0] & 1'b0;
-  assign N1 = ~x_i[1];
-  assign N5 = N4 & x_i[1];
+  assign N1 = ~SDN_o_0__0_;
+  assign N5 = N4 & SDN_o_0__0_;
   assign N4 = ~N3;
   assign N3 = x_i[0] | 1'b0;
   assign SDN_o[2] = 1'b0 ^ x_i[0];
   assign SDN_o[4] = N8 | N11;
   assign N8 = N6 & N7;
-  assign N6 = x_i[2] & x_i[1];
-  assign N7 = ~x_i[3];
-  assign N11 = N10 & x_i[3];
+  assign N6 = x_i[2] & SDN_o_0__0_;
+  assign N7 = ~SDN_o_1__0_;
+  assign N11 = N10 & SDN_o_1__0_;
   assign N10 = ~N9;
-  assign N9 = x_i[2] | x_i[1];
-  assign SDN_o[5] = x_i[1] ^ x_i[2];
+  assign N9 = x_i[2] | SDN_o_0__0_;
+  assign SDN_o[5] = SDN_o_0__0_ ^ x_i[2];
   assign SDN_o[7] = N14 | N17;
   assign N14 = N12 & N13;
-  assign N12 = x_i[4] & x_i[3];
-  assign N13 = ~x_i[5];
-  assign N17 = N16 & x_i[5];
+  assign N12 = x_i[4] & SDN_o_1__0_;
+  assign N13 = ~SDN_o_2__0_;
+  assign N17 = N16 & SDN_o_2__0_;
   assign N16 = ~N15;
-  assign N15 = x_i[4] | x_i[3];
-  assign SDN_o[8] = x_i[3] ^ x_i[4];
+  assign N15 = x_i[4] | SDN_o_1__0_;
+  assign SDN_o[8] = SDN_o_1__0_ ^ x_i[4];
   assign SDN_o[10] = N20 | N23;
   assign N20 = N18 & N19;
-  assign N18 = x_i[6] & x_i[5];
-  assign N19 = ~x_i[7];
-  assign N23 = N22 & x_i[7];
+  assign N18 = x_i[6] & SDN_o_2__0_;
+  assign N19 = ~SDN_o_3__0_;
+  assign N23 = N22 & SDN_o_3__0_;
   assign N22 = ~N21;
-  assign N21 = x_i[6] | x_i[5];
-  assign SDN_o[11] = x_i[5] ^ x_i[6];
+  assign N21 = x_i[6] | SDN_o_2__0_;
+  assign SDN_o[11] = SDN_o_2__0_ ^ x_i[6];
   assign SDN_o[13] = N26 | N29;
   assign N26 = N24 & N25;
-  assign N24 = x_i[8] & x_i[7];
-  assign N25 = ~x_i[9];
-  assign N29 = N28 & x_i[9];
+  assign N24 = x_i[8] & SDN_o_3__0_;
+  assign N25 = ~SDN_o_4__0_;
+  assign N29 = N28 & SDN_o_4__0_;
   assign N28 = ~N27;
-  assign N27 = x_i[8] | x_i[7];
-  assign SDN_o[14] = x_i[7] ^ x_i[8];
+  assign N27 = x_i[8] | SDN_o_3__0_;
+  assign SDN_o[14] = SDN_o_3__0_ ^ x_i[8];
   assign SDN_o[16] = N32 | N35;
   assign N32 = N30 & N31;
-  assign N30 = x_i[10] & x_i[9];
-  assign N31 = ~x_i[11];
-  assign N35 = N34 & x_i[11];
+  assign N30 = x_i[10] & SDN_o_4__0_;
+  assign N31 = ~SDN_o_5__0_;
+  assign N35 = N34 & SDN_o_5__0_;
   assign N34 = ~N33;
-  assign N33 = x_i[10] | x_i[9];
-  assign SDN_o[17] = x_i[9] ^ x_i[10];
+  assign N33 = x_i[10] | SDN_o_4__0_;
+  assign SDN_o[17] = SDN_o_4__0_ ^ x_i[10];
   assign SDN_o[19] = N38 | N41;
   assign N38 = N36 & N37;
-  assign N36 = x_i[12] & x_i[11];
-  assign N37 = ~x_i[13];
-  assign N41 = N40 & x_i[13];
+  assign N36 = x_i[12] & SDN_o_5__0_;
+  assign N37 = ~SDN_o_6__0_;
+  assign N41 = N40 & SDN_o_6__0_;
   assign N40 = ~N39;
-  assign N39 = x_i[12] | x_i[11];
-  assign SDN_o[20] = x_i[11] ^ x_i[12];
+  assign N39 = x_i[12] | SDN_o_5__0_;
+  assign SDN_o[20] = SDN_o_5__0_ ^ x_i[12];
   assign SDN_o[22] = N44 | N47;
   assign N44 = N42 & N43;
-  assign N42 = x_i[14] & x_i[13];
-  assign N43 = ~x_i[15];
-  assign N47 = N46 & x_i[15];
+  assign N42 = x_i[14] & SDN_o_6__0_;
+  assign N43 = ~SDN_o_7__0_;
+  assign N47 = N46 & SDN_o_7__0_;
   assign N46 = ~N45;
-  assign N45 = x_i[14] | x_i[13];
-  assign SDN_o[23] = x_i[13] ^ x_i[14];
+  assign N45 = x_i[14] | SDN_o_6__0_;
+  assign SDN_o[23] = SDN_o_6__0_ ^ x_i[14];
   assign SDN_o[25] = N50 | N53;
   assign N50 = N48 & N49;
-  assign N48 = x_i[16] & x_i[15];
-  assign N49 = ~x_i[17];
-  assign N53 = N52 & x_i[17];
+  assign N48 = x_i[16] & SDN_o_7__0_;
+  assign N49 = ~SDN_o_8__0_;
+  assign N53 = N52 & SDN_o_8__0_;
   assign N52 = ~N51;
-  assign N51 = x_i[16] | x_i[15];
-  assign SDN_o[26] = x_i[15] ^ x_i[16];
+  assign N51 = x_i[16] | SDN_o_7__0_;
+  assign SDN_o[26] = SDN_o_7__0_ ^ x_i[16];
   assign SDN_o[28] = N56 | N59;
   assign N56 = N54 & N55;
-  assign N54 = x_i[18] & x_i[17];
-  assign N55 = ~x_i[19];
-  assign N59 = N58 & x_i[19];
+  assign N54 = x_i[18] & SDN_o_8__0_;
+  assign N55 = ~SDN_o_9__0_;
+  assign N59 = N58 & SDN_o_9__0_;
   assign N58 = ~N57;
-  assign N57 = x_i[18] | x_i[17];
-  assign SDN_o[29] = x_i[17] ^ x_i[18];
+  assign N57 = x_i[18] | SDN_o_8__0_;
+  assign SDN_o[29] = SDN_o_8__0_ ^ x_i[18];
   assign SDN_o[31] = N62 | N65;
   assign N62 = N60 & N61;
-  assign N60 = x_i[20] & x_i[19];
-  assign N61 = ~x_i[21];
-  assign N65 = N64 & x_i[21];
+  assign N60 = x_i[20] & SDN_o_9__0_;
+  assign N61 = ~SDN_o_10__0_;
+  assign N65 = N64 & SDN_o_10__0_;
   assign N64 = ~N63;
-  assign N63 = x_i[20] | x_i[19];
-  assign SDN_o[32] = x_i[19] ^ x_i[20];
+  assign N63 = x_i[20] | SDN_o_9__0_;
+  assign SDN_o[32] = SDN_o_9__0_ ^ x_i[20];
   assign SDN_o[34] = N68 | N71;
   assign N68 = N66 & N67;
-  assign N66 = x_i[22] & x_i[21];
-  assign N67 = ~x_i[23];
-  assign N71 = N70 & x_i[23];
+  assign N66 = x_i[22] & SDN_o_10__0_;
+  assign N67 = ~SDN_o_11__0_;
+  assign N71 = N70 & SDN_o_11__0_;
   assign N70 = ~N69;
-  assign N69 = x_i[22] | x_i[21];
-  assign SDN_o[35] = x_i[21] ^ x_i[22];
+  assign N69 = x_i[22] | SDN_o_10__0_;
+  assign SDN_o[35] = SDN_o_10__0_ ^ x_i[22];
   assign SDN_o[37] = N74 | N77;
   assign N74 = N72 & N73;
-  assign N72 = x_i[24] & x_i[23];
-  assign N73 = ~x_i[25];
-  assign N77 = N76 & x_i[25];
+  assign N72 = x_i[24] & SDN_o_11__0_;
+  assign N73 = ~SDN_o_12__0_;
+  assign N77 = N76 & SDN_o_12__0_;
   assign N76 = ~N75;
-  assign N75 = x_i[24] | x_i[23];
-  assign SDN_o[38] = x_i[23] ^ x_i[24];
+  assign N75 = x_i[24] | SDN_o_11__0_;
+  assign SDN_o[38] = SDN_o_11__0_ ^ x_i[24];
   assign SDN_o[40] = N80 | N83;
   assign N80 = N78 & N79;
-  assign N78 = x_i[26] & x_i[25];
-  assign N79 = ~x_i[27];
-  assign N83 = N82 & x_i[27];
+  assign N78 = x_i[26] & SDN_o_12__0_;
+  assign N79 = ~SDN_o_13__0_;
+  assign N83 = N82 & SDN_o_13__0_;
   assign N82 = ~N81;
-  assign N81 = x_i[26] | x_i[25];
-  assign SDN_o[41] = x_i[25] ^ x_i[26];
+  assign N81 = x_i[26] | SDN_o_12__0_;
+  assign SDN_o[41] = SDN_o_12__0_ ^ x_i[26];
   assign SDN_o[43] = N86 | N89;
   assign N86 = N84 & N85;
-  assign N84 = x_i[28] & x_i[27];
-  assign N85 = ~x_i[29];
-  assign N89 = N88 & x_i[29];
+  assign N84 = x_i[28] & SDN_o_13__0_;
+  assign N85 = ~SDN_o_14__0_;
+  assign N89 = N88 & SDN_o_14__0_;
   assign N88 = ~N87;
-  assign N87 = x_i[28] | x_i[27];
-  assign SDN_o[44] = x_i[27] ^ x_i[28];
+  assign N87 = x_i[28] | SDN_o_13__0_;
+  assign SDN_o[44] = SDN_o_13__0_ ^ x_i[28];
   assign SDN_o[46] = N92 | N95;
   assign N92 = N90 & N91;
-  assign N90 = x_i[30] & x_i[29];
-  assign N91 = ~x_i[31];
-  assign N95 = N94 & x_i[31];
+  assign N90 = x_i[30] & SDN_o_14__0_;
+  assign N91 = ~SDN_o_15__0_;
+  assign N95 = N94 & SDN_o_15__0_;
   assign N94 = ~N93;
-  assign N93 = x_i[30] | x_i[29];
-  assign SDN_o[47] = x_i[29] ^ x_i[30];
+  assign N93 = x_i[30] | SDN_o_14__0_;
+  assign SDN_o[47] = SDN_o_14__0_ ^ x_i[30];
   assign SDN_o[48] = 1'b0 & N96;
   assign N96 = ~signed_i;
-  assign rof_16__trip[1] = 1'b0 & N96;
-  assign rof_16__trip[0] = x_i[31] & N96;
+  assign \rof_16_.trip [1] = 1'b0 & N96;
+  assign \rof_16_.trip [0] = SDN_o_15__0_ & N96;
   assign SDN_o[49] = N99 | N102;
   assign N99 = N97 & N98;
-  assign N97 = rof_16__trip[1] & rof_16__trip[0];
+  assign N97 = \rof_16_.trip [1] & \rof_16_.trip [0];
   assign N98 = ~SDN_o[48];
   assign N102 = N101 & SDN_o[48];
   assign N101 = ~N100;
-  assign N100 = rof_16__trip[1] | rof_16__trip[0];
-  assign SDN_o[50] = rof_16__trip[0] ^ rof_16__trip[1];
+  assign N100 = \rof_16_.trip [1] | \rof_16_.trip [0];
+  assign SDN_o[50] = \rof_16_.trip [0] ^ \rof_16_.trip [1];
 
 endmodule
 
@@ -549,7 +567,7 @@ module bsg_mul_booth_4_block_rep_00000006_080402_000000_80c8ec_000000
   wire [5:1] ci_local;
 
   bsg_mul_booth_4_block_000002_000000_00000c_000000
-  rof_0__b4b
+  \rof_0_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(cr_i),
@@ -561,7 +579,7 @@ module bsg_mul_booth_4_block_rep_00000006_080402_000000_80c8ec_000000
 
 
   bsg_mul_booth_4_block_000000_000000_00000e_000000
-  rof_1__b4b
+  \rof_1_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[1]),
@@ -573,7 +591,7 @@ module bsg_mul_booth_4_block_rep_00000006_080402_000000_80c8ec_000000
 
 
   bsg_mul_booth_4_block_000004_000000_000008_000000
-  rof_2__b4b
+  \rof_2_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[2]),
@@ -585,7 +603,7 @@ module bsg_mul_booth_4_block_rep_00000006_080402_000000_80c8ec_000000
 
 
   bsg_mul_booth_4_block_000000_000000_00000c_000000
-  rof_3__b4b
+  \rof_3_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[3]),
@@ -597,7 +615,7 @@ module bsg_mul_booth_4_block_rep_00000006_080402_000000_80c8ec_000000
 
 
   bsg_mul_booth_4_block_000008_000000_000000_000000
-  rof_4__b4b
+  \rof_4_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[4]),
@@ -609,7 +627,7 @@ module bsg_mul_booth_4_block_rep_00000006_080402_000000_80c8ec_000000
 
 
   bsg_mul_booth_4_block_000000_000000_000008_000000
-  rof_5__b4b
+  \rof_5_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[5]),
@@ -732,7 +750,7 @@ module bsg_mul_booth_4_block_rep_00000008_00000000_00000000_00000000_00000000
   wire [7:1] ci_local;
 
   bsg_mul_booth_4_block_00000000_00000000_00000000_00000000
-  rof_0__b4b
+  \rof_0_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(cr_i),
@@ -744,7 +762,7 @@ module bsg_mul_booth_4_block_rep_00000008_00000000_00000000_00000000_00000000
 
 
   bsg_mul_booth_4_block_00000000_00000000_00000000_00000000
-  rof_1__b4b
+  \rof_1_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[1]),
@@ -756,7 +774,7 @@ module bsg_mul_booth_4_block_rep_00000008_00000000_00000000_00000000_00000000
 
 
   bsg_mul_booth_4_block_00000000_00000000_00000000_00000000
-  rof_2__b4b
+  \rof_2_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[2]),
@@ -768,7 +786,7 @@ module bsg_mul_booth_4_block_rep_00000008_00000000_00000000_00000000_00000000
 
 
   bsg_mul_booth_4_block_00000000_00000000_00000000_00000000
-  rof_3__b4b
+  \rof_3_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[3]),
@@ -780,7 +798,7 @@ module bsg_mul_booth_4_block_rep_00000008_00000000_00000000_00000000_00000000
 
 
   bsg_mul_booth_4_block_00000000_00000000_00000000_00000000
-  rof_4__b4b
+  \rof_4_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[4]),
@@ -792,7 +810,7 @@ module bsg_mul_booth_4_block_rep_00000008_00000000_00000000_00000000_00000000
 
 
   bsg_mul_booth_4_block_00000000_00000000_00000000_00000000
-  rof_5__b4b
+  \rof_5_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[5]),
@@ -804,7 +822,7 @@ module bsg_mul_booth_4_block_rep_00000008_00000000_00000000_00000000_00000000
 
 
   bsg_mul_booth_4_block_00000000_00000000_00000000_00000000
-  rof_6__b4b
+  \rof_6_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[6]),
@@ -816,7 +834,7 @@ module bsg_mul_booth_4_block_rep_00000008_00000000_00000000_00000000_00000000
 
 
   bsg_mul_booth_4_block_00000000_00000000_00000000_00000000
-  rof_7__b4b
+  \rof_7_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[7]),
@@ -1013,7 +1031,7 @@ module bsg_mul_booth_4_block_rep_00000005_00000_00000_00000_00000
   wire [4:1] ci_local;
 
   bsg_mul_booth_4_block_00000_00000_00000_00000
-  rof_0__b4b
+  \rof_0_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(cr_i),
@@ -1025,7 +1043,7 @@ module bsg_mul_booth_4_block_rep_00000005_00000_00000_00000_00000
 
 
   bsg_mul_booth_4_block_00000_00000_00000_00000
-  rof_1__b4b
+  \rof_1_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[1]),
@@ -1037,7 +1055,7 @@ module bsg_mul_booth_4_block_rep_00000005_00000_00000_00000_00000
 
 
   bsg_mul_booth_4_block_00000_00000_00000_00000
-  rof_2__b4b
+  \rof_2_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[2]),
@@ -1049,7 +1067,7 @@ module bsg_mul_booth_4_block_rep_00000005_00000_00000_00000_00000
 
 
   bsg_mul_booth_4_block_00000_00000_00000_00000
-  rof_3__b4b
+  \rof_3_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[3]),
@@ -1061,7 +1079,7 @@ module bsg_mul_booth_4_block_rep_00000005_00000_00000_00000_00000
 
 
   bsg_mul_booth_4_block_00000_00000_00000_00000
-  rof_4__b4b
+  \rof_4_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[4]),
@@ -1385,7 +1403,7 @@ module bsg_mul_booth_4_block_rep_00000006_000000_080403_773310_804020
   wire [5:1] ci_local;
 
   bsg_mul_booth_4_block_000000_000003_000000_000000
-  rof_0__b4b
+  \rof_0_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(cr_i),
@@ -1397,7 +1415,7 @@ module bsg_mul_booth_4_block_rep_00000006_000000_080403_773310_804020
 
 
   bsg_mul_booth_4_block_000000_000000_000001_000002
-  rof_1__b4b
+  \rof_1_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[1]),
@@ -1409,7 +1427,7 @@ module bsg_mul_booth_4_block_rep_00000006_000000_080403_773310_804020
 
 
   bsg_mul_booth_4_block_000000_000004_000003_000000
-  rof_2__b4b
+  \rof_2_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[2]),
@@ -1421,7 +1439,7 @@ module bsg_mul_booth_4_block_rep_00000006_000000_080403_773310_804020
 
 
   bsg_mul_booth_4_block_000000_000000_000003_000004
-  rof_3__b4b
+  \rof_3_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[3]),
@@ -1433,7 +1451,7 @@ module bsg_mul_booth_4_block_rep_00000006_000000_080403_773310_804020
 
 
   bsg_mul_booth_4_block_000000_000008_000007_000000
-  rof_4__b4b
+  \rof_4_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[4]),
@@ -1445,7 +1463,7 @@ module bsg_mul_booth_4_block_rep_00000006_000000_080403_773310_804020
 
 
   bsg_mul_booth_4_block_000000_000000_000007_000008
-  rof_5__b4b
+  \rof_5_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[5]),
@@ -1529,7 +1547,7 @@ module bsg_mul_B4B_rep_rep_6_41_29231e160e0600_0_32_1
   wire [5:1] carries;
 
   bsg_mul_B4B_rep_00000006_00000000000000_32_080402_000000_80c8ec_000000_1
-  rof_0__br
+  \rof_0_.br 
   (
     .SDN_i(SDN_i),
     .cr_i(cr_i),
@@ -1542,7 +1560,7 @@ module bsg_mul_B4B_rep_rep_6_41_29231e160e0600_0_32_1
 
 
   bsg_mul_B4B_rep_00000008_00000000000006_32_00000000_00000000_00000000_00000000_1
-  rof_1__br
+  \rof_1_.br 
   (
     .SDN_i(SDN_i),
     .cr_i(carries[1]),
@@ -1555,7 +1573,7 @@ module bsg_mul_B4B_rep_rep_6_41_29231e160e0600_0_32_1
 
 
   bsg_mul_B4B_rep_00000008_0000000000000e_32_00000000_00000000_00000000_00000000_1
-  rof_2__br
+  \rof_2_.br 
   (
     .SDN_i(SDN_i),
     .cr_i(carries[2]),
@@ -1568,7 +1586,7 @@ module bsg_mul_B4B_rep_rep_6_41_29231e160e0600_0_32_1
 
 
   bsg_mul_B4B_rep_00000008_00000000000016_32_00000000_00000000_00000000_00000000_1
-  rof_3__br
+  \rof_3_.br 
   (
     .SDN_i(SDN_i),
     .cr_i(carries[3]),
@@ -1581,7 +1599,7 @@ module bsg_mul_B4B_rep_rep_6_41_29231e160e0600_0_32_1
 
 
   bsg_mul_B4B_rep_00000005_0000000000001e_32_00000_00000_00000_00000_1
-  rof_4__br
+  \rof_4_.br 
   (
     .SDN_i(SDN_i),
     .cr_i(carries[4]),
@@ -1594,7 +1612,7 @@ module bsg_mul_B4B_rep_rep_6_41_29231e160e0600_0_32_1
 
 
   bsg_mul_B4B_rep_00000006_00000000000023_32_000000_080403_773310_804020_1
-  rof_5__br
+  \rof_5_.br 
   (
     .SDN_i(SDN_i),
     .cr_i(carries[5]),
@@ -1690,11 +1708,13 @@ module bsg_mul_green_booth_dots_32_1_5_221b130b0500
   input [31:0] y_i;
   output [33:0] dot_o;
   wire [33:0] dot_o;
+  wire dot_o_0_;
   assign dot_o[1] = 1'b0;
-  assign dot_o[0] = SDN_i[0];
+  assign dot_o_0_ = SDN_i[0];
+  assign dot_o[0] = dot_o_0_;
 
   bsg_and_00000006_1
-  blk_1__macro_ba
+  \blk_1_.macro.ba 
   (
     .a_i({ SDN_i[5:5], SDN_i[5:5], SDN_i[5:5], SDN_i[5:5], SDN_i[5:5], SDN_i[5:5] }),
     .b_i(y_i[8:3]),
@@ -1703,7 +1723,7 @@ module bsg_mul_green_booth_dots_32_1_5_221b130b0500
 
 
   bsg_and_00000008_1
-  blk_2__macro_ba
+  \blk_2_.macro.ba 
   (
     .a_i({ SDN_i[5:5], SDN_i[5:5], SDN_i[5:5], SDN_i[5:5], SDN_i[5:5], SDN_i[5:5], SDN_i[5:5], SDN_i[5:5] }),
     .b_i(y_i[16:9]),
@@ -1712,7 +1732,7 @@ module bsg_mul_green_booth_dots_32_1_5_221b130b0500
 
 
   bsg_and_00000008_1
-  blk_3__macro_ba
+  \blk_3_.macro.ba 
   (
     .a_i({ SDN_i[5:5], SDN_i[5:5], SDN_i[5:5], SDN_i[5:5], SDN_i[5:5], SDN_i[5:5], SDN_i[5:5], SDN_i[5:5] }),
     .b_i(y_i[24:17]),
@@ -1721,7 +1741,7 @@ module bsg_mul_green_booth_dots_32_1_5_221b130b0500
 
 
   bsg_and_00000007_1
-  blk_4__macro_ba
+  \blk_4_.macro.ba 
   (
     .a_i({ SDN_i[5:5], SDN_i[5:5], SDN_i[5:5], SDN_i[5:5], SDN_i[5:5], SDN_i[5:5], SDN_i[5:5] }),
     .b_i(y_i[31:25]),
@@ -1755,7 +1775,7 @@ module bsg_mul_comp42_rep_00000000000008
   wire [7:1] ci_local;
 
   bsg_mul_comp42
-  rof_0__c
+  \rof_0_.c 
   (
     .i({ i[24:24], i[16:16], i[8:8], i[0:0] }),
     .cr_i(cr_i),
@@ -1766,7 +1786,7 @@ module bsg_mul_comp42_rep_00000000000008
 
 
   bsg_mul_comp42
-  rof_1__c
+  \rof_1_.c 
   (
     .i({ i[25:25], i[17:17], i[9:9], i[1:1] }),
     .cr_i(ci_local[1]),
@@ -1777,7 +1797,7 @@ module bsg_mul_comp42_rep_00000000000008
 
 
   bsg_mul_comp42
-  rof_2__c
+  \rof_2_.c 
   (
     .i({ i[26:26], i[18:18], i[10:10], i[2:2] }),
     .cr_i(ci_local[2]),
@@ -1788,7 +1808,7 @@ module bsg_mul_comp42_rep_00000000000008
 
 
   bsg_mul_comp42
-  rof_3__c
+  \rof_3_.c 
   (
     .i({ i[27:27], i[19:19], i[11:11], i[3:3] }),
     .cr_i(ci_local[3]),
@@ -1799,7 +1819,7 @@ module bsg_mul_comp42_rep_00000000000008
 
 
   bsg_mul_comp42
-  rof_4__c
+  \rof_4_.c 
   (
     .i({ i[28:28], i[20:20], i[12:12], i[4:4] }),
     .cr_i(ci_local[4]),
@@ -1810,7 +1830,7 @@ module bsg_mul_comp42_rep_00000000000008
 
 
   bsg_mul_comp42
-  rof_5__c
+  \rof_5_.c 
   (
     .i({ i[29:29], i[21:21], i[13:13], i[5:5] }),
     .cr_i(ci_local[5]),
@@ -1821,7 +1841,7 @@ module bsg_mul_comp42_rep_00000000000008
 
 
   bsg_mul_comp42
-  rof_6__c
+  \rof_6_.c 
   (
     .i({ i[30:30], i[22:22], i[14:14], i[6:6] }),
     .cr_i(ci_local[6]),
@@ -1832,7 +1852,7 @@ module bsg_mul_comp42_rep_00000000000008
 
 
   bsg_mul_comp42
-  rof_7__c
+  \rof_7_.c 
   (
     .i({ i[31:31], i[23:23], i[15:15], i[7:7] }),
     .cr_i(ci_local[7]),
@@ -1865,7 +1885,7 @@ module bsg_mul_comp42_rep_00000000000005
   wire [4:1] ci_local;
 
   bsg_mul_comp42
-  rof_0__c
+  \rof_0_.c 
   (
     .i({ i[15:15], i[10:10], i[5:5], i[0:0] }),
     .cr_i(cr_i),
@@ -1876,7 +1896,7 @@ module bsg_mul_comp42_rep_00000000000005
 
 
   bsg_mul_comp42
-  rof_1__c
+  \rof_1_.c 
   (
     .i({ i[16:16], i[11:11], i[6:6], i[1:1] }),
     .cr_i(ci_local[1]),
@@ -1887,7 +1907,7 @@ module bsg_mul_comp42_rep_00000000000005
 
 
   bsg_mul_comp42
-  rof_2__c
+  \rof_2_.c 
   (
     .i({ i[17:17], i[12:12], i[7:7], i[2:2] }),
     .cr_i(ci_local[2]),
@@ -1898,7 +1918,7 @@ module bsg_mul_comp42_rep_00000000000005
 
 
   bsg_mul_comp42
-  rof_3__c
+  \rof_3_.c 
   (
     .i({ i[18:18], i[13:13], i[8:8], i[3:3] }),
     .cr_i(ci_local[3]),
@@ -1909,7 +1929,7 @@ module bsg_mul_comp42_rep_00000000000005
 
 
   bsg_mul_comp42
-  rof_4__c
+  \rof_4_.c 
   (
     .i({ i[19:19], i[14:14], i[9:9], i[4:4] }),
     .cr_i(ci_local[4]),
@@ -1942,7 +1962,7 @@ module bsg_mul_comp42_rep_00000000000006
   wire [5:1] ci_local;
 
   bsg_mul_comp42
-  rof_0__c
+  \rof_0_.c 
   (
     .i({ i[18:18], i[12:12], i[6:6], i[0:0] }),
     .cr_i(cr_i),
@@ -1953,7 +1973,7 @@ module bsg_mul_comp42_rep_00000000000006
 
 
   bsg_mul_comp42
-  rof_1__c
+  \rof_1_.c 
   (
     .i({ i[19:19], i[13:13], i[7:7], i[1:1] }),
     .cr_i(ci_local[1]),
@@ -1964,7 +1984,7 @@ module bsg_mul_comp42_rep_00000000000006
 
 
   bsg_mul_comp42
-  rof_2__c
+  \rof_2_.c 
   (
     .i({ i[20:20], i[14:14], i[8:8], i[2:2] }),
     .cr_i(ci_local[2]),
@@ -1975,7 +1995,7 @@ module bsg_mul_comp42_rep_00000000000006
 
 
   bsg_mul_comp42
-  rof_3__c
+  \rof_3_.c 
   (
     .i({ i[21:21], i[15:15], i[9:9], i[3:3] }),
     .cr_i(ci_local[3]),
@@ -1986,7 +2006,7 @@ module bsg_mul_comp42_rep_00000000000006
 
 
   bsg_mul_comp42
-  rof_4__c
+  \rof_4_.c 
   (
     .i({ i[22:22], i[16:16], i[10:10], i[4:4] }),
     .cr_i(ci_local[4]),
@@ -1997,7 +2017,7 @@ module bsg_mul_comp42_rep_00000000000006
 
 
   bsg_mul_comp42
-  rof_5__c
+  \rof_5_.c 
   (
     .i({ i[23:23], i[17:17], i[11:11], i[5:5] }),
     .cr_i(ci_local[5]),
@@ -2030,7 +2050,7 @@ module bsg_mul_comp42_rep_rep_6_43_2b231d18100800
   wire [5:1] carries;
 
   bsg_mul_comp42_rep_00000000000008
-  rof_0__cr
+  \rof_0_.cr 
   (
     .i({ i[136:129], i[93:86], i[50:43], i[7:0] }),
     .cr_i(cr_i),
@@ -2041,7 +2061,7 @@ module bsg_mul_comp42_rep_rep_6_43_2b231d18100800
 
 
   bsg_mul_comp42_rep_00000000000008
-  rof_1__cr
+  \rof_1_.cr 
   (
     .i({ i[144:137], i[101:94], i[58:51], i[15:8] }),
     .cr_i(carries[1]),
@@ -2052,7 +2072,7 @@ module bsg_mul_comp42_rep_rep_6_43_2b231d18100800
 
 
   bsg_mul_comp42_rep_00000000000008
-  rof_2__cr
+  \rof_2_.cr 
   (
     .i({ i[152:145], i[109:102], i[66:59], i[23:16] }),
     .cr_i(carries[2]),
@@ -2063,7 +2083,7 @@ module bsg_mul_comp42_rep_rep_6_43_2b231d18100800
 
 
   bsg_mul_comp42_rep_00000000000005
-  rof_3__cr
+  \rof_3_.cr 
   (
     .i({ i[157:153], i[114:110], i[71:67], i[28:24] }),
     .cr_i(carries[3]),
@@ -2074,7 +2094,7 @@ module bsg_mul_comp42_rep_rep_6_43_2b231d18100800
 
 
   bsg_mul_comp42_rep_00000000000006
-  rof_4__cr
+  \rof_4_.cr 
   (
     .i({ i[163:158], i[120:115], i[77:72], i[34:29] }),
     .cr_i(carries[4]),
@@ -2085,7 +2105,7 @@ module bsg_mul_comp42_rep_rep_6_43_2b231d18100800
 
 
   bsg_mul_comp42_rep_00000000000008
-  rof_5__cr
+  \rof_5_.cr 
   (
     .i({ i[171:164], i[128:121], i[85:78], i[42:35] }),
     .cr_i(carries[5]),
@@ -2438,7 +2458,7 @@ module bsg_mul_booth_4_block_rep_00000008_08040201_00000000_80c8ecfe_00000000
   wire [7:1] ci_local;
 
   bsg_mul_booth_4_block_00000001_00000000_0000000e_00000000
-  rof_0__b4b
+  \rof_0_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(cr_i),
@@ -2450,7 +2470,7 @@ module bsg_mul_booth_4_block_rep_00000008_08040201_00000000_80c8ecfe_00000000
 
 
   bsg_mul_booth_4_block_00000000_00000000_0000000f_00000000
-  rof_1__b4b
+  \rof_1_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[1]),
@@ -2462,7 +2482,7 @@ module bsg_mul_booth_4_block_rep_00000008_08040201_00000000_80c8ecfe_00000000
 
 
   bsg_mul_booth_4_block_00000002_00000000_0000000c_00000000
-  rof_2__b4b
+  \rof_2_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[2]),
@@ -2474,7 +2494,7 @@ module bsg_mul_booth_4_block_rep_00000008_08040201_00000000_80c8ecfe_00000000
 
 
   bsg_mul_booth_4_block_00000000_00000000_0000000e_00000000
-  rof_3__b4b
+  \rof_3_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[3]),
@@ -2486,7 +2506,7 @@ module bsg_mul_booth_4_block_rep_00000008_08040201_00000000_80c8ecfe_00000000
 
 
   bsg_mul_booth_4_block_00000004_00000000_00000008_00000000
-  rof_4__b4b
+  \rof_4_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[4]),
@@ -2498,7 +2518,7 @@ module bsg_mul_booth_4_block_rep_00000008_08040201_00000000_80c8ecfe_00000000
 
 
   bsg_mul_booth_4_block_00000000_00000000_0000000c_00000000
-  rof_5__b4b
+  \rof_5_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[5]),
@@ -2510,7 +2530,7 @@ module bsg_mul_booth_4_block_rep_00000008_08040201_00000000_80c8ecfe_00000000
 
 
   bsg_mul_booth_4_block_00000008_00000000_00000000_00000000
-  rof_6__b4b
+  \rof_6_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[6]),
@@ -2522,7 +2542,7 @@ module bsg_mul_booth_4_block_rep_00000008_08040201_00000000_80c8ecfe_00000000
 
 
   bsg_mul_booth_4_block_00000000_00000000_00000008_00000000
-  rof_7__b4b
+  \rof_7_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[7]),
@@ -2756,7 +2776,7 @@ module bsg_mul_booth_4_block_rep_00000006_000000_000000_000000_000000
   wire [5:1] ci_local;
 
   bsg_mul_booth_4_block_000000_000000_000000_000000
-  rof_0__b4b
+  \rof_0_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(cr_i),
@@ -2768,7 +2788,7 @@ module bsg_mul_booth_4_block_rep_00000006_000000_000000_000000_000000
 
 
   bsg_mul_booth_4_block_000000_000000_000000_000000
-  rof_1__b4b
+  \rof_1_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[1]),
@@ -2780,7 +2800,7 @@ module bsg_mul_booth_4_block_rep_00000006_000000_000000_000000_000000
 
 
   bsg_mul_booth_4_block_000000_000000_000000_000000
-  rof_2__b4b
+  \rof_2_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[2]),
@@ -2792,7 +2812,7 @@ module bsg_mul_booth_4_block_rep_00000006_000000_000000_000000_000000
 
 
   bsg_mul_booth_4_block_000000_000000_000000_000000
-  rof_3__b4b
+  \rof_3_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[3]),
@@ -2804,7 +2824,7 @@ module bsg_mul_booth_4_block_rep_00000006_000000_000000_000000_000000
 
 
   bsg_mul_booth_4_block_000000_000000_000000_000000
-  rof_4__b4b
+  \rof_4_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[4]),
@@ -2816,7 +2836,7 @@ module bsg_mul_booth_4_block_rep_00000006_000000_000000_000000_000000
 
 
   bsg_mul_booth_4_block_000000_000000_000000_000000
-  rof_5__b4b
+  \rof_5_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[5]),
@@ -3230,7 +3250,7 @@ module bsg_mul_booth_4_block_rep_00000008_00000000_08040201_77331100_80402010
   wire [7:1] ci_local;
 
   bsg_mul_booth_4_block_00000000_00000001_00000000_00000000
-  rof_0__b4b
+  \rof_0_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(cr_i),
@@ -3242,7 +3262,7 @@ module bsg_mul_booth_4_block_rep_00000008_00000000_08040201_77331100_80402010
 
 
   bsg_mul_booth_4_block_00000000_00000000_00000000_00000001
-  rof_1__b4b
+  \rof_1_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[1]),
@@ -3254,7 +3274,7 @@ module bsg_mul_booth_4_block_rep_00000008_00000000_08040201_77331100_80402010
 
 
   bsg_mul_booth_4_block_00000000_00000002_00000001_00000000
-  rof_2__b4b
+  \rof_2_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[2]),
@@ -3266,7 +3286,7 @@ module bsg_mul_booth_4_block_rep_00000008_00000000_08040201_77331100_80402010
 
 
   bsg_mul_booth_4_block_00000000_00000000_00000001_00000002
-  rof_3__b4b
+  \rof_3_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[3]),
@@ -3278,7 +3298,7 @@ module bsg_mul_booth_4_block_rep_00000008_00000000_08040201_77331100_80402010
 
 
   bsg_mul_booth_4_block_00000000_00000004_00000003_00000000
-  rof_4__b4b
+  \rof_4_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[4]),
@@ -3290,7 +3310,7 @@ module bsg_mul_booth_4_block_rep_00000008_00000000_08040201_77331100_80402010
 
 
   bsg_mul_booth_4_block_00000000_00000000_00000003_00000004
-  rof_5__b4b
+  \rof_5_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[5]),
@@ -3302,7 +3322,7 @@ module bsg_mul_booth_4_block_rep_00000008_00000000_08040201_77331100_80402010
 
 
   bsg_mul_booth_4_block_00000000_00000008_00000007_00000000
-  rof_6__b4b
+  \rof_6_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[6]),
@@ -3314,7 +3334,7 @@ module bsg_mul_booth_4_block_rep_00000008_00000000_08040201_77331100_80402010
 
 
   bsg_mul_booth_4_block_00000000_00000000_00000007_00000008
-  rof_7__b4b
+  \rof_7_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[7]),
@@ -3398,7 +3418,7 @@ module bsg_mul_B4B_rep_rep_6_43_2b231d18100800_n2_32_1
   wire [5:1] carries;
 
   bsg_mul_B4B_rep_00000008_000000fffffffe_32_08040201_00000000_80c8ecfe_00000000_1
-  rof_0__br
+  \rof_0_.br 
   (
     .SDN_i(SDN_i),
     .cr_i(cr_i),
@@ -3411,7 +3431,7 @@ module bsg_mul_B4B_rep_rep_6_43_2b231d18100800_n2_32_1
 
 
   bsg_mul_B4B_rep_00000008_00000100000006_32_00000000_00000000_00000000_00000000_1
-  rof_1__br
+  \rof_1_.br 
   (
     .SDN_i(SDN_i),
     .cr_i(carries[1]),
@@ -3424,7 +3444,7 @@ module bsg_mul_B4B_rep_rep_6_43_2b231d18100800_n2_32_1
 
 
   bsg_mul_B4B_rep_00000008_0000010000000e_32_00000000_00000000_00000000_00000000_1
-  rof_2__br
+  \rof_2_.br 
   (
     .SDN_i(SDN_i),
     .cr_i(carries[2]),
@@ -3437,7 +3457,7 @@ module bsg_mul_B4B_rep_rep_6_43_2b231d18100800_n2_32_1
 
 
   bsg_mul_B4B_rep_00000005_00000100000016_32_00000_00000_00000_00000_1
-  rof_3__br
+  \rof_3_.br 
   (
     .SDN_i(SDN_i),
     .cr_i(carries[3]),
@@ -3450,7 +3470,7 @@ module bsg_mul_B4B_rep_rep_6_43_2b231d18100800_n2_32_1
 
 
   bsg_mul_B4B_rep_00000006_0000010000001b_32_000000_000000_000000_000000_1
-  rof_4__br
+  \rof_4_.br 
   (
     .SDN_i(SDN_i),
     .cr_i(carries[4]),
@@ -3463,7 +3483,7 @@ module bsg_mul_B4B_rep_rep_6_43_2b231d18100800_n2_32_1
 
 
   bsg_mul_B4B_rep_00000008_00000100000021_32_00000000_08040201_77331100_80402010_1
-  rof_5__br
+  \rof_5_.br 
   (
     .SDN_i(SDN_i),
     .cr_i(carries[5]),
@@ -3498,7 +3518,7 @@ module bsg_mul_comp42_rep_0000000000000008
   wire [7:1] ci_local;
 
   bsg_mul_comp42
-  rof_0__c
+  \rof_0_.c 
   (
     .i({ i[24:24], i[16:16], i[8:8], i[0:0] }),
     .cr_i(cr_i),
@@ -3509,7 +3529,7 @@ module bsg_mul_comp42_rep_0000000000000008
 
 
   bsg_mul_comp42
-  rof_1__c
+  \rof_1_.c 
   (
     .i({ i[25:25], i[17:17], i[9:9], i[1:1] }),
     .cr_i(ci_local[1]),
@@ -3520,7 +3540,7 @@ module bsg_mul_comp42_rep_0000000000000008
 
 
   bsg_mul_comp42
-  rof_2__c
+  \rof_2_.c 
   (
     .i({ i[26:26], i[18:18], i[10:10], i[2:2] }),
     .cr_i(ci_local[2]),
@@ -3531,7 +3551,7 @@ module bsg_mul_comp42_rep_0000000000000008
 
 
   bsg_mul_comp42
-  rof_3__c
+  \rof_3_.c 
   (
     .i({ i[27:27], i[19:19], i[11:11], i[3:3] }),
     .cr_i(ci_local[3]),
@@ -3542,7 +3562,7 @@ module bsg_mul_comp42_rep_0000000000000008
 
 
   bsg_mul_comp42
-  rof_4__c
+  \rof_4_.c 
   (
     .i({ i[28:28], i[20:20], i[12:12], i[4:4] }),
     .cr_i(ci_local[4]),
@@ -3553,7 +3573,7 @@ module bsg_mul_comp42_rep_0000000000000008
 
 
   bsg_mul_comp42
-  rof_5__c
+  \rof_5_.c 
   (
     .i({ i[29:29], i[21:21], i[13:13], i[5:5] }),
     .cr_i(ci_local[5]),
@@ -3564,7 +3584,7 @@ module bsg_mul_comp42_rep_0000000000000008
 
 
   bsg_mul_comp42
-  rof_6__c
+  \rof_6_.c 
   (
     .i({ i[30:30], i[22:22], i[14:14], i[6:6] }),
     .cr_i(ci_local[6]),
@@ -3575,7 +3595,7 @@ module bsg_mul_comp42_rep_0000000000000008
 
 
   bsg_mul_comp42
-  rof_7__c
+  \rof_7_.c 
   (
     .i({ i[31:31], i[23:23], i[15:15], i[7:7] }),
     .cr_i(ci_local[7]),
@@ -3608,7 +3628,7 @@ module bsg_mul_comp42_rep_0000000000000005
   wire [4:1] ci_local;
 
   bsg_mul_comp42
-  rof_0__c
+  \rof_0_.c 
   (
     .i({ i[15:15], i[10:10], i[5:5], i[0:0] }),
     .cr_i(cr_i),
@@ -3619,7 +3639,7 @@ module bsg_mul_comp42_rep_0000000000000005
 
 
   bsg_mul_comp42
-  rof_1__c
+  \rof_1_.c 
   (
     .i({ i[16:16], i[11:11], i[6:6], i[1:1] }),
     .cr_i(ci_local[1]),
@@ -3630,7 +3650,7 @@ module bsg_mul_comp42_rep_0000000000000005
 
 
   bsg_mul_comp42
-  rof_2__c
+  \rof_2_.c 
   (
     .i({ i[17:17], i[12:12], i[7:7], i[2:2] }),
     .cr_i(ci_local[2]),
@@ -3641,7 +3661,7 @@ module bsg_mul_comp42_rep_0000000000000005
 
 
   bsg_mul_comp42
-  rof_3__c
+  \rof_3_.c 
   (
     .i({ i[18:18], i[13:13], i[8:8], i[3:3] }),
     .cr_i(ci_local[3]),
@@ -3652,7 +3672,7 @@ module bsg_mul_comp42_rep_0000000000000005
 
 
   bsg_mul_comp42
-  rof_4__c
+  \rof_4_.c 
   (
     .i({ i[19:19], i[14:14], i[9:9], i[4:4] }),
     .cr_i(ci_local[4]),
@@ -3685,7 +3705,7 @@ module bsg_mul_comp42_rep_0000000000000006
   wire [5:1] ci_local;
 
   bsg_mul_comp42
-  rof_0__c
+  \rof_0_.c 
   (
     .i({ i[18:18], i[12:12], i[6:6], i[0:0] }),
     .cr_i(cr_i),
@@ -3696,7 +3716,7 @@ module bsg_mul_comp42_rep_0000000000000006
 
 
   bsg_mul_comp42
-  rof_1__c
+  \rof_1_.c 
   (
     .i({ i[19:19], i[13:13], i[7:7], i[1:1] }),
     .cr_i(ci_local[1]),
@@ -3707,7 +3727,7 @@ module bsg_mul_comp42_rep_0000000000000006
 
 
   bsg_mul_comp42
-  rof_2__c
+  \rof_2_.c 
   (
     .i({ i[20:20], i[14:14], i[8:8], i[2:2] }),
     .cr_i(ci_local[2]),
@@ -3718,7 +3738,7 @@ module bsg_mul_comp42_rep_0000000000000006
 
 
   bsg_mul_comp42
-  rof_3__c
+  \rof_3_.c 
   (
     .i({ i[21:21], i[15:15], i[9:9], i[3:3] }),
     .cr_i(ci_local[3]),
@@ -3729,7 +3749,7 @@ module bsg_mul_comp42_rep_0000000000000006
 
 
   bsg_mul_comp42
-  rof_4__c
+  \rof_4_.c 
   (
     .i({ i[22:22], i[16:16], i[10:10], i[4:4] }),
     .cr_i(ci_local[4]),
@@ -3740,7 +3760,7 @@ module bsg_mul_comp42_rep_0000000000000006
 
 
   bsg_mul_comp42
-  rof_5__c
+  \rof_5_.c 
   (
     .i({ i[23:23], i[17:17], i[11:11], i[5:5] }),
     .cr_i(ci_local[5]),
@@ -3773,7 +3793,7 @@ module bsg_mul_comp42_rep_0000000000000007
   wire [6:1] ci_local;
 
   bsg_mul_comp42
-  rof_0__c
+  \rof_0_.c 
   (
     .i({ i[21:21], i[14:14], i[7:7], i[0:0] }),
     .cr_i(cr_i),
@@ -3784,7 +3804,7 @@ module bsg_mul_comp42_rep_0000000000000007
 
 
   bsg_mul_comp42
-  rof_1__c
+  \rof_1_.c 
   (
     .i({ i[22:22], i[15:15], i[8:8], i[1:1] }),
     .cr_i(ci_local[1]),
@@ -3795,7 +3815,7 @@ module bsg_mul_comp42_rep_0000000000000007
 
 
   bsg_mul_comp42
-  rof_2__c
+  \rof_2_.c 
   (
     .i({ i[23:23], i[16:16], i[9:9], i[2:2] }),
     .cr_i(ci_local[2]),
@@ -3806,7 +3826,7 @@ module bsg_mul_comp42_rep_0000000000000007
 
 
   bsg_mul_comp42
-  rof_3__c
+  \rof_3_.c 
   (
     .i({ i[24:24], i[17:17], i[10:10], i[3:3] }),
     .cr_i(ci_local[3]),
@@ -3817,7 +3837,7 @@ module bsg_mul_comp42_rep_0000000000000007
 
 
   bsg_mul_comp42
-  rof_4__c
+  \rof_4_.c 
   (
     .i({ i[25:25], i[18:18], i[11:11], i[4:4] }),
     .cr_i(ci_local[4]),
@@ -3828,7 +3848,7 @@ module bsg_mul_comp42_rep_0000000000000007
 
 
   bsg_mul_comp42
-  rof_5__c
+  \rof_5_.c 
   (
     .i({ i[26:26], i[19:19], i[12:12], i[5:5] }),
     .cr_i(ci_local[5]),
@@ -3839,7 +3859,7 @@ module bsg_mul_comp42_rep_0000000000000007
 
 
   bsg_mul_comp42
-  rof_6__c
+  \rof_6_.c 
   (
     .i({ i[27:27], i[20:20], i[13:13], i[6:6] }),
     .cr_i(ci_local[6]),
@@ -3872,7 +3892,7 @@ module bsg_mul_comp42_rep_rep_7_50_322b231b15100800
   wire [6:1] carries;
 
   bsg_mul_comp42_rep_0000000000000008
-  rof_0__cr
+  \rof_0_.cr 
   (
     .i({ i[157:150], i[107:100], i[57:50], i[7:0] }),
     .cr_i(cr_i),
@@ -3883,7 +3903,7 @@ module bsg_mul_comp42_rep_rep_7_50_322b231b15100800
 
 
   bsg_mul_comp42_rep_0000000000000008
-  rof_1__cr
+  \rof_1_.cr 
   (
     .i({ i[165:158], i[115:108], i[65:58], i[15:8] }),
     .cr_i(carries[1]),
@@ -3894,7 +3914,7 @@ module bsg_mul_comp42_rep_rep_7_50_322b231b15100800
 
 
   bsg_mul_comp42_rep_0000000000000005
-  rof_2__cr
+  \rof_2_.cr 
   (
     .i({ i[170:166], i[120:116], i[70:66], i[20:16] }),
     .cr_i(carries[2]),
@@ -3905,7 +3925,7 @@ module bsg_mul_comp42_rep_rep_7_50_322b231b15100800
 
 
   bsg_mul_comp42_rep_0000000000000006
-  rof_3__cr
+  \rof_3_.cr 
   (
     .i({ i[176:171], i[126:121], i[76:71], i[26:21] }),
     .cr_i(carries[3]),
@@ -3916,7 +3936,7 @@ module bsg_mul_comp42_rep_rep_7_50_322b231b15100800
 
 
   bsg_mul_comp42_rep_0000000000000008
-  rof_4__cr
+  \rof_4_.cr 
   (
     .i({ i[184:177], i[134:127], i[84:77], i[34:27] }),
     .cr_i(carries[4]),
@@ -3927,7 +3947,7 @@ module bsg_mul_comp42_rep_rep_7_50_322b231b15100800
 
 
   bsg_mul_comp42_rep_0000000000000008
-  rof_5__cr
+  \rof_5_.cr 
   (
     .i({ i[192:185], i[142:135], i[92:85], i[42:35] }),
     .cr_i(carries[5]),
@@ -3938,7 +3958,7 @@ module bsg_mul_comp42_rep_rep_7_50_322b231b15100800
 
 
   bsg_mul_comp42_rep_0000000000000007
-  rof_6__cr
+  \rof_6_.cr 
   (
     .i({ i[199:193], i[149:143], i[99:93], i[49:43] }),
     .cr_i(carries[6]),
@@ -4078,11 +4098,46 @@ module bsg_dff_en_00000010_1
   output [15:0] data_o;
   input clk_i;
   input en_i;
-  reg [15:0] data_o;
+  wire [15:0] data_o;
+  reg data_o_15_sv2v_reg,data_o_14_sv2v_reg,data_o_13_sv2v_reg,data_o_12_sv2v_reg,
+  data_o_11_sv2v_reg,data_o_10_sv2v_reg,data_o_9_sv2v_reg,data_o_8_sv2v_reg,
+  data_o_7_sv2v_reg,data_o_6_sv2v_reg,data_o_5_sv2v_reg,data_o_4_sv2v_reg,data_o_3_sv2v_reg,
+  data_o_2_sv2v_reg,data_o_1_sv2v_reg,data_o_0_sv2v_reg;
+  assign data_o[15] = data_o_15_sv2v_reg;
+  assign data_o[14] = data_o_14_sv2v_reg;
+  assign data_o[13] = data_o_13_sv2v_reg;
+  assign data_o[12] = data_o_12_sv2v_reg;
+  assign data_o[11] = data_o_11_sv2v_reg;
+  assign data_o[10] = data_o_10_sv2v_reg;
+  assign data_o[9] = data_o_9_sv2v_reg;
+  assign data_o[8] = data_o_8_sv2v_reg;
+  assign data_o[7] = data_o_7_sv2v_reg;
+  assign data_o[6] = data_o_6_sv2v_reg;
+  assign data_o[5] = data_o_5_sv2v_reg;
+  assign data_o[4] = data_o_4_sv2v_reg;
+  assign data_o[3] = data_o_3_sv2v_reg;
+  assign data_o[2] = data_o_2_sv2v_reg;
+  assign data_o[1] = data_o_1_sv2v_reg;
+  assign data_o[0] = data_o_0_sv2v_reg;
 
   always @(posedge clk_i) begin
     if(en_i) begin
-      { data_o[15:0] } <= { data_i[15:0] };
+      data_o_15_sv2v_reg <= data_i[15];
+      data_o_14_sv2v_reg <= data_i[14];
+      data_o_13_sv2v_reg <= data_i[13];
+      data_o_12_sv2v_reg <= data_i[12];
+      data_o_11_sv2v_reg <= data_i[11];
+      data_o_10_sv2v_reg <= data_i[10];
+      data_o_9_sv2v_reg <= data_i[9];
+      data_o_8_sv2v_reg <= data_i[8];
+      data_o_7_sv2v_reg <= data_i[7];
+      data_o_6_sv2v_reg <= data_i[6];
+      data_o_5_sv2v_reg <= data_i[5];
+      data_o_4_sv2v_reg <= data_i[4];
+      data_o_3_sv2v_reg <= data_i[3];
+      data_o_2_sv2v_reg <= data_i[2];
+      data_o_1_sv2v_reg <= data_i[1];
+      data_o_0_sv2v_reg <= data_i[0];
     end 
   end
 
@@ -4103,11 +4158,33 @@ module bsg_dff_en_0000000a_1
   output [9:0] data_o;
   input clk_i;
   input en_i;
-  reg [9:0] data_o;
+  wire [9:0] data_o;
+  reg data_o_9_sv2v_reg,data_o_8_sv2v_reg,data_o_7_sv2v_reg,data_o_6_sv2v_reg,
+  data_o_5_sv2v_reg,data_o_4_sv2v_reg,data_o_3_sv2v_reg,data_o_2_sv2v_reg,
+  data_o_1_sv2v_reg,data_o_0_sv2v_reg;
+  assign data_o[9] = data_o_9_sv2v_reg;
+  assign data_o[8] = data_o_8_sv2v_reg;
+  assign data_o[7] = data_o_7_sv2v_reg;
+  assign data_o[6] = data_o_6_sv2v_reg;
+  assign data_o[5] = data_o_5_sv2v_reg;
+  assign data_o[4] = data_o_4_sv2v_reg;
+  assign data_o[3] = data_o_3_sv2v_reg;
+  assign data_o[2] = data_o_2_sv2v_reg;
+  assign data_o[1] = data_o_1_sv2v_reg;
+  assign data_o[0] = data_o_0_sv2v_reg;
 
   always @(posedge clk_i) begin
     if(en_i) begin
-      { data_o[9:0] } <= { data_i[9:0] };
+      data_o_9_sv2v_reg <= data_i[9];
+      data_o_8_sv2v_reg <= data_i[8];
+      data_o_7_sv2v_reg <= data_i[7];
+      data_o_6_sv2v_reg <= data_i[6];
+      data_o_5_sv2v_reg <= data_i[5];
+      data_o_4_sv2v_reg <= data_i[4];
+      data_o_3_sv2v_reg <= data_i[3];
+      data_o_2_sv2v_reg <= data_i[2];
+      data_o_1_sv2v_reg <= data_i[1];
+      data_o_0_sv2v_reg <= data_i[0];
     end 
   end
 
@@ -4128,11 +4205,37 @@ module bsg_dff_en_0000000c_1
   output [11:0] data_o;
   input clk_i;
   input en_i;
-  reg [11:0] data_o;
+  wire [11:0] data_o;
+  reg data_o_11_sv2v_reg,data_o_10_sv2v_reg,data_o_9_sv2v_reg,data_o_8_sv2v_reg,
+  data_o_7_sv2v_reg,data_o_6_sv2v_reg,data_o_5_sv2v_reg,data_o_4_sv2v_reg,
+  data_o_3_sv2v_reg,data_o_2_sv2v_reg,data_o_1_sv2v_reg,data_o_0_sv2v_reg;
+  assign data_o[11] = data_o_11_sv2v_reg;
+  assign data_o[10] = data_o_10_sv2v_reg;
+  assign data_o[9] = data_o_9_sv2v_reg;
+  assign data_o[8] = data_o_8_sv2v_reg;
+  assign data_o[7] = data_o_7_sv2v_reg;
+  assign data_o[6] = data_o_6_sv2v_reg;
+  assign data_o[5] = data_o_5_sv2v_reg;
+  assign data_o[4] = data_o_4_sv2v_reg;
+  assign data_o[3] = data_o_3_sv2v_reg;
+  assign data_o[2] = data_o_2_sv2v_reg;
+  assign data_o[1] = data_o_1_sv2v_reg;
+  assign data_o[0] = data_o_0_sv2v_reg;
 
   always @(posedge clk_i) begin
     if(en_i) begin
-      { data_o[11:0] } <= { data_i[11:0] };
+      data_o_11_sv2v_reg <= data_i[11];
+      data_o_10_sv2v_reg <= data_i[10];
+      data_o_9_sv2v_reg <= data_i[9];
+      data_o_8_sv2v_reg <= data_i[8];
+      data_o_7_sv2v_reg <= data_i[7];
+      data_o_6_sv2v_reg <= data_i[6];
+      data_o_5_sv2v_reg <= data_i[5];
+      data_o_4_sv2v_reg <= data_i[4];
+      data_o_3_sv2v_reg <= data_i[3];
+      data_o_2_sv2v_reg <= data_i[2];
+      data_o_1_sv2v_reg <= data_i[1];
+      data_o_0_sv2v_reg <= data_i[0];
     end 
   end
 
@@ -4153,11 +4256,42 @@ module bsg_dff_en_0000000e_1
   output [13:0] data_o;
   input clk_i;
   input en_i;
-  reg [13:0] data_o;
+  wire [13:0] data_o;
+  reg data_o_13_sv2v_reg,data_o_12_sv2v_reg,data_o_11_sv2v_reg,data_o_10_sv2v_reg,
+  data_o_9_sv2v_reg,data_o_8_sv2v_reg,data_o_7_sv2v_reg,data_o_6_sv2v_reg,
+  data_o_5_sv2v_reg,data_o_4_sv2v_reg,data_o_3_sv2v_reg,data_o_2_sv2v_reg,data_o_1_sv2v_reg,
+  data_o_0_sv2v_reg;
+  assign data_o[13] = data_o_13_sv2v_reg;
+  assign data_o[12] = data_o_12_sv2v_reg;
+  assign data_o[11] = data_o_11_sv2v_reg;
+  assign data_o[10] = data_o_10_sv2v_reg;
+  assign data_o[9] = data_o_9_sv2v_reg;
+  assign data_o[8] = data_o_8_sv2v_reg;
+  assign data_o[7] = data_o_7_sv2v_reg;
+  assign data_o[6] = data_o_6_sv2v_reg;
+  assign data_o[5] = data_o_5_sv2v_reg;
+  assign data_o[4] = data_o_4_sv2v_reg;
+  assign data_o[3] = data_o_3_sv2v_reg;
+  assign data_o[2] = data_o_2_sv2v_reg;
+  assign data_o[1] = data_o_1_sv2v_reg;
+  assign data_o[0] = data_o_0_sv2v_reg;
 
   always @(posedge clk_i) begin
     if(en_i) begin
-      { data_o[13:0] } <= { data_i[13:0] };
+      data_o_13_sv2v_reg <= data_i[13];
+      data_o_12_sv2v_reg <= data_i[12];
+      data_o_11_sv2v_reg <= data_i[11];
+      data_o_10_sv2v_reg <= data_i[10];
+      data_o_9_sv2v_reg <= data_i[9];
+      data_o_8_sv2v_reg <= data_i[8];
+      data_o_7_sv2v_reg <= data_i[7];
+      data_o_6_sv2v_reg <= data_i[6];
+      data_o_5_sv2v_reg <= data_i[5];
+      data_o_4_sv2v_reg <= data_i[4];
+      data_o_3_sv2v_reg <= data_i[3];
+      data_o_2_sv2v_reg <= data_i[2];
+      data_o_1_sv2v_reg <= data_i[1];
+      data_o_0_sv2v_reg <= data_i[0];
     end 
   end
 
@@ -4181,7 +4315,7 @@ module bsg_dff_en_rep_rep_7_100_645646362a201000_1
   wire [99:0] data_o;
 
   bsg_dff_en_00000010_1
-  rof_0__bde
+  \rof_0_.bde 
   (
     .clk_i(clk_i),
     .data_i(data_i[15:0]),
@@ -4191,7 +4325,7 @@ module bsg_dff_en_rep_rep_7_100_645646362a201000_1
 
 
   bsg_dff_en_00000010_1
-  rof_1__bde
+  \rof_1_.bde 
   (
     .clk_i(clk_i),
     .data_i(data_i[31:16]),
@@ -4201,7 +4335,7 @@ module bsg_dff_en_rep_rep_7_100_645646362a201000_1
 
 
   bsg_dff_en_0000000a_1
-  rof_2__bde
+  \rof_2_.bde 
   (
     .clk_i(clk_i),
     .data_i(data_i[41:32]),
@@ -4211,7 +4345,7 @@ module bsg_dff_en_rep_rep_7_100_645646362a201000_1
 
 
   bsg_dff_en_0000000c_1
-  rof_3__bde
+  \rof_3_.bde 
   (
     .clk_i(clk_i),
     .data_i(data_i[53:42]),
@@ -4221,7 +4355,7 @@ module bsg_dff_en_rep_rep_7_100_645646362a201000_1
 
 
   bsg_dff_en_00000010_1
-  rof_4__bde
+  \rof_4_.bde 
   (
     .clk_i(clk_i),
     .data_i(data_i[69:54]),
@@ -4231,7 +4365,7 @@ module bsg_dff_en_rep_rep_7_100_645646362a201000_1
 
 
   bsg_dff_en_00000010_1
-  rof_5__bde
+  \rof_5_.bde 
   (
     .clk_i(clk_i),
     .data_i(data_i[85:70]),
@@ -4241,7 +4375,7 @@ module bsg_dff_en_rep_rep_7_100_645646362a201000_1
 
 
   bsg_dff_en_0000000e_1
-  rof_6__bde
+  \rof_6_.bde 
   (
     .clk_i(clk_i),
     .data_i(data_i[99:86]),
@@ -4504,7 +4638,7 @@ module bsg_mul_B4B_rep_rep_6_43_2b231b15100800_n2_32_1
   wire [5:1] carries;
 
   bsg_mul_B4B_rep_00000008_000000fffffffe_32_08040201_00000000_80c8ecfe_00000000_1
-  rof_0__br
+  \rof_0_.br 
   (
     .SDN_i(SDN_i),
     .cr_i(cr_i),
@@ -4517,7 +4651,7 @@ module bsg_mul_B4B_rep_rep_6_43_2b231b15100800_n2_32_1
 
 
   bsg_mul_B4B_rep_00000008_00000100000006_32_00000000_00000000_00000000_00000000_1
-  rof_1__br
+  \rof_1_.br 
   (
     .SDN_i(SDN_i),
     .cr_i(carries[1]),
@@ -4530,7 +4664,7 @@ module bsg_mul_B4B_rep_rep_6_43_2b231b15100800_n2_32_1
 
 
   bsg_mul_B4B_rep_00000005_0000010000000e_32_00000_00000_00000_00000_1
-  rof_2__br
+  \rof_2_.br 
   (
     .SDN_i(SDN_i),
     .cr_i(carries[2]),
@@ -4543,7 +4677,7 @@ module bsg_mul_B4B_rep_rep_6_43_2b231b15100800_n2_32_1
 
 
   bsg_mul_B4B_rep_00000006_00000100000013_32_000000_000000_000000_000000_1
-  rof_3__br
+  \rof_3_.br 
   (
     .SDN_i(SDN_i),
     .cr_i(carries[3]),
@@ -4556,7 +4690,7 @@ module bsg_mul_B4B_rep_rep_6_43_2b231b15100800_n2_32_1
 
 
   bsg_mul_B4B_rep_00000008_00000100000019_32_00000000_00000000_00000000_00000000_1
-  rof_4__br
+  \rof_4_.br 
   (
     .SDN_i(SDN_i),
     .cr_i(carries[4]),
@@ -4569,7 +4703,7 @@ module bsg_mul_B4B_rep_rep_6_43_2b231b15100800_n2_32_1
 
 
   bsg_mul_B4B_rep_00000008_00000100000021_32_00000000_08040201_77331100_80402010_1
-  rof_5__br
+  \rof_5_.br 
   (
     .SDN_i(SDN_i),
     .cr_i(carries[5]),
@@ -4604,7 +4738,7 @@ module bsg_mul_comp42_rep_00000000000007
   wire [6:1] ci_local;
 
   bsg_mul_comp42
-  rof_0__c
+  \rof_0_.c 
   (
     .i({ i[21:21], i[14:14], i[7:7], i[0:0] }),
     .cr_i(cr_i),
@@ -4615,7 +4749,7 @@ module bsg_mul_comp42_rep_00000000000007
 
 
   bsg_mul_comp42
-  rof_1__c
+  \rof_1_.c 
   (
     .i({ i[22:22], i[15:15], i[8:8], i[1:1] }),
     .cr_i(ci_local[1]),
@@ -4626,7 +4760,7 @@ module bsg_mul_comp42_rep_00000000000007
 
 
   bsg_mul_comp42
-  rof_2__c
+  \rof_2_.c 
   (
     .i({ i[23:23], i[16:16], i[9:9], i[2:2] }),
     .cr_i(ci_local[2]),
@@ -4637,7 +4771,7 @@ module bsg_mul_comp42_rep_00000000000007
 
 
   bsg_mul_comp42
-  rof_3__c
+  \rof_3_.c 
   (
     .i({ i[24:24], i[17:17], i[10:10], i[3:3] }),
     .cr_i(ci_local[3]),
@@ -4648,7 +4782,7 @@ module bsg_mul_comp42_rep_00000000000007
 
 
   bsg_mul_comp42
-  rof_4__c
+  \rof_4_.c 
   (
     .i({ i[25:25], i[18:18], i[11:11], i[4:4] }),
     .cr_i(ci_local[4]),
@@ -4659,7 +4793,7 @@ module bsg_mul_comp42_rep_00000000000007
 
 
   bsg_mul_comp42
-  rof_5__c
+  \rof_5_.c 
   (
     .i({ i[26:26], i[19:19], i[12:12], i[5:5] }),
     .cr_i(ci_local[5]),
@@ -4670,7 +4804,7 @@ module bsg_mul_comp42_rep_00000000000007
 
 
   bsg_mul_comp42
-  rof_6__c
+  \rof_6_.c 
   (
     .i({ i[27:27], i[20:20], i[13:13], i[6:6] }),
     .cr_i(ci_local[6]),
@@ -4703,7 +4837,7 @@ module bsg_mul_comp42_rep_rep_6_42_2a231b130d0800
   wire [5:1] carries;
 
   bsg_mul_comp42_rep_00000000000008
-  rof_0__cr
+  \rof_0_.cr 
   (
     .i({ i[133:126], i[91:84], i[49:42], i[7:0] }),
     .cr_i(cr_i),
@@ -4714,7 +4848,7 @@ module bsg_mul_comp42_rep_rep_6_42_2a231b130d0800
 
 
   bsg_mul_comp42_rep_00000000000005
-  rof_1__cr
+  \rof_1_.cr 
   (
     .i({ i[138:134], i[96:92], i[54:50], i[12:8] }),
     .cr_i(carries[1]),
@@ -4725,7 +4859,7 @@ module bsg_mul_comp42_rep_rep_6_42_2a231b130d0800
 
 
   bsg_mul_comp42_rep_00000000000006
-  rof_2__cr
+  \rof_2_.cr 
   (
     .i({ i[144:139], i[102:97], i[60:55], i[18:13] }),
     .cr_i(carries[2]),
@@ -4736,7 +4870,7 @@ module bsg_mul_comp42_rep_rep_6_42_2a231b130d0800
 
 
   bsg_mul_comp42_rep_00000000000008
-  rof_3__cr
+  \rof_3_.cr 
   (
     .i({ i[152:145], i[110:103], i[68:61], i[26:19] }),
     .cr_i(carries[3]),
@@ -4747,7 +4881,7 @@ module bsg_mul_comp42_rep_rep_6_42_2a231b130d0800
 
 
   bsg_mul_comp42_rep_00000000000008
-  rof_4__cr
+  \rof_4_.cr 
   (
     .i({ i[160:153], i[118:111], i[76:69], i[34:27] }),
     .cr_i(carries[4]),
@@ -4758,7 +4892,7 @@ module bsg_mul_comp42_rep_rep_6_42_2a231b130d0800
 
 
   bsg_mul_comp42_rep_00000000000007
-  rof_5__cr
+  \rof_5_.cr 
   (
     .i({ i[167:161], i[125:119], i[83:77], i[41:35] }),
     .cr_i(carries[5]),
@@ -5210,7 +5344,7 @@ module bsg_mul_booth_4_block_rep_00000007_0000000_8040201_7331100_0402010
   wire [6:1] ci_local;
 
   bsg_mul_booth_4_block_0000000_0000001_0000000_0000000
-  rof_0__b4b
+  \rof_0_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(cr_i),
@@ -5222,7 +5356,7 @@ module bsg_mul_booth_4_block_rep_00000007_0000000_8040201_7331100_0402010
 
 
   bsg_mul_booth_4_block_0000000_0000000_0000000_0000001
-  rof_1__b4b
+  \rof_1_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[1]),
@@ -5234,7 +5368,7 @@ module bsg_mul_booth_4_block_rep_00000007_0000000_8040201_7331100_0402010
 
 
   bsg_mul_booth_4_block_0000000_0000002_0000001_0000000
-  rof_2__b4b
+  \rof_2_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[2]),
@@ -5246,7 +5380,7 @@ module bsg_mul_booth_4_block_rep_00000007_0000000_8040201_7331100_0402010
 
 
   bsg_mul_booth_4_block_0000000_0000000_0000001_0000002
-  rof_3__b4b
+  \rof_3_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[3]),
@@ -5258,7 +5392,7 @@ module bsg_mul_booth_4_block_rep_00000007_0000000_8040201_7331100_0402010
 
 
   bsg_mul_booth_4_block_0000000_0000004_0000003_0000000
-  rof_4__b4b
+  \rof_4_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[4]),
@@ -5270,7 +5404,7 @@ module bsg_mul_booth_4_block_rep_00000007_0000000_8040201_7331100_0402010
 
 
   bsg_mul_booth_4_block_0000000_0000000_0000003_0000004
-  rof_5__b4b
+  \rof_5_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[5]),
@@ -5282,7 +5416,7 @@ module bsg_mul_booth_4_block_rep_00000007_0000000_8040201_7331100_0402010
 
 
   bsg_mul_booth_4_block_0000000_0000008_0000007_0000000
-  rof_6__b4b
+  \rof_6_.b4b 
   (
     .SDN_i(SDN_i),
     .cr_i(ci_local[6]),
@@ -5366,7 +5500,7 @@ module bsg_mul_B4B_rep_rep_6_42_2a231b130d0800_n2_32_1
   wire [5:1] carries;
 
   bsg_mul_B4B_rep_00000008_000000fffffffe_32_08040201_00000000_80c8ecfe_00000000_1
-  rof_0__br
+  \rof_0_.br 
   (
     .SDN_i(SDN_i),
     .cr_i(cr_i),
@@ -5379,7 +5513,7 @@ module bsg_mul_B4B_rep_rep_6_42_2a231b130d0800_n2_32_1
 
 
   bsg_mul_B4B_rep_00000005_00000100000006_32_00000_00000_00000_00000_1
-  rof_1__br
+  \rof_1_.br 
   (
     .SDN_i(SDN_i),
     .cr_i(carries[1]),
@@ -5392,7 +5526,7 @@ module bsg_mul_B4B_rep_rep_6_42_2a231b130d0800_n2_32_1
 
 
   bsg_mul_B4B_rep_00000006_0000010000000b_32_000000_000000_000000_000000_1
-  rof_2__br
+  \rof_2_.br 
   (
     .SDN_i(SDN_i),
     .cr_i(carries[2]),
@@ -5405,7 +5539,7 @@ module bsg_mul_B4B_rep_rep_6_42_2a231b130d0800_n2_32_1
 
 
   bsg_mul_B4B_rep_00000008_00000100000011_32_00000000_00000000_00000000_00000000_1
-  rof_3__br
+  \rof_3_.br 
   (
     .SDN_i(SDN_i),
     .cr_i(carries[3]),
@@ -5418,7 +5552,7 @@ module bsg_mul_B4B_rep_rep_6_42_2a231b130d0800_n2_32_1
 
 
   bsg_mul_B4B_rep_00000008_00000100000019_32_00000000_00000000_00000000_00000000_1
-  rof_4__br
+  \rof_4_.br 
   (
     .SDN_i(SDN_i),
     .cr_i(carries[4]),
@@ -5431,7 +5565,7 @@ module bsg_mul_B4B_rep_rep_6_42_2a231b130d0800_n2_32_1
 
 
   bsg_mul_B4B_rep_00000007_00000100000021_32_0000000_8040201_7331100_0402010_1
-  rof_5__br
+  \rof_5_.br 
   (
     .SDN_i(SDN_i),
     .cr_i(carries[5]),
@@ -5459,11 +5593,35 @@ module bsg_dff_en_width_p11_harden_p1
   output [10:0] data_o;
   input clk_i;
   input en_i;
-  reg [10:0] data_o;
+  wire [10:0] data_o;
+  reg data_o_10_sv2v_reg,data_o_9_sv2v_reg,data_o_8_sv2v_reg,data_o_7_sv2v_reg,
+  data_o_6_sv2v_reg,data_o_5_sv2v_reg,data_o_4_sv2v_reg,data_o_3_sv2v_reg,
+  data_o_2_sv2v_reg,data_o_1_sv2v_reg,data_o_0_sv2v_reg;
+  assign data_o[10] = data_o_10_sv2v_reg;
+  assign data_o[9] = data_o_9_sv2v_reg;
+  assign data_o[8] = data_o_8_sv2v_reg;
+  assign data_o[7] = data_o_7_sv2v_reg;
+  assign data_o[6] = data_o_6_sv2v_reg;
+  assign data_o[5] = data_o_5_sv2v_reg;
+  assign data_o[4] = data_o_4_sv2v_reg;
+  assign data_o[3] = data_o_3_sv2v_reg;
+  assign data_o[2] = data_o_2_sv2v_reg;
+  assign data_o[1] = data_o_1_sv2v_reg;
+  assign data_o[0] = data_o_0_sv2v_reg;
 
   always @(posedge clk_i) begin
     if(en_i) begin
-      { data_o[10:0] } <= { data_i[10:0] };
+      data_o_10_sv2v_reg <= data_i[10];
+      data_o_9_sv2v_reg <= data_i[9];
+      data_o_8_sv2v_reg <= data_i[8];
+      data_o_7_sv2v_reg <= data_i[7];
+      data_o_6_sv2v_reg <= data_i[6];
+      data_o_5_sv2v_reg <= data_i[5];
+      data_o_4_sv2v_reg <= data_i[4];
+      data_o_3_sv2v_reg <= data_i[3];
+      data_o_2_sv2v_reg <= data_i[2];
+      data_o_1_sv2v_reg <= data_i[1];
+      data_o_0_sv2v_reg <= data_i[0];
     end 
   end
 
@@ -5484,11 +5642,28 @@ module bsg_dff_en_width_p8_harden_p1
   output [7:0] data_o;
   input clk_i;
   input en_i;
-  reg [7:0] data_o;
+  wire [7:0] data_o;
+  reg data_o_7_sv2v_reg,data_o_6_sv2v_reg,data_o_5_sv2v_reg,data_o_4_sv2v_reg,
+  data_o_3_sv2v_reg,data_o_2_sv2v_reg,data_o_1_sv2v_reg,data_o_0_sv2v_reg;
+  assign data_o[7] = data_o_7_sv2v_reg;
+  assign data_o[6] = data_o_6_sv2v_reg;
+  assign data_o[5] = data_o_5_sv2v_reg;
+  assign data_o[4] = data_o_4_sv2v_reg;
+  assign data_o[3] = data_o_3_sv2v_reg;
+  assign data_o[2] = data_o_2_sv2v_reg;
+  assign data_o[1] = data_o_1_sv2v_reg;
+  assign data_o[0] = data_o_0_sv2v_reg;
 
   always @(posedge clk_i) begin
     if(en_i) begin
-      { data_o[7:0] } <= { data_i[7:0] };
+      data_o_7_sv2v_reg <= data_i[7];
+      data_o_6_sv2v_reg <= data_i[6];
+      data_o_5_sv2v_reg <= data_i[5];
+      data_o_4_sv2v_reg <= data_i[4];
+      data_o_3_sv2v_reg <= data_i[3];
+      data_o_2_sv2v_reg <= data_i[2];
+      data_o_1_sv2v_reg <= data_i[1];
+      data_o_0_sv2v_reg <= data_i[0];
     end 
   end
 
@@ -5509,11 +5684,26 @@ module bsg_dff_en_width_p7_harden_p1
   output [6:0] data_o;
   input clk_i;
   input en_i;
-  reg [6:0] data_o;
+  wire [6:0] data_o;
+  reg data_o_6_sv2v_reg,data_o_5_sv2v_reg,data_o_4_sv2v_reg,data_o_3_sv2v_reg,
+  data_o_2_sv2v_reg,data_o_1_sv2v_reg,data_o_0_sv2v_reg;
+  assign data_o[6] = data_o_6_sv2v_reg;
+  assign data_o[5] = data_o_5_sv2v_reg;
+  assign data_o[4] = data_o_4_sv2v_reg;
+  assign data_o[3] = data_o_3_sv2v_reg;
+  assign data_o[2] = data_o_2_sv2v_reg;
+  assign data_o[1] = data_o_1_sv2v_reg;
+  assign data_o[0] = data_o_0_sv2v_reg;
 
   always @(posedge clk_i) begin
     if(en_i) begin
-      { data_o[6:0] } <= { data_i[6:0] };
+      data_o_6_sv2v_reg <= data_i[6];
+      data_o_5_sv2v_reg <= data_i[5];
+      data_o_4_sv2v_reg <= data_i[4];
+      data_o_3_sv2v_reg <= data_i[3];
+      data_o_2_sv2v_reg <= data_i[2];
+      data_o_1_sv2v_reg <= data_i[1];
+      data_o_0_sv2v_reg <= data_i[0];
     end 
   end
 
@@ -5534,11 +5724,24 @@ module bsg_dff_en_width_p6_harden_p1
   output [5:0] data_o;
   input clk_i;
   input en_i;
-  reg [5:0] data_o;
+  wire [5:0] data_o;
+  reg data_o_5_sv2v_reg,data_o_4_sv2v_reg,data_o_3_sv2v_reg,data_o_2_sv2v_reg,
+  data_o_1_sv2v_reg,data_o_0_sv2v_reg;
+  assign data_o[5] = data_o_5_sv2v_reg;
+  assign data_o[4] = data_o_4_sv2v_reg;
+  assign data_o[3] = data_o_3_sv2v_reg;
+  assign data_o[2] = data_o_2_sv2v_reg;
+  assign data_o[1] = data_o_1_sv2v_reg;
+  assign data_o[0] = data_o_0_sv2v_reg;
 
   always @(posedge clk_i) begin
     if(en_i) begin
-      { data_o[5:0] } <= { data_i[5:0] };
+      data_o_5_sv2v_reg <= data_i[5];
+      data_o_4_sv2v_reg <= data_i[4];
+      data_o_3_sv2v_reg <= data_i[3];
+      data_o_2_sv2v_reg <= data_i[2];
+      data_o_1_sv2v_reg <= data_i[1];
+      data_o_0_sv2v_reg <= data_i[0];
     end 
   end
 
@@ -5559,11 +5762,22 @@ module bsg_dff_en_width_p5_harden_p1
   output [4:0] data_o;
   input clk_i;
   input en_i;
-  reg [4:0] data_o;
+  wire [4:0] data_o;
+  reg data_o_4_sv2v_reg,data_o_3_sv2v_reg,data_o_2_sv2v_reg,data_o_1_sv2v_reg,
+  data_o_0_sv2v_reg;
+  assign data_o[4] = data_o_4_sv2v_reg;
+  assign data_o[3] = data_o_3_sv2v_reg;
+  assign data_o[2] = data_o_2_sv2v_reg;
+  assign data_o[1] = data_o_1_sv2v_reg;
+  assign data_o[0] = data_o_0_sv2v_reg;
 
   always @(posedge clk_i) begin
     if(en_i) begin
-      { data_o[4:0] } <= { data_i[4:0] };
+      data_o_4_sv2v_reg <= data_i[4];
+      data_o_3_sv2v_reg <= data_i[3];
+      data_o_2_sv2v_reg <= data_i[2];
+      data_o_1_sv2v_reg <= data_i[1];
+      data_o_0_sv2v_reg <= data_i[0];
     end 
   end
 
@@ -5589,7 +5803,7 @@ module bsg_mul_csa_rep_34_5_221b130b0500_1
   wire [33:0] c_o,s_o;
 
   bsg_mul_csa
-  rof_0__rof_0__csa
+  \rof_0_.rof_0_.csa 
   (
     .x_i(a_i[0]),
     .y_i(b_i[0]),
@@ -5600,7 +5814,7 @@ module bsg_mul_csa_rep_34_5_221b130b0500_1
 
 
   bsg_mul_csa
-  rof_0__rof_1__csa
+  \rof_0_.rof_1_.csa 
   (
     .x_i(a_i[1]),
     .y_i(b_i[1]),
@@ -5611,7 +5825,7 @@ module bsg_mul_csa_rep_34_5_221b130b0500_1
 
 
   bsg_mul_csa
-  rof_0__rof_2__csa
+  \rof_0_.rof_2_.csa 
   (
     .x_i(a_i[2]),
     .y_i(b_i[2]),
@@ -5622,7 +5836,7 @@ module bsg_mul_csa_rep_34_5_221b130b0500_1
 
 
   bsg_mul_csa
-  rof_0__rof_3__csa
+  \rof_0_.rof_3_.csa 
   (
     .x_i(a_i[3]),
     .y_i(b_i[3]),
@@ -5633,7 +5847,7 @@ module bsg_mul_csa_rep_34_5_221b130b0500_1
 
 
   bsg_mul_csa
-  rof_0__rof_4__csa
+  \rof_0_.rof_4_.csa 
   (
     .x_i(a_i[4]),
     .y_i(b_i[4]),
@@ -5644,7 +5858,7 @@ module bsg_mul_csa_rep_34_5_221b130b0500_1
 
 
   bsg_mul_csa
-  rof_1__rof_0__csa
+  \rof_1_.rof_0_.csa 
   (
     .x_i(a_i[5]),
     .y_i(b_i[5]),
@@ -5655,7 +5869,7 @@ module bsg_mul_csa_rep_34_5_221b130b0500_1
 
 
   bsg_mul_csa
-  rof_1__rof_1__csa
+  \rof_1_.rof_1_.csa 
   (
     .x_i(a_i[6]),
     .y_i(b_i[6]),
@@ -5666,7 +5880,7 @@ module bsg_mul_csa_rep_34_5_221b130b0500_1
 
 
   bsg_mul_csa
-  rof_1__rof_2__csa
+  \rof_1_.rof_2_.csa 
   (
     .x_i(a_i[7]),
     .y_i(b_i[7]),
@@ -5677,7 +5891,7 @@ module bsg_mul_csa_rep_34_5_221b130b0500_1
 
 
   bsg_mul_csa
-  rof_1__rof_3__csa
+  \rof_1_.rof_3_.csa 
   (
     .x_i(a_i[8]),
     .y_i(b_i[8]),
@@ -5688,7 +5902,7 @@ module bsg_mul_csa_rep_34_5_221b130b0500_1
 
 
   bsg_mul_csa
-  rof_1__rof_4__csa
+  \rof_1_.rof_4_.csa 
   (
     .x_i(a_i[9]),
     .y_i(b_i[9]),
@@ -5699,7 +5913,7 @@ module bsg_mul_csa_rep_34_5_221b130b0500_1
 
 
   bsg_mul_csa
-  rof_1__rof_5__csa
+  \rof_1_.rof_5_.csa 
   (
     .x_i(a_i[10]),
     .y_i(b_i[10]),
@@ -5710,7 +5924,7 @@ module bsg_mul_csa_rep_34_5_221b130b0500_1
 
 
   bsg_mul_csa
-  rof_2__rof_0__csa
+  \rof_2_.rof_0_.csa 
   (
     .x_i(a_i[11]),
     .y_i(b_i[11]),
@@ -5721,7 +5935,7 @@ module bsg_mul_csa_rep_34_5_221b130b0500_1
 
 
   bsg_mul_csa
-  rof_2__rof_1__csa
+  \rof_2_.rof_1_.csa 
   (
     .x_i(a_i[12]),
     .y_i(b_i[12]),
@@ -5732,7 +5946,7 @@ module bsg_mul_csa_rep_34_5_221b130b0500_1
 
 
   bsg_mul_csa
-  rof_2__rof_2__csa
+  \rof_2_.rof_2_.csa 
   (
     .x_i(a_i[13]),
     .y_i(b_i[13]),
@@ -5743,7 +5957,7 @@ module bsg_mul_csa_rep_34_5_221b130b0500_1
 
 
   bsg_mul_csa
-  rof_2__rof_3__csa
+  \rof_2_.rof_3_.csa 
   (
     .x_i(a_i[14]),
     .y_i(b_i[14]),
@@ -5754,7 +5968,7 @@ module bsg_mul_csa_rep_34_5_221b130b0500_1
 
 
   bsg_mul_csa
-  rof_2__rof_4__csa
+  \rof_2_.rof_4_.csa 
   (
     .x_i(a_i[15]),
     .y_i(b_i[15]),
@@ -5765,7 +5979,7 @@ module bsg_mul_csa_rep_34_5_221b130b0500_1
 
 
   bsg_mul_csa
-  rof_2__rof_5__csa
+  \rof_2_.rof_5_.csa 
   (
     .x_i(a_i[16]),
     .y_i(b_i[16]),
@@ -5776,7 +5990,7 @@ module bsg_mul_csa_rep_34_5_221b130b0500_1
 
 
   bsg_mul_csa
-  rof_2__rof_6__csa
+  \rof_2_.rof_6_.csa 
   (
     .x_i(a_i[17]),
     .y_i(b_i[17]),
@@ -5787,7 +6001,7 @@ module bsg_mul_csa_rep_34_5_221b130b0500_1
 
 
   bsg_mul_csa
-  rof_2__rof_7__csa
+  \rof_2_.rof_7_.csa 
   (
     .x_i(a_i[18]),
     .y_i(b_i[18]),
@@ -5798,7 +6012,7 @@ module bsg_mul_csa_rep_34_5_221b130b0500_1
 
 
   bsg_mul_csa
-  rof_3__rof_0__csa
+  \rof_3_.rof_0_.csa 
   (
     .x_i(a_i[19]),
     .y_i(b_i[19]),
@@ -5809,7 +6023,7 @@ module bsg_mul_csa_rep_34_5_221b130b0500_1
 
 
   bsg_mul_csa
-  rof_3__rof_1__csa
+  \rof_3_.rof_1_.csa 
   (
     .x_i(a_i[20]),
     .y_i(b_i[20]),
@@ -5820,7 +6034,7 @@ module bsg_mul_csa_rep_34_5_221b130b0500_1
 
 
   bsg_mul_csa
-  rof_3__rof_2__csa
+  \rof_3_.rof_2_.csa 
   (
     .x_i(a_i[21]),
     .y_i(b_i[21]),
@@ -5831,7 +6045,7 @@ module bsg_mul_csa_rep_34_5_221b130b0500_1
 
 
   bsg_mul_csa
-  rof_3__rof_3__csa
+  \rof_3_.rof_3_.csa 
   (
     .x_i(a_i[22]),
     .y_i(b_i[22]),
@@ -5842,7 +6056,7 @@ module bsg_mul_csa_rep_34_5_221b130b0500_1
 
 
   bsg_mul_csa
-  rof_3__rof_4__csa
+  \rof_3_.rof_4_.csa 
   (
     .x_i(a_i[23]),
     .y_i(b_i[23]),
@@ -5853,7 +6067,7 @@ module bsg_mul_csa_rep_34_5_221b130b0500_1
 
 
   bsg_mul_csa
-  rof_3__rof_5__csa
+  \rof_3_.rof_5_.csa 
   (
     .x_i(a_i[24]),
     .y_i(b_i[24]),
@@ -5864,7 +6078,7 @@ module bsg_mul_csa_rep_34_5_221b130b0500_1
 
 
   bsg_mul_csa
-  rof_3__rof_6__csa
+  \rof_3_.rof_6_.csa 
   (
     .x_i(a_i[25]),
     .y_i(b_i[25]),
@@ -5875,7 +6089,7 @@ module bsg_mul_csa_rep_34_5_221b130b0500_1
 
 
   bsg_mul_csa
-  rof_3__rof_7__csa
+  \rof_3_.rof_7_.csa 
   (
     .x_i(a_i[26]),
     .y_i(b_i[26]),
@@ -5886,7 +6100,7 @@ module bsg_mul_csa_rep_34_5_221b130b0500_1
 
 
   bsg_mul_csa
-  rof_4__rof_0__csa
+  \rof_4_.rof_0_.csa 
   (
     .x_i(a_i[27]),
     .y_i(b_i[27]),
@@ -5897,7 +6111,7 @@ module bsg_mul_csa_rep_34_5_221b130b0500_1
 
 
   bsg_mul_csa
-  rof_4__rof_1__csa
+  \rof_4_.rof_1_.csa 
   (
     .x_i(a_i[28]),
     .y_i(b_i[28]),
@@ -5908,7 +6122,7 @@ module bsg_mul_csa_rep_34_5_221b130b0500_1
 
 
   bsg_mul_csa
-  rof_4__rof_2__csa
+  \rof_4_.rof_2_.csa 
   (
     .x_i(a_i[29]),
     .y_i(b_i[29]),
@@ -5919,7 +6133,7 @@ module bsg_mul_csa_rep_34_5_221b130b0500_1
 
 
   bsg_mul_csa
-  rof_4__rof_3__csa
+  \rof_4_.rof_3_.csa 
   (
     .x_i(a_i[30]),
     .y_i(b_i[30]),
@@ -5930,7 +6144,7 @@ module bsg_mul_csa_rep_34_5_221b130b0500_1
 
 
   bsg_mul_csa
-  rof_4__rof_4__csa
+  \rof_4_.rof_4_.csa 
   (
     .x_i(a_i[31]),
     .y_i(b_i[31]),
@@ -5941,7 +6155,7 @@ module bsg_mul_csa_rep_34_5_221b130b0500_1
 
 
   bsg_mul_csa
-  rof_4__rof_5__csa
+  \rof_4_.rof_5_.csa 
   (
     .x_i(a_i[32]),
     .y_i(b_i[32]),
@@ -5952,7 +6166,7 @@ module bsg_mul_csa_rep_34_5_221b130b0500_1
 
 
   bsg_mul_csa
-  rof_4__rof_6__csa
+  \rof_4_.rof_6_.csa 
   (
     .x_i(a_i[33]),
     .y_i(b_i[33]),
@@ -5992,7 +6206,7 @@ module bsg_mul_32_32_harden_p1_pipeline_p1
   wire [42:0] c74,s74,cB8,sB8;
   wire [49:0] c42_03c,c42_03s;
   wire [41:0] c42_23c,c42_23s,cFC,sFC;
-  wire [99:0] pipe_c42_03_trans,pipe_c42_03_trans_r;
+  wire [99:0] \pipe.c42_03_trans ,\pipe.c42_03_trans_r ;
   wire [49:15] c42_03c_r;
   wire [49:16] c42_03s_r;
   wire [10:0] gb_dot_r;
@@ -6069,27 +6283,27 @@ module bsg_mul_32_32_harden_p1_pipeline_p1
 
 
   bsg_transpose_width_p50_els_p2
-  pipe_bt
+  \pipe.bt 
   (
     .i({ c42_03c, c42_03s }),
-    .o(pipe_c42_03_trans)
+    .o(\pipe.c42_03_trans )
   );
 
 
   bsg_dff_en_rep_rep_7_100_645646362a201000_1
-  pipe_dffe_c42_03_r
+  \pipe.dffe_c42_03_r 
   (
     .clk_i(clk_i),
     .en_i(en_i),
-    .data_i(pipe_c42_03_trans),
-    .data_o(pipe_c42_03_trans_r)
+    .data_i(\pipe.c42_03_trans ),
+    .data_o(\pipe.c42_03_trans_r )
   );
 
 
   bsg_transpose_width_p2_els_p50
-  pipe_bt2
+  \pipe.bt2 
   (
-    .i(pipe_c42_03_trans_r),
+    .i(\pipe.c42_03_trans_r ),
     .o({ c42_03c_r, sum_b, c42_03s_r, sum_a })
   );
 
@@ -6130,7 +6344,7 @@ module bsg_mul_32_32_harden_p1_pipeline_p1
 
 
   bsg_dff_en_width_p11_harden_p1
-  pipe0_dffe_gb_dot_r
+  \pipe0.dffe_gb_dot_r 
   (
     .clk_i(clk_i),
     .data_i(gb_dot[10:0]),
@@ -6140,7 +6354,7 @@ module bsg_mul_32_32_harden_p1_pipeline_p1
 
 
   bsg_dff_en_width_p8_harden_p1
-  pipe0_dffe_c42_01s_r
+  \pipe0.dffe_c42_01s_r 
   (
     .clk_i(clk_i),
     .data_i(c42_01s[7:0]),
@@ -6150,7 +6364,7 @@ module bsg_mul_32_32_harden_p1_pipeline_p1
 
 
   bsg_dff_en_width_p7_harden_p1
-  pipe0_dffe_c42_01c_r
+  \pipe0.dffe_c42_01c_r 
   (
     .clk_i(clk_i),
     .data_i(c42_01c[6:0]),
@@ -6160,7 +6374,7 @@ module bsg_mul_32_32_harden_p1_pipeline_p1
 
 
   bsg_dff_en_width_p6_harden_p1
-  pipe0_dffe_s30_r
+  \pipe0.dffe_s30_r 
   (
     .clk_i(clk_i),
     .data_i(s30[5:0]),
@@ -6170,7 +6384,7 @@ module bsg_mul_32_32_harden_p1_pipeline_p1
 
 
   bsg_dff_en_width_p5_harden_p1
-  pipe0_dffe_c30_r
+  \pipe0.dffe_c30_r 
   (
     .clk_i(clk_i),
     .data_i(c30[4:0]),
@@ -6216,7 +6430,7 @@ module bsg_mul_pipelined
   wire [63:0] z_o;
 
   bsg_mul_32_32_harden_p1_pipeline_p1
-  fi32_m32
+  \fi32.m32 
   (
     .clk_i(clk_i),
     .en_i(en_i),

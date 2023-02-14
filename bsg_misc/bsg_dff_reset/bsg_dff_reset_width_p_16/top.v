@@ -39,17 +39,63 @@ module bsg_dff_reset
   output [15:0] data_o;
   input clk_i;
   input reset_i;
-  wire N0,N1,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11,N12,N13,N14,N15,N16,N17,N18;
-  reg [15:0] data_o;
-  assign { N18, N17, N16, N15, N14, N13, N12, N11, N10, N9, N8, N7, N6, N5, N4, N3 } = (N0)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 } : 
-                                                                                       (N1)? data_i : 1'b0;
-  assign N0 = reset_i;
-  assign N1 = N2;
-  assign N2 = ~reset_i;
+  wire [15:0] data_o;
+  reg data_o_15_sv2v_reg,data_o_14_sv2v_reg,data_o_13_sv2v_reg,data_o_12_sv2v_reg,
+  data_o_11_sv2v_reg,data_o_10_sv2v_reg,data_o_9_sv2v_reg,data_o_8_sv2v_reg,
+  data_o_7_sv2v_reg,data_o_6_sv2v_reg,data_o_5_sv2v_reg,data_o_4_sv2v_reg,data_o_3_sv2v_reg,
+  data_o_2_sv2v_reg,data_o_1_sv2v_reg,data_o_0_sv2v_reg;
+  assign data_o[15] = data_o_15_sv2v_reg;
+  assign data_o[14] = data_o_14_sv2v_reg;
+  assign data_o[13] = data_o_13_sv2v_reg;
+  assign data_o[12] = data_o_12_sv2v_reg;
+  assign data_o[11] = data_o_11_sv2v_reg;
+  assign data_o[10] = data_o_10_sv2v_reg;
+  assign data_o[9] = data_o_9_sv2v_reg;
+  assign data_o[8] = data_o_8_sv2v_reg;
+  assign data_o[7] = data_o_7_sv2v_reg;
+  assign data_o[6] = data_o_6_sv2v_reg;
+  assign data_o[5] = data_o_5_sv2v_reg;
+  assign data_o[4] = data_o_4_sv2v_reg;
+  assign data_o[3] = data_o_3_sv2v_reg;
+  assign data_o[2] = data_o_2_sv2v_reg;
+  assign data_o[1] = data_o_1_sv2v_reg;
+  assign data_o[0] = data_o_0_sv2v_reg;
 
   always @(posedge clk_i) begin
-    if(1'b1) begin
-      { data_o[15:0] } <= { N18, N17, N16, N15, N14, N13, N12, N11, N10, N9, N8, N7, N6, N5, N4, N3 };
+    if(reset_i) begin
+      data_o_15_sv2v_reg <= 1'b0;
+      data_o_14_sv2v_reg <= 1'b0;
+      data_o_13_sv2v_reg <= 1'b0;
+      data_o_12_sv2v_reg <= 1'b0;
+      data_o_11_sv2v_reg <= 1'b0;
+      data_o_10_sv2v_reg <= 1'b0;
+      data_o_9_sv2v_reg <= 1'b0;
+      data_o_8_sv2v_reg <= 1'b0;
+      data_o_7_sv2v_reg <= 1'b0;
+      data_o_6_sv2v_reg <= 1'b0;
+      data_o_5_sv2v_reg <= 1'b0;
+      data_o_4_sv2v_reg <= 1'b0;
+      data_o_3_sv2v_reg <= 1'b0;
+      data_o_2_sv2v_reg <= 1'b0;
+      data_o_1_sv2v_reg <= 1'b0;
+      data_o_0_sv2v_reg <= 1'b0;
+    end else if(1'b1) begin
+      data_o_15_sv2v_reg <= data_i[15];
+      data_o_14_sv2v_reg <= data_i[14];
+      data_o_13_sv2v_reg <= data_i[13];
+      data_o_12_sv2v_reg <= data_i[12];
+      data_o_11_sv2v_reg <= data_i[11];
+      data_o_10_sv2v_reg <= data_i[10];
+      data_o_9_sv2v_reg <= data_i[9];
+      data_o_8_sv2v_reg <= data_i[8];
+      data_o_7_sv2v_reg <= data_i[7];
+      data_o_6_sv2v_reg <= data_i[6];
+      data_o_5_sv2v_reg <= data_i[5];
+      data_o_4_sv2v_reg <= data_i[4];
+      data_o_3_sv2v_reg <= data_i[3];
+      data_o_2_sv2v_reg <= data_i[2];
+      data_o_1_sv2v_reg <= data_i[1];
+      data_o_0_sv2v_reg <= data_i[0];
     end 
   end
 

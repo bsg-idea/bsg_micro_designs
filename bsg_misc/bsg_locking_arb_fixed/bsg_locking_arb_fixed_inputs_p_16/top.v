@@ -44,22 +44,68 @@ module bsg_dff_reset_en_width_p16
   input clk_i;
   input reset_i;
   input en_i;
-  wire N0,N1,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11,N12,N13,N14,N15,N16,N17,N18,N19,N20,N21;
-  reg [15:0] data_o;
-  assign N3 = (N0)? 1'b1 : 
-              (N21)? 1'b1 : 
-              (N2)? 1'b0 : 1'b0;
-  assign N0 = reset_i;
-  assign { N19, N18, N17, N16, N15, N14, N13, N12, N11, N10, N9, N8, N7, N6, N5, N4 } = (N0)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 } : 
-                                                                                        (N21)? data_i : 1'b0;
-  assign N1 = en_i | reset_i;
-  assign N2 = ~N1;
-  assign N20 = ~reset_i;
-  assign N21 = en_i & N20;
+  wire [15:0] data_o;
+  wire N0,N1,N2;
+  reg data_o_15_sv2v_reg,data_o_14_sv2v_reg,data_o_13_sv2v_reg,data_o_12_sv2v_reg,
+  data_o_11_sv2v_reg,data_o_10_sv2v_reg,data_o_9_sv2v_reg,data_o_8_sv2v_reg,
+  data_o_7_sv2v_reg,data_o_6_sv2v_reg,data_o_5_sv2v_reg,data_o_4_sv2v_reg,data_o_3_sv2v_reg,
+  data_o_2_sv2v_reg,data_o_1_sv2v_reg,data_o_0_sv2v_reg;
+  assign data_o[15] = data_o_15_sv2v_reg;
+  assign data_o[14] = data_o_14_sv2v_reg;
+  assign data_o[13] = data_o_13_sv2v_reg;
+  assign data_o[12] = data_o_12_sv2v_reg;
+  assign data_o[11] = data_o_11_sv2v_reg;
+  assign data_o[10] = data_o_10_sv2v_reg;
+  assign data_o[9] = data_o_9_sv2v_reg;
+  assign data_o[8] = data_o_8_sv2v_reg;
+  assign data_o[7] = data_o_7_sv2v_reg;
+  assign data_o[6] = data_o_6_sv2v_reg;
+  assign data_o[5] = data_o_5_sv2v_reg;
+  assign data_o[4] = data_o_4_sv2v_reg;
+  assign data_o[3] = data_o_3_sv2v_reg;
+  assign data_o[2] = data_o_2_sv2v_reg;
+  assign data_o[1] = data_o_1_sv2v_reg;
+  assign data_o[0] = data_o_0_sv2v_reg;
+  assign N2 = (N0)? 1'b1 : 
+              (N1)? 1'b0 : 1'b0;
+  assign N0 = en_i;
+  assign N1 = ~en_i;
 
   always @(posedge clk_i) begin
-    if(N3) begin
-      { data_o[15:0] } <= { N19, N18, N17, N16, N15, N14, N13, N12, N11, N10, N9, N8, N7, N6, N5, N4 };
+    if(reset_i) begin
+      data_o_15_sv2v_reg <= 1'b0;
+      data_o_14_sv2v_reg <= 1'b0;
+      data_o_13_sv2v_reg <= 1'b0;
+      data_o_12_sv2v_reg <= 1'b0;
+      data_o_11_sv2v_reg <= 1'b0;
+      data_o_10_sv2v_reg <= 1'b0;
+      data_o_9_sv2v_reg <= 1'b0;
+      data_o_8_sv2v_reg <= 1'b0;
+      data_o_7_sv2v_reg <= 1'b0;
+      data_o_6_sv2v_reg <= 1'b0;
+      data_o_5_sv2v_reg <= 1'b0;
+      data_o_4_sv2v_reg <= 1'b0;
+      data_o_3_sv2v_reg <= 1'b0;
+      data_o_2_sv2v_reg <= 1'b0;
+      data_o_1_sv2v_reg <= 1'b0;
+      data_o_0_sv2v_reg <= 1'b0;
+    end else if(N2) begin
+      data_o_15_sv2v_reg <= data_i[15];
+      data_o_14_sv2v_reg <= data_i[14];
+      data_o_13_sv2v_reg <= data_i[13];
+      data_o_12_sv2v_reg <= data_i[12];
+      data_o_11_sv2v_reg <= data_i[11];
+      data_o_10_sv2v_reg <= data_i[10];
+      data_o_9_sv2v_reg <= data_i[9];
+      data_o_8_sv2v_reg <= data_i[8];
+      data_o_7_sv2v_reg <= data_i[7];
+      data_o_6_sv2v_reg <= data_i[6];
+      data_o_5_sv2v_reg <= data_i[5];
+      data_o_4_sv2v_reg <= data_i[4];
+      data_o_3_sv2v_reg <= data_i[3];
+      data_o_2_sv2v_reg <= data_i[2];
+      data_o_1_sv2v_reg <= data_i[1];
+      data_o_0_sv2v_reg <= data_i[0];
     end 
   end
 
@@ -165,7 +211,7 @@ module bsg_priority_encode_one_hot_out_width_p16_lo_to_hi_p0
   wire [14:0] scan_lo;
 
   bsg_scan_width_p16_or_p1_lo_to_hi_p0
-  genblk1_scan
+  \genblk1.scan 
   (
     .i(i),
     .o({ o[15:15], scan_lo })
@@ -261,21 +307,21 @@ module bsg_locking_arb_fixed
   input ready_i;
   input unlock_i;
   wire [15:0] grants_o,not_req_mask_r,req_mask_r;
-  wire n_0_net_,n_1_net__15_,n_1_net__14_,n_1_net__13_,n_1_net__12_,n_1_net__11_,
-  n_1_net__10_,n_1_net__9_,n_1_net__8_,n_1_net__7_,n_1_net__6_,n_1_net__5_,n_1_net__4_,
-  n_1_net__3_,n_1_net__2_,n_1_net__1_,n_1_net__0_,n_2_net__15_,n_2_net__14_,
-  n_2_net__13_,n_2_net__12_,n_2_net__11_,n_2_net__10_,n_2_net__9_,n_2_net__8_,
-  n_2_net__7_,n_2_net__6_,n_2_net__5_,n_2_net__4_,n_2_net__3_,n_2_net__2_,n_2_net__1_,
-  n_2_net__0_,N0,N1,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11,N12,N13,N14,N15,N16,N17,N18,N19,N20,
-  N21,N22,N23,N24,N25,N26,N27,N28,N29;
+  wire _0_net_,_1_net__15_,_1_net__14_,_1_net__13_,_1_net__12_,_1_net__11_,_1_net__10_,
+  _1_net__9_,_1_net__8_,_1_net__7_,_1_net__6_,_1_net__5_,_1_net__4_,_1_net__3_,
+  _1_net__2_,_1_net__1_,_1_net__0_,_2_net__15_,_2_net__14_,_2_net__13_,_2_net__12_,
+  _2_net__11_,_2_net__10_,_2_net__9_,_2_net__8_,_2_net__7_,_2_net__6_,_2_net__5_,
+  _2_net__4_,_2_net__3_,_2_net__2_,_2_net__1_,_2_net__0_,N0,N1,N2,N3,N4,N5,N6,N7,N8,
+  N9,N10,N11,N12,N13,N14,N15,N16,N17,N18,N19,N20,N21,N22,N23,N24,N25,N26,N27,N28,
+  N29;
 
   bsg_dff_reset_en_width_p16
   req_words_reg
   (
     .clk_i(clk_i),
     .reset_i(unlock_i),
-    .en_i(n_0_net_),
-    .data_i({ n_1_net__15_, n_1_net__14_, n_1_net__13_, n_1_net__12_, n_1_net__11_, n_1_net__10_, n_1_net__9_, n_1_net__8_, n_1_net__7_, n_1_net__6_, n_1_net__5_, n_1_net__4_, n_1_net__3_, n_1_net__2_, n_1_net__1_, n_1_net__0_ }),
+    .en_i(_0_net_),
+    .data_i({ _1_net__15_, _1_net__14_, _1_net__13_, _1_net__12_, _1_net__11_, _1_net__10_, _1_net__9_, _1_net__8_, _1_net__7_, _1_net__6_, _1_net__5_, _1_net__4_, _1_net__3_, _1_net__2_, _1_net__1_, _1_net__0_ }),
     .data_o(not_req_mask_r)
   );
 
@@ -284,27 +330,27 @@ module bsg_locking_arb_fixed
   fixed_arb
   (
     .ready_i(ready_i),
-    .reqs_i({ n_2_net__15_, n_2_net__14_, n_2_net__13_, n_2_net__12_, n_2_net__11_, n_2_net__10_, n_2_net__9_, n_2_net__8_, n_2_net__7_, n_2_net__6_, n_2_net__5_, n_2_net__4_, n_2_net__3_, n_2_net__2_, n_2_net__1_, n_2_net__0_ }),
+    .reqs_i({ _2_net__15_, _2_net__14_, _2_net__13_, _2_net__12_, _2_net__11_, _2_net__10_, _2_net__9_, _2_net__8_, _2_net__7_, _2_net__6_, _2_net__5_, _2_net__4_, _2_net__3_, _2_net__2_, _2_net__1_, _2_net__0_ }),
     .grants_o(grants_o)
   );
 
-  assign n_1_net__15_ = ~grants_o[15];
-  assign n_1_net__14_ = ~grants_o[14];
-  assign n_1_net__13_ = ~grants_o[13];
-  assign n_1_net__12_ = ~grants_o[12];
-  assign n_1_net__11_ = ~grants_o[11];
-  assign n_1_net__10_ = ~grants_o[10];
-  assign n_1_net__9_ = ~grants_o[9];
-  assign n_1_net__8_ = ~grants_o[8];
-  assign n_1_net__7_ = ~grants_o[7];
-  assign n_1_net__6_ = ~grants_o[6];
-  assign n_1_net__5_ = ~grants_o[5];
-  assign n_1_net__4_ = ~grants_o[4];
-  assign n_1_net__3_ = ~grants_o[3];
-  assign n_1_net__2_ = ~grants_o[2];
-  assign n_1_net__1_ = ~grants_o[1];
-  assign n_1_net__0_ = ~grants_o[0];
-  assign n_0_net_ = N14 & N29;
+  assign _1_net__15_ = ~grants_o[15];
+  assign _1_net__14_ = ~grants_o[14];
+  assign _1_net__13_ = ~grants_o[13];
+  assign _1_net__12_ = ~grants_o[12];
+  assign _1_net__11_ = ~grants_o[11];
+  assign _1_net__10_ = ~grants_o[10];
+  assign _1_net__9_ = ~grants_o[9];
+  assign _1_net__8_ = ~grants_o[8];
+  assign _1_net__7_ = ~grants_o[7];
+  assign _1_net__6_ = ~grants_o[6];
+  assign _1_net__5_ = ~grants_o[5];
+  assign _1_net__4_ = ~grants_o[4];
+  assign _1_net__3_ = ~grants_o[3];
+  assign _1_net__2_ = ~grants_o[2];
+  assign _1_net__1_ = ~grants_o[1];
+  assign _1_net__0_ = ~grants_o[0];
+  assign _0_net_ = N14 & N29;
   assign N14 = N13 & req_mask_r[0];
   assign N13 = N12 & req_mask_r[1];
   assign N12 = N11 & req_mask_r[2];
@@ -351,22 +397,22 @@ module bsg_locking_arb_fixed
   assign req_mask_r[2] = ~not_req_mask_r[2];
   assign req_mask_r[1] = ~not_req_mask_r[1];
   assign req_mask_r[0] = ~not_req_mask_r[0];
-  assign n_2_net__15_ = reqs_i[15] & req_mask_r[15];
-  assign n_2_net__14_ = reqs_i[14] & req_mask_r[14];
-  assign n_2_net__13_ = reqs_i[13] & req_mask_r[13];
-  assign n_2_net__12_ = reqs_i[12] & req_mask_r[12];
-  assign n_2_net__11_ = reqs_i[11] & req_mask_r[11];
-  assign n_2_net__10_ = reqs_i[10] & req_mask_r[10];
-  assign n_2_net__9_ = reqs_i[9] & req_mask_r[9];
-  assign n_2_net__8_ = reqs_i[8] & req_mask_r[8];
-  assign n_2_net__7_ = reqs_i[7] & req_mask_r[7];
-  assign n_2_net__6_ = reqs_i[6] & req_mask_r[6];
-  assign n_2_net__5_ = reqs_i[5] & req_mask_r[5];
-  assign n_2_net__4_ = reqs_i[4] & req_mask_r[4];
-  assign n_2_net__3_ = reqs_i[3] & req_mask_r[3];
-  assign n_2_net__2_ = reqs_i[2] & req_mask_r[2];
-  assign n_2_net__1_ = reqs_i[1] & req_mask_r[1];
-  assign n_2_net__0_ = reqs_i[0] & req_mask_r[0];
+  assign _2_net__15_ = reqs_i[15] & req_mask_r[15];
+  assign _2_net__14_ = reqs_i[14] & req_mask_r[14];
+  assign _2_net__13_ = reqs_i[13] & req_mask_r[13];
+  assign _2_net__12_ = reqs_i[12] & req_mask_r[12];
+  assign _2_net__11_ = reqs_i[11] & req_mask_r[11];
+  assign _2_net__10_ = reqs_i[10] & req_mask_r[10];
+  assign _2_net__9_ = reqs_i[9] & req_mask_r[9];
+  assign _2_net__8_ = reqs_i[8] & req_mask_r[8];
+  assign _2_net__7_ = reqs_i[7] & req_mask_r[7];
+  assign _2_net__6_ = reqs_i[6] & req_mask_r[6];
+  assign _2_net__5_ = reqs_i[5] & req_mask_r[5];
+  assign _2_net__4_ = reqs_i[4] & req_mask_r[4];
+  assign _2_net__3_ = reqs_i[3] & req_mask_r[3];
+  assign _2_net__2_ = reqs_i[2] & req_mask_r[2];
+  assign _2_net__1_ = reqs_i[1] & req_mask_r[1];
+  assign _2_net__0_ = reqs_i[0] & req_mask_r[0];
 
 endmodule
 

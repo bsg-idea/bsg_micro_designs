@@ -39,44 +39,75 @@ module bsg_wait_cycles
   input reset_i;
   input activate_i;
   output ready_r_o;
-  wire N0,N1,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11,N12,N13,N14,N15,N16,N17,N18,N19,N20,N21,
-  N22,N23,N24,N25,N26,N27,N28;
-  wire [5:0] ctr_n;
-  reg [5:0] ctr_r;
-  reg ready_r_o;
-  assign N16 = ~ctr_n[5];
-  assign N17 = ctr_n[4] | N16;
-  assign N18 = ctr_n[3] | N17;
-  assign N19 = ctr_n[2] | N18;
-  assign N20 = ctr_n[1] | N19;
-  assign N21 = ctr_n[0] | N20;
-  assign N22 = ~N21;
-  assign N23 = ~ctr_r[5];
-  assign N24 = ctr_r[4] | N23;
-  assign N25 = ctr_r[3] | N24;
-  assign N26 = ctr_r[2] | N25;
-  assign N27 = ctr_r[1] | N26;
-  assign N28 = ctr_r[0] | N27;
-  assign { N10, N9, N8, N7, N6, N5 } = ctr_r + 1'b1;
+  wire ready_r_o,N0,N1,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11,N12,N13,N14,N15,N16,N30,N17,N18,
+  N19,N20,N21,N22,N23,N24,N25,N26,N27,N28,N29,N31,N32,N33,N34,N35,N36,N37;
+  wire [5:0] ctr_r,ctr_n;
+  reg ctr_r_5_sv2v_reg,ctr_r_4_sv2v_reg,ctr_r_3_sv2v_reg,ctr_r_2_sv2v_reg,
+  ctr_r_1_sv2v_reg,ctr_r_0_sv2v_reg,ready_r_o_sv2v_reg;
+  assign ctr_r[5] = ctr_r_5_sv2v_reg;
+  assign ctr_r[4] = ctr_r_4_sv2v_reg;
+  assign ctr_r[3] = ctr_r_3_sv2v_reg;
+  assign ctr_r[2] = ctr_r_2_sv2v_reg;
+  assign ctr_r[1] = ctr_r_1_sv2v_reg;
+  assign ctr_r[0] = ctr_r_0_sv2v_reg;
+  assign ready_r_o = ready_r_o_sv2v_reg;
+  assign N23 = reset_i | activate_i;
+  assign N24 = ~ctr_n[5];
+  assign N25 = ctr_n[4] | N24;
+  assign N26 = ctr_n[3] | N25;
+  assign N27 = ctr_n[2] | N26;
+  assign N28 = ctr_n[1] | N27;
+  assign N29 = ctr_n[0] | N28;
+  assign N31 = ~N29;
+  assign N32 = ~ctr_r[5];
+  assign N33 = ctr_r[4] | N32;
+  assign N34 = ctr_r[3] | N33;
+  assign N35 = ctr_r[2] | N34;
+  assign N36 = ctr_r[1] | N35;
+  assign N37 = ctr_r[0] | N36;
+  assign { N11, N10, N9, N8, N7, N6 } = ctr_r + 1'b1;
   assign ctr_n = (N0)? { 1'b1, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 } : 
-                 (N12)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 } : 
-                 (N15)? { N10, N9, N8, N7, N6, N5 } : 
-                 (N3)? ctr_r : 1'b0;
+                 (N13)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 } : 
+                 (N16)? { N11, N10, N9, N8, N7, N6 } : 
+                 (N4)? ctr_r : 1'b0;
   assign N0 = reset_i;
-  assign N1 = activate_i | reset_i;
-  assign N2 = N28 | N1;
-  assign N3 = ~N2;
-  assign N4 = N15;
-  assign N11 = ~reset_i;
-  assign N12 = activate_i & N11;
-  assign N13 = ~activate_i;
-  assign N14 = N11 & N13;
-  assign N15 = N28 & N14;
+  assign { N22, N21, N20, N19, N18, N17 } = (N1)? { N10, N9, N8, N7, N6, N11 } : 
+                                            (N30)? { ctr_r[4:0], ctr_r[5:5] } : 1'b0;
+  assign N1 = N37;
+  assign N2 = activate_i | reset_i;
+  assign N3 = N37 | N2;
+  assign N4 = ~N3;
+  assign N5 = N16;
+  assign N12 = ~reset_i;
+  assign N13 = activate_i & N12;
+  assign N14 = ~activate_i;
+  assign N15 = N12 & N14;
+  assign N16 = N37 & N15;
+  assign N30 = ~N37;
 
   always @(posedge clk_i) begin
+    if(activate_i) begin
+      ctr_r_5_sv2v_reg <= 1'b0;
+    end else if(reset_i) begin
+      ctr_r_5_sv2v_reg <= 1'b1;
+    end else if(1'b1) begin
+      ctr_r_5_sv2v_reg <= N17;
+    end 
+    if(N23) begin
+      ctr_r_4_sv2v_reg <= 1'b0;
+      ctr_r_3_sv2v_reg <= 1'b0;
+      ctr_r_2_sv2v_reg <= 1'b0;
+      ctr_r_1_sv2v_reg <= 1'b0;
+      ctr_r_0_sv2v_reg <= 1'b0;
+    end else if(1'b1) begin
+      ctr_r_4_sv2v_reg <= N22;
+      ctr_r_3_sv2v_reg <= N21;
+      ctr_r_2_sv2v_reg <= N20;
+      ctr_r_1_sv2v_reg <= N19;
+      ctr_r_0_sv2v_reg <= N18;
+    end 
     if(1'b1) begin
-      { ctr_r[5:0] } <= { ctr_n[5:0] };
-      ready_r_o <= N22;
+      ready_r_o_sv2v_reg <= N31;
     end 
   end
 
