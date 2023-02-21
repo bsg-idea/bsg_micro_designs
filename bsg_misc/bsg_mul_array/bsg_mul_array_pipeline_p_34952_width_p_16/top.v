@@ -117,7 +117,7 @@ module bsg_mul_array_row_16_0_0
   output c_o;
   wire [15:0] a_o,b_o,s_o,pp;
   wire [1:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_0_;
   assign a_o[15] = a_i[15];
   assign a_o[14] = a_i[14];
   assign a_o[13] = a_i[13];
@@ -150,14 +150,16 @@ module bsg_mul_array_row_16_0_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[1] = s_o[0];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[1] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p16
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1], b_i[1:1] }),
+    .b_i({ b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1], b_o[1:1] }),
     .o(pp)
   );
 
@@ -167,7 +169,7 @@ module bsg_mul_array_row_16_0_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[15:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[15:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -208,7 +210,7 @@ module bsg_mul_array_row_16_1_0
   output c_o;
   wire [15:0] a_o,b_o,s_o,pp;
   wire [2:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_1_,prod_accum_o_0_;
   assign a_o[15] = a_i[15];
   assign a_o[14] = a_i[14];
   assign a_o[13] = a_i[13];
@@ -241,15 +243,18 @@ module bsg_mul_array_row_16_1_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[2] = s_o[0];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[2] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p16
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2], b_i[2:2] }),
+    .b_i({ b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2], b_o[2:2] }),
     .o(pp)
   );
 
@@ -259,7 +264,7 @@ module bsg_mul_array_row_16_1_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[15:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[15:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -300,7 +305,7 @@ module bsg_mul_array_row_16_2_0
   output c_o;
   wire [15:0] a_o,b_o,s_o,pp;
   wire [3:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_2_,prod_accum_o_1_,prod_accum_o_0_;
   assign a_o[15] = a_i[15];
   assign a_o[14] = a_i[14];
   assign a_o[13] = a_i[13];
@@ -333,16 +338,20 @@ module bsg_mul_array_row_16_2_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[3] = s_o[0];
-  assign prod_accum_o[2] = prod_accum_i[2];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[3] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_2_ = prod_accum_i[2];
+  assign prod_accum_o[2] = prod_accum_o_2_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p16
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3], b_i[3:3] }),
+    .b_i({ b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3], b_o[3:3] }),
     .o(pp)
   );
 
@@ -352,7 +361,7 @@ module bsg_mul_array_row_16_2_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[15:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[15:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -391,13 +400,74 @@ module bsg_mul_array_row_16_3_1
   input v_i;
   input c_i;
   output c_o;
-  wire N0,N1,pc,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11,N12,N13,N14,N15,N16,N17,N18,N19,N20,
-  N21,N22,N23,N24,N25,N26,N27,N28,N29,N30,N31,N32,N33,N34,N35,N36,N37,N38,N39,N40,
-  N41,N42,N43,N44,N45,N46,N47,N48,N49,N50,N51,N52,N53,N54,N55,N56,N57,N58,N59;
-  wire [15:0] pp,ps;
-  reg [4:0] prod_accum_o;
-  reg [15:0] a_o,b_o,s_o;
-  reg c_o;
+  wire [15:0] a_o,b_o,s_o,pp,ps;
+  wire [4:0] prod_accum_o;
+  wire c_o,pc;
+  reg prod_accum_o_4_sv2v_reg,prod_accum_o_3_sv2v_reg,prod_accum_o_2_sv2v_reg,
+  prod_accum_o_1_sv2v_reg,prod_accum_o_0_sv2v_reg,a_o_15_sv2v_reg,a_o_14_sv2v_reg,
+  a_o_13_sv2v_reg,a_o_12_sv2v_reg,a_o_11_sv2v_reg,a_o_10_sv2v_reg,a_o_9_sv2v_reg,
+  a_o_8_sv2v_reg,a_o_7_sv2v_reg,a_o_6_sv2v_reg,a_o_5_sv2v_reg,a_o_4_sv2v_reg,
+  a_o_3_sv2v_reg,a_o_2_sv2v_reg,a_o_1_sv2v_reg,a_o_0_sv2v_reg,b_o_15_sv2v_reg,b_o_14_sv2v_reg,
+  b_o_13_sv2v_reg,b_o_12_sv2v_reg,b_o_11_sv2v_reg,b_o_10_sv2v_reg,b_o_9_sv2v_reg,
+  b_o_8_sv2v_reg,b_o_7_sv2v_reg,b_o_6_sv2v_reg,b_o_5_sv2v_reg,b_o_4_sv2v_reg,
+  b_o_3_sv2v_reg,b_o_2_sv2v_reg,b_o_1_sv2v_reg,b_o_0_sv2v_reg,s_o_15_sv2v_reg,
+  s_o_14_sv2v_reg,s_o_13_sv2v_reg,s_o_12_sv2v_reg,s_o_11_sv2v_reg,s_o_10_sv2v_reg,
+  s_o_9_sv2v_reg,s_o_8_sv2v_reg,s_o_7_sv2v_reg,s_o_6_sv2v_reg,s_o_5_sv2v_reg,s_o_4_sv2v_reg,
+  s_o_3_sv2v_reg,s_o_2_sv2v_reg,s_o_1_sv2v_reg,s_o_0_sv2v_reg,c_o_sv2v_reg;
+  assign prod_accum_o[4] = prod_accum_o_4_sv2v_reg;
+  assign prod_accum_o[3] = prod_accum_o_3_sv2v_reg;
+  assign prod_accum_o[2] = prod_accum_o_2_sv2v_reg;
+  assign prod_accum_o[1] = prod_accum_o_1_sv2v_reg;
+  assign prod_accum_o[0] = prod_accum_o_0_sv2v_reg;
+  assign a_o[15] = a_o_15_sv2v_reg;
+  assign a_o[14] = a_o_14_sv2v_reg;
+  assign a_o[13] = a_o_13_sv2v_reg;
+  assign a_o[12] = a_o_12_sv2v_reg;
+  assign a_o[11] = a_o_11_sv2v_reg;
+  assign a_o[10] = a_o_10_sv2v_reg;
+  assign a_o[9] = a_o_9_sv2v_reg;
+  assign a_o[8] = a_o_8_sv2v_reg;
+  assign a_o[7] = a_o_7_sv2v_reg;
+  assign a_o[6] = a_o_6_sv2v_reg;
+  assign a_o[5] = a_o_5_sv2v_reg;
+  assign a_o[4] = a_o_4_sv2v_reg;
+  assign a_o[3] = a_o_3_sv2v_reg;
+  assign a_o[2] = a_o_2_sv2v_reg;
+  assign a_o[1] = a_o_1_sv2v_reg;
+  assign a_o[0] = a_o_0_sv2v_reg;
+  assign b_o[15] = b_o_15_sv2v_reg;
+  assign b_o[14] = b_o_14_sv2v_reg;
+  assign b_o[13] = b_o_13_sv2v_reg;
+  assign b_o[12] = b_o_12_sv2v_reg;
+  assign b_o[11] = b_o_11_sv2v_reg;
+  assign b_o[10] = b_o_10_sv2v_reg;
+  assign b_o[9] = b_o_9_sv2v_reg;
+  assign b_o[8] = b_o_8_sv2v_reg;
+  assign b_o[7] = b_o_7_sv2v_reg;
+  assign b_o[6] = b_o_6_sv2v_reg;
+  assign b_o[5] = b_o_5_sv2v_reg;
+  assign b_o[4] = b_o_4_sv2v_reg;
+  assign b_o[3] = b_o_3_sv2v_reg;
+  assign b_o[2] = b_o_2_sv2v_reg;
+  assign b_o[1] = b_o_1_sv2v_reg;
+  assign b_o[0] = b_o_0_sv2v_reg;
+  assign s_o[15] = s_o_15_sv2v_reg;
+  assign s_o[14] = s_o_14_sv2v_reg;
+  assign s_o[13] = s_o_13_sv2v_reg;
+  assign s_o[12] = s_o_12_sv2v_reg;
+  assign s_o[11] = s_o_11_sv2v_reg;
+  assign s_o[10] = s_o_10_sv2v_reg;
+  assign s_o[9] = s_o_9_sv2v_reg;
+  assign s_o[8] = s_o_8_sv2v_reg;
+  assign s_o[7] = s_o_7_sv2v_reg;
+  assign s_o[6] = s_o_6_sv2v_reg;
+  assign s_o[5] = s_o_5_sv2v_reg;
+  assign s_o[4] = s_o_4_sv2v_reg;
+  assign s_o[3] = s_o_3_sv2v_reg;
+  assign s_o[2] = s_o_2_sv2v_reg;
+  assign s_o[1] = s_o_1_sv2v_reg;
+  assign s_o[0] = s_o_0_sv2v_reg;
+  assign c_o = c_o_sv2v_reg;
 
   bsg_and_width_p16
   and0
@@ -417,30 +487,118 @@ module bsg_mul_array_row_16_3_1
     .c_o(pc)
   );
 
-  assign { N18, N17, N16, N15, N14, N13, N12, N11, N10, N9, N8, N7, N6, N5, N4, N3 } = (N0)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 } : 
-                                                                                       (N1)? a_i : 1'b0;
-  assign N0 = rst_i;
-  assign N1 = N2;
-  assign { N34, N33, N32, N31, N30, N29, N28, N27, N26, N25, N24, N23, N22, N21, N20, N19 } = (N0)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 } : 
-                                                                                              (N1)? b_i : 1'b0;
-  assign { N50, N49, N48, N47, N46, N45, N44, N43, N42, N41, N40, N39, N38, N37, N36, N35 } = (N0)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 } : 
-                                                                                              (N1)? ps : 1'b0;
-  assign N51 = (N0)? 1'b0 : 
-               (N1)? pc : 1'b0;
-  assign { N56, N55, N54, N53, N52 } = (N0)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 } : 
-                                       (N1)? { ps[0:0], prod_accum_i } : 1'b0;
-  assign N2 = ~rst_i;
-  assign N57 = ~v_i;
-  assign N58 = N57 & N2;
-  assign N59 = ~N58;
 
   always @(posedge clk_i) begin
-    if(N59) begin
-      { prod_accum_o[4:0] } <= { N56, N55, N54, N53, N52 };
-      { a_o[15:0] } <= { N18, N17, N16, N15, N14, N13, N12, N11, N10, N9, N8, N7, N6, N5, N4, N3 };
-      { b_o[15:0] } <= { N34, N33, N32, N31, N30, N29, N28, N27, N26, N25, N24, N23, N22, N21, N20, N19 };
-      { s_o[15:0] } <= { N50, N49, N48, N47, N46, N45, N44, N43, N42, N41, N40, N39, N38, N37, N36, N35 };
-      c_o <= N51;
+    if(rst_i) begin
+      prod_accum_o_4_sv2v_reg <= 1'b0;
+      prod_accum_o_3_sv2v_reg <= 1'b0;
+      prod_accum_o_2_sv2v_reg <= 1'b0;
+      prod_accum_o_1_sv2v_reg <= 1'b0;
+      prod_accum_o_0_sv2v_reg <= 1'b0;
+      a_o_15_sv2v_reg <= 1'b0;
+      a_o_14_sv2v_reg <= 1'b0;
+      a_o_13_sv2v_reg <= 1'b0;
+      a_o_12_sv2v_reg <= 1'b0;
+      a_o_11_sv2v_reg <= 1'b0;
+      a_o_10_sv2v_reg <= 1'b0;
+      a_o_9_sv2v_reg <= 1'b0;
+      a_o_8_sv2v_reg <= 1'b0;
+      a_o_7_sv2v_reg <= 1'b0;
+      a_o_6_sv2v_reg <= 1'b0;
+      a_o_5_sv2v_reg <= 1'b0;
+      a_o_4_sv2v_reg <= 1'b0;
+      a_o_3_sv2v_reg <= 1'b0;
+      a_o_2_sv2v_reg <= 1'b0;
+      a_o_1_sv2v_reg <= 1'b0;
+      a_o_0_sv2v_reg <= 1'b0;
+      b_o_15_sv2v_reg <= 1'b0;
+      b_o_14_sv2v_reg <= 1'b0;
+      b_o_13_sv2v_reg <= 1'b0;
+      b_o_12_sv2v_reg <= 1'b0;
+      b_o_11_sv2v_reg <= 1'b0;
+      b_o_10_sv2v_reg <= 1'b0;
+      b_o_9_sv2v_reg <= 1'b0;
+      b_o_8_sv2v_reg <= 1'b0;
+      b_o_7_sv2v_reg <= 1'b0;
+      b_o_6_sv2v_reg <= 1'b0;
+      b_o_5_sv2v_reg <= 1'b0;
+      b_o_4_sv2v_reg <= 1'b0;
+      b_o_3_sv2v_reg <= 1'b0;
+      b_o_2_sv2v_reg <= 1'b0;
+      b_o_1_sv2v_reg <= 1'b0;
+      b_o_0_sv2v_reg <= 1'b0;
+      s_o_15_sv2v_reg <= 1'b0;
+      s_o_14_sv2v_reg <= 1'b0;
+      s_o_13_sv2v_reg <= 1'b0;
+      s_o_12_sv2v_reg <= 1'b0;
+      s_o_11_sv2v_reg <= 1'b0;
+      s_o_10_sv2v_reg <= 1'b0;
+      s_o_9_sv2v_reg <= 1'b0;
+      s_o_8_sv2v_reg <= 1'b0;
+      s_o_7_sv2v_reg <= 1'b0;
+      s_o_6_sv2v_reg <= 1'b0;
+      s_o_5_sv2v_reg <= 1'b0;
+      s_o_4_sv2v_reg <= 1'b0;
+      s_o_3_sv2v_reg <= 1'b0;
+      s_o_2_sv2v_reg <= 1'b0;
+      s_o_1_sv2v_reg <= 1'b0;
+      s_o_0_sv2v_reg <= 1'b0;
+      c_o_sv2v_reg <= 1'b0;
+    end else if(v_i) begin
+      prod_accum_o_4_sv2v_reg <= ps[0];
+      prod_accum_o_3_sv2v_reg <= prod_accum_i[3];
+      prod_accum_o_2_sv2v_reg <= prod_accum_i[2];
+      prod_accum_o_1_sv2v_reg <= prod_accum_i[1];
+      prod_accum_o_0_sv2v_reg <= prod_accum_i[0];
+      a_o_15_sv2v_reg <= a_i[15];
+      a_o_14_sv2v_reg <= a_i[14];
+      a_o_13_sv2v_reg <= a_i[13];
+      a_o_12_sv2v_reg <= a_i[12];
+      a_o_11_sv2v_reg <= a_i[11];
+      a_o_10_sv2v_reg <= a_i[10];
+      a_o_9_sv2v_reg <= a_i[9];
+      a_o_8_sv2v_reg <= a_i[8];
+      a_o_7_sv2v_reg <= a_i[7];
+      a_o_6_sv2v_reg <= a_i[6];
+      a_o_5_sv2v_reg <= a_i[5];
+      a_o_4_sv2v_reg <= a_i[4];
+      a_o_3_sv2v_reg <= a_i[3];
+      a_o_2_sv2v_reg <= a_i[2];
+      a_o_1_sv2v_reg <= a_i[1];
+      a_o_0_sv2v_reg <= a_i[0];
+      b_o_15_sv2v_reg <= b_i[15];
+      b_o_14_sv2v_reg <= b_i[14];
+      b_o_13_sv2v_reg <= b_i[13];
+      b_o_12_sv2v_reg <= b_i[12];
+      b_o_11_sv2v_reg <= b_i[11];
+      b_o_10_sv2v_reg <= b_i[10];
+      b_o_9_sv2v_reg <= b_i[9];
+      b_o_8_sv2v_reg <= b_i[8];
+      b_o_7_sv2v_reg <= b_i[7];
+      b_o_6_sv2v_reg <= b_i[6];
+      b_o_5_sv2v_reg <= b_i[5];
+      b_o_4_sv2v_reg <= b_i[4];
+      b_o_3_sv2v_reg <= b_i[3];
+      b_o_2_sv2v_reg <= b_i[2];
+      b_o_1_sv2v_reg <= b_i[1];
+      b_o_0_sv2v_reg <= b_i[0];
+      s_o_15_sv2v_reg <= ps[15];
+      s_o_14_sv2v_reg <= ps[14];
+      s_o_13_sv2v_reg <= ps[13];
+      s_o_12_sv2v_reg <= ps[12];
+      s_o_11_sv2v_reg <= ps[11];
+      s_o_10_sv2v_reg <= ps[10];
+      s_o_9_sv2v_reg <= ps[9];
+      s_o_8_sv2v_reg <= ps[8];
+      s_o_7_sv2v_reg <= ps[7];
+      s_o_6_sv2v_reg <= ps[6];
+      s_o_5_sv2v_reg <= ps[5];
+      s_o_4_sv2v_reg <= ps[4];
+      s_o_3_sv2v_reg <= ps[3];
+      s_o_2_sv2v_reg <= ps[2];
+      s_o_1_sv2v_reg <= ps[1];
+      s_o_0_sv2v_reg <= ps[0];
+      c_o_sv2v_reg <= pc;
     end 
   end
 
@@ -481,7 +639,8 @@ module bsg_mul_array_row_16_4_0
   output c_o;
   wire [15:0] a_o,b_o,s_o,pp;
   wire [5:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_4_,prod_accum_o_3_,prod_accum_o_2_,prod_accum_o_1_,
+  prod_accum_o_0_;
   assign a_o[15] = a_i[15];
   assign a_o[14] = a_i[14];
   assign a_o[13] = a_i[13];
@@ -514,18 +673,24 @@ module bsg_mul_array_row_16_4_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[5] = s_o[0];
-  assign prod_accum_o[4] = prod_accum_i[4];
-  assign prod_accum_o[3] = prod_accum_i[3];
-  assign prod_accum_o[2] = prod_accum_i[2];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[5] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_4_ = prod_accum_i[4];
+  assign prod_accum_o[4] = prod_accum_o_4_;
+  assign prod_accum_o_3_ = prod_accum_i[3];
+  assign prod_accum_o[3] = prod_accum_o_3_;
+  assign prod_accum_o_2_ = prod_accum_i[2];
+  assign prod_accum_o[2] = prod_accum_o_2_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p16
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5], b_i[5:5] }),
+    .b_i({ b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5], b_o[5:5] }),
     .o(pp)
   );
 
@@ -535,7 +700,7 @@ module bsg_mul_array_row_16_4_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[15:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[15:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -576,7 +741,8 @@ module bsg_mul_array_row_16_5_0
   output c_o;
   wire [15:0] a_o,b_o,s_o,pp;
   wire [6:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_5_,prod_accum_o_4_,prod_accum_o_3_,prod_accum_o_2_,
+  prod_accum_o_1_,prod_accum_o_0_;
   assign a_o[15] = a_i[15];
   assign a_o[14] = a_i[14];
   assign a_o[13] = a_i[13];
@@ -609,19 +775,26 @@ module bsg_mul_array_row_16_5_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[6] = s_o[0];
-  assign prod_accum_o[5] = prod_accum_i[5];
-  assign prod_accum_o[4] = prod_accum_i[4];
-  assign prod_accum_o[3] = prod_accum_i[3];
-  assign prod_accum_o[2] = prod_accum_i[2];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[6] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_5_ = prod_accum_i[5];
+  assign prod_accum_o[5] = prod_accum_o_5_;
+  assign prod_accum_o_4_ = prod_accum_i[4];
+  assign prod_accum_o[4] = prod_accum_o_4_;
+  assign prod_accum_o_3_ = prod_accum_i[3];
+  assign prod_accum_o[3] = prod_accum_o_3_;
+  assign prod_accum_o_2_ = prod_accum_i[2];
+  assign prod_accum_o[2] = prod_accum_o_2_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p16
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6], b_i[6:6] }),
+    .b_i({ b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6], b_o[6:6] }),
     .o(pp)
   );
 
@@ -631,7 +804,7 @@ module bsg_mul_array_row_16_5_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[15:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[15:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -672,7 +845,8 @@ module bsg_mul_array_row_16_6_0
   output c_o;
   wire [15:0] a_o,b_o,s_o,pp;
   wire [7:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_6_,prod_accum_o_5_,prod_accum_o_4_,prod_accum_o_3_,
+  prod_accum_o_2_,prod_accum_o_1_,prod_accum_o_0_;
   assign a_o[15] = a_i[15];
   assign a_o[14] = a_i[14];
   assign a_o[13] = a_i[13];
@@ -705,20 +879,28 @@ module bsg_mul_array_row_16_6_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[7] = s_o[0];
-  assign prod_accum_o[6] = prod_accum_i[6];
-  assign prod_accum_o[5] = prod_accum_i[5];
-  assign prod_accum_o[4] = prod_accum_i[4];
-  assign prod_accum_o[3] = prod_accum_i[3];
-  assign prod_accum_o[2] = prod_accum_i[2];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[7] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_6_ = prod_accum_i[6];
+  assign prod_accum_o[6] = prod_accum_o_6_;
+  assign prod_accum_o_5_ = prod_accum_i[5];
+  assign prod_accum_o[5] = prod_accum_o_5_;
+  assign prod_accum_o_4_ = prod_accum_i[4];
+  assign prod_accum_o[4] = prod_accum_o_4_;
+  assign prod_accum_o_3_ = prod_accum_i[3];
+  assign prod_accum_o[3] = prod_accum_o_3_;
+  assign prod_accum_o_2_ = prod_accum_i[2];
+  assign prod_accum_o[2] = prod_accum_o_2_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p16
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7], b_i[7:7] }),
+    .b_i({ b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7], b_o[7:7] }),
     .o(pp)
   );
 
@@ -728,7 +910,7 @@ module bsg_mul_array_row_16_6_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[15:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[15:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -767,14 +949,80 @@ module bsg_mul_array_row_16_7_1
   input v_i;
   input c_i;
   output c_o;
-  wire N0,N1,pc,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11,N12,N13,N14,N15,N16,N17,N18,N19,N20,
-  N21,N22,N23,N24,N25,N26,N27,N28,N29,N30,N31,N32,N33,N34,N35,N36,N37,N38,N39,N40,
-  N41,N42,N43,N44,N45,N46,N47,N48,N49,N50,N51,N52,N53,N54,N55,N56,N57,N58,N59,N60,
-  N61,N62,N63;
-  wire [15:0] pp,ps;
-  reg [8:0] prod_accum_o;
-  reg [15:0] a_o,b_o,s_o;
-  reg c_o;
+  wire [15:0] a_o,b_o,s_o,pp,ps;
+  wire [8:0] prod_accum_o;
+  wire c_o,pc;
+  reg prod_accum_o_8_sv2v_reg,prod_accum_o_7_sv2v_reg,prod_accum_o_6_sv2v_reg,
+  prod_accum_o_5_sv2v_reg,prod_accum_o_4_sv2v_reg,prod_accum_o_3_sv2v_reg,
+  prod_accum_o_2_sv2v_reg,prod_accum_o_1_sv2v_reg,prod_accum_o_0_sv2v_reg,a_o_15_sv2v_reg,
+  a_o_14_sv2v_reg,a_o_13_sv2v_reg,a_o_12_sv2v_reg,a_o_11_sv2v_reg,a_o_10_sv2v_reg,
+  a_o_9_sv2v_reg,a_o_8_sv2v_reg,a_o_7_sv2v_reg,a_o_6_sv2v_reg,a_o_5_sv2v_reg,
+  a_o_4_sv2v_reg,a_o_3_sv2v_reg,a_o_2_sv2v_reg,a_o_1_sv2v_reg,a_o_0_sv2v_reg,b_o_15_sv2v_reg,
+  b_o_14_sv2v_reg,b_o_13_sv2v_reg,b_o_12_sv2v_reg,b_o_11_sv2v_reg,b_o_10_sv2v_reg,
+  b_o_9_sv2v_reg,b_o_8_sv2v_reg,b_o_7_sv2v_reg,b_o_6_sv2v_reg,b_o_5_sv2v_reg,
+  b_o_4_sv2v_reg,b_o_3_sv2v_reg,b_o_2_sv2v_reg,b_o_1_sv2v_reg,b_o_0_sv2v_reg,
+  s_o_15_sv2v_reg,s_o_14_sv2v_reg,s_o_13_sv2v_reg,s_o_12_sv2v_reg,s_o_11_sv2v_reg,
+  s_o_10_sv2v_reg,s_o_9_sv2v_reg,s_o_8_sv2v_reg,s_o_7_sv2v_reg,s_o_6_sv2v_reg,s_o_5_sv2v_reg,
+  s_o_4_sv2v_reg,s_o_3_sv2v_reg,s_o_2_sv2v_reg,s_o_1_sv2v_reg,s_o_0_sv2v_reg,
+  c_o_sv2v_reg;
+  assign prod_accum_o[8] = prod_accum_o_8_sv2v_reg;
+  assign prod_accum_o[7] = prod_accum_o_7_sv2v_reg;
+  assign prod_accum_o[6] = prod_accum_o_6_sv2v_reg;
+  assign prod_accum_o[5] = prod_accum_o_5_sv2v_reg;
+  assign prod_accum_o[4] = prod_accum_o_4_sv2v_reg;
+  assign prod_accum_o[3] = prod_accum_o_3_sv2v_reg;
+  assign prod_accum_o[2] = prod_accum_o_2_sv2v_reg;
+  assign prod_accum_o[1] = prod_accum_o_1_sv2v_reg;
+  assign prod_accum_o[0] = prod_accum_o_0_sv2v_reg;
+  assign a_o[15] = a_o_15_sv2v_reg;
+  assign a_o[14] = a_o_14_sv2v_reg;
+  assign a_o[13] = a_o_13_sv2v_reg;
+  assign a_o[12] = a_o_12_sv2v_reg;
+  assign a_o[11] = a_o_11_sv2v_reg;
+  assign a_o[10] = a_o_10_sv2v_reg;
+  assign a_o[9] = a_o_9_sv2v_reg;
+  assign a_o[8] = a_o_8_sv2v_reg;
+  assign a_o[7] = a_o_7_sv2v_reg;
+  assign a_o[6] = a_o_6_sv2v_reg;
+  assign a_o[5] = a_o_5_sv2v_reg;
+  assign a_o[4] = a_o_4_sv2v_reg;
+  assign a_o[3] = a_o_3_sv2v_reg;
+  assign a_o[2] = a_o_2_sv2v_reg;
+  assign a_o[1] = a_o_1_sv2v_reg;
+  assign a_o[0] = a_o_0_sv2v_reg;
+  assign b_o[15] = b_o_15_sv2v_reg;
+  assign b_o[14] = b_o_14_sv2v_reg;
+  assign b_o[13] = b_o_13_sv2v_reg;
+  assign b_o[12] = b_o_12_sv2v_reg;
+  assign b_o[11] = b_o_11_sv2v_reg;
+  assign b_o[10] = b_o_10_sv2v_reg;
+  assign b_o[9] = b_o_9_sv2v_reg;
+  assign b_o[8] = b_o_8_sv2v_reg;
+  assign b_o[7] = b_o_7_sv2v_reg;
+  assign b_o[6] = b_o_6_sv2v_reg;
+  assign b_o[5] = b_o_5_sv2v_reg;
+  assign b_o[4] = b_o_4_sv2v_reg;
+  assign b_o[3] = b_o_3_sv2v_reg;
+  assign b_o[2] = b_o_2_sv2v_reg;
+  assign b_o[1] = b_o_1_sv2v_reg;
+  assign b_o[0] = b_o_0_sv2v_reg;
+  assign s_o[15] = s_o_15_sv2v_reg;
+  assign s_o[14] = s_o_14_sv2v_reg;
+  assign s_o[13] = s_o_13_sv2v_reg;
+  assign s_o[12] = s_o_12_sv2v_reg;
+  assign s_o[11] = s_o_11_sv2v_reg;
+  assign s_o[10] = s_o_10_sv2v_reg;
+  assign s_o[9] = s_o_9_sv2v_reg;
+  assign s_o[8] = s_o_8_sv2v_reg;
+  assign s_o[7] = s_o_7_sv2v_reg;
+  assign s_o[6] = s_o_6_sv2v_reg;
+  assign s_o[5] = s_o_5_sv2v_reg;
+  assign s_o[4] = s_o_4_sv2v_reg;
+  assign s_o[3] = s_o_3_sv2v_reg;
+  assign s_o[2] = s_o_2_sv2v_reg;
+  assign s_o[1] = s_o_1_sv2v_reg;
+  assign s_o[0] = s_o_0_sv2v_reg;
+  assign c_o = c_o_sv2v_reg;
 
   bsg_and_width_p16
   and0
@@ -794,30 +1042,126 @@ module bsg_mul_array_row_16_7_1
     .c_o(pc)
   );
 
-  assign { N18, N17, N16, N15, N14, N13, N12, N11, N10, N9, N8, N7, N6, N5, N4, N3 } = (N0)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 } : 
-                                                                                       (N1)? a_i : 1'b0;
-  assign N0 = rst_i;
-  assign N1 = N2;
-  assign { N34, N33, N32, N31, N30, N29, N28, N27, N26, N25, N24, N23, N22, N21, N20, N19 } = (N0)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 } : 
-                                                                                              (N1)? b_i : 1'b0;
-  assign { N50, N49, N48, N47, N46, N45, N44, N43, N42, N41, N40, N39, N38, N37, N36, N35 } = (N0)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 } : 
-                                                                                              (N1)? ps : 1'b0;
-  assign N51 = (N0)? 1'b0 : 
-               (N1)? pc : 1'b0;
-  assign { N60, N59, N58, N57, N56, N55, N54, N53, N52 } = (N0)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 } : 
-                                                           (N1)? { ps[0:0], prod_accum_i } : 1'b0;
-  assign N2 = ~rst_i;
-  assign N61 = ~v_i;
-  assign N62 = N61 & N2;
-  assign N63 = ~N62;
 
   always @(posedge clk_i) begin
-    if(N63) begin
-      { prod_accum_o[8:0] } <= { N60, N59, N58, N57, N56, N55, N54, N53, N52 };
-      { a_o[15:0] } <= { N18, N17, N16, N15, N14, N13, N12, N11, N10, N9, N8, N7, N6, N5, N4, N3 };
-      { b_o[15:0] } <= { N34, N33, N32, N31, N30, N29, N28, N27, N26, N25, N24, N23, N22, N21, N20, N19 };
-      { s_o[15:0] } <= { N50, N49, N48, N47, N46, N45, N44, N43, N42, N41, N40, N39, N38, N37, N36, N35 };
-      c_o <= N51;
+    if(rst_i) begin
+      prod_accum_o_8_sv2v_reg <= 1'b0;
+      prod_accum_o_7_sv2v_reg <= 1'b0;
+      prod_accum_o_6_sv2v_reg <= 1'b0;
+      prod_accum_o_5_sv2v_reg <= 1'b0;
+      prod_accum_o_4_sv2v_reg <= 1'b0;
+      prod_accum_o_3_sv2v_reg <= 1'b0;
+      prod_accum_o_2_sv2v_reg <= 1'b0;
+      prod_accum_o_1_sv2v_reg <= 1'b0;
+      prod_accum_o_0_sv2v_reg <= 1'b0;
+      a_o_15_sv2v_reg <= 1'b0;
+      a_o_14_sv2v_reg <= 1'b0;
+      a_o_13_sv2v_reg <= 1'b0;
+      a_o_12_sv2v_reg <= 1'b0;
+      a_o_11_sv2v_reg <= 1'b0;
+      a_o_10_sv2v_reg <= 1'b0;
+      a_o_9_sv2v_reg <= 1'b0;
+      a_o_8_sv2v_reg <= 1'b0;
+      a_o_7_sv2v_reg <= 1'b0;
+      a_o_6_sv2v_reg <= 1'b0;
+      a_o_5_sv2v_reg <= 1'b0;
+      a_o_4_sv2v_reg <= 1'b0;
+      a_o_3_sv2v_reg <= 1'b0;
+      a_o_2_sv2v_reg <= 1'b0;
+      a_o_1_sv2v_reg <= 1'b0;
+      a_o_0_sv2v_reg <= 1'b0;
+      b_o_15_sv2v_reg <= 1'b0;
+      b_o_14_sv2v_reg <= 1'b0;
+      b_o_13_sv2v_reg <= 1'b0;
+      b_o_12_sv2v_reg <= 1'b0;
+      b_o_11_sv2v_reg <= 1'b0;
+      b_o_10_sv2v_reg <= 1'b0;
+      b_o_9_sv2v_reg <= 1'b0;
+      b_o_8_sv2v_reg <= 1'b0;
+      b_o_7_sv2v_reg <= 1'b0;
+      b_o_6_sv2v_reg <= 1'b0;
+      b_o_5_sv2v_reg <= 1'b0;
+      b_o_4_sv2v_reg <= 1'b0;
+      b_o_3_sv2v_reg <= 1'b0;
+      b_o_2_sv2v_reg <= 1'b0;
+      b_o_1_sv2v_reg <= 1'b0;
+      b_o_0_sv2v_reg <= 1'b0;
+      s_o_15_sv2v_reg <= 1'b0;
+      s_o_14_sv2v_reg <= 1'b0;
+      s_o_13_sv2v_reg <= 1'b0;
+      s_o_12_sv2v_reg <= 1'b0;
+      s_o_11_sv2v_reg <= 1'b0;
+      s_o_10_sv2v_reg <= 1'b0;
+      s_o_9_sv2v_reg <= 1'b0;
+      s_o_8_sv2v_reg <= 1'b0;
+      s_o_7_sv2v_reg <= 1'b0;
+      s_o_6_sv2v_reg <= 1'b0;
+      s_o_5_sv2v_reg <= 1'b0;
+      s_o_4_sv2v_reg <= 1'b0;
+      s_o_3_sv2v_reg <= 1'b0;
+      s_o_2_sv2v_reg <= 1'b0;
+      s_o_1_sv2v_reg <= 1'b0;
+      s_o_0_sv2v_reg <= 1'b0;
+      c_o_sv2v_reg <= 1'b0;
+    end else if(v_i) begin
+      prod_accum_o_8_sv2v_reg <= ps[0];
+      prod_accum_o_7_sv2v_reg <= prod_accum_i[7];
+      prod_accum_o_6_sv2v_reg <= prod_accum_i[6];
+      prod_accum_o_5_sv2v_reg <= prod_accum_i[5];
+      prod_accum_o_4_sv2v_reg <= prod_accum_i[4];
+      prod_accum_o_3_sv2v_reg <= prod_accum_i[3];
+      prod_accum_o_2_sv2v_reg <= prod_accum_i[2];
+      prod_accum_o_1_sv2v_reg <= prod_accum_i[1];
+      prod_accum_o_0_sv2v_reg <= prod_accum_i[0];
+      a_o_15_sv2v_reg <= a_i[15];
+      a_o_14_sv2v_reg <= a_i[14];
+      a_o_13_sv2v_reg <= a_i[13];
+      a_o_12_sv2v_reg <= a_i[12];
+      a_o_11_sv2v_reg <= a_i[11];
+      a_o_10_sv2v_reg <= a_i[10];
+      a_o_9_sv2v_reg <= a_i[9];
+      a_o_8_sv2v_reg <= a_i[8];
+      a_o_7_sv2v_reg <= a_i[7];
+      a_o_6_sv2v_reg <= a_i[6];
+      a_o_5_sv2v_reg <= a_i[5];
+      a_o_4_sv2v_reg <= a_i[4];
+      a_o_3_sv2v_reg <= a_i[3];
+      a_o_2_sv2v_reg <= a_i[2];
+      a_o_1_sv2v_reg <= a_i[1];
+      a_o_0_sv2v_reg <= a_i[0];
+      b_o_15_sv2v_reg <= b_i[15];
+      b_o_14_sv2v_reg <= b_i[14];
+      b_o_13_sv2v_reg <= b_i[13];
+      b_o_12_sv2v_reg <= b_i[12];
+      b_o_11_sv2v_reg <= b_i[11];
+      b_o_10_sv2v_reg <= b_i[10];
+      b_o_9_sv2v_reg <= b_i[9];
+      b_o_8_sv2v_reg <= b_i[8];
+      b_o_7_sv2v_reg <= b_i[7];
+      b_o_6_sv2v_reg <= b_i[6];
+      b_o_5_sv2v_reg <= b_i[5];
+      b_o_4_sv2v_reg <= b_i[4];
+      b_o_3_sv2v_reg <= b_i[3];
+      b_o_2_sv2v_reg <= b_i[2];
+      b_o_1_sv2v_reg <= b_i[1];
+      b_o_0_sv2v_reg <= b_i[0];
+      s_o_15_sv2v_reg <= ps[15];
+      s_o_14_sv2v_reg <= ps[14];
+      s_o_13_sv2v_reg <= ps[13];
+      s_o_12_sv2v_reg <= ps[12];
+      s_o_11_sv2v_reg <= ps[11];
+      s_o_10_sv2v_reg <= ps[10];
+      s_o_9_sv2v_reg <= ps[9];
+      s_o_8_sv2v_reg <= ps[8];
+      s_o_7_sv2v_reg <= ps[7];
+      s_o_6_sv2v_reg <= ps[6];
+      s_o_5_sv2v_reg <= ps[5];
+      s_o_4_sv2v_reg <= ps[4];
+      s_o_3_sv2v_reg <= ps[3];
+      s_o_2_sv2v_reg <= ps[2];
+      s_o_1_sv2v_reg <= ps[1];
+      s_o_0_sv2v_reg <= ps[0];
+      c_o_sv2v_reg <= pc;
     end 
   end
 
@@ -858,7 +1202,8 @@ module bsg_mul_array_row_16_8_0
   output c_o;
   wire [15:0] a_o,b_o,s_o,pp;
   wire [9:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_8_,prod_accum_o_7_,prod_accum_o_6_,prod_accum_o_5_,
+  prod_accum_o_4_,prod_accum_o_3_,prod_accum_o_2_,prod_accum_o_1_,prod_accum_o_0_;
   assign a_o[15] = a_i[15];
   assign a_o[14] = a_i[14];
   assign a_o[13] = a_i[13];
@@ -891,22 +1236,32 @@ module bsg_mul_array_row_16_8_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[9] = s_o[0];
-  assign prod_accum_o[8] = prod_accum_i[8];
-  assign prod_accum_o[7] = prod_accum_i[7];
-  assign prod_accum_o[6] = prod_accum_i[6];
-  assign prod_accum_o[5] = prod_accum_i[5];
-  assign prod_accum_o[4] = prod_accum_i[4];
-  assign prod_accum_o[3] = prod_accum_i[3];
-  assign prod_accum_o[2] = prod_accum_i[2];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[9] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_8_ = prod_accum_i[8];
+  assign prod_accum_o[8] = prod_accum_o_8_;
+  assign prod_accum_o_7_ = prod_accum_i[7];
+  assign prod_accum_o[7] = prod_accum_o_7_;
+  assign prod_accum_o_6_ = prod_accum_i[6];
+  assign prod_accum_o[6] = prod_accum_o_6_;
+  assign prod_accum_o_5_ = prod_accum_i[5];
+  assign prod_accum_o[5] = prod_accum_o_5_;
+  assign prod_accum_o_4_ = prod_accum_i[4];
+  assign prod_accum_o[4] = prod_accum_o_4_;
+  assign prod_accum_o_3_ = prod_accum_i[3];
+  assign prod_accum_o[3] = prod_accum_o_3_;
+  assign prod_accum_o_2_ = prod_accum_i[2];
+  assign prod_accum_o[2] = prod_accum_o_2_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p16
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9], b_i[9:9] }),
+    .b_i({ b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9], b_o[9:9] }),
     .o(pp)
   );
 
@@ -916,7 +1271,7 @@ module bsg_mul_array_row_16_8_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[15:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[15:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -957,7 +1312,9 @@ module bsg_mul_array_row_16_9_0
   output c_o;
   wire [15:0] a_o,b_o,s_o,pp;
   wire [10:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_9_,prod_accum_o_8_,prod_accum_o_7_,prod_accum_o_6_,
+  prod_accum_o_5_,prod_accum_o_4_,prod_accum_o_3_,prod_accum_o_2_,prod_accum_o_1_,
+  prod_accum_o_0_;
   assign a_o[15] = a_i[15];
   assign a_o[14] = a_i[14];
   assign a_o[13] = a_i[13];
@@ -990,23 +1347,34 @@ module bsg_mul_array_row_16_9_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[10] = s_o[0];
-  assign prod_accum_o[9] = prod_accum_i[9];
-  assign prod_accum_o[8] = prod_accum_i[8];
-  assign prod_accum_o[7] = prod_accum_i[7];
-  assign prod_accum_o[6] = prod_accum_i[6];
-  assign prod_accum_o[5] = prod_accum_i[5];
-  assign prod_accum_o[4] = prod_accum_i[4];
-  assign prod_accum_o[3] = prod_accum_i[3];
-  assign prod_accum_o[2] = prod_accum_i[2];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[10] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_9_ = prod_accum_i[9];
+  assign prod_accum_o[9] = prod_accum_o_9_;
+  assign prod_accum_o_8_ = prod_accum_i[8];
+  assign prod_accum_o[8] = prod_accum_o_8_;
+  assign prod_accum_o_7_ = prod_accum_i[7];
+  assign prod_accum_o[7] = prod_accum_o_7_;
+  assign prod_accum_o_6_ = prod_accum_i[6];
+  assign prod_accum_o[6] = prod_accum_o_6_;
+  assign prod_accum_o_5_ = prod_accum_i[5];
+  assign prod_accum_o[5] = prod_accum_o_5_;
+  assign prod_accum_o_4_ = prod_accum_i[4];
+  assign prod_accum_o[4] = prod_accum_o_4_;
+  assign prod_accum_o_3_ = prod_accum_i[3];
+  assign prod_accum_o[3] = prod_accum_o_3_;
+  assign prod_accum_o_2_ = prod_accum_i[2];
+  assign prod_accum_o[2] = prod_accum_o_2_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p16
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10], b_i[10:10] }),
+    .b_i({ b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10], b_o[10:10] }),
     .o(pp)
   );
 
@@ -1016,7 +1384,7 @@ module bsg_mul_array_row_16_9_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[15:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[15:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -1057,7 +1425,9 @@ module bsg_mul_array_row_16_10_0
   output c_o;
   wire [15:0] a_o,b_o,s_o,pp;
   wire [11:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_10_,prod_accum_o_9_,prod_accum_o_8_,prod_accum_o_7_,
+  prod_accum_o_6_,prod_accum_o_5_,prod_accum_o_4_,prod_accum_o_3_,prod_accum_o_2_,
+  prod_accum_o_1_,prod_accum_o_0_;
   assign a_o[15] = a_i[15];
   assign a_o[14] = a_i[14];
   assign a_o[13] = a_i[13];
@@ -1090,24 +1460,36 @@ module bsg_mul_array_row_16_10_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[11] = s_o[0];
-  assign prod_accum_o[10] = prod_accum_i[10];
-  assign prod_accum_o[9] = prod_accum_i[9];
-  assign prod_accum_o[8] = prod_accum_i[8];
-  assign prod_accum_o[7] = prod_accum_i[7];
-  assign prod_accum_o[6] = prod_accum_i[6];
-  assign prod_accum_o[5] = prod_accum_i[5];
-  assign prod_accum_o[4] = prod_accum_i[4];
-  assign prod_accum_o[3] = prod_accum_i[3];
-  assign prod_accum_o[2] = prod_accum_i[2];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[11] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_10_ = prod_accum_i[10];
+  assign prod_accum_o[10] = prod_accum_o_10_;
+  assign prod_accum_o_9_ = prod_accum_i[9];
+  assign prod_accum_o[9] = prod_accum_o_9_;
+  assign prod_accum_o_8_ = prod_accum_i[8];
+  assign prod_accum_o[8] = prod_accum_o_8_;
+  assign prod_accum_o_7_ = prod_accum_i[7];
+  assign prod_accum_o[7] = prod_accum_o_7_;
+  assign prod_accum_o_6_ = prod_accum_i[6];
+  assign prod_accum_o[6] = prod_accum_o_6_;
+  assign prod_accum_o_5_ = prod_accum_i[5];
+  assign prod_accum_o[5] = prod_accum_o_5_;
+  assign prod_accum_o_4_ = prod_accum_i[4];
+  assign prod_accum_o[4] = prod_accum_o_4_;
+  assign prod_accum_o_3_ = prod_accum_i[3];
+  assign prod_accum_o[3] = prod_accum_o_3_;
+  assign prod_accum_o_2_ = prod_accum_i[2];
+  assign prod_accum_o[2] = prod_accum_o_2_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p16
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11], b_i[11:11] }),
+    .b_i({ b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11], b_o[11:11] }),
     .o(pp)
   );
 
@@ -1117,7 +1499,7 @@ module bsg_mul_array_row_16_10_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[15:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[15:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -1156,14 +1538,85 @@ module bsg_mul_array_row_16_11_1
   input v_i;
   input c_i;
   output c_o;
-  wire N0,N1,pc,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11,N12,N13,N14,N15,N16,N17,N18,N19,N20,
-  N21,N22,N23,N24,N25,N26,N27,N28,N29,N30,N31,N32,N33,N34,N35,N36,N37,N38,N39,N40,
-  N41,N42,N43,N44,N45,N46,N47,N48,N49,N50,N51,N52,N53,N54,N55,N56,N57,N58,N59,N60,
-  N61,N62,N63,N64,N65,N66,N67;
-  wire [15:0] pp,ps;
-  reg [12:0] prod_accum_o;
-  reg [15:0] a_o,b_o,s_o;
-  reg c_o;
+  wire [15:0] a_o,b_o,s_o,pp,ps;
+  wire [12:0] prod_accum_o;
+  wire c_o,pc;
+  reg prod_accum_o_12_sv2v_reg,prod_accum_o_11_sv2v_reg,prod_accum_o_10_sv2v_reg,
+  prod_accum_o_9_sv2v_reg,prod_accum_o_8_sv2v_reg,prod_accum_o_7_sv2v_reg,
+  prod_accum_o_6_sv2v_reg,prod_accum_o_5_sv2v_reg,prod_accum_o_4_sv2v_reg,
+  prod_accum_o_3_sv2v_reg,prod_accum_o_2_sv2v_reg,prod_accum_o_1_sv2v_reg,prod_accum_o_0_sv2v_reg,
+  a_o_15_sv2v_reg,a_o_14_sv2v_reg,a_o_13_sv2v_reg,a_o_12_sv2v_reg,a_o_11_sv2v_reg,
+  a_o_10_sv2v_reg,a_o_9_sv2v_reg,a_o_8_sv2v_reg,a_o_7_sv2v_reg,a_o_6_sv2v_reg,
+  a_o_5_sv2v_reg,a_o_4_sv2v_reg,a_o_3_sv2v_reg,a_o_2_sv2v_reg,a_o_1_sv2v_reg,
+  a_o_0_sv2v_reg,b_o_15_sv2v_reg,b_o_14_sv2v_reg,b_o_13_sv2v_reg,b_o_12_sv2v_reg,
+  b_o_11_sv2v_reg,b_o_10_sv2v_reg,b_o_9_sv2v_reg,b_o_8_sv2v_reg,b_o_7_sv2v_reg,b_o_6_sv2v_reg,
+  b_o_5_sv2v_reg,b_o_4_sv2v_reg,b_o_3_sv2v_reg,b_o_2_sv2v_reg,b_o_1_sv2v_reg,
+  b_o_0_sv2v_reg,s_o_15_sv2v_reg,s_o_14_sv2v_reg,s_o_13_sv2v_reg,s_o_12_sv2v_reg,
+  s_o_11_sv2v_reg,s_o_10_sv2v_reg,s_o_9_sv2v_reg,s_o_8_sv2v_reg,s_o_7_sv2v_reg,
+  s_o_6_sv2v_reg,s_o_5_sv2v_reg,s_o_4_sv2v_reg,s_o_3_sv2v_reg,s_o_2_sv2v_reg,s_o_1_sv2v_reg,
+  s_o_0_sv2v_reg,c_o_sv2v_reg;
+  assign prod_accum_o[12] = prod_accum_o_12_sv2v_reg;
+  assign prod_accum_o[11] = prod_accum_o_11_sv2v_reg;
+  assign prod_accum_o[10] = prod_accum_o_10_sv2v_reg;
+  assign prod_accum_o[9] = prod_accum_o_9_sv2v_reg;
+  assign prod_accum_o[8] = prod_accum_o_8_sv2v_reg;
+  assign prod_accum_o[7] = prod_accum_o_7_sv2v_reg;
+  assign prod_accum_o[6] = prod_accum_o_6_sv2v_reg;
+  assign prod_accum_o[5] = prod_accum_o_5_sv2v_reg;
+  assign prod_accum_o[4] = prod_accum_o_4_sv2v_reg;
+  assign prod_accum_o[3] = prod_accum_o_3_sv2v_reg;
+  assign prod_accum_o[2] = prod_accum_o_2_sv2v_reg;
+  assign prod_accum_o[1] = prod_accum_o_1_sv2v_reg;
+  assign prod_accum_o[0] = prod_accum_o_0_sv2v_reg;
+  assign a_o[15] = a_o_15_sv2v_reg;
+  assign a_o[14] = a_o_14_sv2v_reg;
+  assign a_o[13] = a_o_13_sv2v_reg;
+  assign a_o[12] = a_o_12_sv2v_reg;
+  assign a_o[11] = a_o_11_sv2v_reg;
+  assign a_o[10] = a_o_10_sv2v_reg;
+  assign a_o[9] = a_o_9_sv2v_reg;
+  assign a_o[8] = a_o_8_sv2v_reg;
+  assign a_o[7] = a_o_7_sv2v_reg;
+  assign a_o[6] = a_o_6_sv2v_reg;
+  assign a_o[5] = a_o_5_sv2v_reg;
+  assign a_o[4] = a_o_4_sv2v_reg;
+  assign a_o[3] = a_o_3_sv2v_reg;
+  assign a_o[2] = a_o_2_sv2v_reg;
+  assign a_o[1] = a_o_1_sv2v_reg;
+  assign a_o[0] = a_o_0_sv2v_reg;
+  assign b_o[15] = b_o_15_sv2v_reg;
+  assign b_o[14] = b_o_14_sv2v_reg;
+  assign b_o[13] = b_o_13_sv2v_reg;
+  assign b_o[12] = b_o_12_sv2v_reg;
+  assign b_o[11] = b_o_11_sv2v_reg;
+  assign b_o[10] = b_o_10_sv2v_reg;
+  assign b_o[9] = b_o_9_sv2v_reg;
+  assign b_o[8] = b_o_8_sv2v_reg;
+  assign b_o[7] = b_o_7_sv2v_reg;
+  assign b_o[6] = b_o_6_sv2v_reg;
+  assign b_o[5] = b_o_5_sv2v_reg;
+  assign b_o[4] = b_o_4_sv2v_reg;
+  assign b_o[3] = b_o_3_sv2v_reg;
+  assign b_o[2] = b_o_2_sv2v_reg;
+  assign b_o[1] = b_o_1_sv2v_reg;
+  assign b_o[0] = b_o_0_sv2v_reg;
+  assign s_o[15] = s_o_15_sv2v_reg;
+  assign s_o[14] = s_o_14_sv2v_reg;
+  assign s_o[13] = s_o_13_sv2v_reg;
+  assign s_o[12] = s_o_12_sv2v_reg;
+  assign s_o[11] = s_o_11_sv2v_reg;
+  assign s_o[10] = s_o_10_sv2v_reg;
+  assign s_o[9] = s_o_9_sv2v_reg;
+  assign s_o[8] = s_o_8_sv2v_reg;
+  assign s_o[7] = s_o_7_sv2v_reg;
+  assign s_o[6] = s_o_6_sv2v_reg;
+  assign s_o[5] = s_o_5_sv2v_reg;
+  assign s_o[4] = s_o_4_sv2v_reg;
+  assign s_o[3] = s_o_3_sv2v_reg;
+  assign s_o[2] = s_o_2_sv2v_reg;
+  assign s_o[1] = s_o_1_sv2v_reg;
+  assign s_o[0] = s_o_0_sv2v_reg;
+  assign c_o = c_o_sv2v_reg;
 
   bsg_and_width_p16
   and0
@@ -1183,30 +1636,134 @@ module bsg_mul_array_row_16_11_1
     .c_o(pc)
   );
 
-  assign { N18, N17, N16, N15, N14, N13, N12, N11, N10, N9, N8, N7, N6, N5, N4, N3 } = (N0)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 } : 
-                                                                                       (N1)? a_i : 1'b0;
-  assign N0 = rst_i;
-  assign N1 = N2;
-  assign { N34, N33, N32, N31, N30, N29, N28, N27, N26, N25, N24, N23, N22, N21, N20, N19 } = (N0)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 } : 
-                                                                                              (N1)? b_i : 1'b0;
-  assign { N50, N49, N48, N47, N46, N45, N44, N43, N42, N41, N40, N39, N38, N37, N36, N35 } = (N0)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 } : 
-                                                                                              (N1)? ps : 1'b0;
-  assign N51 = (N0)? 1'b0 : 
-               (N1)? pc : 1'b0;
-  assign { N64, N63, N62, N61, N60, N59, N58, N57, N56, N55, N54, N53, N52 } = (N0)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 } : 
-                                                                               (N1)? { ps[0:0], prod_accum_i } : 1'b0;
-  assign N2 = ~rst_i;
-  assign N65 = ~v_i;
-  assign N66 = N65 & N2;
-  assign N67 = ~N66;
 
   always @(posedge clk_i) begin
-    if(N67) begin
-      { prod_accum_o[12:0] } <= { N64, N63, N62, N61, N60, N59, N58, N57, N56, N55, N54, N53, N52 };
-      { a_o[15:0] } <= { N18, N17, N16, N15, N14, N13, N12, N11, N10, N9, N8, N7, N6, N5, N4, N3 };
-      { b_o[15:0] } <= { N34, N33, N32, N31, N30, N29, N28, N27, N26, N25, N24, N23, N22, N21, N20, N19 };
-      { s_o[15:0] } <= { N50, N49, N48, N47, N46, N45, N44, N43, N42, N41, N40, N39, N38, N37, N36, N35 };
-      c_o <= N51;
+    if(rst_i) begin
+      prod_accum_o_12_sv2v_reg <= 1'b0;
+      prod_accum_o_11_sv2v_reg <= 1'b0;
+      prod_accum_o_10_sv2v_reg <= 1'b0;
+      prod_accum_o_9_sv2v_reg <= 1'b0;
+      prod_accum_o_8_sv2v_reg <= 1'b0;
+      prod_accum_o_7_sv2v_reg <= 1'b0;
+      prod_accum_o_6_sv2v_reg <= 1'b0;
+      prod_accum_o_5_sv2v_reg <= 1'b0;
+      prod_accum_o_4_sv2v_reg <= 1'b0;
+      prod_accum_o_3_sv2v_reg <= 1'b0;
+      prod_accum_o_2_sv2v_reg <= 1'b0;
+      prod_accum_o_1_sv2v_reg <= 1'b0;
+      prod_accum_o_0_sv2v_reg <= 1'b0;
+      a_o_15_sv2v_reg <= 1'b0;
+      a_o_14_sv2v_reg <= 1'b0;
+      a_o_13_sv2v_reg <= 1'b0;
+      a_o_12_sv2v_reg <= 1'b0;
+      a_o_11_sv2v_reg <= 1'b0;
+      a_o_10_sv2v_reg <= 1'b0;
+      a_o_9_sv2v_reg <= 1'b0;
+      a_o_8_sv2v_reg <= 1'b0;
+      a_o_7_sv2v_reg <= 1'b0;
+      a_o_6_sv2v_reg <= 1'b0;
+      a_o_5_sv2v_reg <= 1'b0;
+      a_o_4_sv2v_reg <= 1'b0;
+      a_o_3_sv2v_reg <= 1'b0;
+      a_o_2_sv2v_reg <= 1'b0;
+      a_o_1_sv2v_reg <= 1'b0;
+      a_o_0_sv2v_reg <= 1'b0;
+      b_o_15_sv2v_reg <= 1'b0;
+      b_o_14_sv2v_reg <= 1'b0;
+      b_o_13_sv2v_reg <= 1'b0;
+      b_o_12_sv2v_reg <= 1'b0;
+      b_o_11_sv2v_reg <= 1'b0;
+      b_o_10_sv2v_reg <= 1'b0;
+      b_o_9_sv2v_reg <= 1'b0;
+      b_o_8_sv2v_reg <= 1'b0;
+      b_o_7_sv2v_reg <= 1'b0;
+      b_o_6_sv2v_reg <= 1'b0;
+      b_o_5_sv2v_reg <= 1'b0;
+      b_o_4_sv2v_reg <= 1'b0;
+      b_o_3_sv2v_reg <= 1'b0;
+      b_o_2_sv2v_reg <= 1'b0;
+      b_o_1_sv2v_reg <= 1'b0;
+      b_o_0_sv2v_reg <= 1'b0;
+      s_o_15_sv2v_reg <= 1'b0;
+      s_o_14_sv2v_reg <= 1'b0;
+      s_o_13_sv2v_reg <= 1'b0;
+      s_o_12_sv2v_reg <= 1'b0;
+      s_o_11_sv2v_reg <= 1'b0;
+      s_o_10_sv2v_reg <= 1'b0;
+      s_o_9_sv2v_reg <= 1'b0;
+      s_o_8_sv2v_reg <= 1'b0;
+      s_o_7_sv2v_reg <= 1'b0;
+      s_o_6_sv2v_reg <= 1'b0;
+      s_o_5_sv2v_reg <= 1'b0;
+      s_o_4_sv2v_reg <= 1'b0;
+      s_o_3_sv2v_reg <= 1'b0;
+      s_o_2_sv2v_reg <= 1'b0;
+      s_o_1_sv2v_reg <= 1'b0;
+      s_o_0_sv2v_reg <= 1'b0;
+      c_o_sv2v_reg <= 1'b0;
+    end else if(v_i) begin
+      prod_accum_o_12_sv2v_reg <= ps[0];
+      prod_accum_o_11_sv2v_reg <= prod_accum_i[11];
+      prod_accum_o_10_sv2v_reg <= prod_accum_i[10];
+      prod_accum_o_9_sv2v_reg <= prod_accum_i[9];
+      prod_accum_o_8_sv2v_reg <= prod_accum_i[8];
+      prod_accum_o_7_sv2v_reg <= prod_accum_i[7];
+      prod_accum_o_6_sv2v_reg <= prod_accum_i[6];
+      prod_accum_o_5_sv2v_reg <= prod_accum_i[5];
+      prod_accum_o_4_sv2v_reg <= prod_accum_i[4];
+      prod_accum_o_3_sv2v_reg <= prod_accum_i[3];
+      prod_accum_o_2_sv2v_reg <= prod_accum_i[2];
+      prod_accum_o_1_sv2v_reg <= prod_accum_i[1];
+      prod_accum_o_0_sv2v_reg <= prod_accum_i[0];
+      a_o_15_sv2v_reg <= a_i[15];
+      a_o_14_sv2v_reg <= a_i[14];
+      a_o_13_sv2v_reg <= a_i[13];
+      a_o_12_sv2v_reg <= a_i[12];
+      a_o_11_sv2v_reg <= a_i[11];
+      a_o_10_sv2v_reg <= a_i[10];
+      a_o_9_sv2v_reg <= a_i[9];
+      a_o_8_sv2v_reg <= a_i[8];
+      a_o_7_sv2v_reg <= a_i[7];
+      a_o_6_sv2v_reg <= a_i[6];
+      a_o_5_sv2v_reg <= a_i[5];
+      a_o_4_sv2v_reg <= a_i[4];
+      a_o_3_sv2v_reg <= a_i[3];
+      a_o_2_sv2v_reg <= a_i[2];
+      a_o_1_sv2v_reg <= a_i[1];
+      a_o_0_sv2v_reg <= a_i[0];
+      b_o_15_sv2v_reg <= b_i[15];
+      b_o_14_sv2v_reg <= b_i[14];
+      b_o_13_sv2v_reg <= b_i[13];
+      b_o_12_sv2v_reg <= b_i[12];
+      b_o_11_sv2v_reg <= b_i[11];
+      b_o_10_sv2v_reg <= b_i[10];
+      b_o_9_sv2v_reg <= b_i[9];
+      b_o_8_sv2v_reg <= b_i[8];
+      b_o_7_sv2v_reg <= b_i[7];
+      b_o_6_sv2v_reg <= b_i[6];
+      b_o_5_sv2v_reg <= b_i[5];
+      b_o_4_sv2v_reg <= b_i[4];
+      b_o_3_sv2v_reg <= b_i[3];
+      b_o_2_sv2v_reg <= b_i[2];
+      b_o_1_sv2v_reg <= b_i[1];
+      b_o_0_sv2v_reg <= b_i[0];
+      s_o_15_sv2v_reg <= ps[15];
+      s_o_14_sv2v_reg <= ps[14];
+      s_o_13_sv2v_reg <= ps[13];
+      s_o_12_sv2v_reg <= ps[12];
+      s_o_11_sv2v_reg <= ps[11];
+      s_o_10_sv2v_reg <= ps[10];
+      s_o_9_sv2v_reg <= ps[9];
+      s_o_8_sv2v_reg <= ps[8];
+      s_o_7_sv2v_reg <= ps[7];
+      s_o_6_sv2v_reg <= ps[6];
+      s_o_5_sv2v_reg <= ps[5];
+      s_o_4_sv2v_reg <= ps[4];
+      s_o_3_sv2v_reg <= ps[3];
+      s_o_2_sv2v_reg <= ps[2];
+      s_o_1_sv2v_reg <= ps[1];
+      s_o_0_sv2v_reg <= ps[0];
+      c_o_sv2v_reg <= pc;
     end 
   end
 
@@ -1247,7 +1804,9 @@ module bsg_mul_array_row_16_12_0
   output c_o;
   wire [15:0] a_o,b_o,s_o,pp;
   wire [13:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_12_,prod_accum_o_11_,prod_accum_o_10_,prod_accum_o_9_,
+  prod_accum_o_8_,prod_accum_o_7_,prod_accum_o_6_,prod_accum_o_5_,prod_accum_o_4_,
+  prod_accum_o_3_,prod_accum_o_2_,prod_accum_o_1_,prod_accum_o_0_;
   assign a_o[15] = a_i[15];
   assign a_o[14] = a_i[14];
   assign a_o[13] = a_i[13];
@@ -1280,26 +1839,40 @@ module bsg_mul_array_row_16_12_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[13] = s_o[0];
-  assign prod_accum_o[12] = prod_accum_i[12];
-  assign prod_accum_o[11] = prod_accum_i[11];
-  assign prod_accum_o[10] = prod_accum_i[10];
-  assign prod_accum_o[9] = prod_accum_i[9];
-  assign prod_accum_o[8] = prod_accum_i[8];
-  assign prod_accum_o[7] = prod_accum_i[7];
-  assign prod_accum_o[6] = prod_accum_i[6];
-  assign prod_accum_o[5] = prod_accum_i[5];
-  assign prod_accum_o[4] = prod_accum_i[4];
-  assign prod_accum_o[3] = prod_accum_i[3];
-  assign prod_accum_o[2] = prod_accum_i[2];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[13] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_12_ = prod_accum_i[12];
+  assign prod_accum_o[12] = prod_accum_o_12_;
+  assign prod_accum_o_11_ = prod_accum_i[11];
+  assign prod_accum_o[11] = prod_accum_o_11_;
+  assign prod_accum_o_10_ = prod_accum_i[10];
+  assign prod_accum_o[10] = prod_accum_o_10_;
+  assign prod_accum_o_9_ = prod_accum_i[9];
+  assign prod_accum_o[9] = prod_accum_o_9_;
+  assign prod_accum_o_8_ = prod_accum_i[8];
+  assign prod_accum_o[8] = prod_accum_o_8_;
+  assign prod_accum_o_7_ = prod_accum_i[7];
+  assign prod_accum_o[7] = prod_accum_o_7_;
+  assign prod_accum_o_6_ = prod_accum_i[6];
+  assign prod_accum_o[6] = prod_accum_o_6_;
+  assign prod_accum_o_5_ = prod_accum_i[5];
+  assign prod_accum_o[5] = prod_accum_o_5_;
+  assign prod_accum_o_4_ = prod_accum_i[4];
+  assign prod_accum_o[4] = prod_accum_o_4_;
+  assign prod_accum_o_3_ = prod_accum_i[3];
+  assign prod_accum_o[3] = prod_accum_o_3_;
+  assign prod_accum_o_2_ = prod_accum_i[2];
+  assign prod_accum_o[2] = prod_accum_o_2_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p16
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13], b_i[13:13] }),
+    .b_i({ b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13], b_o[13:13] }),
     .o(pp)
   );
 
@@ -1309,7 +1882,7 @@ module bsg_mul_array_row_16_12_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[15:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[15:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -1350,7 +1923,9 @@ module bsg_mul_array_row_16_13_0
   output c_o;
   wire [15:0] a_o,b_o,s_o,pp;
   wire [14:0] prod_accum_o;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_13_,prod_accum_o_12_,prod_accum_o_11_,prod_accum_o_10_,
+  prod_accum_o_9_,prod_accum_o_8_,prod_accum_o_7_,prod_accum_o_6_,prod_accum_o_5_,
+  prod_accum_o_4_,prod_accum_o_3_,prod_accum_o_2_,prod_accum_o_1_,prod_accum_o_0_;
   assign a_o[15] = a_i[15];
   assign a_o[14] = a_i[14];
   assign a_o[13] = a_i[13];
@@ -1383,27 +1958,42 @@ module bsg_mul_array_row_16_13_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[14] = s_o[0];
-  assign prod_accum_o[13] = prod_accum_i[13];
-  assign prod_accum_o[12] = prod_accum_i[12];
-  assign prod_accum_o[11] = prod_accum_i[11];
-  assign prod_accum_o[10] = prod_accum_i[10];
-  assign prod_accum_o[9] = prod_accum_i[9];
-  assign prod_accum_o[8] = prod_accum_i[8];
-  assign prod_accum_o[7] = prod_accum_i[7];
-  assign prod_accum_o[6] = prod_accum_i[6];
-  assign prod_accum_o[5] = prod_accum_i[5];
-  assign prod_accum_o[4] = prod_accum_i[4];
-  assign prod_accum_o[3] = prod_accum_i[3];
-  assign prod_accum_o[2] = prod_accum_i[2];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[14] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_13_ = prod_accum_i[13];
+  assign prod_accum_o[13] = prod_accum_o_13_;
+  assign prod_accum_o_12_ = prod_accum_i[12];
+  assign prod_accum_o[12] = prod_accum_o_12_;
+  assign prod_accum_o_11_ = prod_accum_i[11];
+  assign prod_accum_o[11] = prod_accum_o_11_;
+  assign prod_accum_o_10_ = prod_accum_i[10];
+  assign prod_accum_o[10] = prod_accum_o_10_;
+  assign prod_accum_o_9_ = prod_accum_i[9];
+  assign prod_accum_o[9] = prod_accum_o_9_;
+  assign prod_accum_o_8_ = prod_accum_i[8];
+  assign prod_accum_o[8] = prod_accum_o_8_;
+  assign prod_accum_o_7_ = prod_accum_i[7];
+  assign prod_accum_o[7] = prod_accum_o_7_;
+  assign prod_accum_o_6_ = prod_accum_i[6];
+  assign prod_accum_o[6] = prod_accum_o_6_;
+  assign prod_accum_o_5_ = prod_accum_i[5];
+  assign prod_accum_o[5] = prod_accum_o_5_;
+  assign prod_accum_o_4_ = prod_accum_i[4];
+  assign prod_accum_o[4] = prod_accum_o_4_;
+  assign prod_accum_o_3_ = prod_accum_i[3];
+  assign prod_accum_o[3] = prod_accum_o_3_;
+  assign prod_accum_o_2_ = prod_accum_i[2];
+  assign prod_accum_o[2] = prod_accum_o_2_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p16
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14], b_i[14:14] }),
+    .b_i({ b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14], b_o[14:14] }),
     .o(pp)
   );
 
@@ -1413,7 +2003,7 @@ module bsg_mul_array_row_16_13_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[15:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[15:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -1453,7 +2043,10 @@ module bsg_mul_array_row_16_14_0
   input c_i;
   output c_o;
   wire [15:0] a_o,b_o,s_o,prod_accum_o,pp;
-  wire c_o;
+  wire c_o,s_o_0_,prod_accum_o_14_,prod_accum_o_13_,prod_accum_o_12_,prod_accum_o_11_,
+  prod_accum_o_10_,prod_accum_o_9_,prod_accum_o_8_,prod_accum_o_7_,prod_accum_o_6_,
+  prod_accum_o_5_,prod_accum_o_4_,prod_accum_o_3_,prod_accum_o_2_,prod_accum_o_1_,
+  prod_accum_o_0_;
   assign a_o[15] = a_i[15];
   assign a_o[14] = a_i[14];
   assign a_o[13] = a_i[13];
@@ -1486,28 +2079,44 @@ module bsg_mul_array_row_16_14_0
   assign b_o[2] = b_i[2];
   assign b_o[1] = b_i[1];
   assign b_o[0] = b_i[0];
-  assign prod_accum_o[15] = s_o[0];
-  assign prod_accum_o[14] = prod_accum_i[14];
-  assign prod_accum_o[13] = prod_accum_i[13];
-  assign prod_accum_o[12] = prod_accum_i[12];
-  assign prod_accum_o[11] = prod_accum_i[11];
-  assign prod_accum_o[10] = prod_accum_i[10];
-  assign prod_accum_o[9] = prod_accum_i[9];
-  assign prod_accum_o[8] = prod_accum_i[8];
-  assign prod_accum_o[7] = prod_accum_i[7];
-  assign prod_accum_o[6] = prod_accum_i[6];
-  assign prod_accum_o[5] = prod_accum_i[5];
-  assign prod_accum_o[4] = prod_accum_i[4];
-  assign prod_accum_o[3] = prod_accum_i[3];
-  assign prod_accum_o[2] = prod_accum_i[2];
-  assign prod_accum_o[1] = prod_accum_i[1];
-  assign prod_accum_o[0] = prod_accum_i[0];
+  assign prod_accum_o[15] = s_o_0_;
+  assign s_o[0] = s_o_0_;
+  assign prod_accum_o_14_ = prod_accum_i[14];
+  assign prod_accum_o[14] = prod_accum_o_14_;
+  assign prod_accum_o_13_ = prod_accum_i[13];
+  assign prod_accum_o[13] = prod_accum_o_13_;
+  assign prod_accum_o_12_ = prod_accum_i[12];
+  assign prod_accum_o[12] = prod_accum_o_12_;
+  assign prod_accum_o_11_ = prod_accum_i[11];
+  assign prod_accum_o[11] = prod_accum_o_11_;
+  assign prod_accum_o_10_ = prod_accum_i[10];
+  assign prod_accum_o[10] = prod_accum_o_10_;
+  assign prod_accum_o_9_ = prod_accum_i[9];
+  assign prod_accum_o[9] = prod_accum_o_9_;
+  assign prod_accum_o_8_ = prod_accum_i[8];
+  assign prod_accum_o[8] = prod_accum_o_8_;
+  assign prod_accum_o_7_ = prod_accum_i[7];
+  assign prod_accum_o[7] = prod_accum_o_7_;
+  assign prod_accum_o_6_ = prod_accum_i[6];
+  assign prod_accum_o[6] = prod_accum_o_6_;
+  assign prod_accum_o_5_ = prod_accum_i[5];
+  assign prod_accum_o[5] = prod_accum_o_5_;
+  assign prod_accum_o_4_ = prod_accum_i[4];
+  assign prod_accum_o[4] = prod_accum_o_4_;
+  assign prod_accum_o_3_ = prod_accum_i[3];
+  assign prod_accum_o[3] = prod_accum_o_3_;
+  assign prod_accum_o_2_ = prod_accum_i[2];
+  assign prod_accum_o[2] = prod_accum_o_2_;
+  assign prod_accum_o_1_ = prod_accum_i[1];
+  assign prod_accum_o[1] = prod_accum_o_1_;
+  assign prod_accum_o_0_ = prod_accum_i[0];
+  assign prod_accum_o[0] = prod_accum_o_0_;
 
   bsg_and_width_p16
   and0
   (
     .a_i(a_i),
-    .b_i({ b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15], b_i[15:15] }),
+    .b_i({ b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15], b_o[15:15] }),
     .o(pp)
   );
 
@@ -1517,7 +2126,7 @@ module bsg_mul_array_row_16_14_0
   (
     .a_i(pp),
     .b_i({ c_i, s_i[15:1] }),
-    .s_o(s_o),
+    .s_o({ s_o[15:1], s_o_0_ }),
     .c_o(c_o)
   );
 
@@ -1599,16 +2208,11 @@ module bsg_mul_array
   prod_accum_4__1_,prod_accum_4__0_,prod_accum_3__4_,prod_accum_3__3_,prod_accum_3__2_,
   prod_accum_3__1_,prod_accum_3__0_,prod_accum_2__3_,prod_accum_2__2_,prod_accum_2__1_,
   prod_accum_2__0_,prod_accum_1__2_,prod_accum_1__1_,prod_accum_1__0_,
-  prod_accum_0__1_,prod_accum_0__0_,SYNOPSYS_UNCONNECTED_1,SYNOPSYS_UNCONNECTED_2,
-  SYNOPSYS_UNCONNECTED_3,SYNOPSYS_UNCONNECTED_4,SYNOPSYS_UNCONNECTED_5,SYNOPSYS_UNCONNECTED_6,
-  SYNOPSYS_UNCONNECTED_7,SYNOPSYS_UNCONNECTED_8,SYNOPSYS_UNCONNECTED_9,
-  SYNOPSYS_UNCONNECTED_10,SYNOPSYS_UNCONNECTED_11,SYNOPSYS_UNCONNECTED_12,
-  SYNOPSYS_UNCONNECTED_13,SYNOPSYS_UNCONNECTED_14,SYNOPSYS_UNCONNECTED_15,SYNOPSYS_UNCONNECTED_16,
-  SYNOPSYS_UNCONNECTED_17,SYNOPSYS_UNCONNECTED_18,SYNOPSYS_UNCONNECTED_19,
-  SYNOPSYS_UNCONNECTED_20,SYNOPSYS_UNCONNECTED_21,SYNOPSYS_UNCONNECTED_22,
-  SYNOPSYS_UNCONNECTED_23,SYNOPSYS_UNCONNECTED_24,SYNOPSYS_UNCONNECTED_25,SYNOPSYS_UNCONNECTED_26,
-  SYNOPSYS_UNCONNECTED_27,SYNOPSYS_UNCONNECTED_28,SYNOPSYS_UNCONNECTED_29,
-  SYNOPSYS_UNCONNECTED_30,SYNOPSYS_UNCONNECTED_31,SYNOPSYS_UNCONNECTED_32;
+  prod_accum_0__1_,prod_accum_0__0_,sv2v_dc_1,sv2v_dc_2,sv2v_dc_3,sv2v_dc_4,sv2v_dc_5,sv2v_dc_6,
+  sv2v_dc_7,sv2v_dc_8,sv2v_dc_9,sv2v_dc_10,sv2v_dc_11,sv2v_dc_12,sv2v_dc_13,
+  sv2v_dc_14,sv2v_dc_15,sv2v_dc_16,sv2v_dc_17,sv2v_dc_18,sv2v_dc_19,sv2v_dc_20,
+  sv2v_dc_21,sv2v_dc_22,sv2v_dc_23,sv2v_dc_24,sv2v_dc_25,sv2v_dc_26,sv2v_dc_27,sv2v_dc_28,
+  sv2v_dc_29,sv2v_dc_30,sv2v_dc_31,sv2v_dc_32;
   wire [15:0] pp0;
   wire [223:0] a_r,b_r;
   wire [13:0] c_r;
@@ -1623,7 +2227,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_16_0_0
-  genblk1_0__genblk1_first_row
+  \genblk1_0_.genblk1.first_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -1642,7 +2246,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_16_1_0
-  genblk1_1__genblk1_mid_row
+  \genblk1_1_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -1661,7 +2265,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_16_2_0
-  genblk1_2__genblk1_mid_row
+  \genblk1_2_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -1680,7 +2284,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_16_3_1
-  genblk1_3__genblk1_mid_row
+  \genblk1_3_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -1699,7 +2303,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_16_4_0
-  genblk1_4__genblk1_mid_row
+  \genblk1_4_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -1718,7 +2322,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_16_5_0
-  genblk1_5__genblk1_mid_row
+  \genblk1_5_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -1737,7 +2341,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_16_6_0
-  genblk1_6__genblk1_mid_row
+  \genblk1_6_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -1756,7 +2360,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_16_7_1
-  genblk1_7__genblk1_mid_row
+  \genblk1_7_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -1775,7 +2379,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_16_8_0
-  genblk1_8__genblk1_mid_row
+  \genblk1_8_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -1794,7 +2398,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_16_9_0
-  genblk1_9__genblk1_mid_row
+  \genblk1_9_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -1813,7 +2417,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_16_10_0
-  genblk1_10__genblk1_mid_row
+  \genblk1_10_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -1832,7 +2436,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_16_11_1
-  genblk1_11__genblk1_mid_row
+  \genblk1_11_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -1851,7 +2455,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_16_12_0
-  genblk1_12__genblk1_mid_row
+  \genblk1_12_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -1870,7 +2474,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_16_13_0
-  genblk1_13__genblk1_mid_row
+  \genblk1_13_.genblk1.mid_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -1889,7 +2493,7 @@ module bsg_mul_array
 
 
   bsg_mul_array_row_16_14_0
-  genblk1_14__genblk1_last_row
+  \genblk1_14_.genblk1.last_row 
   (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -1899,8 +2503,8 @@ module bsg_mul_array
     .s_i({ s_r_13__15_, s_r_13__14_, s_r_13__13_, s_r_13__12_, s_r_13__11_, s_r_13__10_, s_r_13__9_, s_r_13__8_, s_r_13__7_, s_r_13__6_, s_r_13__5_, s_r_13__4_, s_r_13__3_, s_r_13__2_, s_r_13__1_, s_r_13__0_ }),
     .c_i(c_r[13]),
     .prod_accum_i({ prod_accum_13__14_, prod_accum_13__13_, prod_accum_13__12_, prod_accum_13__11_, prod_accum_13__10_, prod_accum_13__9_, prod_accum_13__8_, prod_accum_13__7_, prod_accum_13__6_, prod_accum_13__5_, prod_accum_13__4_, prod_accum_13__3_, prod_accum_13__2_, prod_accum_13__1_, prod_accum_13__0_ }),
-    .a_o({ SYNOPSYS_UNCONNECTED_1, SYNOPSYS_UNCONNECTED_2, SYNOPSYS_UNCONNECTED_3, SYNOPSYS_UNCONNECTED_4, SYNOPSYS_UNCONNECTED_5, SYNOPSYS_UNCONNECTED_6, SYNOPSYS_UNCONNECTED_7, SYNOPSYS_UNCONNECTED_8, SYNOPSYS_UNCONNECTED_9, SYNOPSYS_UNCONNECTED_10, SYNOPSYS_UNCONNECTED_11, SYNOPSYS_UNCONNECTED_12, SYNOPSYS_UNCONNECTED_13, SYNOPSYS_UNCONNECTED_14, SYNOPSYS_UNCONNECTED_15, SYNOPSYS_UNCONNECTED_16 }),
-    .b_o({ SYNOPSYS_UNCONNECTED_17, SYNOPSYS_UNCONNECTED_18, SYNOPSYS_UNCONNECTED_19, SYNOPSYS_UNCONNECTED_20, SYNOPSYS_UNCONNECTED_21, SYNOPSYS_UNCONNECTED_22, SYNOPSYS_UNCONNECTED_23, SYNOPSYS_UNCONNECTED_24, SYNOPSYS_UNCONNECTED_25, SYNOPSYS_UNCONNECTED_26, SYNOPSYS_UNCONNECTED_27, SYNOPSYS_UNCONNECTED_28, SYNOPSYS_UNCONNECTED_29, SYNOPSYS_UNCONNECTED_30, SYNOPSYS_UNCONNECTED_31, SYNOPSYS_UNCONNECTED_32 }),
+    .a_o({ sv2v_dc_1, sv2v_dc_2, sv2v_dc_3, sv2v_dc_4, sv2v_dc_5, sv2v_dc_6, sv2v_dc_7, sv2v_dc_8, sv2v_dc_9, sv2v_dc_10, sv2v_dc_11, sv2v_dc_12, sv2v_dc_13, sv2v_dc_14, sv2v_dc_15, sv2v_dc_16 }),
+    .b_o({ sv2v_dc_17, sv2v_dc_18, sv2v_dc_19, sv2v_dc_20, sv2v_dc_21, sv2v_dc_22, sv2v_dc_23, sv2v_dc_24, sv2v_dc_25, sv2v_dc_26, sv2v_dc_27, sv2v_dc_28, sv2v_dc_29, sv2v_dc_30, sv2v_dc_31, sv2v_dc_32 }),
     .s_o(o[30:15]),
     .c_o(o[31]),
     .prod_accum_o({ prod_accum_14__15_, o[14:0] })

@@ -37,11 +37,44 @@ module bsg_dff_width_p15_harden_p0_strength_p2
   input [14:0] data_i;
   output [14:0] data_o;
   input clk_i;
-  reg [14:0] data_o;
+  wire [14:0] data_o;
+  reg data_o_14_sv2v_reg,data_o_13_sv2v_reg,data_o_12_sv2v_reg,data_o_11_sv2v_reg,
+  data_o_10_sv2v_reg,data_o_9_sv2v_reg,data_o_8_sv2v_reg,data_o_7_sv2v_reg,
+  data_o_6_sv2v_reg,data_o_5_sv2v_reg,data_o_4_sv2v_reg,data_o_3_sv2v_reg,data_o_2_sv2v_reg,
+  data_o_1_sv2v_reg,data_o_0_sv2v_reg;
+  assign data_o[14] = data_o_14_sv2v_reg;
+  assign data_o[13] = data_o_13_sv2v_reg;
+  assign data_o[12] = data_o_12_sv2v_reg;
+  assign data_o[11] = data_o_11_sv2v_reg;
+  assign data_o[10] = data_o_10_sv2v_reg;
+  assign data_o[9] = data_o_9_sv2v_reg;
+  assign data_o[8] = data_o_8_sv2v_reg;
+  assign data_o[7] = data_o_7_sv2v_reg;
+  assign data_o[6] = data_o_6_sv2v_reg;
+  assign data_o[5] = data_o_5_sv2v_reg;
+  assign data_o[4] = data_o_4_sv2v_reg;
+  assign data_o[3] = data_o_3_sv2v_reg;
+  assign data_o[2] = data_o_2_sv2v_reg;
+  assign data_o[1] = data_o_1_sv2v_reg;
+  assign data_o[0] = data_o_0_sv2v_reg;
 
   always @(posedge clk_i) begin
     if(1'b1) begin
-      { data_o[14:0] } <= { data_i[14:0] };
+      data_o_14_sv2v_reg <= data_i[14];
+      data_o_13_sv2v_reg <= data_i[13];
+      data_o_12_sv2v_reg <= data_i[12];
+      data_o_11_sv2v_reg <= data_i[11];
+      data_o_10_sv2v_reg <= data_i[10];
+      data_o_9_sv2v_reg <= data_i[9];
+      data_o_8_sv2v_reg <= data_i[8];
+      data_o_7_sv2v_reg <= data_i[7];
+      data_o_6_sv2v_reg <= data_i[6];
+      data_o_5_sv2v_reg <= data_i[5];
+      data_o_4_sv2v_reg <= data_i[4];
+      data_o_3_sv2v_reg <= data_i[3];
+      data_o_2_sv2v_reg <= data_i[2];
+      data_o_1_sv2v_reg <= data_i[1];
+      data_o_0_sv2v_reg <= data_i[0];
     end 
   end
 
@@ -210,11 +243,46 @@ module bsg_dff_width_p16_harden_p0_strength_p4
   input [15:0] data_i;
   output [15:0] data_o;
   input clk_i;
-  reg [15:0] data_o;
+  wire [15:0] data_o;
+  reg data_o_15_sv2v_reg,data_o_14_sv2v_reg,data_o_13_sv2v_reg,data_o_12_sv2v_reg,
+  data_o_11_sv2v_reg,data_o_10_sv2v_reg,data_o_9_sv2v_reg,data_o_8_sv2v_reg,
+  data_o_7_sv2v_reg,data_o_6_sv2v_reg,data_o_5_sv2v_reg,data_o_4_sv2v_reg,data_o_3_sv2v_reg,
+  data_o_2_sv2v_reg,data_o_1_sv2v_reg,data_o_0_sv2v_reg;
+  assign data_o[15] = data_o_15_sv2v_reg;
+  assign data_o[14] = data_o_14_sv2v_reg;
+  assign data_o[13] = data_o_13_sv2v_reg;
+  assign data_o[12] = data_o_12_sv2v_reg;
+  assign data_o[11] = data_o_11_sv2v_reg;
+  assign data_o[10] = data_o_10_sv2v_reg;
+  assign data_o[9] = data_o_9_sv2v_reg;
+  assign data_o[8] = data_o_8_sv2v_reg;
+  assign data_o[7] = data_o_7_sv2v_reg;
+  assign data_o[6] = data_o_6_sv2v_reg;
+  assign data_o[5] = data_o_5_sv2v_reg;
+  assign data_o[4] = data_o_4_sv2v_reg;
+  assign data_o[3] = data_o_3_sv2v_reg;
+  assign data_o[2] = data_o_2_sv2v_reg;
+  assign data_o[1] = data_o_1_sv2v_reg;
+  assign data_o[0] = data_o_0_sv2v_reg;
 
   always @(posedge clk_i) begin
     if(1'b1) begin
-      { data_o[15:0] } <= { data_i[15:0] };
+      data_o_15_sv2v_reg <= data_i[15];
+      data_o_14_sv2v_reg <= data_i[14];
+      data_o_13_sv2v_reg <= data_i[13];
+      data_o_12_sv2v_reg <= data_i[12];
+      data_o_11_sv2v_reg <= data_i[11];
+      data_o_10_sv2v_reg <= data_i[10];
+      data_o_9_sv2v_reg <= data_i[9];
+      data_o_8_sv2v_reg <= data_i[8];
+      data_o_7_sv2v_reg <= data_i[7];
+      data_o_6_sv2v_reg <= data_i[6];
+      data_o_5_sv2v_reg <= data_i[5];
+      data_o_4_sv2v_reg <= data_i[4];
+      data_o_3_sv2v_reg <= data_i[3];
+      data_o_2_sv2v_reg <= data_i[2];
+      data_o_1_sv2v_reg <= data_i[1];
+      data_o_0_sv2v_reg <= data_i[0];
     end 
   end
 
@@ -393,10 +461,11 @@ module bsg_strobe_width_p16_harden_p0
   input clk_i;
   input reset_r_i;
   output strobe_r_o;
-  wire strobe_n,new_val,strobe_n_buf;
+  wire strobe_r_o,strobe_n,new_val,strobe_n_buf;
   wire [14:0] C_n,C_r;
   wire [15:0] S_r,S_n,S_n_n,C_n_prereset;
-  reg strobe_r_o;
+  reg strobe_r_o_sv2v_reg;
+  assign strobe_r_o = strobe_r_o_sv2v_reg;
 
   bsg_dff_width_p15_harden_p0_strength_p2
   C_reg
@@ -473,7 +542,7 @@ module bsg_strobe_width_p16_harden_p0
 
   always @(posedge clk_i) begin
     if(1'b1) begin
-      strobe_r_o <= strobe_n_buf;
+      strobe_r_o_sv2v_reg <= strobe_n_buf;
     end 
   end
 
@@ -494,8 +563,9 @@ module bsg_counter_clock_downsample
   input clk_i;
   input reset_i;
   output clk_r_o;
-  wire N0,strobe_r,N1,N2,N3,N4,N5,N6,N7,N8;
-  reg clk_r_o;
+  wire clk_r_o,N0,strobe_r,N1,N2,N3;
+  reg clk_r_o_sv2v_reg;
+  assign clk_r_o = clk_r_o_sv2v_reg;
 
   bsg_strobe_width_p16_harden_p0
   strobe
@@ -506,22 +576,17 @@ module bsg_counter_clock_downsample
     .strobe_r_o(strobe_r)
   );
 
-  assign N5 = (N0)? 1'b1 : 
-              (N8)? 1'b1 : 
-              (N3)? 1'b0 : 1'b0;
-  assign N0 = N1;
-  assign N6 = (N0)? 1'b0 : 
-              (N8)? N4 : 1'b0;
-  assign N1 = reset_i;
-  assign N2 = strobe_r | N1;
-  assign N3 = ~N2;
-  assign N4 = ~clk_r_o;
-  assign N7 = ~N1;
-  assign N8 = strobe_r & N7;
+  assign N3 = (N0)? 1'b1 : 
+              (N1)? 1'b0 : 1'b0;
+  assign N0 = strobe_r;
+  assign N1 = ~strobe_r;
+  assign N2 = ~clk_r_o;
 
   always @(posedge clk_i) begin
-    if(N5) begin
-      clk_r_o <= N6;
+    if(reset_i) begin
+      clk_r_o_sv2v_reg <= 1'b0;
+    end else if(N3) begin
+      clk_r_o_sv2v_reg <= N2;
     end 
   end
 

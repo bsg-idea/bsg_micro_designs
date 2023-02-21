@@ -49,8 +49,15 @@ module bsg_fpu_preprocess_e_p5_m_p10
   output sign_o;
   wire [4:0] exp_o;
   wire [9:0] man_o;
-  wire zero_o,nan_o,sig_nan_o,infty_o,exp_zero_o,man_zero_o,denormal_o,sign_o,N0,N1,N2,
-  N3,N5,N6,N7,N8,N9,N10,N11,N12,N13,N14,N15,N16,N17,N19;
+  wire zero_o,nan_o,sig_nan_o,infty_o,exp_zero_o,man_zero_o,denormal_o,sign_o,a_i_15_,
+  N0,N1,N2,N3,N5,N6,N7,N8,N9,N10,N11,N12,N13,N14,N15,N16,N17,N19;
+  assign a_i_15_ = a_i[15];
+  assign sign_o = a_i_15_;
+  assign exp_o[4] = a_i[14];
+  assign exp_o[3] = a_i[13];
+  assign exp_o[2] = a_i[12];
+  assign exp_o[1] = a_i[11];
+  assign exp_o[0] = a_i[10];
   assign man_o[9] = a_i[9];
   assign man_o[8] = a_i[8];
   assign man_o[7] = a_i[7];
@@ -61,35 +68,29 @@ module bsg_fpu_preprocess_e_p5_m_p10
   assign man_o[2] = a_i[2];
   assign man_o[1] = a_i[1];
   assign man_o[0] = a_i[0];
-  assign exp_o[4] = a_i[14];
-  assign exp_o[3] = a_i[13];
-  assign exp_o[2] = a_i[12];
-  assign exp_o[1] = a_i[11];
-  assign exp_o[0] = a_i[10];
-  assign sign_o = a_i[15];
-  assign N0 = a_i[13] | a_i[14];
-  assign N1 = a_i[12] | N0;
-  assign N2 = a_i[11] | N1;
-  assign N3 = a_i[10] | N2;
+  assign N0 = exp_o[3] | exp_o[4];
+  assign N1 = exp_o[2] | N0;
+  assign N2 = exp_o[1] | N1;
+  assign N3 = exp_o[0] | N2;
   assign exp_zero_o = ~N3;
-  assign N5 = a_i[13] & a_i[14];
-  assign N6 = a_i[12] & N5;
-  assign N7 = a_i[11] & N6;
-  assign N8 = a_i[10] & N7;
-  assign N9 = a_i[8] | a_i[9];
-  assign N10 = a_i[7] | N9;
-  assign N11 = a_i[6] | N10;
-  assign N12 = a_i[5] | N11;
-  assign N13 = a_i[4] | N12;
-  assign N14 = a_i[3] | N13;
-  assign N15 = a_i[2] | N14;
-  assign N16 = a_i[1] | N15;
-  assign N17 = a_i[0] | N16;
+  assign N5 = exp_o[3] & exp_o[4];
+  assign N6 = exp_o[2] & N5;
+  assign N7 = exp_o[1] & N6;
+  assign N8 = exp_o[0] & N7;
+  assign N9 = man_o[8] | man_o[9];
+  assign N10 = man_o[7] | N9;
+  assign N11 = man_o[6] | N10;
+  assign N12 = man_o[5] | N11;
+  assign N13 = man_o[4] | N12;
+  assign N14 = man_o[3] | N13;
+  assign N15 = man_o[2] | N14;
+  assign N16 = man_o[1] | N15;
+  assign N17 = man_o[0] | N16;
   assign man_zero_o = ~N17;
   assign zero_o = exp_zero_o & man_zero_o;
   assign nan_o = N8 & N17;
   assign sig_nan_o = nan_o & N19;
-  assign N19 = ~a_i[9];
+  assign N19 = ~man_o[9];
   assign infty_o = N8 & man_zero_o;
   assign denormal_o = exp_zero_o & N17;
 
@@ -106,12 +107,9 @@ module bsg_fpu_classify
   input [15:0] a_i;
   output [15:0] class_o;
   wire [15:0] class_o;
-  wire zero,nan,infty,denormal,sign,N0,N1,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11,
-  SYNOPSYS_UNCONNECTED_1,SYNOPSYS_UNCONNECTED_2,SYNOPSYS_UNCONNECTED_3,SYNOPSYS_UNCONNECTED_4,
-  SYNOPSYS_UNCONNECTED_5,SYNOPSYS_UNCONNECTED_6,SYNOPSYS_UNCONNECTED_7,
-  SYNOPSYS_UNCONNECTED_8,SYNOPSYS_UNCONNECTED_9,SYNOPSYS_UNCONNECTED_10,
-  SYNOPSYS_UNCONNECTED_11,SYNOPSYS_UNCONNECTED_12,SYNOPSYS_UNCONNECTED_13,SYNOPSYS_UNCONNECTED_14,
-  SYNOPSYS_UNCONNECTED_15;
+  wire zero,nan,infty,denormal,sign,N0,N1,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11,sv2v_dc_1,
+  sv2v_dc_2,sv2v_dc_3,sv2v_dc_4,sv2v_dc_5,sv2v_dc_6,sv2v_dc_7,sv2v_dc_8,sv2v_dc_9,
+  sv2v_dc_10,sv2v_dc_11,sv2v_dc_12,sv2v_dc_13,sv2v_dc_14,sv2v_dc_15;
   assign class_o[10] = 1'b0;
   assign class_o[11] = 1'b0;
   assign class_o[12] = 1'b0;
@@ -129,8 +127,8 @@ module bsg_fpu_classify
     .infty_o(infty),
     .denormal_o(denormal),
     .sign_o(sign),
-    .exp_o({ SYNOPSYS_UNCONNECTED_1, SYNOPSYS_UNCONNECTED_2, SYNOPSYS_UNCONNECTED_3, SYNOPSYS_UNCONNECTED_4, SYNOPSYS_UNCONNECTED_5 }),
-    .man_o({ SYNOPSYS_UNCONNECTED_6, SYNOPSYS_UNCONNECTED_7, SYNOPSYS_UNCONNECTED_8, SYNOPSYS_UNCONNECTED_9, SYNOPSYS_UNCONNECTED_10, SYNOPSYS_UNCONNECTED_11, SYNOPSYS_UNCONNECTED_12, SYNOPSYS_UNCONNECTED_13, SYNOPSYS_UNCONNECTED_14, SYNOPSYS_UNCONNECTED_15 })
+    .exp_o({ sv2v_dc_1, sv2v_dc_2, sv2v_dc_3, sv2v_dc_4, sv2v_dc_5 }),
+    .man_o({ sv2v_dc_6, sv2v_dc_7, sv2v_dc_8, sv2v_dc_9, sv2v_dc_10, sv2v_dc_11, sv2v_dc_12, sv2v_dc_13, sv2v_dc_14, sv2v_dc_15 })
   );
 
   assign class_o[0] = sign & infty;

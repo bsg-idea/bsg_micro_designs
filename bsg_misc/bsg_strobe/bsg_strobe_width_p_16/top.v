@@ -37,11 +37,44 @@ module bsg_dff_width_p15_harden_p0_strength_p2
   input [14:0] data_i;
   output [14:0] data_o;
   input clk_i;
-  reg [14:0] data_o;
+  wire [14:0] data_o;
+  reg data_o_14_sv2v_reg,data_o_13_sv2v_reg,data_o_12_sv2v_reg,data_o_11_sv2v_reg,
+  data_o_10_sv2v_reg,data_o_9_sv2v_reg,data_o_8_sv2v_reg,data_o_7_sv2v_reg,
+  data_o_6_sv2v_reg,data_o_5_sv2v_reg,data_o_4_sv2v_reg,data_o_3_sv2v_reg,data_o_2_sv2v_reg,
+  data_o_1_sv2v_reg,data_o_0_sv2v_reg;
+  assign data_o[14] = data_o_14_sv2v_reg;
+  assign data_o[13] = data_o_13_sv2v_reg;
+  assign data_o[12] = data_o_12_sv2v_reg;
+  assign data_o[11] = data_o_11_sv2v_reg;
+  assign data_o[10] = data_o_10_sv2v_reg;
+  assign data_o[9] = data_o_9_sv2v_reg;
+  assign data_o[8] = data_o_8_sv2v_reg;
+  assign data_o[7] = data_o_7_sv2v_reg;
+  assign data_o[6] = data_o_6_sv2v_reg;
+  assign data_o[5] = data_o_5_sv2v_reg;
+  assign data_o[4] = data_o_4_sv2v_reg;
+  assign data_o[3] = data_o_3_sv2v_reg;
+  assign data_o[2] = data_o_2_sv2v_reg;
+  assign data_o[1] = data_o_1_sv2v_reg;
+  assign data_o[0] = data_o_0_sv2v_reg;
 
   always @(posedge clk_i) begin
     if(1'b1) begin
-      { data_o[14:0] } <= { data_i[14:0] };
+      data_o_14_sv2v_reg <= data_i[14];
+      data_o_13_sv2v_reg <= data_i[13];
+      data_o_12_sv2v_reg <= data_i[12];
+      data_o_11_sv2v_reg <= data_i[11];
+      data_o_10_sv2v_reg <= data_i[10];
+      data_o_9_sv2v_reg <= data_i[9];
+      data_o_8_sv2v_reg <= data_i[8];
+      data_o_7_sv2v_reg <= data_i[7];
+      data_o_6_sv2v_reg <= data_i[6];
+      data_o_5_sv2v_reg <= data_i[5];
+      data_o_4_sv2v_reg <= data_i[4];
+      data_o_3_sv2v_reg <= data_i[3];
+      data_o_2_sv2v_reg <= data_i[2];
+      data_o_1_sv2v_reg <= data_i[1];
+      data_o_0_sv2v_reg <= data_i[0];
     end 
   end
 
@@ -210,11 +243,46 @@ module bsg_dff_width_p16_harden_p0_strength_p4
   input [15:0] data_i;
   output [15:0] data_o;
   input clk_i;
-  reg [15:0] data_o;
+  wire [15:0] data_o;
+  reg data_o_15_sv2v_reg,data_o_14_sv2v_reg,data_o_13_sv2v_reg,data_o_12_sv2v_reg,
+  data_o_11_sv2v_reg,data_o_10_sv2v_reg,data_o_9_sv2v_reg,data_o_8_sv2v_reg,
+  data_o_7_sv2v_reg,data_o_6_sv2v_reg,data_o_5_sv2v_reg,data_o_4_sv2v_reg,data_o_3_sv2v_reg,
+  data_o_2_sv2v_reg,data_o_1_sv2v_reg,data_o_0_sv2v_reg;
+  assign data_o[15] = data_o_15_sv2v_reg;
+  assign data_o[14] = data_o_14_sv2v_reg;
+  assign data_o[13] = data_o_13_sv2v_reg;
+  assign data_o[12] = data_o_12_sv2v_reg;
+  assign data_o[11] = data_o_11_sv2v_reg;
+  assign data_o[10] = data_o_10_sv2v_reg;
+  assign data_o[9] = data_o_9_sv2v_reg;
+  assign data_o[8] = data_o_8_sv2v_reg;
+  assign data_o[7] = data_o_7_sv2v_reg;
+  assign data_o[6] = data_o_6_sv2v_reg;
+  assign data_o[5] = data_o_5_sv2v_reg;
+  assign data_o[4] = data_o_4_sv2v_reg;
+  assign data_o[3] = data_o_3_sv2v_reg;
+  assign data_o[2] = data_o_2_sv2v_reg;
+  assign data_o[1] = data_o_1_sv2v_reg;
+  assign data_o[0] = data_o_0_sv2v_reg;
 
   always @(posedge clk_i) begin
     if(1'b1) begin
-      { data_o[15:0] } <= { data_i[15:0] };
+      data_o_15_sv2v_reg <= data_i[15];
+      data_o_14_sv2v_reg <= data_i[14];
+      data_o_13_sv2v_reg <= data_i[13];
+      data_o_12_sv2v_reg <= data_i[12];
+      data_o_11_sv2v_reg <= data_i[11];
+      data_o_10_sv2v_reg <= data_i[10];
+      data_o_9_sv2v_reg <= data_i[9];
+      data_o_8_sv2v_reg <= data_i[8];
+      data_o_7_sv2v_reg <= data_i[7];
+      data_o_6_sv2v_reg <= data_i[6];
+      data_o_5_sv2v_reg <= data_i[5];
+      data_o_4_sv2v_reg <= data_i[4];
+      data_o_3_sv2v_reg <= data_i[3];
+      data_o_2_sv2v_reg <= data_i[2];
+      data_o_1_sv2v_reg <= data_i[1];
+      data_o_0_sv2v_reg <= data_i[0];
     end 
   end
 
@@ -393,10 +461,11 @@ module bsg_strobe
   input clk_i;
   input reset_r_i;
   output strobe_r_o;
-  wire strobe_n,new_val,strobe_n_buf;
+  wire strobe_r_o,strobe_n,new_val,strobe_n_buf;
   wire [14:0] C_n,C_r;
   wire [15:0] S_r,S_n,S_n_n,C_n_prereset;
-  reg strobe_r_o;
+  reg strobe_r_o_sv2v_reg;
+  assign strobe_r_o = strobe_r_o_sv2v_reg;
 
   bsg_dff_width_p15_harden_p0_strength_p2
   C_reg
@@ -473,7 +542,7 @@ module bsg_strobe
 
   always @(posedge clk_i) begin
     if(1'b1) begin
-      strobe_r_o <= strobe_n_buf;
+      strobe_r_o_sv2v_reg <= strobe_n_buf;
     end 
   end
 

@@ -34,35 +34,49 @@ module bsg_wait_after_reset
   input reset_i;
   input clk_i;
   output ready_r_o;
-  wire N0,N1,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11,N12,N13,N14,N15,N16,N17,N18,N19,N20,N21;
-  reg ready_r_o;
-  reg [4:0] counter_r;
-  assign N17 = counter_r[3] | counter_r[4];
-  assign N18 = counter_r[2] | N17;
-  assign N19 = counter_r[1] | N18;
-  assign N20 = counter_r[0] | N19;
-  assign N21 = ~N20;
-  assign { N7, N6, N5, N4, N3 } = counter_r + 1'b1;
-  assign N8 = (N0)? 1'b1 : 
-              (N15)? 1'b0 : 
-              (N2)? 1'b1 : 1'b0;
-  assign N0 = reset_i;
-  assign { N13, N12, N11, N10, N9 } = (N0)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b1 } : 
-                                      (N2)? { N7, N6, N5, N4, N3 } : 1'b0;
-  assign N14 = (N0)? 1'b1 : 
-               (N15)? 1'b1 : 
-               (N2)? 1'b0 : 1'b0;
-  assign N1 = N21 | reset_i;
-  assign N2 = ~N1;
-  assign N16 = ~reset_i;
-  assign N15 = N21 & N16;
+  wire ready_r_o,N0,N1,N3,N4,N5,N6,N7,N8,N9,N10,N11,N12,N13,N14,N15,N16;
+  wire [4:0] counter_r;
+  reg ready_r_o_sv2v_reg,counter_r_4_sv2v_reg,counter_r_3_sv2v_reg,
+  counter_r_2_sv2v_reg,counter_r_1_sv2v_reg,counter_r_0_sv2v_reg;
+  assign ready_r_o = ready_r_o_sv2v_reg;
+  assign counter_r[4] = counter_r_4_sv2v_reg;
+  assign counter_r[3] = counter_r_3_sv2v_reg;
+  assign counter_r[2] = counter_r_2_sv2v_reg;
+  assign counter_r[1] = counter_r_1_sv2v_reg;
+  assign counter_r[0] = counter_r_0_sv2v_reg;
+  assign N12 = counter_r[3] | counter_r[4];
+  assign N13 = counter_r[2] | N12;
+  assign N14 = counter_r[1] | N13;
+  assign N15 = counter_r[0] | N14;
+  assign N16 = ~N15;
+  assign { N9, N8, N7, N6, N5 } = counter_r + 1'b1;
+  assign N10 = (N0)? 1'b0 : 
+               (N1)? 1'b1 : 1'b0;
+  assign N0 = N16;
+  assign N1 = N15;
+  assign N11 = (N0)? 1'b1 : 
+               (N1)? 1'b0 : 1'b0;
+  assign N3 = N16 | reset_i;
+  assign N4 = ~N3;
 
   always @(posedge clk_i) begin
-    if(N14) begin
-      ready_r_o <= N15;
+    if(reset_i) begin
+      ready_r_o_sv2v_reg <= 1'b0;
+    end else if(N11) begin
+      ready_r_o_sv2v_reg <= 1'b1;
     end 
-    if(N8) begin
-      { counter_r[4:0] } <= { N13, N12, N11, N10, N9 };
+    if(reset_i) begin
+      counter_r_4_sv2v_reg <= 1'b0;
+      counter_r_3_sv2v_reg <= 1'b0;
+      counter_r_2_sv2v_reg <= 1'b0;
+      counter_r_1_sv2v_reg <= 1'b0;
+      counter_r_0_sv2v_reg <= 1'b1;
+    end else if(N10) begin
+      counter_r_4_sv2v_reg <= N9;
+      counter_r_3_sv2v_reg <= N8;
+      counter_r_2_sv2v_reg <= N7;
+      counter_r_1_sv2v_reg <= N6;
+      counter_r_0_sv2v_reg <= N5;
     end 
   end
 

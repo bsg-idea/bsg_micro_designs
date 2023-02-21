@@ -56,24 +56,28 @@ module bsg_circular_ptr_slots_p8_max_add_p1
   output [2:0] n_o;
   input clk;
   input reset_i;
-  wire [2:0] n_o,genblk1_genblk1_ptr_r_p1;
-  wire N0,N1,N2,N3,N4,N5,N6,N7,N8;
-  reg [2:0] o;
-  assign genblk1_genblk1_ptr_r_p1 = o + 1'b1;
-  assign { N7, N6, N5 } = (N0)? { 1'b0, 1'b0, 1'b0 } : 
-                          (N1)? n_o : 1'b0;
-  assign N0 = reset_i;
-  assign N1 = N4;
-  assign n_o = (N2)? genblk1_genblk1_ptr_r_p1 : 
-               (N3)? o : 1'b0;
-  assign N2 = add_i[0];
-  assign N3 = N8;
-  assign N4 = ~reset_i;
-  assign N8 = ~add_i[0];
+  wire [2:0] o,n_o,\genblk1.genblk1.ptr_r_p1 ;
+  wire N0,N1,N2;
+  reg o_2_sv2v_reg,o_1_sv2v_reg,o_0_sv2v_reg;
+  assign o[2] = o_2_sv2v_reg;
+  assign o[1] = o_1_sv2v_reg;
+  assign o[0] = o_0_sv2v_reg;
+  assign \genblk1.genblk1.ptr_r_p1  = o + 1'b1;
+  assign n_o = (N0)? \genblk1.genblk1.ptr_r_p1  : 
+               (N1)? o : 1'b0;
+  assign N0 = add_i[0];
+  assign N1 = N2;
+  assign N2 = ~add_i[0];
 
   always @(posedge clk) begin
-    if(1'b1) begin
-      { o[2:0] } <= { N7, N6, N5 };
+    if(reset_i) begin
+      o_2_sv2v_reg <= 1'b0;
+      o_1_sv2v_reg <= 1'b0;
+      o_0_sv2v_reg <= 1'b0;
+    end else if(1'b1) begin
+      o_2_sv2v_reg <= n_o[2];
+      o_1_sv2v_reg <= n_o[1];
+      o_0_sv2v_reg <= n_o[0];
     end 
   end
 
@@ -108,17 +112,16 @@ module bsg_round_robin_n_to_1
   wire [31:0] data_o;
   wire [2:0] tag_o;
   wire v_o,N0,N1,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11,N12,N13,N14,N15,N16,N17,N18,N19,N20,
-  N21,N22,N23,N24,N25,N26,SYNOPSYS_UNCONNECTED_1,SYNOPSYS_UNCONNECTED_2,
-  SYNOPSYS_UNCONNECTED_3;
+  N21,N22,N23,N24,N25,N26,sv2v_dc_1,sv2v_dc_2,sv2v_dc_3;
 
   bsg_circular_ptr_slots_p8_max_add_p1
-  strict_circular_ptr
+  \strict.circular_ptr 
   (
     .clk(clk_i),
     .reset_i(reset_i),
     .add_i(yumi_i),
     .o(tag_o),
-    .n_o({ SYNOPSYS_UNCONNECTED_1, SYNOPSYS_UNCONNECTED_2, SYNOPSYS_UNCONNECTED_3 })
+    .n_o({ sv2v_dc_1, sv2v_dc_2, sv2v_dc_3 })
   );
 
   assign v_o = (N7)? v_i[0] : 

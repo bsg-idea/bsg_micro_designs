@@ -36,9 +36,12 @@ module bsg_hash_bank
   output [1:2] index_o;
   wire [0:0] bank_o;
   wire [1:2] index_o;
+  wire index_o__1_,index_o_0_;
   assign bank_o[0] = 1'b0;
-  assign index_o[1] = i[1];
-  assign index_o[2] = i[0];
+  assign index_o__1_ = i[1];
+  assign index_o[1] = index_o__1_;
+  assign index_o_0_ = i[0];
+  assign index_o[2] = index_o_0_;
 
 endmodule
 

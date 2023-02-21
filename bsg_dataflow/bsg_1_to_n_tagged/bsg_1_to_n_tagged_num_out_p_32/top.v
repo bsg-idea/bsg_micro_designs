@@ -132,7 +132,7 @@ module bsg_1_to_n_tagged
   N60,N61,N62,N63,N64,N65;
 
   bsg_decode_with_v_num_out_p32
-  many_bdv
+  \many.bdv 
   (
     .i(tag_i),
     .v_i(v_i),

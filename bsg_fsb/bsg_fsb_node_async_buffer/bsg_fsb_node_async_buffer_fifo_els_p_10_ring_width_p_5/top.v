@@ -95,7 +95,103 @@ module bsg_mem_1r1w_synth_width_p5_els_p16_read_write_same_addr_p0_harden_p0
   N42,N43,N44,N45,N46,N47,N48,N49,N50,N51,N52,N53,N54,N55,N56,N57,N58,N59,N60,N61,
   N62,N63,N64,N65,N66,N67,N68,N69,N70,N71,N72,N73,N74,N75,N76,N77,N78,N79,N80,N81,
   N82;
-  reg [79:0] mem;
+  wire [79:0] mem;
+  reg mem_79_sv2v_reg,mem_78_sv2v_reg,mem_77_sv2v_reg,mem_76_sv2v_reg,mem_75_sv2v_reg,
+  mem_74_sv2v_reg,mem_73_sv2v_reg,mem_72_sv2v_reg,mem_71_sv2v_reg,mem_70_sv2v_reg,
+  mem_69_sv2v_reg,mem_68_sv2v_reg,mem_67_sv2v_reg,mem_66_sv2v_reg,mem_65_sv2v_reg,
+  mem_64_sv2v_reg,mem_63_sv2v_reg,mem_62_sv2v_reg,mem_61_sv2v_reg,mem_60_sv2v_reg,
+  mem_59_sv2v_reg,mem_58_sv2v_reg,mem_57_sv2v_reg,mem_56_sv2v_reg,mem_55_sv2v_reg,
+  mem_54_sv2v_reg,mem_53_sv2v_reg,mem_52_sv2v_reg,mem_51_sv2v_reg,mem_50_sv2v_reg,
+  mem_49_sv2v_reg,mem_48_sv2v_reg,mem_47_sv2v_reg,mem_46_sv2v_reg,mem_45_sv2v_reg,
+  mem_44_sv2v_reg,mem_43_sv2v_reg,mem_42_sv2v_reg,mem_41_sv2v_reg,mem_40_sv2v_reg,
+  mem_39_sv2v_reg,mem_38_sv2v_reg,mem_37_sv2v_reg,mem_36_sv2v_reg,mem_35_sv2v_reg,
+  mem_34_sv2v_reg,mem_33_sv2v_reg,mem_32_sv2v_reg,mem_31_sv2v_reg,mem_30_sv2v_reg,
+  mem_29_sv2v_reg,mem_28_sv2v_reg,mem_27_sv2v_reg,mem_26_sv2v_reg,mem_25_sv2v_reg,
+  mem_24_sv2v_reg,mem_23_sv2v_reg,mem_22_sv2v_reg,mem_21_sv2v_reg,mem_20_sv2v_reg,
+  mem_19_sv2v_reg,mem_18_sv2v_reg,mem_17_sv2v_reg,mem_16_sv2v_reg,mem_15_sv2v_reg,
+  mem_14_sv2v_reg,mem_13_sv2v_reg,mem_12_sv2v_reg,mem_11_sv2v_reg,mem_10_sv2v_reg,
+  mem_9_sv2v_reg,mem_8_sv2v_reg,mem_7_sv2v_reg,mem_6_sv2v_reg,mem_5_sv2v_reg,
+  mem_4_sv2v_reg,mem_3_sv2v_reg,mem_2_sv2v_reg,mem_1_sv2v_reg,mem_0_sv2v_reg;
+  assign mem[79] = mem_79_sv2v_reg;
+  assign mem[78] = mem_78_sv2v_reg;
+  assign mem[77] = mem_77_sv2v_reg;
+  assign mem[76] = mem_76_sv2v_reg;
+  assign mem[75] = mem_75_sv2v_reg;
+  assign mem[74] = mem_74_sv2v_reg;
+  assign mem[73] = mem_73_sv2v_reg;
+  assign mem[72] = mem_72_sv2v_reg;
+  assign mem[71] = mem_71_sv2v_reg;
+  assign mem[70] = mem_70_sv2v_reg;
+  assign mem[69] = mem_69_sv2v_reg;
+  assign mem[68] = mem_68_sv2v_reg;
+  assign mem[67] = mem_67_sv2v_reg;
+  assign mem[66] = mem_66_sv2v_reg;
+  assign mem[65] = mem_65_sv2v_reg;
+  assign mem[64] = mem_64_sv2v_reg;
+  assign mem[63] = mem_63_sv2v_reg;
+  assign mem[62] = mem_62_sv2v_reg;
+  assign mem[61] = mem_61_sv2v_reg;
+  assign mem[60] = mem_60_sv2v_reg;
+  assign mem[59] = mem_59_sv2v_reg;
+  assign mem[58] = mem_58_sv2v_reg;
+  assign mem[57] = mem_57_sv2v_reg;
+  assign mem[56] = mem_56_sv2v_reg;
+  assign mem[55] = mem_55_sv2v_reg;
+  assign mem[54] = mem_54_sv2v_reg;
+  assign mem[53] = mem_53_sv2v_reg;
+  assign mem[52] = mem_52_sv2v_reg;
+  assign mem[51] = mem_51_sv2v_reg;
+  assign mem[50] = mem_50_sv2v_reg;
+  assign mem[49] = mem_49_sv2v_reg;
+  assign mem[48] = mem_48_sv2v_reg;
+  assign mem[47] = mem_47_sv2v_reg;
+  assign mem[46] = mem_46_sv2v_reg;
+  assign mem[45] = mem_45_sv2v_reg;
+  assign mem[44] = mem_44_sv2v_reg;
+  assign mem[43] = mem_43_sv2v_reg;
+  assign mem[42] = mem_42_sv2v_reg;
+  assign mem[41] = mem_41_sv2v_reg;
+  assign mem[40] = mem_40_sv2v_reg;
+  assign mem[39] = mem_39_sv2v_reg;
+  assign mem[38] = mem_38_sv2v_reg;
+  assign mem[37] = mem_37_sv2v_reg;
+  assign mem[36] = mem_36_sv2v_reg;
+  assign mem[35] = mem_35_sv2v_reg;
+  assign mem[34] = mem_34_sv2v_reg;
+  assign mem[33] = mem_33_sv2v_reg;
+  assign mem[32] = mem_32_sv2v_reg;
+  assign mem[31] = mem_31_sv2v_reg;
+  assign mem[30] = mem_30_sv2v_reg;
+  assign mem[29] = mem_29_sv2v_reg;
+  assign mem[28] = mem_28_sv2v_reg;
+  assign mem[27] = mem_27_sv2v_reg;
+  assign mem[26] = mem_26_sv2v_reg;
+  assign mem[25] = mem_25_sv2v_reg;
+  assign mem[24] = mem_24_sv2v_reg;
+  assign mem[23] = mem_23_sv2v_reg;
+  assign mem[22] = mem_22_sv2v_reg;
+  assign mem[21] = mem_21_sv2v_reg;
+  assign mem[20] = mem_20_sv2v_reg;
+  assign mem[19] = mem_19_sv2v_reg;
+  assign mem[18] = mem_18_sv2v_reg;
+  assign mem[17] = mem_17_sv2v_reg;
+  assign mem[16] = mem_16_sv2v_reg;
+  assign mem[15] = mem_15_sv2v_reg;
+  assign mem[14] = mem_14_sv2v_reg;
+  assign mem[13] = mem_13_sv2v_reg;
+  assign mem[12] = mem_12_sv2v_reg;
+  assign mem[11] = mem_11_sv2v_reg;
+  assign mem[10] = mem_10_sv2v_reg;
+  assign mem[9] = mem_9_sv2v_reg;
+  assign mem[8] = mem_8_sv2v_reg;
+  assign mem[7] = mem_7_sv2v_reg;
+  assign mem[6] = mem_6_sv2v_reg;
+  assign mem[5] = mem_5_sv2v_reg;
+  assign mem[4] = mem_4_sv2v_reg;
+  assign mem[3] = mem_3_sv2v_reg;
+  assign mem[2] = mem_2_sv2v_reg;
+  assign mem[1] = mem_1_sv2v_reg;
+  assign mem[0] = mem_0_sv2v_reg;
   assign r_data_o[4] = (N26)? mem[4] : 
                        (N28)? mem[9] : 
                        (N30)? mem[14] : 
@@ -248,52 +344,116 @@ module bsg_mem_1r1w_synth_width_p5_els_p16_read_write_same_addr_p0_harden_p0
 
   always @(posedge w_clk_i) begin
     if(N74) begin
-      { mem[79:75] } <= { w_data_i[4:0] };
+      mem_79_sv2v_reg <= w_data_i[4];
+      mem_78_sv2v_reg <= w_data_i[3];
+      mem_77_sv2v_reg <= w_data_i[2];
+      mem_76_sv2v_reg <= w_data_i[1];
+      mem_75_sv2v_reg <= w_data_i[0];
     end 
     if(N73) begin
-      { mem[74:70] } <= { w_data_i[4:0] };
+      mem_74_sv2v_reg <= w_data_i[4];
+      mem_73_sv2v_reg <= w_data_i[3];
+      mem_72_sv2v_reg <= w_data_i[2];
+      mem_71_sv2v_reg <= w_data_i[1];
+      mem_70_sv2v_reg <= w_data_i[0];
     end 
     if(N72) begin
-      { mem[69:65] } <= { w_data_i[4:0] };
+      mem_69_sv2v_reg <= w_data_i[4];
+      mem_68_sv2v_reg <= w_data_i[3];
+      mem_67_sv2v_reg <= w_data_i[2];
+      mem_66_sv2v_reg <= w_data_i[1];
+      mem_65_sv2v_reg <= w_data_i[0];
     end 
     if(N71) begin
-      { mem[64:60] } <= { w_data_i[4:0] };
+      mem_64_sv2v_reg <= w_data_i[4];
+      mem_63_sv2v_reg <= w_data_i[3];
+      mem_62_sv2v_reg <= w_data_i[2];
+      mem_61_sv2v_reg <= w_data_i[1];
+      mem_60_sv2v_reg <= w_data_i[0];
     end 
     if(N70) begin
-      { mem[59:55] } <= { w_data_i[4:0] };
+      mem_59_sv2v_reg <= w_data_i[4];
+      mem_58_sv2v_reg <= w_data_i[3];
+      mem_57_sv2v_reg <= w_data_i[2];
+      mem_56_sv2v_reg <= w_data_i[1];
+      mem_55_sv2v_reg <= w_data_i[0];
     end 
     if(N69) begin
-      { mem[54:50] } <= { w_data_i[4:0] };
+      mem_54_sv2v_reg <= w_data_i[4];
+      mem_53_sv2v_reg <= w_data_i[3];
+      mem_52_sv2v_reg <= w_data_i[2];
+      mem_51_sv2v_reg <= w_data_i[1];
+      mem_50_sv2v_reg <= w_data_i[0];
     end 
     if(N68) begin
-      { mem[49:45] } <= { w_data_i[4:0] };
+      mem_49_sv2v_reg <= w_data_i[4];
+      mem_48_sv2v_reg <= w_data_i[3];
+      mem_47_sv2v_reg <= w_data_i[2];
+      mem_46_sv2v_reg <= w_data_i[1];
+      mem_45_sv2v_reg <= w_data_i[0];
     end 
     if(N67) begin
-      { mem[44:40] } <= { w_data_i[4:0] };
+      mem_44_sv2v_reg <= w_data_i[4];
+      mem_43_sv2v_reg <= w_data_i[3];
+      mem_42_sv2v_reg <= w_data_i[2];
+      mem_41_sv2v_reg <= w_data_i[1];
+      mem_40_sv2v_reg <= w_data_i[0];
     end 
     if(N66) begin
-      { mem[39:35] } <= { w_data_i[4:0] };
+      mem_39_sv2v_reg <= w_data_i[4];
+      mem_38_sv2v_reg <= w_data_i[3];
+      mem_37_sv2v_reg <= w_data_i[2];
+      mem_36_sv2v_reg <= w_data_i[1];
+      mem_35_sv2v_reg <= w_data_i[0];
     end 
     if(N65) begin
-      { mem[34:30] } <= { w_data_i[4:0] };
+      mem_34_sv2v_reg <= w_data_i[4];
+      mem_33_sv2v_reg <= w_data_i[3];
+      mem_32_sv2v_reg <= w_data_i[2];
+      mem_31_sv2v_reg <= w_data_i[1];
+      mem_30_sv2v_reg <= w_data_i[0];
     end 
     if(N64) begin
-      { mem[29:25] } <= { w_data_i[4:0] };
+      mem_29_sv2v_reg <= w_data_i[4];
+      mem_28_sv2v_reg <= w_data_i[3];
+      mem_27_sv2v_reg <= w_data_i[2];
+      mem_26_sv2v_reg <= w_data_i[1];
+      mem_25_sv2v_reg <= w_data_i[0];
     end 
     if(N63) begin
-      { mem[24:20] } <= { w_data_i[4:0] };
+      mem_24_sv2v_reg <= w_data_i[4];
+      mem_23_sv2v_reg <= w_data_i[3];
+      mem_22_sv2v_reg <= w_data_i[2];
+      mem_21_sv2v_reg <= w_data_i[1];
+      mem_20_sv2v_reg <= w_data_i[0];
     end 
     if(N62) begin
-      { mem[19:15] } <= { w_data_i[4:0] };
+      mem_19_sv2v_reg <= w_data_i[4];
+      mem_18_sv2v_reg <= w_data_i[3];
+      mem_17_sv2v_reg <= w_data_i[2];
+      mem_16_sv2v_reg <= w_data_i[1];
+      mem_15_sv2v_reg <= w_data_i[0];
     end 
     if(N61) begin
-      { mem[14:10] } <= { w_data_i[4:0] };
+      mem_14_sv2v_reg <= w_data_i[4];
+      mem_13_sv2v_reg <= w_data_i[3];
+      mem_12_sv2v_reg <= w_data_i[2];
+      mem_11_sv2v_reg <= w_data_i[1];
+      mem_10_sv2v_reg <= w_data_i[0];
     end 
     if(N60) begin
-      { mem[9:5] } <= { w_data_i[4:0] };
+      mem_9_sv2v_reg <= w_data_i[4];
+      mem_8_sv2v_reg <= w_data_i[3];
+      mem_7_sv2v_reg <= w_data_i[2];
+      mem_6_sv2v_reg <= w_data_i[1];
+      mem_5_sv2v_reg <= w_data_i[0];
     end 
     if(N59) begin
-      { mem[4:0] } <= { w_data_i[4:0] };
+      mem_4_sv2v_reg <= w_data_i[4];
+      mem_3_sv2v_reg <= w_data_i[3];
+      mem_2_sv2v_reg <= w_data_i[2];
+      mem_1_sv2v_reg <= w_data_i[1];
+      mem_0_sv2v_reg <= w_data_i[0];
     end 
   end
 
@@ -358,25 +518,57 @@ module bsg_launch_sync_sync_posedge_5_unit
   input iclk_i;
   input iclk_reset_i;
   input oclk_i;
-  wire N0,N1,N2,N3,N4,N5,N6,N7;
-  reg [4:0] iclk_data_o,bsg_SYNC_1_r,oclk_data_o;
-  assign { N7, N6, N5, N4, N3 } = (N0)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 } : 
-                                  (N1)? iclk_data_i : 1'b0;
-  assign N0 = iclk_reset_i;
-  assign N1 = N2;
-  assign N2 = ~iclk_reset_i;
+  wire [4:0] iclk_data_o,oclk_data_o,bsg_SYNC_1_r;
+  reg iclk_data_o_4_sv2v_reg,iclk_data_o_3_sv2v_reg,iclk_data_o_2_sv2v_reg,
+  iclk_data_o_1_sv2v_reg,iclk_data_o_0_sv2v_reg,bsg_SYNC_1_r_4_sv2v_reg,
+  bsg_SYNC_1_r_3_sv2v_reg,bsg_SYNC_1_r_2_sv2v_reg,bsg_SYNC_1_r_1_sv2v_reg,bsg_SYNC_1_r_0_sv2v_reg,
+  oclk_data_o_4_sv2v_reg,oclk_data_o_3_sv2v_reg,oclk_data_o_2_sv2v_reg,
+  oclk_data_o_1_sv2v_reg,oclk_data_o_0_sv2v_reg;
+  assign iclk_data_o[4] = iclk_data_o_4_sv2v_reg;
+  assign iclk_data_o[3] = iclk_data_o_3_sv2v_reg;
+  assign iclk_data_o[2] = iclk_data_o_2_sv2v_reg;
+  assign iclk_data_o[1] = iclk_data_o_1_sv2v_reg;
+  assign iclk_data_o[0] = iclk_data_o_0_sv2v_reg;
+  assign bsg_SYNC_1_r[4] = bsg_SYNC_1_r_4_sv2v_reg;
+  assign bsg_SYNC_1_r[3] = bsg_SYNC_1_r_3_sv2v_reg;
+  assign bsg_SYNC_1_r[2] = bsg_SYNC_1_r_2_sv2v_reg;
+  assign bsg_SYNC_1_r[1] = bsg_SYNC_1_r_1_sv2v_reg;
+  assign bsg_SYNC_1_r[0] = bsg_SYNC_1_r_0_sv2v_reg;
+  assign oclk_data_o[4] = oclk_data_o_4_sv2v_reg;
+  assign oclk_data_o[3] = oclk_data_o_3_sv2v_reg;
+  assign oclk_data_o[2] = oclk_data_o_2_sv2v_reg;
+  assign oclk_data_o[1] = oclk_data_o_1_sv2v_reg;
+  assign oclk_data_o[0] = oclk_data_o_0_sv2v_reg;
 
   always @(posedge iclk_i) begin
-    if(1'b1) begin
-      { iclk_data_o[4:0] } <= { N7, N6, N5, N4, N3 };
+    if(iclk_reset_i) begin
+      iclk_data_o_4_sv2v_reg <= 1'b0;
+      iclk_data_o_3_sv2v_reg <= 1'b0;
+      iclk_data_o_2_sv2v_reg <= 1'b0;
+      iclk_data_o_1_sv2v_reg <= 1'b0;
+      iclk_data_o_0_sv2v_reg <= 1'b0;
+    end else if(1'b1) begin
+      iclk_data_o_4_sv2v_reg <= iclk_data_i[4];
+      iclk_data_o_3_sv2v_reg <= iclk_data_i[3];
+      iclk_data_o_2_sv2v_reg <= iclk_data_i[2];
+      iclk_data_o_1_sv2v_reg <= iclk_data_i[1];
+      iclk_data_o_0_sv2v_reg <= iclk_data_i[0];
     end 
   end
 
 
   always @(posedge oclk_i) begin
     if(1'b1) begin
-      { bsg_SYNC_1_r[4:0] } <= { iclk_data_o[4:0] };
-      { oclk_data_o[4:0] } <= { bsg_SYNC_1_r[4:0] };
+      bsg_SYNC_1_r_4_sv2v_reg <= iclk_data_o[4];
+      bsg_SYNC_1_r_3_sv2v_reg <= iclk_data_o[3];
+      bsg_SYNC_1_r_2_sv2v_reg <= iclk_data_o[2];
+      bsg_SYNC_1_r_1_sv2v_reg <= iclk_data_o[1];
+      bsg_SYNC_1_r_0_sv2v_reg <= iclk_data_o[0];
+      oclk_data_o_4_sv2v_reg <= bsg_SYNC_1_r[4];
+      oclk_data_o_3_sv2v_reg <= bsg_SYNC_1_r[3];
+      oclk_data_o_2_sv2v_reg <= bsg_SYNC_1_r[2];
+      oclk_data_o_1_sv2v_reg <= bsg_SYNC_1_r[1];
+      oclk_data_o_0_sv2v_reg <= bsg_SYNC_1_r[0];
     end 
   end
 
@@ -404,7 +596,7 @@ module bsg_launch_sync_sync_width_p5_use_negedge_for_launch_p0_use_async_reset_p
   wire [4:0] iclk_data_o,oclk_data_o;
 
   bsg_launch_sync_sync_posedge_5_unit
-  sync_p_z_blss
+  \sync.p.z.blss 
   (
     .iclk_i(iclk_i),
     .iclk_reset_i(iclk_reset_i),
@@ -437,9 +629,23 @@ module bsg_async_ptr_gray_lg_size_p5
   input w_reset_i;
   input w_inc_i;
   input r_clk_i;
-  wire [4:0] w_ptr_gray_r_o,w_ptr_gray_r_rsync_o,w_ptr_p2,w_ptr_gray_n;
+  wire [4:0] w_ptr_binary_r_o,w_ptr_gray_r_o,w_ptr_gray_r_rsync_o,w_ptr_p1_r,w_ptr_p2,
+  w_ptr_gray_n;
   wire N0,N1,N2,N3,N4,N5,N6;
-  reg [4:0] w_ptr_p1_r,w_ptr_binary_r_o;
+  reg w_ptr_p1_r_4_sv2v_reg,w_ptr_p1_r_3_sv2v_reg,w_ptr_p1_r_2_sv2v_reg,
+  w_ptr_p1_r_1_sv2v_reg,w_ptr_p1_r_0_sv2v_reg,w_ptr_binary_r_o_4_sv2v_reg,
+  w_ptr_binary_r_o_3_sv2v_reg,w_ptr_binary_r_o_2_sv2v_reg,w_ptr_binary_r_o_1_sv2v_reg,
+  w_ptr_binary_r_o_0_sv2v_reg;
+  assign w_ptr_p1_r[4] = w_ptr_p1_r_4_sv2v_reg;
+  assign w_ptr_p1_r[3] = w_ptr_p1_r_3_sv2v_reg;
+  assign w_ptr_p1_r[2] = w_ptr_p1_r_2_sv2v_reg;
+  assign w_ptr_p1_r[1] = w_ptr_p1_r_1_sv2v_reg;
+  assign w_ptr_p1_r[0] = w_ptr_p1_r_0_sv2v_reg;
+  assign w_ptr_binary_r_o[4] = w_ptr_binary_r_o_4_sv2v_reg;
+  assign w_ptr_binary_r_o[3] = w_ptr_binary_r_o_3_sv2v_reg;
+  assign w_ptr_binary_r_o[2] = w_ptr_binary_r_o_2_sv2v_reg;
+  assign w_ptr_binary_r_o[1] = w_ptr_binary_r_o_1_sv2v_reg;
+  assign w_ptr_binary_r_o[0] = w_ptr_binary_r_o_0_sv2v_reg;
 
   bsg_launch_sync_sync_width_p5_use_negedge_for_launch_p0_use_async_reset_p0
   ptr_sync
@@ -465,11 +671,27 @@ module bsg_async_ptr_gray_lg_size_p5
 
   always @(posedge w_clk_i) begin
     if(w_reset_i) begin
-      { w_ptr_p1_r[4:0] } <= { 1'b0, 1'b0, 1'b0, 1'b0, 1'b1 };
-      { w_ptr_binary_r_o[4:0] } <= { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 };
+      w_ptr_p1_r_4_sv2v_reg <= 1'b0;
+      w_ptr_p1_r_3_sv2v_reg <= 1'b0;
+      w_ptr_p1_r_2_sv2v_reg <= 1'b0;
+      w_ptr_p1_r_1_sv2v_reg <= 1'b0;
+      w_ptr_p1_r_0_sv2v_reg <= 1'b1;
+      w_ptr_binary_r_o_4_sv2v_reg <= 1'b0;
+      w_ptr_binary_r_o_3_sv2v_reg <= 1'b0;
+      w_ptr_binary_r_o_2_sv2v_reg <= 1'b0;
+      w_ptr_binary_r_o_1_sv2v_reg <= 1'b0;
+      w_ptr_binary_r_o_0_sv2v_reg <= 1'b0;
     end else if(w_inc_i) begin
-      { w_ptr_p1_r[4:0] } <= { w_ptr_p2[4:0] };
-      { w_ptr_binary_r_o[4:0] } <= { w_ptr_p1_r[4:0] };
+      w_ptr_p1_r_4_sv2v_reg <= w_ptr_p2[4];
+      w_ptr_p1_r_3_sv2v_reg <= w_ptr_p2[3];
+      w_ptr_p1_r_2_sv2v_reg <= w_ptr_p2[2];
+      w_ptr_p1_r_1_sv2v_reg <= w_ptr_p2[1];
+      w_ptr_p1_r_0_sv2v_reg <= w_ptr_p2[0];
+      w_ptr_binary_r_o_4_sv2v_reg <= w_ptr_p1_r[4];
+      w_ptr_binary_r_o_3_sv2v_reg <= w_ptr_p1_r[3];
+      w_ptr_binary_r_o_2_sv2v_reg <= w_ptr_p1_r[2];
+      w_ptr_binary_r_o_1_sv2v_reg <= w_ptr_p1_r[1];
+      w_ptr_binary_r_o_0_sv2v_reg <= w_ptr_p1_r[0];
     end 
   end
 
@@ -564,12 +786,15 @@ module bsg_sync_sync_1_unit
   input [0:0] iclk_data_i;
   output [0:0] oclk_data_o;
   input oclk_i;
-  reg [0:0] bsg_SYNC_1_r,oclk_data_o;
+  wire [0:0] oclk_data_o,bsg_SYNC_1_r;
+  reg bsg_SYNC_1_r_0_sv2v_reg,oclk_data_o_0_sv2v_reg;
+  assign bsg_SYNC_1_r[0] = bsg_SYNC_1_r_0_sv2v_reg;
+  assign oclk_data_o[0] = oclk_data_o_0_sv2v_reg;
 
   always @(posedge oclk_i) begin
     if(1'b1) begin
-      { bsg_SYNC_1_r[0:0] } <= { iclk_data_i[0:0] };
-      { oclk_data_o[0:0] } <= { bsg_SYNC_1_r[0:0] };
+      bsg_SYNC_1_r_0_sv2v_reg <= iclk_data_i[0];
+      oclk_data_o_0_sv2v_reg <= bsg_SYNC_1_r[0];
     end 
   end
 
@@ -591,7 +816,7 @@ module bsg_sync_sync_width_p1
   wire [0:0] oclk_data_o;
 
   bsg_sync_sync_1_unit
-  z_bss
+  \z.bss 
   (
     .oclk_i(oclk_i),
     .iclk_data_i(iclk_data_i[0]),
@@ -644,7 +869,7 @@ module bsg_fsb_node_async_buffer
   output R_ready_o;
   output R_v_o;
   wire [4:0] L_data_o,R_data_o;
-  wire L_en_o,L_v_o,L_yumi_o,R_ready_o,R_v_o,R_w_full_lo,n_0_net_,n_1_net_,L_w_full_lo,
+  wire L_en_o,L_v_o,L_yumi_o,R_ready_o,R_v_o,R_w_full_lo,_0_net_,_1_net_,L_w_full_lo,
   N0,N1;
 
   bsg_async_fifo_lg_size_p4_width_p5
@@ -652,12 +877,12 @@ module bsg_fsb_node_async_buffer
   (
     .w_clk_i(R_clk_i),
     .w_reset_i(R_reset_i),
-    .w_enq_i(n_0_net_),
+    .w_enq_i(_0_net_),
     .w_data_i(R_data_i),
     .w_full_o(R_w_full_lo),
     .r_clk_i(L_clk_i),
     .r_reset_i(L_reset_i),
-    .r_deq_i(n_1_net_),
+    .r_deq_i(_1_net_),
     .r_data_o(L_data_o),
     .r_valid_o(L_v_o)
   );
@@ -688,8 +913,8 @@ module bsg_fsb_node_async_buffer
   );
 
   assign R_ready_o = ~R_w_full_lo;
-  assign n_1_net_ = L_v_o & L_ready_i;
-  assign n_0_net_ = N0 & R_v_i;
+  assign _1_net_ = L_v_o & L_ready_i;
+  assign _0_net_ = N0 & R_v_i;
   assign N0 = ~R_w_full_lo;
   assign L_yumi_o = N1 & L_v_i;
   assign N1 = ~L_w_full_lo;

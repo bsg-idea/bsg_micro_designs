@@ -248,7 +248,7 @@ module bsg_crossbar_o_by_i_i_els_p1_o_els_p1_width_p29
   wire [28:0] o;
 
   bsg_mux_one_hot_width_p29_els_p1
-  genblk1_0__mux_one_hot
+  \genblk1_0_.mux_one_hot 
   (
     .data_i(i),
     .sel_one_hot_i(sel_oi_one_hot_i[0]),
@@ -282,35 +282,35 @@ module bsg_round_robin_n_to_1_width_p29_num_in_p1_strict_p0
   input reset_i;
   input yumi_i;
   output v_o;
-  wire [0:0] yumi_o,tag_o,greedy_grants_lo;
+  wire [0:0] yumi_o,tag_o,\greedy.grants_lo ;
   wire [28:0] data_o;
-  wire v_o,n_1_net_,SYNOPSYS_UNCONNECTED_1;
+  wire v_o,_1_net_,sv2v_dc_1;
 
   bsg_round_robin_arb_inputs_p1
-  greedy_rr_arb_ctrl
+  \greedy.rr_arb_ctrl 
   (
     .clk_i(clk_i),
     .reset_i(reset_i),
     .grants_en_i(1'b1),
     .reqs_i(v_i[0]),
-    .grants_o(greedy_grants_lo[0]),
-    .sel_one_hot_o(SYNOPSYS_UNCONNECTED_1),
+    .grants_o(\greedy.grants_lo [0]),
+    .sel_one_hot_o(sv2v_dc_1),
     .v_o(v_o),
     .tag_o(tag_o[0]),
-    .yumi_i(n_1_net_)
+    .yumi_i(_1_net_)
   );
 
 
   bsg_crossbar_o_by_i_i_els_p1_o_els_p1_width_p29
-  greedy_xbar
+  \greedy.xbar 
   (
     .i(data_i),
-    .sel_oi_one_hot_i(greedy_grants_lo[0]),
+    .sel_oi_one_hot_i(\greedy.grants_lo [0]),
     .o(data_o)
   );
 
-  assign n_1_net_ = yumi_i & v_o;
-  assign yumi_o[0] = greedy_grants_lo[0] & yumi_i;
+  assign _1_net_ = yumi_i & v_o;
+  assign yumi_o[0] = \greedy.grants_lo [0] & yumi_i;
 
 endmodule
 
@@ -330,13 +330,16 @@ module bsg_circular_ptr_slots_p1_max_add_p1
   output [0:0] n_o;
   input clk;
   input reset_i;
-  wire [0:0] n_o;
-  reg [0:0] o;
+  wire [0:0] o,n_o;
+  reg o_0_sv2v_reg;
+  assign o[0] = o_0_sv2v_reg;
   assign n_o[0] = 1'b0;
 
   always @(posedge clk) begin
-    if(1'b1) begin
-      { o[0:0] } <= { 1'b0 };
+    if(reset_i) begin
+      o_0_sv2v_reg <= 1'b0;
+    end else if(1'b1) begin
+      o_0_sv2v_reg <= 1'b0;
     end 
   end
 
@@ -368,9 +371,10 @@ module bsg_fifo_tracker_els_p1
   output full_o;
   output empty_o;
   wire [0:0] wptr_r_o,rptr_r_o,rptr_n_o;
-  wire full_o,empty_o,N0,N1,N2,N3,N4,N5,N6,N7,N8,N9,N10,equal_ptrs,
-  SYNOPSYS_UNCONNECTED_1;
-  reg deq_r,enq_r;
+  wire full_o,empty_o,N0,N1,N2,N3,enq_r,deq_r,N4,equal_ptrs,sv2v_dc_1;
+  reg deq_r_sv2v_reg,enq_r_sv2v_reg;
+  assign deq_r = deq_r_sv2v_reg;
+  assign enq_r = enq_r_sv2v_reg;
 
   bsg_circular_ptr_slots_p1_max_add_p1
   rptr
@@ -390,32 +394,26 @@ module bsg_fifo_tracker_els_p1
     .reset_i(reset_i),
     .add_i(enq_i),
     .o(wptr_r_o[0]),
-    .n_o(SYNOPSYS_UNCONNECTED_1)
+    .n_o(sv2v_dc_1)
   );
 
   assign N0 = rptr_r_o[0] ^ wptr_r_o[0];
   assign equal_ptrs = ~N0;
-  assign N6 = (N1)? 1'b1 : 
-              (N10)? 1'b1 : 
-              (N5)? 1'b0 : 1'b0;
-  assign N1 = N3;
-  assign N7 = (N1)? 1'b0 : 
-              (N10)? enq_i : 1'b0;
-  assign N8 = (N1)? 1'b1 : 
-              (N10)? deq_i : 1'b0;
+  assign N4 = (N1)? 1'b1 : 
+              (N3)? 1'b0 : 1'b0;
+  assign N1 = N2;
   assign N2 = enq_i | deq_i;
-  assign N3 = reset_i;
-  assign N4 = N2 | N3;
-  assign N5 = ~N4;
-  assign N9 = ~N3;
-  assign N10 = N2 & N9;
+  assign N3 = ~N2;
   assign empty_o = equal_ptrs & deq_r;
   assign full_o = equal_ptrs & enq_r;
 
   always @(posedge clk_i) begin
-    if(N6) begin
-      deq_r <= N8;
-      enq_r <= N7;
+    if(reset_i) begin
+      deq_r_sv2v_reg <= 1'b1;
+      enq_r_sv2v_reg <= 1'b0;
+    end else if(N4) begin
+      deq_r_sv2v_reg <= deq_i;
+      enq_r_sv2v_reg <= enq_i;
     end 
   end
 
@@ -444,8 +442,10 @@ module bsg_mem_1r1w_synth_width_p1_els_p1_read_write_same_addr_p0_harden_p0
   input w_reset_i;
   input w_v_i;
   input r_v_i;
+  wire [0:0] r_data_o;
   wire N0,N1,N2,N3,N4,N5;
-  reg [0:0] r_data_o;
+  reg r_data_o_0_sv2v_reg;
+  assign r_data_o[0] = r_data_o_0_sv2v_reg;
   assign N5 = ~w_addr_i[0];
   assign N3 = 1'b1 & N5;
   assign N4 = (N0)? N3 : 
@@ -456,7 +456,7 @@ module bsg_mem_1r1w_synth_width_p1_els_p1_read_write_same_addr_p0_harden_p0
 
   always @(posedge w_clk_i) begin
     if(N4) begin
-      { r_data_o[0:0] } <= { w_data_i[0:0] };
+      r_data_o_0_sv2v_reg <= w_data_i[0];
     end 
   end
 
@@ -526,7 +526,7 @@ module bsg_fifo_1r1w_small_unhardened_width_p1_els_p1_ready_THEN_valid_p0
   output ready_o;
   output v_o;
   wire [0:0] data_o,wptr_r,rptr_r;
-  wire ready_o,v_o,enque,full,empty,SYNOPSYS_UNCONNECTED_1;
+  wire ready_o,v_o,enque,full,empty,sv2v_dc_1;
 
   bsg_fifo_tracker_els_p1
   ft
@@ -537,7 +537,7 @@ module bsg_fifo_1r1w_small_unhardened_width_p1_els_p1_ready_THEN_valid_p0
     .deq_i(yumi_i),
     .wptr_r_o(wptr_r[0]),
     .rptr_r_o(rptr_r[0]),
-    .rptr_n_o(SYNOPSYS_UNCONNECTED_1),
+    .rptr_n_o(sv2v_dc_1),
     .full_o(full),
     .empty_o(empty)
   );
@@ -588,7 +588,7 @@ module bsg_fifo_1r1w_small_width_p1_els_p1
   wire ready_o,v_o;
 
   bsg_fifo_1r1w_small_unhardened_width_p1_els_p1_ready_THEN_valid_p0
-  unhardened_fifo
+  \unhardened.fifo 
   (
     .clk_i(clk_i),
     .reset_i(reset_i),
@@ -627,7 +627,84 @@ module bsg_mem_1r1w_synth_width_p32_els_p2_read_write_same_addr_p0_harden_p0
   input r_v_i;
   wire [31:0] r_data_o;
   wire N0,N1,N2,N3,N4,N5,N7,N8;
-  reg [63:0] mem;
+  wire [63:0] mem;
+  reg mem_63_sv2v_reg,mem_62_sv2v_reg,mem_61_sv2v_reg,mem_60_sv2v_reg,mem_59_sv2v_reg,
+  mem_58_sv2v_reg,mem_57_sv2v_reg,mem_56_sv2v_reg,mem_55_sv2v_reg,mem_54_sv2v_reg,
+  mem_53_sv2v_reg,mem_52_sv2v_reg,mem_51_sv2v_reg,mem_50_sv2v_reg,mem_49_sv2v_reg,
+  mem_48_sv2v_reg,mem_47_sv2v_reg,mem_46_sv2v_reg,mem_45_sv2v_reg,mem_44_sv2v_reg,
+  mem_43_sv2v_reg,mem_42_sv2v_reg,mem_41_sv2v_reg,mem_40_sv2v_reg,mem_39_sv2v_reg,
+  mem_38_sv2v_reg,mem_37_sv2v_reg,mem_36_sv2v_reg,mem_35_sv2v_reg,mem_34_sv2v_reg,
+  mem_33_sv2v_reg,mem_32_sv2v_reg,mem_31_sv2v_reg,mem_30_sv2v_reg,mem_29_sv2v_reg,
+  mem_28_sv2v_reg,mem_27_sv2v_reg,mem_26_sv2v_reg,mem_25_sv2v_reg,mem_24_sv2v_reg,
+  mem_23_sv2v_reg,mem_22_sv2v_reg,mem_21_sv2v_reg,mem_20_sv2v_reg,mem_19_sv2v_reg,
+  mem_18_sv2v_reg,mem_17_sv2v_reg,mem_16_sv2v_reg,mem_15_sv2v_reg,mem_14_sv2v_reg,
+  mem_13_sv2v_reg,mem_12_sv2v_reg,mem_11_sv2v_reg,mem_10_sv2v_reg,mem_9_sv2v_reg,
+  mem_8_sv2v_reg,mem_7_sv2v_reg,mem_6_sv2v_reg,mem_5_sv2v_reg,mem_4_sv2v_reg,
+  mem_3_sv2v_reg,mem_2_sv2v_reg,mem_1_sv2v_reg,mem_0_sv2v_reg;
+  assign mem[63] = mem_63_sv2v_reg;
+  assign mem[62] = mem_62_sv2v_reg;
+  assign mem[61] = mem_61_sv2v_reg;
+  assign mem[60] = mem_60_sv2v_reg;
+  assign mem[59] = mem_59_sv2v_reg;
+  assign mem[58] = mem_58_sv2v_reg;
+  assign mem[57] = mem_57_sv2v_reg;
+  assign mem[56] = mem_56_sv2v_reg;
+  assign mem[55] = mem_55_sv2v_reg;
+  assign mem[54] = mem_54_sv2v_reg;
+  assign mem[53] = mem_53_sv2v_reg;
+  assign mem[52] = mem_52_sv2v_reg;
+  assign mem[51] = mem_51_sv2v_reg;
+  assign mem[50] = mem_50_sv2v_reg;
+  assign mem[49] = mem_49_sv2v_reg;
+  assign mem[48] = mem_48_sv2v_reg;
+  assign mem[47] = mem_47_sv2v_reg;
+  assign mem[46] = mem_46_sv2v_reg;
+  assign mem[45] = mem_45_sv2v_reg;
+  assign mem[44] = mem_44_sv2v_reg;
+  assign mem[43] = mem_43_sv2v_reg;
+  assign mem[42] = mem_42_sv2v_reg;
+  assign mem[41] = mem_41_sv2v_reg;
+  assign mem[40] = mem_40_sv2v_reg;
+  assign mem[39] = mem_39_sv2v_reg;
+  assign mem[38] = mem_38_sv2v_reg;
+  assign mem[37] = mem_37_sv2v_reg;
+  assign mem[36] = mem_36_sv2v_reg;
+  assign mem[35] = mem_35_sv2v_reg;
+  assign mem[34] = mem_34_sv2v_reg;
+  assign mem[33] = mem_33_sv2v_reg;
+  assign mem[32] = mem_32_sv2v_reg;
+  assign mem[31] = mem_31_sv2v_reg;
+  assign mem[30] = mem_30_sv2v_reg;
+  assign mem[29] = mem_29_sv2v_reg;
+  assign mem[28] = mem_28_sv2v_reg;
+  assign mem[27] = mem_27_sv2v_reg;
+  assign mem[26] = mem_26_sv2v_reg;
+  assign mem[25] = mem_25_sv2v_reg;
+  assign mem[24] = mem_24_sv2v_reg;
+  assign mem[23] = mem_23_sv2v_reg;
+  assign mem[22] = mem_22_sv2v_reg;
+  assign mem[21] = mem_21_sv2v_reg;
+  assign mem[20] = mem_20_sv2v_reg;
+  assign mem[19] = mem_19_sv2v_reg;
+  assign mem[18] = mem_18_sv2v_reg;
+  assign mem[17] = mem_17_sv2v_reg;
+  assign mem[16] = mem_16_sv2v_reg;
+  assign mem[15] = mem_15_sv2v_reg;
+  assign mem[14] = mem_14_sv2v_reg;
+  assign mem[13] = mem_13_sv2v_reg;
+  assign mem[12] = mem_12_sv2v_reg;
+  assign mem[11] = mem_11_sv2v_reg;
+  assign mem[10] = mem_10_sv2v_reg;
+  assign mem[9] = mem_9_sv2v_reg;
+  assign mem[8] = mem_8_sv2v_reg;
+  assign mem[7] = mem_7_sv2v_reg;
+  assign mem[6] = mem_6_sv2v_reg;
+  assign mem[5] = mem_5_sv2v_reg;
+  assign mem[4] = mem_4_sv2v_reg;
+  assign mem[3] = mem_3_sv2v_reg;
+  assign mem[2] = mem_2_sv2v_reg;
+  assign mem[1] = mem_1_sv2v_reg;
+  assign mem[0] = mem_0_sv2v_reg;
   assign r_data_o[31] = (N3)? mem[31] : 
                         (N0)? mem[63] : 1'b0;
   assign N0 = r_addr_i[0];
@@ -703,10 +780,72 @@ module bsg_mem_1r1w_synth_width_p32_els_p2_read_write_same_addr_p0_harden_p0
 
   always @(posedge w_clk_i) begin
     if(N8) begin
-      { mem[63:32] } <= { w_data_i[31:0] };
+      mem_63_sv2v_reg <= w_data_i[31];
+      mem_62_sv2v_reg <= w_data_i[30];
+      mem_61_sv2v_reg <= w_data_i[29];
+      mem_60_sv2v_reg <= w_data_i[28];
+      mem_59_sv2v_reg <= w_data_i[27];
+      mem_58_sv2v_reg <= w_data_i[26];
+      mem_57_sv2v_reg <= w_data_i[25];
+      mem_56_sv2v_reg <= w_data_i[24];
+      mem_55_sv2v_reg <= w_data_i[23];
+      mem_54_sv2v_reg <= w_data_i[22];
+      mem_53_sv2v_reg <= w_data_i[21];
+      mem_52_sv2v_reg <= w_data_i[20];
+      mem_51_sv2v_reg <= w_data_i[19];
+      mem_50_sv2v_reg <= w_data_i[18];
+      mem_49_sv2v_reg <= w_data_i[17];
+      mem_48_sv2v_reg <= w_data_i[16];
+      mem_47_sv2v_reg <= w_data_i[15];
+      mem_46_sv2v_reg <= w_data_i[14];
+      mem_45_sv2v_reg <= w_data_i[13];
+      mem_44_sv2v_reg <= w_data_i[12];
+      mem_43_sv2v_reg <= w_data_i[11];
+      mem_42_sv2v_reg <= w_data_i[10];
+      mem_41_sv2v_reg <= w_data_i[9];
+      mem_40_sv2v_reg <= w_data_i[8];
+      mem_39_sv2v_reg <= w_data_i[7];
+      mem_38_sv2v_reg <= w_data_i[6];
+      mem_37_sv2v_reg <= w_data_i[5];
+      mem_36_sv2v_reg <= w_data_i[4];
+      mem_35_sv2v_reg <= w_data_i[3];
+      mem_34_sv2v_reg <= w_data_i[2];
+      mem_33_sv2v_reg <= w_data_i[1];
+      mem_32_sv2v_reg <= w_data_i[0];
     end 
     if(N7) begin
-      { mem[31:0] } <= { w_data_i[31:0] };
+      mem_31_sv2v_reg <= w_data_i[31];
+      mem_30_sv2v_reg <= w_data_i[30];
+      mem_29_sv2v_reg <= w_data_i[29];
+      mem_28_sv2v_reg <= w_data_i[28];
+      mem_27_sv2v_reg <= w_data_i[27];
+      mem_26_sv2v_reg <= w_data_i[26];
+      mem_25_sv2v_reg <= w_data_i[25];
+      mem_24_sv2v_reg <= w_data_i[24];
+      mem_23_sv2v_reg <= w_data_i[23];
+      mem_22_sv2v_reg <= w_data_i[22];
+      mem_21_sv2v_reg <= w_data_i[21];
+      mem_20_sv2v_reg <= w_data_i[20];
+      mem_19_sv2v_reg <= w_data_i[19];
+      mem_18_sv2v_reg <= w_data_i[18];
+      mem_17_sv2v_reg <= w_data_i[17];
+      mem_16_sv2v_reg <= w_data_i[16];
+      mem_15_sv2v_reg <= w_data_i[15];
+      mem_14_sv2v_reg <= w_data_i[14];
+      mem_13_sv2v_reg <= w_data_i[13];
+      mem_12_sv2v_reg <= w_data_i[12];
+      mem_11_sv2v_reg <= w_data_i[11];
+      mem_10_sv2v_reg <= w_data_i[10];
+      mem_9_sv2v_reg <= w_data_i[9];
+      mem_8_sv2v_reg <= w_data_i[8];
+      mem_7_sv2v_reg <= w_data_i[7];
+      mem_6_sv2v_reg <= w_data_i[6];
+      mem_5_sv2v_reg <= w_data_i[5];
+      mem_4_sv2v_reg <= w_data_i[4];
+      mem_3_sv2v_reg <= w_data_i[3];
+      mem_2_sv2v_reg <= w_data_i[2];
+      mem_1_sv2v_reg <= w_data_i[1];
+      mem_0_sv2v_reg <= w_data_i[0];
     end 
   end
 
@@ -776,9 +915,13 @@ module bsg_two_fifo_width_p32
   output ready_o;
   output v_o;
   wire [31:0] data_o;
-  wire ready_o,v_o,N0,N1,enq_i,n_0_net_,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11,N12,N13,N14,
-  N15,N16,N17,N18,N19,N20,N21,N22,N23,N24;
-  reg full_r,tail_r,head_r,empty_r;
+  wire ready_o,v_o,enq_i,tail_r,_0_net_,head_r,empty_r,full_r,N0,N1,N2,N3,N4,N5,N6,N7,
+  N8,N9,N10,N11,N12,N13,N14;
+  reg full_r_sv2v_reg,tail_r_sv2v_reg,head_r_sv2v_reg,empty_r_sv2v_reg;
+  assign full_r = full_r_sv2v_reg;
+  assign tail_r = tail_r_sv2v_reg;
+  assign head_r = head_r_sv2v_reg;
+  assign empty_r = empty_r_sv2v_reg;
 
   bsg_mem_1r1w_width_p32_els_p2_read_write_same_addr_p0
   mem_1r1w
@@ -788,57 +931,48 @@ module bsg_two_fifo_width_p32
     .w_v_i(enq_i),
     .w_addr_i(tail_r),
     .w_data_i(data_i),
-    .r_v_i(n_0_net_),
+    .r_v_i(_0_net_),
     .r_addr_i(head_r),
     .r_data_o(data_o)
   );
 
-  assign N9 = (N0)? 1'b1 : 
-              (N1)? N5 : 1'b0;
-  assign N0 = N3;
-  assign N1 = N2;
-  assign N10 = (N0)? 1'b0 : 
-               (N1)? N4 : 1'b0;
-  assign N11 = (N0)? 1'b1 : 
-               (N1)? yumi_i : 1'b0;
-  assign N12 = (N0)? 1'b0 : 
-               (N1)? N6 : 1'b0;
-  assign N13 = (N0)? 1'b1 : 
-               (N1)? N7 : 1'b0;
-  assign N14 = (N0)? 1'b0 : 
-               (N1)? N8 : 1'b0;
-  assign n_0_net_ = ~empty_r;
+  assign _0_net_ = ~empty_r;
   assign v_o = ~empty_r;
   assign ready_o = ~full_r;
-  assign enq_i = v_i & N15;
-  assign N15 = ~full_r;
-  assign N2 = ~reset_i;
-  assign N3 = reset_i;
-  assign N5 = enq_i;
-  assign N4 = ~tail_r;
-  assign N6 = ~head_r;
-  assign N7 = N17 | N19;
-  assign N17 = empty_r & N16;
-  assign N16 = ~enq_i;
-  assign N19 = N18 & N16;
-  assign N18 = N15 & yumi_i;
-  assign N8 = N23 | N24;
-  assign N23 = N21 & N22;
-  assign N21 = N20 & enq_i;
-  assign N20 = ~empty_r;
-  assign N22 = ~yumi_i;
-  assign N24 = full_r & N22;
+  assign enq_i = v_i & N5;
+  assign N5 = ~full_r;
+  assign N1 = enq_i;
+  assign N0 = ~tail_r;
+  assign N2 = ~head_r;
+  assign N3 = N7 | N9;
+  assign N7 = empty_r & N6;
+  assign N6 = ~enq_i;
+  assign N9 = N8 & N6;
+  assign N8 = N5 & yumi_i;
+  assign N4 = N13 | N14;
+  assign N13 = N11 & N12;
+  assign N11 = N10 & enq_i;
+  assign N10 = ~empty_r;
+  assign N12 = ~yumi_i;
+  assign N14 = full_r & N12;
 
   always @(posedge clk_i) begin
-    if(1'b1) begin
-      full_r <= N14;
-      empty_r <= N13;
+    if(reset_i) begin
+      full_r_sv2v_reg <= 1'b0;
+      empty_r_sv2v_reg <= 1'b1;
+    end else if(1'b1) begin
+      full_r_sv2v_reg <= N4;
+      empty_r_sv2v_reg <= N3;
     end 
-    if(N9) begin
-      tail_r <= N10;
+    if(reset_i) begin
+      tail_r_sv2v_reg <= 1'b0;
+    end else if(N1) begin
+      tail_r_sv2v_reg <= N0;
     end 
-    if(N11) begin
-      head_r <= N12;
+    if(reset_i) begin
+      head_r_sv2v_reg <= 1'b0;
+    end else if(yumi_i) begin
+      head_r_sv2v_reg <= N2;
     end 
   end
 
@@ -871,7 +1005,7 @@ module bsg_parallel_in_serial_out_width_p32_els_p1
   wire ready_o,valid_o;
 
   bsg_two_fifo_width_p32
-  fifo_two_fifo
+  \fifo.two_fifo 
   (
     .clk_i(clk_i),
     .reset_i(reset_i),
@@ -942,22 +1076,31 @@ module bsg_counter_clear_up_max_val_p3_init_val_p0
   input reset_i;
   input clear_i;
   input up_i;
-  wire N0,N1,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11;
-  reg [1:0] count_o;
-  assign { N7, N6 } = { N11, N10 } + up_i;
-  assign { N9, N8 } = (N0)? { 1'b0, 1'b0 } : 
-                      (N1)? { N7, N6 } : 1'b0;
-  assign N0 = reset_i;
-  assign N1 = N2;
-  assign { N11, N10 } = count_o * N4;
+  wire [1:0] count_o;
+  wire N0,N1,N2,N3,N4,N5,N6,N7,N8;
+  reg count_o_1_sv2v_reg,count_o_0_sv2v_reg;
+  assign count_o[1] = count_o_1_sv2v_reg;
+  assign count_o[0] = count_o_0_sv2v_reg;
+  assign N8 = reset_i | clear_i;
+  assign { N6, N5 } = count_o + up_i;
+  assign N7 = (N0)? up_i : 
+              (N1)? N5 : 1'b0;
+  assign N0 = clear_i;
+  assign N1 = N4;
   assign N2 = ~reset_i;
   assign N3 = N2;
   assign N4 = ~clear_i;
-  assign N5 = N3 & N4;
 
   always @(posedge clk_i) begin
-    if(1'b1) begin
-      { count_o[1:0] } <= { N9, N8 };
+    if(N8) begin
+      count_o_1_sv2v_reg <= 1'b0;
+    end else if(1'b1) begin
+      count_o_1_sv2v_reg <= N6;
+    end 
+    if(reset_i) begin
+      count_o_0_sv2v_reg <= 1'b0;
+    end else if(1'b1) begin
+      count_o_0_sv2v_reg <= N7;
     end 
   end
 
@@ -966,7 +1109,7 @@ endmodule
 
 
 
-module bsg_cache_to_axi_rx_num_cache_p1_data_width_p32_block_size_in_words_p4_axi_id_width_p6_axi_addr_width_p5_axi_data_width_p32_axi_burst_len_p1
+module bsg_cache_to_axi_rx_num_cache_p1_data_width_p32_block_size_in_words_p4_tag_fifo_els_p1_axi_id_width_p6_axi_addr_width_p5_axi_data_width_p32_axi_burst_len_p1
 (
   clk_i,
   reset_i,
@@ -1028,8 +1171,9 @@ module bsg_cache_to_axi_rx_num_cache_p1_data_width_p32_block_size_in_words_p4_ax
   wire [2:0] axi_arsize_o,axi_arprot_o;
   wire [1:0] axi_arburst_o,count_lo;
   wire [3:0] axi_arcache_o;
-  wire yumi_o,axi_arlock_o,axi_arvalid_o,axi_rready_o,N0,v_i,tag_fifo_v_lo,
-  tag_fifo_yumi_li,piso_v_lo,piso_yumi_li,counter_clear_li,counter_up_li,N1,N2,N3;
+  wire yumi_o,axi_arlock_o,axi_arvalid_o,axi_rready_o,N0,tag_fifo_v_li,
+  tag_fifo_ready_lo,tag_fifo_v_lo,tag_fifo_yumi_li,piso_v_lo,piso_yumi_li,counter_clear_li,
+  counter_up_li,N1,N2,N3,N4;
   assign axi_arburst_o[0] = 1'b1;
   assign axi_arsize_o[1] = 1'b1;
   assign axi_arlock_o = 1'b0;
@@ -1062,14 +1206,14 @@ module bsg_cache_to_axi_rx_num_cache_p1_data_width_p32_block_size_in_words_p4_ax
   assign axi_araddr_o[2] = axi_addr_i[2];
   assign axi_araddr_o[1] = axi_addr_i[1];
   assign axi_araddr_o[0] = axi_addr_i[0];
-  assign axi_arvalid_o = v_i;
 
   bsg_fifo_1r1w_small_width_p1_els_p1
   tag_fifo
   (
     .clk_i(clk_i),
     .reset_i(reset_i),
-    .v_i(yumi_o),
+    .v_i(tag_fifo_v_li),
+    .ready_o(tag_fifo_ready_lo),
     .data_i(tag_i[0]),
     .v_o(tag_fifo_v_lo),
     .data_o(tag_lo[0]),
@@ -1118,10 +1262,13 @@ module bsg_cache_to_axi_rx_num_cache_p1_data_width_p32_block_size_in_words_p4_ax
                          (N1)? piso_yumi_li : 1'b0;
   assign tag_fifo_yumi_li = (N0)? piso_yumi_li : 
                             (N1)? 1'b0 : 1'b0;
-  assign yumi_o = v_i & axi_arready_i;
+  assign yumi_o = N3 & tag_fifo_ready_lo;
+  assign N3 = v_i & axi_arready_i;
+  assign tag_fifo_v_li = v_i & axi_arready_i;
+  assign axi_arvalid_o = v_i & tag_fifo_ready_lo;
   assign dma_data_v_o[0] = cache_sel[0] & piso_v_lo;
-  assign piso_yumi_li = N3 & tag_fifo_v_lo;
-  assign N3 = dma_data_ready_i[0] & piso_v_lo;
+  assign piso_yumi_li = N4 & tag_fifo_v_lo;
+  assign N4 = dma_data_ready_i[0] & piso_v_lo;
   assign N1 = ~N2;
 
 endmodule
@@ -1148,117 +1295,184 @@ module bsg_serial_in_parallel_out_width_p32_els_p1
   input reset_i;
   input valid_i;
   output ready_o;
-  wire [0:0] valid_o,num_els_n,valid_nn;
-  wire [31:0] data_o,data_nn;
-  wire ready_o,N0,N1,N2,N3,N4,N5,N6,N7,N8,N9,data_n_1__31_,data_n_1__30_,data_n_1__29_,
-  data_n_1__28_,data_n_1__27_,data_n_1__26_,data_n_1__25_,data_n_1__24_,
-  data_n_1__23_,data_n_1__22_,data_n_1__21_,data_n_1__20_,data_n_1__19_,data_n_1__18_,
-  data_n_1__17_,data_n_1__16_,data_n_1__15_,data_n_1__14_,data_n_1__13_,data_n_1__12_,
-  data_n_1__11_,data_n_1__10_,data_n_1__9_,data_n_1__8_,data_n_1__7_,data_n_1__6_,
-  data_n_1__5_,data_n_1__4_,data_n_1__3_,data_n_1__2_,data_n_1__1_,data_n_1__0_,N10,
-  N11,N13,N14;
+  wire [0:0] valid_o,valid_r,num_els_n,valid_nn;
+  wire [31:0] data_o,data_r,data_nn;
+  wire ready_o,N0,N1,N2,N3,N4,data_n_1__31_,data_n_1__30_,data_n_1__29_,data_n_1__28_,
+  data_n_1__27_,data_n_1__26_,data_n_1__25_,data_n_1__24_,data_n_1__23_,
+  data_n_1__22_,data_n_1__21_,data_n_1__20_,data_n_1__19_,data_n_1__18_,data_n_1__17_,
+  data_n_1__16_,data_n_1__15_,data_n_1__14_,data_n_1__13_,data_n_1__12_,data_n_1__11_,
+  data_n_1__10_,data_n_1__9_,data_n_1__8_,data_n_1__7_,data_n_1__6_,data_n_1__5_,
+  data_n_1__4_,data_n_1__3_,data_n_1__2_,data_n_1__1_,data_n_1__0_,N5,N6,N7,N8,N9;
   wire [1:1] valid_n;
-  reg [0:0] valid_r;
-  reg N12;
-  reg [31:0] data_r;
-  assign data_nn[31] = (N14)? data_o[31] : 
+  reg valid_r_0_sv2v_reg,N6_sv2v_reg,data_r_31_sv2v_reg,data_r_30_sv2v_reg,
+  data_r_29_sv2v_reg,data_r_28_sv2v_reg,data_r_27_sv2v_reg,data_r_26_sv2v_reg,
+  data_r_25_sv2v_reg,data_r_24_sv2v_reg,data_r_23_sv2v_reg,data_r_22_sv2v_reg,data_r_21_sv2v_reg,
+  data_r_20_sv2v_reg,data_r_19_sv2v_reg,data_r_18_sv2v_reg,data_r_17_sv2v_reg,
+  data_r_16_sv2v_reg,data_r_15_sv2v_reg,data_r_14_sv2v_reg,data_r_13_sv2v_reg,
+  data_r_12_sv2v_reg,data_r_11_sv2v_reg,data_r_10_sv2v_reg,data_r_9_sv2v_reg,
+  data_r_8_sv2v_reg,data_r_7_sv2v_reg,data_r_6_sv2v_reg,data_r_5_sv2v_reg,data_r_4_sv2v_reg,
+  data_r_3_sv2v_reg,data_r_2_sv2v_reg,data_r_1_sv2v_reg,data_r_0_sv2v_reg;
+  assign valid_r[0] = valid_r_0_sv2v_reg;
+  assign N6 = N6_sv2v_reg;
+  assign data_r[31] = data_r_31_sv2v_reg;
+  assign data_r[30] = data_r_30_sv2v_reg;
+  assign data_r[29] = data_r_29_sv2v_reg;
+  assign data_r[28] = data_r_28_sv2v_reg;
+  assign data_r[27] = data_r_27_sv2v_reg;
+  assign data_r[26] = data_r_26_sv2v_reg;
+  assign data_r[25] = data_r_25_sv2v_reg;
+  assign data_r[24] = data_r_24_sv2v_reg;
+  assign data_r[23] = data_r_23_sv2v_reg;
+  assign data_r[22] = data_r_22_sv2v_reg;
+  assign data_r[21] = data_r_21_sv2v_reg;
+  assign data_r[20] = data_r_20_sv2v_reg;
+  assign data_r[19] = data_r_19_sv2v_reg;
+  assign data_r[18] = data_r_18_sv2v_reg;
+  assign data_r[17] = data_r_17_sv2v_reg;
+  assign data_r[16] = data_r_16_sv2v_reg;
+  assign data_r[15] = data_r_15_sv2v_reg;
+  assign data_r[14] = data_r_14_sv2v_reg;
+  assign data_r[13] = data_r_13_sv2v_reg;
+  assign data_r[12] = data_r_12_sv2v_reg;
+  assign data_r[11] = data_r_11_sv2v_reg;
+  assign data_r[10] = data_r_10_sv2v_reg;
+  assign data_r[9] = data_r_9_sv2v_reg;
+  assign data_r[8] = data_r_8_sv2v_reg;
+  assign data_r[7] = data_r_7_sv2v_reg;
+  assign data_r[6] = data_r_6_sv2v_reg;
+  assign data_r[5] = data_r_5_sv2v_reg;
+  assign data_r[4] = data_r_4_sv2v_reg;
+  assign data_r[3] = data_r_3_sv2v_reg;
+  assign data_r[2] = data_r_2_sv2v_reg;
+  assign data_r[1] = data_r_1_sv2v_reg;
+  assign data_r[0] = data_r_0_sv2v_reg;
+  assign data_nn[31] = (N9)? data_o[31] : 
                        (N0)? data_n_1__31_ : 1'b0;
   assign N0 = yumi_cnt_i[0];
-  assign data_nn[30] = (N14)? data_o[30] : 
+  assign data_nn[30] = (N9)? data_o[30] : 
                        (N0)? data_n_1__30_ : 1'b0;
-  assign data_nn[29] = (N14)? data_o[29] : 
+  assign data_nn[29] = (N9)? data_o[29] : 
                        (N0)? data_n_1__29_ : 1'b0;
-  assign data_nn[28] = (N14)? data_o[28] : 
+  assign data_nn[28] = (N9)? data_o[28] : 
                        (N0)? data_n_1__28_ : 1'b0;
-  assign data_nn[27] = (N14)? data_o[27] : 
+  assign data_nn[27] = (N9)? data_o[27] : 
                        (N0)? data_n_1__27_ : 1'b0;
-  assign data_nn[26] = (N14)? data_o[26] : 
+  assign data_nn[26] = (N9)? data_o[26] : 
                        (N0)? data_n_1__26_ : 1'b0;
-  assign data_nn[25] = (N14)? data_o[25] : 
+  assign data_nn[25] = (N9)? data_o[25] : 
                        (N0)? data_n_1__25_ : 1'b0;
-  assign data_nn[24] = (N14)? data_o[24] : 
+  assign data_nn[24] = (N9)? data_o[24] : 
                        (N0)? data_n_1__24_ : 1'b0;
-  assign data_nn[23] = (N14)? data_o[23] : 
+  assign data_nn[23] = (N9)? data_o[23] : 
                        (N0)? data_n_1__23_ : 1'b0;
-  assign data_nn[22] = (N14)? data_o[22] : 
+  assign data_nn[22] = (N9)? data_o[22] : 
                        (N0)? data_n_1__22_ : 1'b0;
-  assign data_nn[21] = (N14)? data_o[21] : 
+  assign data_nn[21] = (N9)? data_o[21] : 
                        (N0)? data_n_1__21_ : 1'b0;
-  assign data_nn[20] = (N14)? data_o[20] : 
+  assign data_nn[20] = (N9)? data_o[20] : 
                        (N0)? data_n_1__20_ : 1'b0;
-  assign data_nn[19] = (N14)? data_o[19] : 
+  assign data_nn[19] = (N9)? data_o[19] : 
                        (N0)? data_n_1__19_ : 1'b0;
-  assign data_nn[18] = (N14)? data_o[18] : 
+  assign data_nn[18] = (N9)? data_o[18] : 
                        (N0)? data_n_1__18_ : 1'b0;
-  assign data_nn[17] = (N14)? data_o[17] : 
+  assign data_nn[17] = (N9)? data_o[17] : 
                        (N0)? data_n_1__17_ : 1'b0;
-  assign data_nn[16] = (N14)? data_o[16] : 
+  assign data_nn[16] = (N9)? data_o[16] : 
                        (N0)? data_n_1__16_ : 1'b0;
-  assign data_nn[15] = (N14)? data_o[15] : 
+  assign data_nn[15] = (N9)? data_o[15] : 
                        (N0)? data_n_1__15_ : 1'b0;
-  assign data_nn[14] = (N14)? data_o[14] : 
+  assign data_nn[14] = (N9)? data_o[14] : 
                        (N0)? data_n_1__14_ : 1'b0;
-  assign data_nn[13] = (N14)? data_o[13] : 
+  assign data_nn[13] = (N9)? data_o[13] : 
                        (N0)? data_n_1__13_ : 1'b0;
-  assign data_nn[12] = (N14)? data_o[12] : 
+  assign data_nn[12] = (N9)? data_o[12] : 
                        (N0)? data_n_1__12_ : 1'b0;
-  assign data_nn[11] = (N14)? data_o[11] : 
+  assign data_nn[11] = (N9)? data_o[11] : 
                        (N0)? data_n_1__11_ : 1'b0;
-  assign data_nn[10] = (N14)? data_o[10] : 
+  assign data_nn[10] = (N9)? data_o[10] : 
                        (N0)? data_n_1__10_ : 1'b0;
-  assign data_nn[9] = (N14)? data_o[9] : 
+  assign data_nn[9] = (N9)? data_o[9] : 
                       (N0)? data_n_1__9_ : 1'b0;
-  assign data_nn[8] = (N14)? data_o[8] : 
+  assign data_nn[8] = (N9)? data_o[8] : 
                       (N0)? data_n_1__8_ : 1'b0;
-  assign data_nn[7] = (N14)? data_o[7] : 
+  assign data_nn[7] = (N9)? data_o[7] : 
                       (N0)? data_n_1__7_ : 1'b0;
-  assign data_nn[6] = (N14)? data_o[6] : 
+  assign data_nn[6] = (N9)? data_o[6] : 
                       (N0)? data_n_1__6_ : 1'b0;
-  assign data_nn[5] = (N14)? data_o[5] : 
+  assign data_nn[5] = (N9)? data_o[5] : 
                       (N0)? data_n_1__5_ : 1'b0;
-  assign data_nn[4] = (N14)? data_o[4] : 
+  assign data_nn[4] = (N9)? data_o[4] : 
                       (N0)? data_n_1__4_ : 1'b0;
-  assign data_nn[3] = (N14)? data_o[3] : 
+  assign data_nn[3] = (N9)? data_o[3] : 
                       (N0)? data_n_1__3_ : 1'b0;
-  assign data_nn[2] = (N14)? data_o[2] : 
+  assign data_nn[2] = (N9)? data_o[2] : 
                       (N0)? data_n_1__2_ : 1'b0;
-  assign data_nn[1] = (N14)? data_o[1] : 
+  assign data_nn[1] = (N9)? data_o[1] : 
                       (N0)? data_n_1__1_ : 1'b0;
-  assign data_nn[0] = (N14)? data_o[0] : 
+  assign data_nn[0] = (N9)? data_o[0] : 
                       (N0)? data_n_1__0_ : 1'b0;
-  assign N9 = N12 ^ N8;
-  assign num_els_n[0] = N9 ^ yumi_cnt_i[0];
-  assign N10 = ~N12;
-  assign N6 = (N1)? 1'b0 : 
-              (N2)? num_els_n[0] : 1'b0;
-  assign N1 = reset_i;
-  assign N2 = N5;
-  assign N7 = (N1)? 1'b0 : 
-              (N2)? valid_nn[0] : 1'b0;
-  assign { data_o[0:0], data_o[1:1], data_o[2:2], data_o[3:3], data_o[4:4], data_o[5:5], data_o[6:6], data_o[7:7], data_o[8:8], data_o[9:9], data_o[10:10], data_o[11:11], data_o[12:12], data_o[13:13], data_o[14:14], data_o[15:15], data_o[16:16], data_o[17:17], data_o[18:18], data_o[19:19], data_o[20:20], data_o[21:21], data_o[22:22], data_o[23:23], data_o[24:24], data_o[25:25], data_o[26:26], data_o[27:27], data_o[28:28], data_o[29:29], data_o[30:30], data_o[31:31] } = (N3)? { data_i[0:0], data_i[1:1], data_i[2:2], data_i[3:3], data_i[4:4], data_i[5:5], data_i[6:6], data_i[7:7], data_i[8:8], data_i[9:9], data_i[10:10], data_i[11:11], data_i[12:12], data_i[13:13], data_i[14:14], data_i[15:15], data_i[16:16], data_i[17:17], data_i[18:18], data_i[19:19], data_i[20:20], data_i[21:21], data_i[22:22], data_i[23:23], data_i[24:24], data_i[25:25], data_i[26:26], data_i[27:27], data_i[28:28], data_i[29:29], data_i[30:30], data_i[31:31] } : 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          (N4)? { data_r[0:0], data_r[1:1], data_r[2:2], data_r[3:3], data_r[4:4], data_r[5:5], data_r[6:6], data_r[7:7], data_r[8:8], data_r[9:9], data_r[10:10], data_r[11:11], data_r[12:12], data_r[13:13], data_r[14:14], data_r[15:15], data_r[16:16], data_r[17:17], data_r[18:18], data_r[19:19], data_r[20:20], data_r[21:21], data_r[22:22], data_r[23:23], data_r[24:24], data_r[25:25], data_r[26:26], data_r[27:27], data_r[28:28], data_r[29:29], data_r[30:30], data_r[31:31] } : 1'b0;
-  assign N3 = N10;
-  assign N4 = N12;
-  assign { data_n_1__0_, data_n_1__1_, data_n_1__2_, data_n_1__3_, data_n_1__4_, data_n_1__5_, data_n_1__6_, data_n_1__7_, data_n_1__8_, data_n_1__9_, data_n_1__10_, data_n_1__11_, data_n_1__12_, data_n_1__13_, data_n_1__14_, data_n_1__15_, data_n_1__16_, data_n_1__17_, data_n_1__18_, data_n_1__19_, data_n_1__20_, data_n_1__21_, data_n_1__22_, data_n_1__23_, data_n_1__24_, data_n_1__25_, data_n_1__26_, data_n_1__27_, data_n_1__28_, data_n_1__29_, data_n_1__30_, data_n_1__31_ } = (N4)? { data_i[0:0], data_i[1:1], data_i[2:2], data_i[3:3], data_i[4:4], data_i[5:5], data_i[6:6], data_i[7:7], data_i[8:8], data_i[9:9], data_i[10:10], data_i[11:11], data_i[12:12], data_i[13:13], data_i[14:14], data_i[15:15], data_i[16:16], data_i[17:17], data_i[18:18], data_i[19:19], data_i[20:20], data_i[21:21], data_i[22:22], data_i[23:23], data_i[24:24], data_i[25:25], data_i[26:26], data_i[27:27], data_i[28:28], data_i[29:29], data_i[30:30], data_i[31:31] } : 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    (N11)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 } : 1'b0;
-  assign valid_o[0] = (N3)? N13 : 
-                      (N4)? valid_r[0] : 1'b0;
-  assign valid_n[1] = (N4)? N13 : 
-                      (N11)? 1'b0 : 1'b0;
+  assign N4 = N6 ^ N3;
+  assign num_els_n[0] = N4 ^ yumi_cnt_i[0];
+  assign N5 = ~N6;
+  assign { data_o[0:0], data_o[1:1], data_o[2:2], data_o[3:3], data_o[4:4], data_o[5:5], data_o[6:6], data_o[7:7], data_o[8:8], data_o[9:9], data_o[10:10], data_o[11:11], data_o[12:12], data_o[13:13], data_o[14:14], data_o[15:15], data_o[16:16], data_o[17:17], data_o[18:18], data_o[19:19], data_o[20:20], data_o[21:21], data_o[22:22], data_o[23:23], data_o[24:24], data_o[25:25], data_o[26:26], data_o[27:27], data_o[28:28], data_o[29:29], data_o[30:30], data_o[31:31] } = (N1)? { data_i[0:0], data_i[1:1], data_i[2:2], data_i[3:3], data_i[4:4], data_i[5:5], data_i[6:6], data_i[7:7], data_i[8:8], data_i[9:9], data_i[10:10], data_i[11:11], data_i[12:12], data_i[13:13], data_i[14:14], data_i[15:15], data_i[16:16], data_i[17:17], data_i[18:18], data_i[19:19], data_i[20:20], data_i[21:21], data_i[22:22], data_i[23:23], data_i[24:24], data_i[25:25], data_i[26:26], data_i[27:27], data_i[28:28], data_i[29:29], data_i[30:30], data_i[31:31] } : 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          (N2)? { data_r[0:0], data_r[1:1], data_r[2:2], data_r[3:3], data_r[4:4], data_r[5:5], data_r[6:6], data_r[7:7], data_r[8:8], data_r[9:9], data_r[10:10], data_r[11:11], data_r[12:12], data_r[13:13], data_r[14:14], data_r[15:15], data_r[16:16], data_r[17:17], data_r[18:18], data_r[19:19], data_r[20:20], data_r[21:21], data_r[22:22], data_r[23:23], data_r[24:24], data_r[25:25], data_r[26:26], data_r[27:27], data_r[28:28], data_r[29:29], data_r[30:30], data_r[31:31] } : 1'b0;
+  assign N1 = N5;
+  assign N2 = N6;
+  assign { data_n_1__0_, data_n_1__1_, data_n_1__2_, data_n_1__3_, data_n_1__4_, data_n_1__5_, data_n_1__6_, data_n_1__7_, data_n_1__8_, data_n_1__9_, data_n_1__10_, data_n_1__11_, data_n_1__12_, data_n_1__13_, data_n_1__14_, data_n_1__15_, data_n_1__16_, data_n_1__17_, data_n_1__18_, data_n_1__19_, data_n_1__20_, data_n_1__21_, data_n_1__22_, data_n_1__23_, data_n_1__24_, data_n_1__25_, data_n_1__26_, data_n_1__27_, data_n_1__28_, data_n_1__29_, data_n_1__30_, data_n_1__31_ } = (N2)? { data_i[0:0], data_i[1:1], data_i[2:2], data_i[3:3], data_i[4:4], data_i[5:5], data_i[6:6], data_i[7:7], data_i[8:8], data_i[9:9], data_i[10:10], data_i[11:11], data_i[12:12], data_i[13:13], data_i[14:14], data_i[15:15], data_i[16:16], data_i[17:17], data_i[18:18], data_i[19:19], data_i[20:20], data_i[21:21], data_i[22:22], data_i[23:23], data_i[24:24], data_i[25:25], data_i[26:26], data_i[27:27], data_i[28:28], data_i[29:29], data_i[30:30], data_i[31:31] } : 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    (N8)? { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 } : 1'b0;
+  assign valid_o[0] = (N1)? N7 : 
+                      (N2)? valid_r[0] : 1'b0;
+  assign valid_n[1] = (N2)? N7 : 
+                      (N8)? 1'b0 : 1'b0;
   assign valid_nn[0] = (N0)? valid_n[1] : 
-                       (N14)? valid_o[0] : 1'b0;
-  assign N5 = ~reset_i;
+                       (N9)? valid_o[0] : 1'b0;
   assign ready_o = ~valid_r[0];
-  assign N8 = valid_i & ready_o;
-  assign N11 = ~N12;
-  assign N13 = valid_i & ready_o;
-  assign N14 = ~yumi_cnt_i[0];
+  assign N3 = valid_i & ready_o;
+  assign N7 = valid_i & ready_o;
+  assign N8 = ~N6;
+  assign N9 = ~yumi_cnt_i[0];
 
   always @(posedge clk_i) begin
+    if(reset_i) begin
+      valid_r_0_sv2v_reg <= 1'b0;
+      N6_sv2v_reg <= 1'b0;
+    end else if(1'b1) begin
+      valid_r_0_sv2v_reg <= valid_nn[0];
+      N6_sv2v_reg <= num_els_n[0];
+    end 
     if(1'b1) begin
-      { valid_r[0:0] } <= { N7 };
-      N12 <= N6;
-      { data_r[31:0] } <= { data_nn[31:0] };
+      data_r_31_sv2v_reg <= data_nn[31];
+      data_r_30_sv2v_reg <= data_nn[30];
+      data_r_29_sv2v_reg <= data_nn[29];
+      data_r_28_sv2v_reg <= data_nn[28];
+      data_r_27_sv2v_reg <= data_nn[27];
+      data_r_26_sv2v_reg <= data_nn[26];
+      data_r_25_sv2v_reg <= data_nn[25];
+      data_r_24_sv2v_reg <= data_nn[24];
+      data_r_23_sv2v_reg <= data_nn[23];
+      data_r_22_sv2v_reg <= data_nn[22];
+      data_r_21_sv2v_reg <= data_nn[21];
+      data_r_20_sv2v_reg <= data_nn[20];
+      data_r_19_sv2v_reg <= data_nn[19];
+      data_r_18_sv2v_reg <= data_nn[18];
+      data_r_17_sv2v_reg <= data_nn[17];
+      data_r_16_sv2v_reg <= data_nn[16];
+      data_r_15_sv2v_reg <= data_nn[15];
+      data_r_14_sv2v_reg <= data_nn[14];
+      data_r_13_sv2v_reg <= data_nn[13];
+      data_r_12_sv2v_reg <= data_nn[12];
+      data_r_11_sv2v_reg <= data_nn[11];
+      data_r_10_sv2v_reg <= data_nn[10];
+      data_r_9_sv2v_reg <= data_nn[9];
+      data_r_8_sv2v_reg <= data_nn[8];
+      data_r_7_sv2v_reg <= data_nn[7];
+      data_r_6_sv2v_reg <= data_nn[6];
+      data_r_5_sv2v_reg <= data_nn[5];
+      data_r_4_sv2v_reg <= data_nn[4];
+      data_r_3_sv2v_reg <= data_nn[3];
+      data_r_2_sv2v_reg <= data_nn[2];
+      data_r_1_sv2v_reg <= data_nn[1];
+      data_r_0_sv2v_reg <= data_nn[0];
     end 
   end
 
@@ -1281,23 +1495,22 @@ module bsg_counter_clear_up_max_val_p0_init_val_p0
   input reset_i;
   input clear_i;
   input up_i;
-  wire N0,N1,N2,N3,N4,N5,N6,N7,N8;
-  reg [0:0] count_o;
-  assign N6 = count_o[0] ^ up_i;
-  assign N7 = (N0)? up_i : 
-              (N1)? N6 : 1'b0;
+  wire [0:0] count_o;
+  wire N0,N1,N2,N3,N4;
+  reg count_o_0_sv2v_reg;
+  assign count_o[0] = count_o_0_sv2v_reg;
+  assign N3 = count_o[0] ^ up_i;
+  assign N4 = (N0)? up_i : 
+              (N1)? N3 : 1'b0;
   assign N0 = clear_i;
-  assign N1 = N5;
-  assign N8 = (N2)? 1'b0 : 
-              (N3)? N7 : 1'b0;
-  assign N2 = reset_i;
-  assign N3 = N4;
-  assign N4 = ~reset_i;
-  assign N5 = ~clear_i;
+  assign N1 = N2;
+  assign N2 = ~clear_i;
 
   always @(posedge clk_i) begin
-    if(1'b1) begin
-      { count_o[0:0] } <= { N8 };
+    if(reset_i) begin
+      count_o_0_sv2v_reg <= 1'b0;
+    end else if(1'b1) begin
+      count_o_0_sv2v_reg <= N4;
     end 
   end
 
@@ -1306,7 +1519,7 @@ endmodule
 
 
 
-module bsg_cache_to_axi_tx_num_cache_p1_data_width_p32_block_size_in_words_p4_axi_id_width_p6_axi_addr_width_p5_axi_data_width_p32_axi_burst_len_p1
+module bsg_cache_to_axi_tx_num_cache_p1_data_width_p32_block_size_in_words_p4_tag_fifo_els_p1_axi_id_width_p6_axi_addr_width_p5_axi_data_width_p32_axi_burst_len_p1
 (
   clk_i,
   reset_i,
@@ -1375,8 +1588,9 @@ module bsg_cache_to_axi_tx_num_cache_p1_data_width_p32_block_size_in_words_p4_ax
   wire [3:0] axi_awcache_o,axi_wstrb_o;
   wire [31:0] axi_wdata_o;
   wire yumi_o,axi_awlock_o,axi_awvalid_o,axi_wlast_o,axi_wvalid_o,axi_bready_o,N0,N1,
-  N2,v_i,tag_fifo_v_lo,tag_fifo_yumi_li,sipo_ready_lo,sipo_v_li,N3,word_clear_li,
-  word_up_li,pop_word,N4,burst_clear_li,burst_up_li,N5,N6,N7,N8,N9,N10;
+  N2,tag_fifo_v_li,tag_fifo_ready_lo,tag_fifo_v_lo,tag_fifo_yumi_li,sipo_ready_lo,
+  sipo_v_li,N3,word_clear_li,word_up_li,pop_word,N4,burst_clear_li,burst_up_li,N5,
+  N6,N7,N8,N9,N10,N11;
   assign axi_bready_o = 1'b1;
   assign axi_wstrb_o[0] = 1'b1;
   assign axi_wstrb_o[1] = 1'b1;
@@ -1414,14 +1628,14 @@ module bsg_cache_to_axi_tx_num_cache_p1_data_width_p32_block_size_in_words_p4_ax
   assign axi_awaddr_o[2] = axi_addr_i[2];
   assign axi_awaddr_o[1] = axi_addr_i[1];
   assign axi_awaddr_o[0] = axi_addr_i[0];
-  assign axi_awvalid_o = v_i;
 
   bsg_fifo_1r1w_small_width_p1_els_p1
   tag_fifo
   (
     .clk_i(clk_i),
     .reset_i(reset_i),
-    .v_i(yumi_o),
+    .v_i(tag_fifo_v_li),
+    .ready_o(tag_fifo_ready_lo),
     .data_i(tag_i[0]),
     .v_o(tag_fifo_v_lo),
     .data_o(tag_lo[0]),
@@ -1490,14 +1704,17 @@ module bsg_cache_to_axi_tx_num_cache_p1_data_width_p32_block_size_in_words_p4_ax
                        (N2)? N6 : 1'b0;
   assign axi_wlast_o = (N1)? axi_wvalid_o : 
                        (N2)? 1'b0 : 1'b0;
-  assign yumi_o = v_i & axi_awready_i;
-  assign dma_data_yumi_o[0] = N9 & sipo_ready_lo;
-  assign N9 = cache_sel[0] & dma_data_v_i[0];
+  assign yumi_o = N9 & tag_fifo_ready_lo;
+  assign N9 = v_i & axi_awready_i;
+  assign tag_fifo_v_li = v_i & axi_awready_i;
+  assign axi_awvalid_o = v_i & tag_fifo_ready_lo;
+  assign dma_data_yumi_o[0] = N10 & sipo_ready_lo;
+  assign N10 = cache_sel[0] & dma_data_v_i[0];
   assign sipo_v_li = tag_fifo_v_lo & dma_data_v_i[0];
   assign N3 = axi_wvalid_o & axi_wready_i;
   assign sipo_yumi_cnt_li[0] = N3;
-  assign pop_word = N10 & tag_fifo_v_lo;
-  assign N10 = dma_data_v_i[0] & dma_data_yumi_o[0];
+  assign pop_word = N11 & tag_fifo_v_lo;
+  assign N11 = dma_data_v_i[0] & dma_data_yumi_o[0];
   assign N4 = ~N8;
   assign N5 = axi_wvalid_o & axi_wready_i;
   assign N6 = axi_wvalid_o & axi_wready_i;
@@ -1646,7 +1863,7 @@ module bsg_cache_to_axi
   );
 
 
-  bsg_cache_to_axi_rx_num_cache_p1_data_width_p32_block_size_in_words_p4_axi_id_width_p6_axi_addr_width_p5_axi_data_width_p32_axi_burst_len_p1
+  bsg_cache_to_axi_rx_num_cache_p1_data_width_p32_block_size_in_words_p4_tag_fifo_els_p1_axi_id_width_p6_axi_addr_width_p5_axi_data_width_p32_axi_burst_len_p1
   axi_rx
   (
     .clk_i(clk_i),
@@ -1677,7 +1894,7 @@ module bsg_cache_to_axi
   );
 
 
-  bsg_cache_to_axi_tx_num_cache_p1_data_width_p32_block_size_in_words_p4_axi_id_width_p6_axi_addr_width_p5_axi_data_width_p32_axi_burst_len_p1
+  bsg_cache_to_axi_tx_num_cache_p1_data_width_p32_block_size_in_words_p4_tag_fifo_els_p1_axi_id_width_p6_axi_addr_width_p5_axi_data_width_p32_axi_burst_len_p1
   axi_tx
   (
     .clk_i(clk_i),

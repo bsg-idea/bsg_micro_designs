@@ -86,8 +86,8 @@ module bsg_rotate_right_width_p2
   input [0:0] rot_i;
   output [1:0] o;
   wire [1:0] o;
-  wire SYNOPSYS_UNCONNECTED_1;
-  assign { SYNOPSYS_UNCONNECTED_1, o } = { data_i[0:0], data_i[1:0] } >> rot_i[0];
+  wire sv2v_dc_1;
+  assign { sv2v_dc_1, o } = { data_i[0:0], data_i[1:0] } >> rot_i[0];
 
 endmodule
 
@@ -107,24 +107,22 @@ module bsg_circular_ptr_slots_p2_max_add_p1
   output [0:0] n_o;
   input clk;
   input reset_i;
-  wire [0:0] n_o,genblk1_genblk1_ptr_r_p1;
-  wire N0,N1,N2,N3,N4,N5,N6;
-  reg [0:0] o;
-  assign genblk1_genblk1_ptr_r_p1[0] = o[0] ^ 1'b1;
-  assign N5 = (N0)? 1'b0 : 
-              (N1)? n_o[0] : 1'b0;
-  assign N0 = reset_i;
-  assign N1 = N4;
-  assign n_o[0] = (N2)? genblk1_genblk1_ptr_r_p1[0] : 
-                  (N3)? o[0] : 1'b0;
-  assign N2 = add_i[0];
-  assign N3 = N6;
-  assign N4 = ~reset_i;
-  assign N6 = ~add_i[0];
+  wire [0:0] o,n_o,\genblk1.genblk1.ptr_r_p1 ;
+  wire N0,N1,N2;
+  reg o_0_sv2v_reg;
+  assign o[0] = o_0_sv2v_reg;
+  assign \genblk1.genblk1.ptr_r_p1 [0] = o[0] ^ 1'b1;
+  assign n_o[0] = (N0)? \genblk1.genblk1.ptr_r_p1 [0] : 
+                  (N1)? o[0] : 1'b0;
+  assign N0 = add_i[0];
+  assign N1 = N2;
+  assign N2 = ~add_i[0];
 
   always @(posedge clk) begin
-    if(1'b1) begin
-      { o[0:0] } <= { N5 };
+    if(reset_i) begin
+      o_0_sv2v_reg <= 1'b0;
+    end else if(1'b1) begin
+      o_0_sv2v_reg <= n_o[0];
     end 
   end
 
@@ -158,17 +156,11 @@ module bsg_rr_f2f_input_width_p16_num_in_p2_middle_meet_p1
   wire [15:0] data_head_o,data_head_o_flat_pretrunc;
   wire [0:0] valid_head_o,iptr_r,iptr_r_data;
   wire [1:0] yumi_o;
-  wire SYNOPSYS_UNCONNECTED_1,SYNOPSYS_UNCONNECTED_2,SYNOPSYS_UNCONNECTED_3,
-  SYNOPSYS_UNCONNECTED_4,SYNOPSYS_UNCONNECTED_5,SYNOPSYS_UNCONNECTED_6,
-  SYNOPSYS_UNCONNECTED_7,SYNOPSYS_UNCONNECTED_8,SYNOPSYS_UNCONNECTED_9,SYNOPSYS_UNCONNECTED_10,
-  SYNOPSYS_UNCONNECTED_11,SYNOPSYS_UNCONNECTED_12,SYNOPSYS_UNCONNECTED_13,
-  SYNOPSYS_UNCONNECTED_14,SYNOPSYS_UNCONNECTED_15,SYNOPSYS_UNCONNECTED_16,SYNOPSYS_UNCONNECTED_17,
-  SYNOPSYS_UNCONNECTED_18,SYNOPSYS_UNCONNECTED_19,SYNOPSYS_UNCONNECTED_20,
-  SYNOPSYS_UNCONNECTED_21,SYNOPSYS_UNCONNECTED_22,SYNOPSYS_UNCONNECTED_23,
-  SYNOPSYS_UNCONNECTED_24,SYNOPSYS_UNCONNECTED_25,SYNOPSYS_UNCONNECTED_26,SYNOPSYS_UNCONNECTED_27,
-  SYNOPSYS_UNCONNECTED_28,SYNOPSYS_UNCONNECTED_29,SYNOPSYS_UNCONNECTED_30,
-  SYNOPSYS_UNCONNECTED_31,SYNOPSYS_UNCONNECTED_32,SYNOPSYS_UNCONNECTED_33,
-  SYNOPSYS_UNCONNECTED_34;
+  wire sv2v_dc_1,sv2v_dc_2,sv2v_dc_3,sv2v_dc_4,sv2v_dc_5,sv2v_dc_6,sv2v_dc_7,sv2v_dc_8,
+  sv2v_dc_9,sv2v_dc_10,sv2v_dc_11,sv2v_dc_12,sv2v_dc_13,sv2v_dc_14,sv2v_dc_15,
+  sv2v_dc_16,sv2v_dc_17,sv2v_dc_18,sv2v_dc_19,sv2v_dc_20,sv2v_dc_21,sv2v_dc_22,
+  sv2v_dc_23,sv2v_dc_24,sv2v_dc_25,sv2v_dc_26,sv2v_dc_27,sv2v_dc_28,sv2v_dc_29,
+  sv2v_dc_30,sv2v_dc_31,sv2v_dc_32,sv2v_dc_33,sv2v_dc_34;
   wire [1:1] valid_head_o_pretrunc;
 
   bsg_make_2D_array_width_p16_items_p1
@@ -195,7 +187,7 @@ module bsg_rr_f2f_input_width_p16_num_in_p2_middle_meet_p1
     .reset_i(reset),
     .add_i(go_cnt_i[0]),
     .o(iptr_r[0]),
-    .n_o(SYNOPSYS_UNCONNECTED_1)
+    .n_o(sv2v_dc_1)
   );
 
 
@@ -206,11 +198,11 @@ module bsg_rr_f2f_input_width_p16_num_in_p2_middle_meet_p1
     .reset_i(reset),
     .add_i(go_cnt_i[0]),
     .o(iptr_r_data[0]),
-    .n_o(SYNOPSYS_UNCONNECTED_2)
+    .n_o(sv2v_dc_2)
   );
 
-  assign { yumi_o, SYNOPSYS_UNCONNECTED_3 } = { 1'b0, go_channels_i[0:0], 1'b0 } << iptr_r[0];
-  assign { SYNOPSYS_UNCONNECTED_4, SYNOPSYS_UNCONNECTED_5, SYNOPSYS_UNCONNECTED_6, SYNOPSYS_UNCONNECTED_7, SYNOPSYS_UNCONNECTED_8, SYNOPSYS_UNCONNECTED_9, SYNOPSYS_UNCONNECTED_10, SYNOPSYS_UNCONNECTED_11, SYNOPSYS_UNCONNECTED_12, SYNOPSYS_UNCONNECTED_13, SYNOPSYS_UNCONNECTED_14, SYNOPSYS_UNCONNECTED_15, SYNOPSYS_UNCONNECTED_16, SYNOPSYS_UNCONNECTED_17, SYNOPSYS_UNCONNECTED_18, SYNOPSYS_UNCONNECTED_19, SYNOPSYS_UNCONNECTED_20, SYNOPSYS_UNCONNECTED_21, SYNOPSYS_UNCONNECTED_22, SYNOPSYS_UNCONNECTED_23, SYNOPSYS_UNCONNECTED_24, SYNOPSYS_UNCONNECTED_25, SYNOPSYS_UNCONNECTED_26, SYNOPSYS_UNCONNECTED_27, SYNOPSYS_UNCONNECTED_28, SYNOPSYS_UNCONNECTED_29, SYNOPSYS_UNCONNECTED_30, SYNOPSYS_UNCONNECTED_31, SYNOPSYS_UNCONNECTED_32, SYNOPSYS_UNCONNECTED_33, SYNOPSYS_UNCONNECTED_34, data_head_o_flat_pretrunc } = { data_i[14:0], data_i } >> { iptr_r_data[0:0], 1'b0, 1'b0, 1'b0, 1'b0 };
+  assign { yumi_o, sv2v_dc_3 } = { 1'b0, go_channels_i[0:0], 1'b0 } << iptr_r[0];
+  assign { sv2v_dc_4, sv2v_dc_5, sv2v_dc_6, sv2v_dc_7, sv2v_dc_8, sv2v_dc_9, sv2v_dc_10, sv2v_dc_11, sv2v_dc_12, sv2v_dc_13, sv2v_dc_14, sv2v_dc_15, sv2v_dc_16, sv2v_dc_17, sv2v_dc_18, sv2v_dc_19, sv2v_dc_20, sv2v_dc_21, sv2v_dc_22, sv2v_dc_23, sv2v_dc_24, sv2v_dc_25, sv2v_dc_26, sv2v_dc_27, sv2v_dc_28, sv2v_dc_29, sv2v_dc_30, sv2v_dc_31, sv2v_dc_32, sv2v_dc_33, sv2v_dc_34, data_head_o_flat_pretrunc } = { data_i[14:0], data_i } >> { iptr_r_data[0:0], 1'b0, 1'b0, 1'b0, 1'b0 };
 
 endmodule
 
@@ -269,7 +261,7 @@ module bsg_rr_f2f_middle_width_p16_middle_meet_p1
 
 
   bsg_thermometer_count_width_p1
-  genblk1_genblk1_thermo
+  \genblk1.genblk1.thermo 
   (
     .i(go_channels_o[0]),
     .o(go_cnt_o[0])
@@ -292,8 +284,8 @@ module bsg_rotate_right_width_p1
   input [0:0] rot_i;
   output [0:0] o;
   wire [0:0] o;
-  wire SYNOPSYS_UNCONNECTED_1;
-  assign { SYNOPSYS_UNCONNECTED_1, o[0:0] } = { data_i[0:0], data_i[0:0] } >> rot_i[0];
+  wire sv2v_dc_1;
+  assign { sv2v_dc_1, o[0:0] } = { data_i[0:0], data_i[0:0] } >> rot_i[0];
 
 endmodule
 
@@ -313,13 +305,16 @@ module bsg_circular_ptr_slots_p1_max_add_p1
   output [0:0] n_o;
   input clk;
   input reset_i;
-  wire [0:0] n_o;
-  reg [0:0] o;
+  wire [0:0] o,n_o;
+  reg o_0_sv2v_reg;
+  assign o[0] = o_0_sv2v_reg;
   assign n_o[0] = 1'b0;
 
   always @(posedge clk) begin
-    if(1'b1) begin
-      { o[0:0] } <= { 1'b0 };
+    if(reset_i) begin
+      o_0_sv2v_reg <= 1'b0;
+    end else if(1'b1) begin
+      o_0_sv2v_reg <= 1'b0;
     end 
   end
 
@@ -352,7 +347,7 @@ module bsg_rr_f2f_output_width_p16_num_out_p1_middle_meet_p1
   input reset;
   wire [0:0] ready_head_o,valid_o,optr_r;
   wire [15:0] data_o;
-  wire N0,SYNOPSYS_UNCONNECTED_1,SYNOPSYS_UNCONNECTED_2,SYNOPSYS_UNCONNECTED_3;
+  wire N0,sv2v_dc_1,sv2v_dc_2,sv2v_dc_3;
   assign data_o[15] = data_head_i[15];
   assign data_o[14] = data_head_i[14];
   assign data_o[13] = data_head_i[13];
@@ -378,7 +373,7 @@ module bsg_rr_f2f_output_width_p16_num_out_p1_middle_meet_p1
     .o(ready_head_o[0])
   );
 
-  assign { valid_o[0:0], SYNOPSYS_UNCONNECTED_1 } = { go_channels_i[0:0], go_channels_i[0:0] } << optr_r[0];
+  assign { valid_o[0:0], sv2v_dc_1 } = { go_channels_i[0:0], go_channels_i[0:0] } << optr_r[0];
 
   bsg_circular_ptr_slots_p1_max_add_p1
   c_ptr
@@ -387,7 +382,7 @@ module bsg_rr_f2f_output_width_p16_num_out_p1_middle_meet_p1
     .reset_i(reset),
     .add_i(go_cnt_i[0]),
     .o(optr_r[0]),
-    .n_o(SYNOPSYS_UNCONNECTED_2)
+    .n_o(sv2v_dc_2)
   );
 
 
@@ -398,7 +393,7 @@ module bsg_rr_f2f_output_width_p16_num_out_p1_middle_meet_p1
     .reset_i(reset),
     .add_i(go_cnt_i[0]),
     .o(N0),
-    .n_o(SYNOPSYS_UNCONNECTED_3)
+    .n_o(sv2v_dc_3)
   );
 
 
@@ -432,14 +427,14 @@ module bsg_round_robin_fifo_to_fifo
   input reset;
   wire [1:0] yumi_o;
   wire [0:0] valid_o,go_channels,go_cnt,ready_head;
-  wire [15:0] data_o,data_int_o,oc_0__out_chan_data_head_array;
+  wire [15:0] data_o,data_int_o,\oc_0_.out_chan.data_head_array ;
   wire N0,yumi_int_o_1__1_,yumi_int_o_1__0_,N1,data_head_1__15_,data_head_1__14_,
   data_head_1__13_,data_head_1__12_,data_head_1__11_,data_head_1__10_,data_head_1__9_,
   data_head_1__8_,data_head_1__7_,data_head_1__6_,data_head_1__5_,data_head_1__4_,
-  data_head_1__3_,data_head_1__2_,data_head_1__1_,data_head_1__0_,n_0_net_,
-  valid_head_1__0_,n_2_net__0_,n_4_net__15_,n_4_net__14_,n_4_net__13_,n_4_net__12_,
-  n_4_net__11_,n_4_net__10_,n_4_net__9_,n_4_net__8_,n_4_net__7_,n_4_net__6_,n_4_net__5_,
-  n_4_net__4_,n_4_net__3_,n_4_net__2_,n_4_net__1_,n_4_net__0_,n_5_net_,N2;
+  data_head_1__3_,data_head_1__2_,data_head_1__1_,data_head_1__0_,_0_net_,
+  valid_head_1__0_,_2_net__0_,_4_net__15_,_4_net__14_,_4_net__13_,_4_net__12_,_4_net__11_,
+  _4_net__10_,_4_net__9_,_4_net__8_,_4_net__7_,_4_net__6_,_4_net__5_,_4_net__4_,
+  _4_net__3_,_4_net__2_,_4_net__1_,_4_net__0_,_5_net_,N2;
   assign yumi_o[1] = (N1)? 1'b0 : 
                      (N0)? yumi_int_o_1__1_ : 1'b0;
   assign N0 = in_top_channel_i[0];
@@ -455,10 +450,10 @@ module bsg_round_robin_fifo_to_fifo
 
 
   bsg_rr_f2f_input_width_p16_num_in_p2_middle_meet_p1
-  ic_1__in_chan_bsg_rr_ff_in
+  \ic_1_.in_chan.bsg_rr_ff_in 
   (
     .clk(clk),
-    .reset(n_0_net_),
+    .reset(_0_net_),
     .valid_i(valid_i),
     .data_i(data_i),
     .data_head_o({ data_head_1__15_, data_head_1__14_, data_head_1__13_, data_head_1__12_, data_head_1__11_, data_head_1__10_, data_head_1__9_, data_head_1__8_, data_head_1__7_, data_head_1__6_, data_head_1__5_, data_head_1__4_, data_head_1__3_, data_head_1__2_, data_head_1__1_, data_head_1__0_ }),
@@ -472,73 +467,73 @@ module bsg_round_robin_fifo_to_fifo
   bsg_rr_f2f_middle_width_p16_middle_meet_p1
   brrf2fm
   (
-    .valid_head_i(n_2_net__0_),
+    .valid_head_i(_2_net__0_),
     .ready_head_i(ready_head[0]),
     .go_channels_o(go_channels[0]),
     .go_cnt_o(go_cnt[0])
   );
 
-  assign n_2_net__0_ = (N1)? 1'b0 : 
-                       (N0)? valid_head_1__0_ : 1'b0;
+  assign _2_net__0_ = (N1)? 1'b0 : 
+                      (N0)? valid_head_1__0_ : 1'b0;
 
   bsg_make_2D_array_width_p16_items_p1
-  oc_0__out_chan_bm2Da
+  \oc_0_.out_chan.bm2Da 
   (
-    .i({ n_4_net__15_, n_4_net__14_, n_4_net__13_, n_4_net__12_, n_4_net__11_, n_4_net__10_, n_4_net__9_, n_4_net__8_, n_4_net__7_, n_4_net__6_, n_4_net__5_, n_4_net__4_, n_4_net__3_, n_4_net__2_, n_4_net__1_, n_4_net__0_ }),
-    .o(oc_0__out_chan_data_head_array)
+    .i({ _4_net__15_, _4_net__14_, _4_net__13_, _4_net__12_, _4_net__11_, _4_net__10_, _4_net__9_, _4_net__8_, _4_net__7_, _4_net__6_, _4_net__5_, _4_net__4_, _4_net__3_, _4_net__2_, _4_net__1_, _4_net__0_ }),
+    .o(\oc_0_.out_chan.data_head_array )
   );
 
-  assign n_4_net__15_ = (N1)? 1'b0 : 
-                        (N0)? data_head_1__15_ : 1'b0;
-  assign n_4_net__14_ = (N1)? 1'b0 : 
-                        (N0)? data_head_1__14_ : 1'b0;
-  assign n_4_net__13_ = (N1)? 1'b0 : 
-                        (N0)? data_head_1__13_ : 1'b0;
-  assign n_4_net__12_ = (N1)? 1'b0 : 
-                        (N0)? data_head_1__12_ : 1'b0;
-  assign n_4_net__11_ = (N1)? 1'b0 : 
-                        (N0)? data_head_1__11_ : 1'b0;
-  assign n_4_net__10_ = (N1)? 1'b0 : 
-                        (N0)? data_head_1__10_ : 1'b0;
-  assign n_4_net__9_ = (N1)? 1'b0 : 
-                       (N0)? data_head_1__9_ : 1'b0;
-  assign n_4_net__8_ = (N1)? 1'b0 : 
-                       (N0)? data_head_1__8_ : 1'b0;
-  assign n_4_net__7_ = (N1)? 1'b0 : 
-                       (N0)? data_head_1__7_ : 1'b0;
-  assign n_4_net__6_ = (N1)? 1'b0 : 
-                       (N0)? data_head_1__6_ : 1'b0;
-  assign n_4_net__5_ = (N1)? 1'b0 : 
-                       (N0)? data_head_1__5_ : 1'b0;
-  assign n_4_net__4_ = (N1)? 1'b0 : 
-                       (N0)? data_head_1__4_ : 1'b0;
-  assign n_4_net__3_ = (N1)? 1'b0 : 
-                       (N0)? data_head_1__3_ : 1'b0;
-  assign n_4_net__2_ = (N1)? 1'b0 : 
-                       (N0)? data_head_1__2_ : 1'b0;
-  assign n_4_net__1_ = (N1)? 1'b0 : 
-                       (N0)? data_head_1__1_ : 1'b0;
-  assign n_4_net__0_ = (N1)? 1'b0 : 
-                       (N0)? data_head_1__0_ : 1'b0;
+  assign _4_net__15_ = (N1)? 1'b0 : 
+                       (N0)? data_head_1__15_ : 1'b0;
+  assign _4_net__14_ = (N1)? 1'b0 : 
+                       (N0)? data_head_1__14_ : 1'b0;
+  assign _4_net__13_ = (N1)? 1'b0 : 
+                       (N0)? data_head_1__13_ : 1'b0;
+  assign _4_net__12_ = (N1)? 1'b0 : 
+                       (N0)? data_head_1__12_ : 1'b0;
+  assign _4_net__11_ = (N1)? 1'b0 : 
+                       (N0)? data_head_1__11_ : 1'b0;
+  assign _4_net__10_ = (N1)? 1'b0 : 
+                       (N0)? data_head_1__10_ : 1'b0;
+  assign _4_net__9_ = (N1)? 1'b0 : 
+                      (N0)? data_head_1__9_ : 1'b0;
+  assign _4_net__8_ = (N1)? 1'b0 : 
+                      (N0)? data_head_1__8_ : 1'b0;
+  assign _4_net__7_ = (N1)? 1'b0 : 
+                      (N0)? data_head_1__7_ : 1'b0;
+  assign _4_net__6_ = (N1)? 1'b0 : 
+                      (N0)? data_head_1__6_ : 1'b0;
+  assign _4_net__5_ = (N1)? 1'b0 : 
+                      (N0)? data_head_1__5_ : 1'b0;
+  assign _4_net__4_ = (N1)? 1'b0 : 
+                      (N0)? data_head_1__4_ : 1'b0;
+  assign _4_net__3_ = (N1)? 1'b0 : 
+                      (N0)? data_head_1__3_ : 1'b0;
+  assign _4_net__2_ = (N1)? 1'b0 : 
+                      (N0)? data_head_1__2_ : 1'b0;
+  assign _4_net__1_ = (N1)? 1'b0 : 
+                      (N0)? data_head_1__1_ : 1'b0;
+  assign _4_net__0_ = (N1)? 1'b0 : 
+                      (N0)? data_head_1__0_ : 1'b0;
 
   bsg_rr_f2f_output_width_p16_num_out_p1_middle_meet_p1
-  oc_0__out_chan_bsg_rr_ff_out
+  \oc_0_.out_chan.bsg_rr_ff_out 
   (
     .clk(clk),
-    .reset(n_5_net_),
+    .reset(_5_net_),
     .ready_i(ready_i[0]),
     .ready_head_o(ready_head[0]),
     .go_channels_i(go_channels[0]),
     .go_cnt_i(go_cnt[0]),
-    .data_head_i(oc_0__out_chan_data_head_array),
+    .data_head_i(\oc_0_.out_chan.data_head_array ),
     .valid_o(valid_o[0]),
     .data_o(data_int_o)
   );
 
   assign N2 = ~in_top_channel_i[0];
   assign N1 = ~in_top_channel_i[0];
-  assign n_0_net_ = reset | N2;
-  assign n_5_net_ = reset | out_top_channel_i[0];
+  assign _0_net_ = reset | N2;
+  assign _5_net_ = reset | out_top_channel_i[0];
 
 endmodule
 

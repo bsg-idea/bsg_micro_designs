@@ -167,7 +167,7 @@ module bsg_1_to_n_tagged
   N116,N117,N118,N119,N120,N121,N122,N123,N124,N125,N126,N127,N128,N129,N130;
 
   bsg_decode_with_v_num_out_p64
-  many_bdv
+  \many.bdv 
   (
     .i(tag_i),
     .v_i(v_i),

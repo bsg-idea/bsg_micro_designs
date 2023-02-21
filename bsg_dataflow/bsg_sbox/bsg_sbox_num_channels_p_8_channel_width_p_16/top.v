@@ -21047,113 +21047,364 @@ module bsg_sbox
   N22,N23,N24,N25,N26,N27,N28,N29,N30,N31,N32,N33,N34,N35,N36,N37,N38,N39,N40,N41,
   N42,N43,N44,N45,N46,N47,N48,N49,N50,N51,N52,N53,N54,N55,N56,N57,N58,N59,N60,N61,
   N62,N63,N64,N65,N66,N67,N68,N69,N70,N71,N72,N73,N74,N75,N76,N77,N78,N79,N80,N81,
-  N82,N83,N84,N85,N86,N87,N88,N89,N90,N91,N92,N93,N94,N95,N96,N97,N98,N99,N100,N101,
-  N102,N103,N104,N105,N106,N107,N108,N109,N110,N111,N112,N113,N114,N115,N116,N117,
-  N118,N119,N120,N121,N122,N123,N124,N125,N126,N127,N128,N129,N130,N131,N132,N133,
-  N134,N135,N136,N137,N138,N139,N140,N141,N142,N143,N144,N145,N146,N147,N148,N149,
-  N150,N151,N152,N153,N154,N155,N156,N157,N158,N159,N160,N161,N162,N163,N164,N165,
-  N166,N167,N168,N169,N170,N171,N172,N173,N174,N175,N176,N177,N178,N179,N180,N181,
-  N182,N183,N184,N185,N186,N187,N188,N189,N190,N191,N192,N193,N194,N195,N196,N197,
-  N198,N199,N200,N201,N202,N203,N204,N205,N206,N207,N208,N209,N210,N211,N212,N213,
-  N214,N215,N216,N217,N218,N219,N220,N221,N222,N223,N224,N225,N226,N227,N228,N229,
-  N230,N231,N232,N233,N234,N235,N236,N237,N238,N239,N240,N241,N242,N243,N244,N245,
-  N246,N247,N248,N249,N250,N251,N252,N253,N254,N255,N256,N257,N258,N259,N260,N261,
-  N262,N263,N264,N265,N266,N267,N268,N269,N270,N271,N272,N273,N274,N275,N276,N277,
-  N278,N279,N280,N281,N282,N283,N284,N285,N286,N287,N288,N289,N290,N291,N292,N293,
-  N294,N295,N296,N297,N298,N299,N300,N301,N302,N303,N304,N305,N306,N307,N308,N309,
-  N310,N311,N312,N313,N314,N315,N316,N317,N318,N319,N320,N321,N322,N323,N324,N325,
-  N326,N327,N328,N329,N330,N331,N332,N333,N334,N335,N336,N337,N338,N339,N340,N341,
-  N342,N343,N344,N345,N346,N347,N348,N349,N350,N351,N352,N353,N354,N355,N356,N357,
-  N358,N359,N360,N361,N362,N363,N364,N365,N366,N367,N368,N369,N370,N371,N372,N373,
-  N374,N375,N376,N377,N378,N379,N380,N381,N382,N383,N384,N385,N386,N387,N388,N389,
-  N390,N391,N392,N393,N394,N395,N396,N397,N398,N399,N400,N401,N402,N403,N404,N405,
-  N406,N407,N408,N409,N410,N411,N412,N413,N414,N415,N416,N417,N418,N419,N420,N421,
-  N422,N423,N424,N425,N426,N427,N428,N429,N430,N431,N432,N433,N434,N435,N436,N437,
-  N438,N439,N440,N441,N442,N443,N444,N445,N446,N447,N448,N449,N450,N451,N452,N453,
-  N454,N455,N456,N457,N458,N459,N460,N461,N462,N463,N464,N465,N466,N467,N468,N469,
-  N470,N471,N472,N473,N474,N475,N476,N477,N478,N479,N480,N481,N482,N483,N484,N485,
-  N486,N487,N488,N489,N490,N491,N492,N493,N494,N495,N496,N497,N498,N499,N500,N501,
-  N502,N503,N504,N505,N506,N507,N508,N509,N510,N511,N512,N513,N514,N515,N516,N517,
-  N518,N519,N520,N521,N522,N523,N524,N525,N526,N527,N528,N529,N530,N531,N532,N533,
-  N534,N535,N536,N537,N538,N539,N540,N541,N542,N543,N544,N545,N546,N547,N548,N549,
-  N550,N551,N552,N553,N554,N555,N556,N557,N558,N559,N560,N561,N562,N563,N564,N565,
-  N566,N567,N568,N569,N570,N571,N572,N573,N574,N575,N576,N577,N578,N579,N580,N581,
-  N582,N583,N584,N585,N586,N587,N588,N589,N590,N591,N592,N593,N594,N595,N596,N597,
-  N598,N599,N600,N601,N602,N603,N604,N605,N606,N607,N608,N609,N610,N611,N612,N613,
-  N614,N615,N616,N617,N618,N619,N620,N621,N622,N623,N624,N625,N626,N627,N628,N629,
-  N630,N631,N632,N633,N634,N635,N636,N637,N638,N639,N640,N641,N642,N643,N644,N645,
-  N646,N647,N648,N649,N650,N651,N652,N653,N654,N655,N656,N657,N658,N659,N660,N661,
-  N662,N663,N664,N665,N666,N667,N668,N669,N670,N671,N672,N673,N674,N675,N676,N677,
-  N678,N679,N680,N681;
-  wire [23:0] fwd_sel,fwd_dpath_sel,bk_sel,bk_dpath_sel;
-  reg [23:0] fwd_sel_r,bk_sel_r;
-  reg fwd_dpath_sel_r_18,fwd_dpath_sel_r_16,fwd_dpath_sel_r_15,bk_dpath_sel_r_10,
-  bk_dpath_sel_r_9,bk_dpath_sel_r_7,bk_dpath_sel_r_6,bk_dpath_sel_r_3,
-  sbox_0__fi1hot_fwd_sel_one_hot_r_0__7_,sbox_0__fi1hot_fwd_sel_one_hot_r_0__6_,
-  sbox_0__fi1hot_fwd_sel_one_hot_r_0__5_,sbox_0__fi1hot_fwd_sel_one_hot_r_0__4_,
-  sbox_0__fi1hot_fwd_sel_one_hot_r_0__3_,sbox_0__fi1hot_fwd_sel_one_hot_r_0__2_,
-  sbox_0__fi1hot_fwd_sel_one_hot_r_0__1_,sbox_0__fi1hot_fwd_sel_one_hot_r_0__0_,
-  sbox_1__fi1hot_fwd_sel_one_hot_r_1__7_,sbox_1__fi1hot_fwd_sel_one_hot_r_1__6_,
-  sbox_1__fi1hot_fwd_sel_one_hot_r_1__5_,sbox_1__fi1hot_fwd_sel_one_hot_r_1__4_,
-  sbox_1__fi1hot_fwd_sel_one_hot_r_1__3_,sbox_1__fi1hot_fwd_sel_one_hot_r_1__2_,
-  sbox_1__fi1hot_fwd_sel_one_hot_r_1__1_,sbox_1__fi1hot_fwd_sel_one_hot_r_1__0_,
-  sbox_2__fi1hot_fwd_sel_one_hot_r_2__7_,sbox_2__fi1hot_fwd_sel_one_hot_r_2__6_,
-  sbox_2__fi1hot_fwd_sel_one_hot_r_2__5_,sbox_2__fi1hot_fwd_sel_one_hot_r_2__4_,
-  sbox_2__fi1hot_fwd_sel_one_hot_r_2__3_,sbox_2__fi1hot_fwd_sel_one_hot_r_2__2_,sbox_2__fi1hot_fwd_sel_one_hot_r_2__1_,
-  sbox_2__fi1hot_fwd_sel_one_hot_r_2__0_,sbox_3__fi1hot_fwd_sel_one_hot_r_3__7_,
-  sbox_3__fi1hot_fwd_sel_one_hot_r_3__6_,sbox_3__fi1hot_fwd_sel_one_hot_r_3__5_,
-  sbox_3__fi1hot_fwd_sel_one_hot_r_3__4_,sbox_3__fi1hot_fwd_sel_one_hot_r_3__3_,
-  sbox_3__fi1hot_fwd_sel_one_hot_r_3__2_,sbox_3__fi1hot_fwd_sel_one_hot_r_3__1_,
-  sbox_3__fi1hot_fwd_sel_one_hot_r_3__0_,sbox_4__fi1hot_fwd_sel_one_hot_r_4__7_,
-  sbox_4__fi1hot_fwd_sel_one_hot_r_4__6_,sbox_4__fi1hot_fwd_sel_one_hot_r_4__5_,
-  sbox_4__fi1hot_fwd_sel_one_hot_r_4__4_,sbox_4__fi1hot_fwd_sel_one_hot_r_4__3_,
-  sbox_4__fi1hot_fwd_sel_one_hot_r_4__2_,sbox_4__fi1hot_fwd_sel_one_hot_r_4__1_,
-  sbox_4__fi1hot_fwd_sel_one_hot_r_4__0_,sbox_5__fi1hot_fwd_sel_one_hot_r_5__7_,
-  sbox_5__fi1hot_fwd_sel_one_hot_r_5__6_,sbox_5__fi1hot_fwd_sel_one_hot_r_5__5_,
-  sbox_5__fi1hot_fwd_sel_one_hot_r_5__4_,sbox_5__fi1hot_fwd_sel_one_hot_r_5__3_,
-  sbox_5__fi1hot_fwd_sel_one_hot_r_5__2_,sbox_5__fi1hot_fwd_sel_one_hot_r_5__1_,
-  sbox_5__fi1hot_fwd_sel_one_hot_r_5__0_,sbox_6__fi1hot_fwd_sel_one_hot_r_6__7_,
-  sbox_6__fi1hot_fwd_sel_one_hot_r_6__6_,sbox_6__fi1hot_fwd_sel_one_hot_r_6__5_,
-  sbox_6__fi1hot_fwd_sel_one_hot_r_6__4_,sbox_6__fi1hot_fwd_sel_one_hot_r_6__3_,
-  sbox_6__fi1hot_fwd_sel_one_hot_r_6__2_,sbox_6__fi1hot_fwd_sel_one_hot_r_6__1_,
-  sbox_6__fi1hot_fwd_sel_one_hot_r_6__0_,sbox_7__fi1hot_fwd_sel_one_hot_r_7__7_,
-  sbox_7__fi1hot_fwd_sel_one_hot_r_7__6_,sbox_7__fi1hot_fwd_sel_one_hot_r_7__5_,
-  sbox_7__fi1hot_fwd_sel_one_hot_r_7__4_,sbox_7__fi1hot_fwd_sel_one_hot_r_7__3_,
-  sbox_7__fi1hot_fwd_sel_one_hot_r_7__2_,sbox_7__fi1hot_fwd_sel_one_hot_r_7__1_,sbox_7__fi1hot_fwd_sel_one_hot_r_7__0_;
-  reg [13:0] fwd_dpath_sel_r;
-  reg [23:12] bk_dpath_sel_r;
-  assign in_data_o[127] = in_data_i[127];
-  assign in_data_o[126] = in_data_i[126];
-  assign in_data_o[125] = in_data_i[125];
-  assign in_data_o[124] = in_data_i[124];
-  assign in_data_o[123] = in_data_i[123];
-  assign in_data_o[122] = in_data_i[122];
-  assign in_data_o[121] = in_data_i[121];
-  assign in_data_o[120] = in_data_i[120];
-  assign in_data_o[119] = in_data_i[119];
-  assign in_data_o[118] = in_data_i[118];
-  assign in_data_o[117] = in_data_i[117];
-  assign in_data_o[116] = in_data_i[116];
-  assign in_data_o[115] = in_data_i[115];
-  assign in_data_o[114] = in_data_i[114];
-  assign in_data_o[113] = in_data_i[113];
-  assign in_data_o[112] = in_data_i[112];
-  assign out_me_data_o[15] = out_me_data_i[15];
-  assign out_me_data_o[14] = out_me_data_i[14];
-  assign out_me_data_o[13] = out_me_data_i[13];
-  assign out_me_data_o[12] = out_me_data_i[12];
-  assign out_me_data_o[11] = out_me_data_i[11];
-  assign out_me_data_o[10] = out_me_data_i[10];
-  assign out_me_data_o[9] = out_me_data_i[9];
-  assign out_me_data_o[8] = out_me_data_i[8];
-  assign out_me_data_o[7] = out_me_data_i[7];
-  assign out_me_data_o[6] = out_me_data_i[6];
-  assign out_me_data_o[5] = out_me_data_i[5];
-  assign out_me_data_o[4] = out_me_data_i[4];
-  assign out_me_data_o[3] = out_me_data_i[3];
-  assign out_me_data_o[2] = out_me_data_i[2];
-  assign out_me_data_o[1] = out_me_data_i[1];
-  assign out_me_data_o[0] = out_me_data_i[0];
+  N82,N83,N84,N85,N86,N87,N88,N89,in_data_i_7__15_,in_data_i_7__14_,
+  in_data_i_7__13_,in_data_i_7__12_,in_data_i_7__11_,in_data_i_7__10_,in_data_i_7__9_,
+  in_data_i_7__8_,in_data_i_7__7_,in_data_i_7__6_,in_data_i_7__5_,in_data_i_7__4_,
+  in_data_i_7__3_,in_data_i_7__2_,in_data_i_7__1_,in_data_i_7__0_,out_me_data_i_0__15_,
+  out_me_data_i_0__14_,out_me_data_i_0__13_,out_me_data_i_0__12_,out_me_data_i_0__11_,
+  out_me_data_i_0__10_,out_me_data_i_0__9_,out_me_data_i_0__8_,out_me_data_i_0__7_,
+  out_me_data_i_0__6_,out_me_data_i_0__5_,out_me_data_i_0__4_,out_me_data_i_0__3_,
+  out_me_data_i_0__2_,out_me_data_i_0__1_,out_me_data_i_0__0_,fwd_dpath_sel_r_18,
+  fwd_dpath_sel_r_16,fwd_dpath_sel_r_15,bk_dpath_sel_r_10,bk_dpath_sel_r_9,
+  bk_dpath_sel_r_7,bk_dpath_sel_r_6,bk_dpath_sel_r_3,N90,N91,N92,N93,N94,N95,N96,N97,
+  \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__7_ ,\sbox_0_.fi1hot.fwd_sel_one_hot_r_0__6_ ,
+  \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__5_ ,\sbox_0_.fi1hot.fwd_sel_one_hot_r_0__4_ ,
+  \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__3_ ,\sbox_0_.fi1hot.fwd_sel_one_hot_r_0__2_ ,
+  \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__1_ ,
+  \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__0_ ,N98,N99,N100,N101,N102,N103,N104,N105,N106,N107,N108,N109,N110,N111,N112,N113,
+  N114,N115,N116,N117,N118,N119,N120,N121,N122,N123,N124,N125,N126,N127,N128,N129,
+  N130,N131,N132,N133,N134,N135,N136,N137,N138,N139,N140,N141,N142,N143,N144,N145,
+  N146,N147,N148,N149,N150,N151,N152,N153,N154,N155,N156,N157,N158,N159,N160,N161,
+  N162,\sbox_1_.fi1hot.fwd_sel_one_hot_r_1__7_ ,
+  \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__6_ ,\sbox_1_.fi1hot.fwd_sel_one_hot_r_1__5_ ,
+  \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__4_ ,\sbox_1_.fi1hot.fwd_sel_one_hot_r_1__3_ ,
+  \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__2_ ,\sbox_1_.fi1hot.fwd_sel_one_hot_r_1__1_ ,
+  \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__0_ ,N163,N164,N165,N166,N167,N168,N169,N170,N171,N172,N173,N174,N175,
+  N176,N177,N178,N179,N180,N181,N182,N183,N184,N185,N186,N187,N188,N189,N190,N191,
+  N192,N193,N194,N195,N196,N197,N198,N199,N200,N201,N202,N203,N204,N205,N206,N207,
+  N208,N209,N210,N211,N212,N213,N214,N215,N216,N217,N218,N219,N220,
+  \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__7_ ,\sbox_2_.fi1hot.fwd_sel_one_hot_r_2__6_ ,
+  \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__5_ ,\sbox_2_.fi1hot.fwd_sel_one_hot_r_2__4_ ,
+  \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__3_ ,\sbox_2_.fi1hot.fwd_sel_one_hot_r_2__2_ ,
+  \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__1_ ,\sbox_2_.fi1hot.fwd_sel_one_hot_r_2__0_ ,N221,N222,
+  N223,N224,N225,N226,N227,N228,N229,N230,N231,N232,N233,N234,N235,N236,N237,N238,
+  N239,N240,N241,N242,N243,N244,N245,N246,N247,N248,N249,N250,N251,N252,N253,N254,
+  N255,N256,N257,N258,N259,N260,N261,N262,N263,N264,N265,N266,N267,N268,N269,N270,
+  N271,N272,N273,N274,N275,N276,N277,\sbox_3_.fi1hot.fwd_sel_one_hot_r_3__7_ ,
+  \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__6_ ,\sbox_3_.fi1hot.fwd_sel_one_hot_r_3__5_ ,
+  \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__4_ ,\sbox_3_.fi1hot.fwd_sel_one_hot_r_3__3_ ,
+  \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__2_ ,
+  \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__1_ ,\sbox_3_.fi1hot.fwd_sel_one_hot_r_3__0_ ,N278,N279,N280,N281,N282,N283,N284,
+  N285,N286,N287,N288,N289,N290,N291,N292,N293,N294,N295,N296,N297,N298,N299,N300,
+  N301,N302,N303,N304,N305,N306,N307,N308,N309,N310,N311,N312,N313,N314,N315,N316,
+  N317,N318,N319,N320,N321,N322,N323,N324,N325,N326,N327,N328,N329,N330,N331,N332,
+  N333,N334,N335,N336,N337,\sbox_4_.fi1hot.fwd_sel_one_hot_r_4__7_ ,
+  \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__6_ ,\sbox_4_.fi1hot.fwd_sel_one_hot_r_4__5_ ,
+  \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__4_ ,\sbox_4_.fi1hot.fwd_sel_one_hot_r_4__3_ ,
+  \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__2_ ,\sbox_4_.fi1hot.fwd_sel_one_hot_r_4__1_ ,
+  \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__0_ ,N338,N339,N340,N341,N342,N343,N344,N345,N346,
+  N347,N348,N349,N350,N351,N352,N353,N354,N355,N356,N357,N358,N359,N360,N361,N362,
+  N363,N364,N365,N366,N367,N368,N369,N370,N371,N372,N373,N374,N375,N376,N377,N378,
+  N379,N380,N381,N382,N383,N384,N385,N386,N387,N388,N389,N390,N391,N392,N393,N394,
+  N395,N396,N397,\sbox_5_.fi1hot.fwd_sel_one_hot_r_5__7_ ,
+  \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__6_ ,\sbox_5_.fi1hot.fwd_sel_one_hot_r_5__5_ ,
+  \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__4_ ,\sbox_5_.fi1hot.fwd_sel_one_hot_r_5__3_ ,
+  \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__2_ ,\sbox_5_.fi1hot.fwd_sel_one_hot_r_5__1_ ,
+  \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__0_ ,N398,N399,N400,N401,N402,N403,N404,N405,N406,N407,N408,N409,
+  N410,N411,N412,N413,N414,N415,N416,N417,N418,N419,N420,N421,N422,N423,N424,N425,
+  N426,N427,N428,N429,N430,N431,N432,N433,N434,N435,N436,N437,N438,N439,N440,N441,
+  N442,N443,N444,N445,N446,N447,N448,N449,N450,N451,N452,N453,N454,
+  \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__7_ ,\sbox_6_.fi1hot.fwd_sel_one_hot_r_6__6_ ,
+  \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__5_ ,\sbox_6_.fi1hot.fwd_sel_one_hot_r_6__4_ ,
+  \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__3_ ,\sbox_6_.fi1hot.fwd_sel_one_hot_r_6__2_ ,
+  \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__1_ ,\sbox_6_.fi1hot.fwd_sel_one_hot_r_6__0_ ,N455,
+  N456,N457,N458,N459,N460,N461,N462,N463,N464,N465,N466,N467,N468,N469,N470,N471,
+  N472,N473,N474,N475,N476,N477,N478,N479,N480,N481,N482,N483,N484,N485,N486,N487,
+  N488,N489,N490,N491,N492,N493,N494,N495,N496,N497,N498,N499,N500,N501,N502,N503,
+  N504,N505,N506,N507,N508,N509,N510,N511,N512,
+  \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__7_ ,\sbox_7_.fi1hot.fwd_sel_one_hot_r_7__6_ ,
+  \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__5_ ,\sbox_7_.fi1hot.fwd_sel_one_hot_r_7__4_ ,
+  \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__3_ ,\sbox_7_.fi1hot.fwd_sel_one_hot_r_7__2_ ,
+  \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__1_ ,\sbox_7_.fi1hot.fwd_sel_one_hot_r_7__0_ ,N513,N514,N515,N516,N517,N518,
+  N519,N520,N521,N522,N523,N524,N525,N526,N527,N528,N529,N530,N531,N532,N533,N534,
+  N535,N536,N537,N538,N539,N540,N541,N542,N543,N544,N545,N546,N547,N548,N549,N550,
+  N551,N552,N553,N554,N555,N556,N557,N558,N559,N560,N561,N562,N563,N564,N565,N566,
+  N567,N568,N569,N570,N571,N572,N573,N574,N575,N576,N577,N578,N579,N580,N581,N582,
+  N583,N584,N585,N586,N587,N588,N589,N590,N591,N592,N593,N594,N595,N596,N597,N598,
+  N599,N600,N601,N602,N603,N604,N605,N606,N607,N608,N609,N610,N611,N612,N613,N614,
+  N615,N616,N617,N618,N619,N620,N621,N622,N623,N624,N625,N626,N627,N628,N629,N630,
+  N631,N632,N633,N634,N635,N636,N637,N638,N639,N640,N641,N642,N643,N644,N645,N646,
+  N647,N648,N649,N650,N651,N652,N653,N654,N655,N656,N657,N658,N659,N660,N661,N662,
+  N663,N664,N665,N666,N667,N668,N669,N670,N671,N672,N673,N674,N675,N676,N677,N678,
+  N679,N680,N681;
+  wire [23:0] fwd_sel,fwd_dpath_sel,bk_sel,bk_dpath_sel,fwd_sel_r,bk_sel_r;
+  wire [13:0] fwd_dpath_sel_r;
+  wire [23:12] bk_dpath_sel_r;
+  reg fwd_sel_r_23_sv2v_reg,fwd_sel_r_22_sv2v_reg,fwd_sel_r_21_sv2v_reg,
+  fwd_sel_r_20_sv2v_reg,fwd_sel_r_19_sv2v_reg,fwd_sel_r_18_sv2v_reg,fwd_sel_r_17_sv2v_reg,
+  fwd_sel_r_16_sv2v_reg,fwd_sel_r_15_sv2v_reg,fwd_sel_r_14_sv2v_reg,
+  fwd_sel_r_13_sv2v_reg,fwd_sel_r_12_sv2v_reg,fwd_sel_r_11_sv2v_reg,fwd_sel_r_10_sv2v_reg,
+  fwd_sel_r_9_sv2v_reg,fwd_sel_r_8_sv2v_reg,fwd_sel_r_7_sv2v_reg,fwd_sel_r_6_sv2v_reg,
+  fwd_sel_r_5_sv2v_reg,fwd_sel_r_4_sv2v_reg,fwd_sel_r_3_sv2v_reg,fwd_sel_r_2_sv2v_reg,
+  fwd_sel_r_1_sv2v_reg,fwd_sel_r_0_sv2v_reg,fwd_dpath_sel_r_18_sv2v_reg,
+  fwd_dpath_sel_r_16_sv2v_reg,fwd_dpath_sel_r_15_sv2v_reg,fwd_dpath_sel_r_13_sv2v_reg,
+  fwd_dpath_sel_r_12_sv2v_reg,fwd_dpath_sel_r_11_sv2v_reg,fwd_dpath_sel_r_10_sv2v_reg,
+  fwd_dpath_sel_r_9_sv2v_reg,fwd_dpath_sel_r_8_sv2v_reg,fwd_dpath_sel_r_7_sv2v_reg,
+  fwd_dpath_sel_r_6_sv2v_reg,fwd_dpath_sel_r_5_sv2v_reg,fwd_dpath_sel_r_4_sv2v_reg,
+  fwd_dpath_sel_r_3_sv2v_reg,fwd_dpath_sel_r_2_sv2v_reg,fwd_dpath_sel_r_1_sv2v_reg,
+  fwd_dpath_sel_r_0_sv2v_reg,bk_sel_r_23_sv2v_reg,bk_sel_r_22_sv2v_reg,
+  bk_sel_r_21_sv2v_reg,bk_sel_r_20_sv2v_reg,bk_sel_r_19_sv2v_reg,bk_sel_r_18_sv2v_reg,
+  bk_sel_r_17_sv2v_reg,bk_sel_r_16_sv2v_reg,bk_sel_r_15_sv2v_reg,bk_sel_r_14_sv2v_reg,
+  bk_sel_r_13_sv2v_reg,bk_sel_r_12_sv2v_reg,bk_sel_r_11_sv2v_reg,bk_sel_r_10_sv2v_reg,
+  bk_sel_r_9_sv2v_reg,bk_sel_r_8_sv2v_reg,bk_sel_r_7_sv2v_reg,bk_sel_r_6_sv2v_reg,
+  bk_sel_r_5_sv2v_reg,bk_sel_r_4_sv2v_reg,bk_sel_r_3_sv2v_reg,bk_sel_r_2_sv2v_reg,
+  bk_sel_r_1_sv2v_reg,bk_sel_r_0_sv2v_reg,bk_dpath_sel_r_23_sv2v_reg,
+  bk_dpath_sel_r_22_sv2v_reg,bk_dpath_sel_r_21_sv2v_reg,bk_dpath_sel_r_20_sv2v_reg,
+  bk_dpath_sel_r_19_sv2v_reg,bk_dpath_sel_r_18_sv2v_reg,bk_dpath_sel_r_17_sv2v_reg,
+  bk_dpath_sel_r_16_sv2v_reg,bk_dpath_sel_r_15_sv2v_reg,bk_dpath_sel_r_14_sv2v_reg,
+  bk_dpath_sel_r_13_sv2v_reg,bk_dpath_sel_r_12_sv2v_reg,bk_dpath_sel_r_10_sv2v_reg,
+  bk_dpath_sel_r_9_sv2v_reg,bk_dpath_sel_r_7_sv2v_reg,bk_dpath_sel_r_6_sv2v_reg,
+  bk_dpath_sel_r_3_sv2v_reg,\sbox_0_.fi1hot.fwd_sel_one_hot_r_0__7__sv2v_reg ,
+  \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__6__sv2v_reg ,
+  \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__5__sv2v_reg ,\sbox_0_.fi1hot.fwd_sel_one_hot_r_0__4__sv2v_reg ,
+  \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__3__sv2v_reg ,\sbox_0_.fi1hot.fwd_sel_one_hot_r_0__2__sv2v_reg ,
+  \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__1__sv2v_reg ,
+  \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__0__sv2v_reg ,\sbox_1_.fi1hot.fwd_sel_one_hot_r_1__7__sv2v_reg ,
+  \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__6__sv2v_reg ,
+  \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__5__sv2v_reg ,\sbox_1_.fi1hot.fwd_sel_one_hot_r_1__4__sv2v_reg ,
+  \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__3__sv2v_reg ,\sbox_1_.fi1hot.fwd_sel_one_hot_r_1__2__sv2v_reg ,
+  \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__1__sv2v_reg ,
+  \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__0__sv2v_reg ,\sbox_2_.fi1hot.fwd_sel_one_hot_r_2__7__sv2v_reg ,
+  \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__6__sv2v_reg ,
+  \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__5__sv2v_reg ,\sbox_2_.fi1hot.fwd_sel_one_hot_r_2__4__sv2v_reg ,
+  \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__3__sv2v_reg ,\sbox_2_.fi1hot.fwd_sel_one_hot_r_2__2__sv2v_reg ,
+  \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__1__sv2v_reg ,
+  \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__0__sv2v_reg ,\sbox_3_.fi1hot.fwd_sel_one_hot_r_3__7__sv2v_reg ,
+  \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__6__sv2v_reg ,
+  \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__5__sv2v_reg ,\sbox_3_.fi1hot.fwd_sel_one_hot_r_3__4__sv2v_reg ,
+  \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__3__sv2v_reg ,\sbox_3_.fi1hot.fwd_sel_one_hot_r_3__2__sv2v_reg ,
+  \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__1__sv2v_reg ,
+  \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__0__sv2v_reg ,\sbox_4_.fi1hot.fwd_sel_one_hot_r_4__7__sv2v_reg ,
+  \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__6__sv2v_reg ,
+  \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__5__sv2v_reg ,\sbox_4_.fi1hot.fwd_sel_one_hot_r_4__4__sv2v_reg ,
+  \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__3__sv2v_reg ,\sbox_4_.fi1hot.fwd_sel_one_hot_r_4__2__sv2v_reg ,
+  \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__1__sv2v_reg ,
+  \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__0__sv2v_reg ,\sbox_5_.fi1hot.fwd_sel_one_hot_r_5__7__sv2v_reg ,
+  \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__6__sv2v_reg ,
+  \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__5__sv2v_reg ,\sbox_5_.fi1hot.fwd_sel_one_hot_r_5__4__sv2v_reg ,
+  \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__3__sv2v_reg ,\sbox_5_.fi1hot.fwd_sel_one_hot_r_5__2__sv2v_reg ,
+  \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__1__sv2v_reg ,
+  \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__0__sv2v_reg ,\sbox_6_.fi1hot.fwd_sel_one_hot_r_6__7__sv2v_reg ,
+  \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__6__sv2v_reg ,
+  \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__5__sv2v_reg ,\sbox_6_.fi1hot.fwd_sel_one_hot_r_6__4__sv2v_reg ,
+  \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__3__sv2v_reg ,\sbox_6_.fi1hot.fwd_sel_one_hot_r_6__2__sv2v_reg ,
+  \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__1__sv2v_reg ,
+  \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__0__sv2v_reg ,\sbox_7_.fi1hot.fwd_sel_one_hot_r_7__7__sv2v_reg ,
+  \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__6__sv2v_reg ,
+  \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__5__sv2v_reg ,\sbox_7_.fi1hot.fwd_sel_one_hot_r_7__4__sv2v_reg ,
+  \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__3__sv2v_reg ,\sbox_7_.fi1hot.fwd_sel_one_hot_r_7__2__sv2v_reg ,
+  \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__1__sv2v_reg ,
+  \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__0__sv2v_reg ;
+  assign fwd_sel_r[23] = fwd_sel_r_23_sv2v_reg;
+  assign fwd_sel_r[22] = fwd_sel_r_22_sv2v_reg;
+  assign fwd_sel_r[21] = fwd_sel_r_21_sv2v_reg;
+  assign fwd_sel_r[20] = fwd_sel_r_20_sv2v_reg;
+  assign fwd_sel_r[19] = fwd_sel_r_19_sv2v_reg;
+  assign fwd_sel_r[18] = fwd_sel_r_18_sv2v_reg;
+  assign fwd_sel_r[17] = fwd_sel_r_17_sv2v_reg;
+  assign fwd_sel_r[16] = fwd_sel_r_16_sv2v_reg;
+  assign fwd_sel_r[15] = fwd_sel_r_15_sv2v_reg;
+  assign fwd_sel_r[14] = fwd_sel_r_14_sv2v_reg;
+  assign fwd_sel_r[13] = fwd_sel_r_13_sv2v_reg;
+  assign fwd_sel_r[12] = fwd_sel_r_12_sv2v_reg;
+  assign fwd_sel_r[11] = fwd_sel_r_11_sv2v_reg;
+  assign fwd_sel_r[10] = fwd_sel_r_10_sv2v_reg;
+  assign fwd_sel_r[9] = fwd_sel_r_9_sv2v_reg;
+  assign fwd_sel_r[8] = fwd_sel_r_8_sv2v_reg;
+  assign fwd_sel_r[7] = fwd_sel_r_7_sv2v_reg;
+  assign fwd_sel_r[6] = fwd_sel_r_6_sv2v_reg;
+  assign fwd_sel_r[5] = fwd_sel_r_5_sv2v_reg;
+  assign fwd_sel_r[4] = fwd_sel_r_4_sv2v_reg;
+  assign fwd_sel_r[3] = fwd_sel_r_3_sv2v_reg;
+  assign fwd_sel_r[2] = fwd_sel_r_2_sv2v_reg;
+  assign fwd_sel_r[1] = fwd_sel_r_1_sv2v_reg;
+  assign fwd_sel_r[0] = fwd_sel_r_0_sv2v_reg;
+  assign fwd_dpath_sel_r_18 = fwd_dpath_sel_r_18_sv2v_reg;
+  assign fwd_dpath_sel_r_16 = fwd_dpath_sel_r_16_sv2v_reg;
+  assign fwd_dpath_sel_r_15 = fwd_dpath_sel_r_15_sv2v_reg;
+  assign fwd_dpath_sel_r[13] = fwd_dpath_sel_r_13_sv2v_reg;
+  assign fwd_dpath_sel_r[12] = fwd_dpath_sel_r_12_sv2v_reg;
+  assign fwd_dpath_sel_r[11] = fwd_dpath_sel_r_11_sv2v_reg;
+  assign fwd_dpath_sel_r[10] = fwd_dpath_sel_r_10_sv2v_reg;
+  assign fwd_dpath_sel_r[9] = fwd_dpath_sel_r_9_sv2v_reg;
+  assign fwd_dpath_sel_r[8] = fwd_dpath_sel_r_8_sv2v_reg;
+  assign fwd_dpath_sel_r[7] = fwd_dpath_sel_r_7_sv2v_reg;
+  assign fwd_dpath_sel_r[6] = fwd_dpath_sel_r_6_sv2v_reg;
+  assign fwd_dpath_sel_r[5] = fwd_dpath_sel_r_5_sv2v_reg;
+  assign fwd_dpath_sel_r[4] = fwd_dpath_sel_r_4_sv2v_reg;
+  assign fwd_dpath_sel_r[3] = fwd_dpath_sel_r_3_sv2v_reg;
+  assign fwd_dpath_sel_r[2] = fwd_dpath_sel_r_2_sv2v_reg;
+  assign fwd_dpath_sel_r[1] = fwd_dpath_sel_r_1_sv2v_reg;
+  assign fwd_dpath_sel_r[0] = fwd_dpath_sel_r_0_sv2v_reg;
+  assign bk_sel_r[23] = bk_sel_r_23_sv2v_reg;
+  assign bk_sel_r[22] = bk_sel_r_22_sv2v_reg;
+  assign bk_sel_r[21] = bk_sel_r_21_sv2v_reg;
+  assign bk_sel_r[20] = bk_sel_r_20_sv2v_reg;
+  assign bk_sel_r[19] = bk_sel_r_19_sv2v_reg;
+  assign bk_sel_r[18] = bk_sel_r_18_sv2v_reg;
+  assign bk_sel_r[17] = bk_sel_r_17_sv2v_reg;
+  assign bk_sel_r[16] = bk_sel_r_16_sv2v_reg;
+  assign bk_sel_r[15] = bk_sel_r_15_sv2v_reg;
+  assign bk_sel_r[14] = bk_sel_r_14_sv2v_reg;
+  assign bk_sel_r[13] = bk_sel_r_13_sv2v_reg;
+  assign bk_sel_r[12] = bk_sel_r_12_sv2v_reg;
+  assign bk_sel_r[11] = bk_sel_r_11_sv2v_reg;
+  assign bk_sel_r[10] = bk_sel_r_10_sv2v_reg;
+  assign bk_sel_r[9] = bk_sel_r_9_sv2v_reg;
+  assign bk_sel_r[8] = bk_sel_r_8_sv2v_reg;
+  assign bk_sel_r[7] = bk_sel_r_7_sv2v_reg;
+  assign bk_sel_r[6] = bk_sel_r_6_sv2v_reg;
+  assign bk_sel_r[5] = bk_sel_r_5_sv2v_reg;
+  assign bk_sel_r[4] = bk_sel_r_4_sv2v_reg;
+  assign bk_sel_r[3] = bk_sel_r_3_sv2v_reg;
+  assign bk_sel_r[2] = bk_sel_r_2_sv2v_reg;
+  assign bk_sel_r[1] = bk_sel_r_1_sv2v_reg;
+  assign bk_sel_r[0] = bk_sel_r_0_sv2v_reg;
+  assign bk_dpath_sel_r[23] = bk_dpath_sel_r_23_sv2v_reg;
+  assign bk_dpath_sel_r[22] = bk_dpath_sel_r_22_sv2v_reg;
+  assign bk_dpath_sel_r[21] = bk_dpath_sel_r_21_sv2v_reg;
+  assign bk_dpath_sel_r[20] = bk_dpath_sel_r_20_sv2v_reg;
+  assign bk_dpath_sel_r[19] = bk_dpath_sel_r_19_sv2v_reg;
+  assign bk_dpath_sel_r[18] = bk_dpath_sel_r_18_sv2v_reg;
+  assign bk_dpath_sel_r[17] = bk_dpath_sel_r_17_sv2v_reg;
+  assign bk_dpath_sel_r[16] = bk_dpath_sel_r_16_sv2v_reg;
+  assign bk_dpath_sel_r[15] = bk_dpath_sel_r_15_sv2v_reg;
+  assign bk_dpath_sel_r[14] = bk_dpath_sel_r_14_sv2v_reg;
+  assign bk_dpath_sel_r[13] = bk_dpath_sel_r_13_sv2v_reg;
+  assign bk_dpath_sel_r[12] = bk_dpath_sel_r_12_sv2v_reg;
+  assign bk_dpath_sel_r_10 = bk_dpath_sel_r_10_sv2v_reg;
+  assign bk_dpath_sel_r_9 = bk_dpath_sel_r_9_sv2v_reg;
+  assign bk_dpath_sel_r_7 = bk_dpath_sel_r_7_sv2v_reg;
+  assign bk_dpath_sel_r_6 = bk_dpath_sel_r_6_sv2v_reg;
+  assign bk_dpath_sel_r_3 = bk_dpath_sel_r_3_sv2v_reg;
+  assign \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__7_  = \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__7__sv2v_reg ;
+  assign \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__6_  = \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__6__sv2v_reg ;
+  assign \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__5_  = \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__5__sv2v_reg ;
+  assign \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__4_  = \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__4__sv2v_reg ;
+  assign \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__3_  = \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__3__sv2v_reg ;
+  assign \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__2_  = \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__2__sv2v_reg ;
+  assign \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__1_  = \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__1__sv2v_reg ;
+  assign \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__0_  = \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__0__sv2v_reg ;
+  assign \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__7_  = \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__7__sv2v_reg ;
+  assign \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__6_  = \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__6__sv2v_reg ;
+  assign \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__5_  = \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__5__sv2v_reg ;
+  assign \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__4_  = \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__4__sv2v_reg ;
+  assign \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__3_  = \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__3__sv2v_reg ;
+  assign \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__2_  = \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__2__sv2v_reg ;
+  assign \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__1_  = \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__1__sv2v_reg ;
+  assign \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__0_  = \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__0__sv2v_reg ;
+  assign \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__7_  = \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__7__sv2v_reg ;
+  assign \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__6_  = \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__6__sv2v_reg ;
+  assign \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__5_  = \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__5__sv2v_reg ;
+  assign \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__4_  = \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__4__sv2v_reg ;
+  assign \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__3_  = \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__3__sv2v_reg ;
+  assign \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__2_  = \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__2__sv2v_reg ;
+  assign \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__1_  = \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__1__sv2v_reg ;
+  assign \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__0_  = \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__0__sv2v_reg ;
+  assign \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__7_  = \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__7__sv2v_reg ;
+  assign \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__6_  = \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__6__sv2v_reg ;
+  assign \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__5_  = \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__5__sv2v_reg ;
+  assign \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__4_  = \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__4__sv2v_reg ;
+  assign \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__3_  = \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__3__sv2v_reg ;
+  assign \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__2_  = \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__2__sv2v_reg ;
+  assign \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__1_  = \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__1__sv2v_reg ;
+  assign \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__0_  = \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__0__sv2v_reg ;
+  assign \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__7_  = \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__7__sv2v_reg ;
+  assign \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__6_  = \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__6__sv2v_reg ;
+  assign \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__5_  = \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__5__sv2v_reg ;
+  assign \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__4_  = \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__4__sv2v_reg ;
+  assign \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__3_  = \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__3__sv2v_reg ;
+  assign \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__2_  = \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__2__sv2v_reg ;
+  assign \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__1_  = \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__1__sv2v_reg ;
+  assign \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__0_  = \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__0__sv2v_reg ;
+  assign \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__7_  = \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__7__sv2v_reg ;
+  assign \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__6_  = \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__6__sv2v_reg ;
+  assign \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__5_  = \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__5__sv2v_reg ;
+  assign \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__4_  = \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__4__sv2v_reg ;
+  assign \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__3_  = \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__3__sv2v_reg ;
+  assign \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__2_  = \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__2__sv2v_reg ;
+  assign \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__1_  = \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__1__sv2v_reg ;
+  assign \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__0_  = \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__0__sv2v_reg ;
+  assign \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__7_  = \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__7__sv2v_reg ;
+  assign \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__6_  = \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__6__sv2v_reg ;
+  assign \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__5_  = \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__5__sv2v_reg ;
+  assign \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__4_  = \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__4__sv2v_reg ;
+  assign \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__3_  = \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__3__sv2v_reg ;
+  assign \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__2_  = \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__2__sv2v_reg ;
+  assign \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__1_  = \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__1__sv2v_reg ;
+  assign \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__0_  = \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__0__sv2v_reg ;
+  assign \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__7_  = \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__7__sv2v_reg ;
+  assign \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__6_  = \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__6__sv2v_reg ;
+  assign \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__5_  = \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__5__sv2v_reg ;
+  assign \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__4_  = \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__4__sv2v_reg ;
+  assign \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__3_  = \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__3__sv2v_reg ;
+  assign \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__2_  = \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__2__sv2v_reg ;
+  assign \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__1_  = \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__1__sv2v_reg ;
+  assign \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__0_  = \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__0__sv2v_reg ;
+  assign in_data_i_7__15_ = in_data_i[127];
+  assign in_data_o[127] = in_data_i_7__15_;
+  assign in_data_i_7__14_ = in_data_i[126];
+  assign in_data_o[126] = in_data_i_7__14_;
+  assign in_data_i_7__13_ = in_data_i[125];
+  assign in_data_o[125] = in_data_i_7__13_;
+  assign in_data_i_7__12_ = in_data_i[124];
+  assign in_data_o[124] = in_data_i_7__12_;
+  assign in_data_i_7__11_ = in_data_i[123];
+  assign in_data_o[123] = in_data_i_7__11_;
+  assign in_data_i_7__10_ = in_data_i[122];
+  assign in_data_o[122] = in_data_i_7__10_;
+  assign in_data_i_7__9_ = in_data_i[121];
+  assign in_data_o[121] = in_data_i_7__9_;
+  assign in_data_i_7__8_ = in_data_i[120];
+  assign in_data_o[120] = in_data_i_7__8_;
+  assign in_data_i_7__7_ = in_data_i[119];
+  assign in_data_o[119] = in_data_i_7__7_;
+  assign in_data_i_7__6_ = in_data_i[118];
+  assign in_data_o[118] = in_data_i_7__6_;
+  assign in_data_i_7__5_ = in_data_i[117];
+  assign in_data_o[117] = in_data_i_7__5_;
+  assign in_data_i_7__4_ = in_data_i[116];
+  assign in_data_o[116] = in_data_i_7__4_;
+  assign in_data_i_7__3_ = in_data_i[115];
+  assign in_data_o[115] = in_data_i_7__3_;
+  assign in_data_i_7__2_ = in_data_i[114];
+  assign in_data_o[114] = in_data_i_7__2_;
+  assign in_data_i_7__1_ = in_data_i[113];
+  assign in_data_o[113] = in_data_i_7__1_;
+  assign in_data_i_7__0_ = in_data_i[112];
+  assign in_data_o[112] = in_data_i_7__0_;
+  assign out_me_data_i_0__15_ = out_me_data_i[15];
+  assign out_me_data_o[15] = out_me_data_i_0__15_;
+  assign out_me_data_i_0__14_ = out_me_data_i[14];
+  assign out_me_data_o[14] = out_me_data_i_0__14_;
+  assign out_me_data_i_0__13_ = out_me_data_i[13];
+  assign out_me_data_o[13] = out_me_data_i_0__13_;
+  assign out_me_data_i_0__12_ = out_me_data_i[12];
+  assign out_me_data_o[12] = out_me_data_i_0__12_;
+  assign out_me_data_i_0__11_ = out_me_data_i[11];
+  assign out_me_data_o[11] = out_me_data_i_0__11_;
+  assign out_me_data_i_0__10_ = out_me_data_i[10];
+  assign out_me_data_o[10] = out_me_data_i_0__10_;
+  assign out_me_data_i_0__9_ = out_me_data_i[9];
+  assign out_me_data_o[9] = out_me_data_i_0__9_;
+  assign out_me_data_i_0__8_ = out_me_data_i[8];
+  assign out_me_data_o[8] = out_me_data_i_0__8_;
+  assign out_me_data_i_0__7_ = out_me_data_i[7];
+  assign out_me_data_o[7] = out_me_data_i_0__7_;
+  assign out_me_data_i_0__6_ = out_me_data_i[6];
+  assign out_me_data_o[6] = out_me_data_i_0__6_;
+  assign out_me_data_i_0__5_ = out_me_data_i[5];
+  assign out_me_data_o[5] = out_me_data_i_0__5_;
+  assign out_me_data_i_0__4_ = out_me_data_i[4];
+  assign out_me_data_o[4] = out_me_data_i_0__4_;
+  assign out_me_data_i_0__3_ = out_me_data_i[3];
+  assign out_me_data_o[3] = out_me_data_i_0__3_;
+  assign out_me_data_i_0__2_ = out_me_data_i[2];
+  assign out_me_data_o[2] = out_me_data_i_0__2_;
+  assign out_me_data_i_0__1_ = out_me_data_i[1];
+  assign out_me_data_o[1] = out_me_data_i_0__1_;
+  assign out_me_data_i_0__0_ = out_me_data_i[0];
+  assign out_me_data_o[0] = out_me_data_i_0__0_;
 
   bsg_scatter_gather_vec_size_lp8
   bsg
@@ -21180,7 +21431,7 @@ module bsg_sbox
                          (N121)? in_data_i[79] : 
                          (N123)? in_data_i[95] : 
                          (N125)? in_data_i[111] : 
-                         (N127)? in_data_i[127] : 1'b0;
+                         (N127)? in_data_i_7__15_ : 1'b0;
   assign in_data_o[14] = (N120)? in_data_i[14] : 
                          (N122)? in_data_i[30] : 
                          (N124)? in_data_i[46] : 
@@ -21188,7 +21439,7 @@ module bsg_sbox
                          (N121)? in_data_i[78] : 
                          (N123)? in_data_i[94] : 
                          (N125)? in_data_i[110] : 
-                         (N127)? in_data_i[126] : 1'b0;
+                         (N127)? in_data_i_7__14_ : 1'b0;
   assign in_data_o[13] = (N120)? in_data_i[13] : 
                          (N122)? in_data_i[29] : 
                          (N124)? in_data_i[45] : 
@@ -21196,7 +21447,7 @@ module bsg_sbox
                          (N121)? in_data_i[77] : 
                          (N123)? in_data_i[93] : 
                          (N125)? in_data_i[109] : 
-                         (N127)? in_data_i[125] : 1'b0;
+                         (N127)? in_data_i_7__13_ : 1'b0;
   assign in_data_o[12] = (N120)? in_data_i[12] : 
                          (N122)? in_data_i[28] : 
                          (N124)? in_data_i[44] : 
@@ -21204,7 +21455,7 @@ module bsg_sbox
                          (N121)? in_data_i[76] : 
                          (N123)? in_data_i[92] : 
                          (N125)? in_data_i[108] : 
-                         (N127)? in_data_i[124] : 1'b0;
+                         (N127)? in_data_i_7__12_ : 1'b0;
   assign in_data_o[11] = (N120)? in_data_i[11] : 
                          (N122)? in_data_i[27] : 
                          (N124)? in_data_i[43] : 
@@ -21212,7 +21463,7 @@ module bsg_sbox
                          (N121)? in_data_i[75] : 
                          (N123)? in_data_i[91] : 
                          (N125)? in_data_i[107] : 
-                         (N127)? in_data_i[123] : 1'b0;
+                         (N127)? in_data_i_7__11_ : 1'b0;
   assign in_data_o[10] = (N120)? in_data_i[10] : 
                          (N122)? in_data_i[26] : 
                          (N124)? in_data_i[42] : 
@@ -21220,7 +21471,7 @@ module bsg_sbox
                          (N121)? in_data_i[74] : 
                          (N123)? in_data_i[90] : 
                          (N125)? in_data_i[106] : 
-                         (N127)? in_data_i[122] : 1'b0;
+                         (N127)? in_data_i_7__10_ : 1'b0;
   assign in_data_o[9] = (N120)? in_data_i[9] : 
                         (N122)? in_data_i[25] : 
                         (N124)? in_data_i[41] : 
@@ -21228,7 +21479,7 @@ module bsg_sbox
                         (N121)? in_data_i[73] : 
                         (N123)? in_data_i[89] : 
                         (N125)? in_data_i[105] : 
-                        (N127)? in_data_i[121] : 1'b0;
+                        (N127)? in_data_i_7__9_ : 1'b0;
   assign in_data_o[8] = (N120)? in_data_i[8] : 
                         (N122)? in_data_i[24] : 
                         (N124)? in_data_i[40] : 
@@ -21236,7 +21487,7 @@ module bsg_sbox
                         (N121)? in_data_i[72] : 
                         (N123)? in_data_i[88] : 
                         (N125)? in_data_i[104] : 
-                        (N127)? in_data_i[120] : 1'b0;
+                        (N127)? in_data_i_7__8_ : 1'b0;
   assign in_data_o[7] = (N120)? in_data_i[7] : 
                         (N122)? in_data_i[23] : 
                         (N124)? in_data_i[39] : 
@@ -21244,7 +21495,7 @@ module bsg_sbox
                         (N121)? in_data_i[71] : 
                         (N123)? in_data_i[87] : 
                         (N125)? in_data_i[103] : 
-                        (N127)? in_data_i[119] : 1'b0;
+                        (N127)? in_data_i_7__7_ : 1'b0;
   assign in_data_o[6] = (N120)? in_data_i[6] : 
                         (N122)? in_data_i[22] : 
                         (N124)? in_data_i[38] : 
@@ -21252,7 +21503,7 @@ module bsg_sbox
                         (N121)? in_data_i[70] : 
                         (N123)? in_data_i[86] : 
                         (N125)? in_data_i[102] : 
-                        (N127)? in_data_i[118] : 1'b0;
+                        (N127)? in_data_i_7__6_ : 1'b0;
   assign in_data_o[5] = (N120)? in_data_i[5] : 
                         (N122)? in_data_i[21] : 
                         (N124)? in_data_i[37] : 
@@ -21260,7 +21511,7 @@ module bsg_sbox
                         (N121)? in_data_i[69] : 
                         (N123)? in_data_i[85] : 
                         (N125)? in_data_i[101] : 
-                        (N127)? in_data_i[117] : 1'b0;
+                        (N127)? in_data_i_7__5_ : 1'b0;
   assign in_data_o[4] = (N120)? in_data_i[4] : 
                         (N122)? in_data_i[20] : 
                         (N124)? in_data_i[36] : 
@@ -21268,7 +21519,7 @@ module bsg_sbox
                         (N121)? in_data_i[68] : 
                         (N123)? in_data_i[84] : 
                         (N125)? in_data_i[100] : 
-                        (N127)? in_data_i[116] : 1'b0;
+                        (N127)? in_data_i_7__4_ : 1'b0;
   assign in_data_o[3] = (N120)? in_data_i[3] : 
                         (N122)? in_data_i[19] : 
                         (N124)? in_data_i[35] : 
@@ -21276,7 +21527,7 @@ module bsg_sbox
                         (N121)? in_data_i[67] : 
                         (N123)? in_data_i[83] : 
                         (N125)? in_data_i[99] : 
-                        (N127)? in_data_i[115] : 1'b0;
+                        (N127)? in_data_i_7__3_ : 1'b0;
   assign in_data_o[2] = (N120)? in_data_i[2] : 
                         (N122)? in_data_i[18] : 
                         (N124)? in_data_i[34] : 
@@ -21284,7 +21535,7 @@ module bsg_sbox
                         (N121)? in_data_i[66] : 
                         (N123)? in_data_i[82] : 
                         (N125)? in_data_i[98] : 
-                        (N127)? in_data_i[114] : 1'b0;
+                        (N127)? in_data_i_7__2_ : 1'b0;
   assign in_data_o[1] = (N120)? in_data_i[1] : 
                         (N122)? in_data_i[17] : 
                         (N124)? in_data_i[33] : 
@@ -21292,7 +21543,7 @@ module bsg_sbox
                         (N121)? in_data_i[65] : 
                         (N123)? in_data_i[81] : 
                         (N125)? in_data_i[97] : 
-                        (N127)? in_data_i[113] : 1'b0;
+                        (N127)? in_data_i_7__1_ : 1'b0;
   assign in_data_o[0] = (N120)? in_data_i[0] : 
                         (N122)? in_data_i[16] : 
                         (N124)? in_data_i[32] : 
@@ -21300,7 +21551,7 @@ module bsg_sbox
                         (N121)? in_data_i[64] : 
                         (N123)? in_data_i[80] : 
                         (N125)? in_data_i[96] : 
-                        (N127)? in_data_i[112] : 1'b0;
+                        (N127)? in_data_i_7__0_ : 1'b0;
   assign out_me_v_o[0] = (N132)? out_me_v_i[0] : 
                          (N134)? out_me_v_i[1] : 
                          (N136)? out_me_v_i[2] : 
@@ -21341,38 +21592,38 @@ module bsg_sbox
                              (N207)? out_me_ready_i[5] : 
                              (N209)? out_me_ready_i[6] : 
                              (N211)? out_me_ready_i[7] : 1'b0;
-  assign out_me_data_o[31] = (N212)? out_me_data_i[15] : 
+  assign out_me_data_o[31] = (N212)? out_me_data_i_0__15_ : 
                              (N0)? out_me_data_i[31] : 1'b0;
   assign N0 = bk_dpath_sel_r_3;
-  assign out_me_data_o[30] = (N212)? out_me_data_i[14] : 
+  assign out_me_data_o[30] = (N212)? out_me_data_i_0__14_ : 
                              (N0)? out_me_data_i[30] : 1'b0;
-  assign out_me_data_o[29] = (N212)? out_me_data_i[13] : 
+  assign out_me_data_o[29] = (N212)? out_me_data_i_0__13_ : 
                              (N0)? out_me_data_i[29] : 1'b0;
-  assign out_me_data_o[28] = (N212)? out_me_data_i[12] : 
+  assign out_me_data_o[28] = (N212)? out_me_data_i_0__12_ : 
                              (N0)? out_me_data_i[28] : 1'b0;
-  assign out_me_data_o[27] = (N212)? out_me_data_i[11] : 
+  assign out_me_data_o[27] = (N212)? out_me_data_i_0__11_ : 
                              (N0)? out_me_data_i[27] : 1'b0;
-  assign out_me_data_o[26] = (N212)? out_me_data_i[10] : 
+  assign out_me_data_o[26] = (N212)? out_me_data_i_0__10_ : 
                              (N0)? out_me_data_i[26] : 1'b0;
-  assign out_me_data_o[25] = (N212)? out_me_data_i[9] : 
+  assign out_me_data_o[25] = (N212)? out_me_data_i_0__9_ : 
                              (N0)? out_me_data_i[25] : 1'b0;
-  assign out_me_data_o[24] = (N212)? out_me_data_i[8] : 
+  assign out_me_data_o[24] = (N212)? out_me_data_i_0__8_ : 
                              (N0)? out_me_data_i[24] : 1'b0;
-  assign out_me_data_o[23] = (N212)? out_me_data_i[7] : 
+  assign out_me_data_o[23] = (N212)? out_me_data_i_0__7_ : 
                              (N0)? out_me_data_i[23] : 1'b0;
-  assign out_me_data_o[22] = (N212)? out_me_data_i[6] : 
+  assign out_me_data_o[22] = (N212)? out_me_data_i_0__6_ : 
                              (N0)? out_me_data_i[22] : 1'b0;
-  assign out_me_data_o[21] = (N212)? out_me_data_i[5] : 
+  assign out_me_data_o[21] = (N212)? out_me_data_i_0__5_ : 
                              (N0)? out_me_data_i[21] : 1'b0;
-  assign out_me_data_o[20] = (N212)? out_me_data_i[4] : 
+  assign out_me_data_o[20] = (N212)? out_me_data_i_0__4_ : 
                              (N0)? out_me_data_i[20] : 1'b0;
-  assign out_me_data_o[19] = (N212)? out_me_data_i[3] : 
+  assign out_me_data_o[19] = (N212)? out_me_data_i_0__3_ : 
                              (N0)? out_me_data_i[19] : 1'b0;
-  assign out_me_data_o[18] = (N212)? out_me_data_i[2] : 
+  assign out_me_data_o[18] = (N212)? out_me_data_i_0__2_ : 
                              (N0)? out_me_data_i[18] : 1'b0;
-  assign out_me_data_o[17] = (N212)? out_me_data_i[1] : 
+  assign out_me_data_o[17] = (N212)? out_me_data_i_0__1_ : 
                              (N0)? out_me_data_i[17] : 1'b0;
-  assign out_me_data_o[16] = (N212)? out_me_data_i[0] : 
+  assign out_me_data_o[16] = (N212)? out_me_data_i_0__0_ : 
                              (N0)? out_me_data_i[16] : 1'b0;
   assign in_yumi_o[2] = (N228)? in_yumi_i[0] : 
                         (N230)? in_yumi_i[1] : 
@@ -21422,67 +21673,67 @@ module bsg_sbox
                              (N319)? out_me_ready_i[5] : 
                              (N321)? out_me_ready_i[6] : 
                              (N323)? out_me_ready_i[7] : 1'b0;
-  assign out_me_data_o[63] = (N326)? out_me_data_i[15] : 
+  assign out_me_data_o[63] = (N326)? out_me_data_i_0__15_ : 
                              (N328)? out_me_data_i[31] : 
                              (N327)? out_me_data_i[47] : 
                              (N329)? out_me_data_i[63] : 1'b0;
-  assign out_me_data_o[62] = (N326)? out_me_data_i[14] : 
+  assign out_me_data_o[62] = (N326)? out_me_data_i_0__14_ : 
                              (N328)? out_me_data_i[30] : 
                              (N327)? out_me_data_i[46] : 
                              (N329)? out_me_data_i[62] : 1'b0;
-  assign out_me_data_o[61] = (N326)? out_me_data_i[13] : 
+  assign out_me_data_o[61] = (N326)? out_me_data_i_0__13_ : 
                              (N328)? out_me_data_i[29] : 
                              (N327)? out_me_data_i[45] : 
                              (N329)? out_me_data_i[61] : 1'b0;
-  assign out_me_data_o[60] = (N326)? out_me_data_i[12] : 
+  assign out_me_data_o[60] = (N326)? out_me_data_i_0__12_ : 
                              (N328)? out_me_data_i[28] : 
                              (N327)? out_me_data_i[44] : 
                              (N329)? out_me_data_i[60] : 1'b0;
-  assign out_me_data_o[59] = (N326)? out_me_data_i[11] : 
+  assign out_me_data_o[59] = (N326)? out_me_data_i_0__11_ : 
                              (N328)? out_me_data_i[27] : 
                              (N327)? out_me_data_i[43] : 
                              (N329)? out_me_data_i[59] : 1'b0;
-  assign out_me_data_o[58] = (N326)? out_me_data_i[10] : 
+  assign out_me_data_o[58] = (N326)? out_me_data_i_0__10_ : 
                              (N328)? out_me_data_i[26] : 
                              (N327)? out_me_data_i[42] : 
                              (N329)? out_me_data_i[58] : 1'b0;
-  assign out_me_data_o[57] = (N326)? out_me_data_i[9] : 
+  assign out_me_data_o[57] = (N326)? out_me_data_i_0__9_ : 
                              (N328)? out_me_data_i[25] : 
                              (N327)? out_me_data_i[41] : 
                              (N329)? out_me_data_i[57] : 1'b0;
-  assign out_me_data_o[56] = (N326)? out_me_data_i[8] : 
+  assign out_me_data_o[56] = (N326)? out_me_data_i_0__8_ : 
                              (N328)? out_me_data_i[24] : 
                              (N327)? out_me_data_i[40] : 
                              (N329)? out_me_data_i[56] : 1'b0;
-  assign out_me_data_o[55] = (N326)? out_me_data_i[7] : 
+  assign out_me_data_o[55] = (N326)? out_me_data_i_0__7_ : 
                              (N328)? out_me_data_i[23] : 
                              (N327)? out_me_data_i[39] : 
                              (N329)? out_me_data_i[55] : 1'b0;
-  assign out_me_data_o[54] = (N326)? out_me_data_i[6] : 
+  assign out_me_data_o[54] = (N326)? out_me_data_i_0__6_ : 
                              (N328)? out_me_data_i[22] : 
                              (N327)? out_me_data_i[38] : 
                              (N329)? out_me_data_i[54] : 1'b0;
-  assign out_me_data_o[53] = (N326)? out_me_data_i[5] : 
+  assign out_me_data_o[53] = (N326)? out_me_data_i_0__5_ : 
                              (N328)? out_me_data_i[21] : 
                              (N327)? out_me_data_i[37] : 
                              (N329)? out_me_data_i[53] : 1'b0;
-  assign out_me_data_o[52] = (N326)? out_me_data_i[4] : 
+  assign out_me_data_o[52] = (N326)? out_me_data_i_0__4_ : 
                              (N328)? out_me_data_i[20] : 
                              (N327)? out_me_data_i[36] : 
                              (N329)? out_me_data_i[52] : 1'b0;
-  assign out_me_data_o[51] = (N326)? out_me_data_i[3] : 
+  assign out_me_data_o[51] = (N326)? out_me_data_i_0__3_ : 
                              (N328)? out_me_data_i[19] : 
                              (N327)? out_me_data_i[35] : 
                              (N329)? out_me_data_i[51] : 1'b0;
-  assign out_me_data_o[50] = (N326)? out_me_data_i[2] : 
+  assign out_me_data_o[50] = (N326)? out_me_data_i_0__2_ : 
                              (N328)? out_me_data_i[18] : 
                              (N327)? out_me_data_i[34] : 
                              (N329)? out_me_data_i[50] : 1'b0;
-  assign out_me_data_o[49] = (N326)? out_me_data_i[1] : 
+  assign out_me_data_o[49] = (N326)? out_me_data_i_0__1_ : 
                              (N328)? out_me_data_i[17] : 
                              (N327)? out_me_data_i[33] : 
                              (N329)? out_me_data_i[49] : 1'b0;
-  assign out_me_data_o[48] = (N326)? out_me_data_i[0] : 
+  assign out_me_data_o[48] = (N326)? out_me_data_i_0__0_ : 
                              (N328)? out_me_data_i[16] : 
                              (N327)? out_me_data_i[32] : 
                              (N329)? out_me_data_i[48] : 1'b0;
@@ -21497,67 +21748,67 @@ module bsg_sbox
   assign in_data_o[79] = (N355)? in_data_i[79] : 
                          (N357)? in_data_i[95] : 
                          (N356)? in_data_i[111] : 
-                         (N358)? in_data_i[127] : 1'b0;
+                         (N358)? in_data_i_7__15_ : 1'b0;
   assign in_data_o[78] = (N355)? in_data_i[78] : 
                          (N357)? in_data_i[94] : 
                          (N356)? in_data_i[110] : 
-                         (N358)? in_data_i[126] : 1'b0;
+                         (N358)? in_data_i_7__14_ : 1'b0;
   assign in_data_o[77] = (N355)? in_data_i[77] : 
                          (N357)? in_data_i[93] : 
                          (N356)? in_data_i[109] : 
-                         (N358)? in_data_i[125] : 1'b0;
+                         (N358)? in_data_i_7__13_ : 1'b0;
   assign in_data_o[76] = (N355)? in_data_i[76] : 
                          (N357)? in_data_i[92] : 
                          (N356)? in_data_i[108] : 
-                         (N358)? in_data_i[124] : 1'b0;
+                         (N358)? in_data_i_7__12_ : 1'b0;
   assign in_data_o[75] = (N355)? in_data_i[75] : 
                          (N357)? in_data_i[91] : 
                          (N356)? in_data_i[107] : 
-                         (N358)? in_data_i[123] : 1'b0;
+                         (N358)? in_data_i_7__11_ : 1'b0;
   assign in_data_o[74] = (N355)? in_data_i[74] : 
                          (N357)? in_data_i[90] : 
                          (N356)? in_data_i[106] : 
-                         (N358)? in_data_i[122] : 1'b0;
+                         (N358)? in_data_i_7__10_ : 1'b0;
   assign in_data_o[73] = (N355)? in_data_i[73] : 
                          (N357)? in_data_i[89] : 
                          (N356)? in_data_i[105] : 
-                         (N358)? in_data_i[121] : 1'b0;
+                         (N358)? in_data_i_7__9_ : 1'b0;
   assign in_data_o[72] = (N355)? in_data_i[72] : 
                          (N357)? in_data_i[88] : 
                          (N356)? in_data_i[104] : 
-                         (N358)? in_data_i[120] : 1'b0;
+                         (N358)? in_data_i_7__8_ : 1'b0;
   assign in_data_o[71] = (N355)? in_data_i[71] : 
                          (N357)? in_data_i[87] : 
                          (N356)? in_data_i[103] : 
-                         (N358)? in_data_i[119] : 1'b0;
+                         (N358)? in_data_i_7__7_ : 1'b0;
   assign in_data_o[70] = (N355)? in_data_i[70] : 
                          (N357)? in_data_i[86] : 
                          (N356)? in_data_i[102] : 
-                         (N358)? in_data_i[118] : 1'b0;
+                         (N358)? in_data_i_7__6_ : 1'b0;
   assign in_data_o[69] = (N355)? in_data_i[69] : 
                          (N357)? in_data_i[85] : 
                          (N356)? in_data_i[101] : 
-                         (N358)? in_data_i[117] : 1'b0;
+                         (N358)? in_data_i_7__5_ : 1'b0;
   assign in_data_o[68] = (N355)? in_data_i[68] : 
                          (N357)? in_data_i[84] : 
                          (N356)? in_data_i[100] : 
-                         (N358)? in_data_i[116] : 1'b0;
+                         (N358)? in_data_i_7__4_ : 1'b0;
   assign in_data_o[67] = (N355)? in_data_i[67] : 
                          (N357)? in_data_i[83] : 
                          (N356)? in_data_i[99] : 
-                         (N358)? in_data_i[115] : 1'b0;
+                         (N358)? in_data_i_7__3_ : 1'b0;
   assign in_data_o[66] = (N355)? in_data_i[66] : 
                          (N357)? in_data_i[82] : 
                          (N356)? in_data_i[98] : 
-                         (N358)? in_data_i[114] : 1'b0;
+                         (N358)? in_data_i_7__2_ : 1'b0;
   assign in_data_o[65] = (N355)? in_data_i[65] : 
                          (N357)? in_data_i[81] : 
                          (N356)? in_data_i[97] : 
-                         (N358)? in_data_i[113] : 1'b0;
+                         (N358)? in_data_i_7__1_ : 1'b0;
   assign in_data_o[64] = (N355)? in_data_i[64] : 
                          (N357)? in_data_i[80] : 
                          (N356)? in_data_i[96] : 
-                         (N358)? in_data_i[112] : 1'b0;
+                         (N358)? in_data_i_7__0_ : 1'b0;
   assign out_me_v_o[4] = (N363)? out_me_v_i[0] : 
                          (N365)? out_me_v_i[1] : 
                          (N367)? out_me_v_i[2] : 
@@ -21607,38 +21858,38 @@ module bsg_sbox
                         (N467)? in_yumi_i[6] : 
                         (N469)? in_yumi_i[7] : 1'b0;
   assign in_data_o[111] = (N470)? in_data_i[111] : 
-                          (N1)? in_data_i[127] : 1'b0;
+                          (N1)? in_data_i_7__15_ : 1'b0;
   assign N1 = fwd_dpath_sel_r_18;
   assign in_data_o[110] = (N470)? in_data_i[110] : 
-                          (N1)? in_data_i[126] : 1'b0;
+                          (N1)? in_data_i_7__14_ : 1'b0;
   assign in_data_o[109] = (N470)? in_data_i[109] : 
-                          (N1)? in_data_i[125] : 1'b0;
+                          (N1)? in_data_i_7__13_ : 1'b0;
   assign in_data_o[108] = (N470)? in_data_i[108] : 
-                          (N1)? in_data_i[124] : 1'b0;
+                          (N1)? in_data_i_7__12_ : 1'b0;
   assign in_data_o[107] = (N470)? in_data_i[107] : 
-                          (N1)? in_data_i[123] : 1'b0;
+                          (N1)? in_data_i_7__11_ : 1'b0;
   assign in_data_o[106] = (N470)? in_data_i[106] : 
-                          (N1)? in_data_i[122] : 1'b0;
+                          (N1)? in_data_i_7__10_ : 1'b0;
   assign in_data_o[105] = (N470)? in_data_i[105] : 
-                          (N1)? in_data_i[121] : 1'b0;
+                          (N1)? in_data_i_7__9_ : 1'b0;
   assign in_data_o[104] = (N470)? in_data_i[104] : 
-                          (N1)? in_data_i[120] : 1'b0;
+                          (N1)? in_data_i_7__8_ : 1'b0;
   assign in_data_o[103] = (N470)? in_data_i[103] : 
-                          (N1)? in_data_i[119] : 1'b0;
+                          (N1)? in_data_i_7__7_ : 1'b0;
   assign in_data_o[102] = (N470)? in_data_i[102] : 
-                          (N1)? in_data_i[118] : 1'b0;
+                          (N1)? in_data_i_7__6_ : 1'b0;
   assign in_data_o[101] = (N470)? in_data_i[101] : 
-                          (N1)? in_data_i[117] : 1'b0;
+                          (N1)? in_data_i_7__5_ : 1'b0;
   assign in_data_o[100] = (N470)? in_data_i[100] : 
-                          (N1)? in_data_i[116] : 1'b0;
+                          (N1)? in_data_i_7__4_ : 1'b0;
   assign in_data_o[99] = (N470)? in_data_i[99] : 
-                         (N1)? in_data_i[115] : 1'b0;
+                         (N1)? in_data_i_7__3_ : 1'b0;
   assign in_data_o[98] = (N470)? in_data_i[98] : 
-                         (N1)? in_data_i[114] : 1'b0;
+                         (N1)? in_data_i_7__2_ : 1'b0;
   assign in_data_o[97] = (N470)? in_data_i[97] : 
-                         (N1)? in_data_i[113] : 1'b0;
+                         (N1)? in_data_i_7__1_ : 1'b0;
   assign in_data_o[96] = (N470)? in_data_i[96] : 
-                         (N1)? in_data_i[112] : 1'b0;
+                         (N1)? in_data_i_7__0_ : 1'b0;
   assign out_me_v_o[6] = (N475)? out_me_v_i[0] : 
                          (N477)? out_me_v_i[1] : 
                          (N479)? out_me_v_i[2] : 
@@ -21679,7 +21930,7 @@ module bsg_sbox
                              (N550)? out_me_ready_i[5] : 
                              (N552)? out_me_ready_i[6] : 
                              (N554)? out_me_ready_i[7] : 1'b0;
-  assign out_me_data_o[127] = (N562)? out_me_data_i[15] : 
+  assign out_me_data_o[127] = (N562)? out_me_data_i_0__15_ : 
                               (N564)? out_me_data_i[31] : 
                               (N566)? out_me_data_i[47] : 
                               (N568)? out_me_data_i[63] : 
@@ -21687,7 +21938,7 @@ module bsg_sbox
                               (N565)? out_me_data_i[95] : 
                               (N567)? out_me_data_i[111] : 
                               (N569)? out_me_data_i[127] : 1'b0;
-  assign out_me_data_o[126] = (N562)? out_me_data_i[14] : 
+  assign out_me_data_o[126] = (N562)? out_me_data_i_0__14_ : 
                               (N564)? out_me_data_i[30] : 
                               (N566)? out_me_data_i[46] : 
                               (N568)? out_me_data_i[62] : 
@@ -21695,7 +21946,7 @@ module bsg_sbox
                               (N565)? out_me_data_i[94] : 
                               (N567)? out_me_data_i[110] : 
                               (N569)? out_me_data_i[126] : 1'b0;
-  assign out_me_data_o[125] = (N562)? out_me_data_i[13] : 
+  assign out_me_data_o[125] = (N562)? out_me_data_i_0__13_ : 
                               (N564)? out_me_data_i[29] : 
                               (N566)? out_me_data_i[45] : 
                               (N568)? out_me_data_i[61] : 
@@ -21703,7 +21954,7 @@ module bsg_sbox
                               (N565)? out_me_data_i[93] : 
                               (N567)? out_me_data_i[109] : 
                               (N569)? out_me_data_i[125] : 1'b0;
-  assign out_me_data_o[124] = (N562)? out_me_data_i[12] : 
+  assign out_me_data_o[124] = (N562)? out_me_data_i_0__12_ : 
                               (N564)? out_me_data_i[28] : 
                               (N566)? out_me_data_i[44] : 
                               (N568)? out_me_data_i[60] : 
@@ -21711,7 +21962,7 @@ module bsg_sbox
                               (N565)? out_me_data_i[92] : 
                               (N567)? out_me_data_i[108] : 
                               (N569)? out_me_data_i[124] : 1'b0;
-  assign out_me_data_o[123] = (N562)? out_me_data_i[11] : 
+  assign out_me_data_o[123] = (N562)? out_me_data_i_0__11_ : 
                               (N564)? out_me_data_i[27] : 
                               (N566)? out_me_data_i[43] : 
                               (N568)? out_me_data_i[59] : 
@@ -21719,7 +21970,7 @@ module bsg_sbox
                               (N565)? out_me_data_i[91] : 
                               (N567)? out_me_data_i[107] : 
                               (N569)? out_me_data_i[123] : 1'b0;
-  assign out_me_data_o[122] = (N562)? out_me_data_i[10] : 
+  assign out_me_data_o[122] = (N562)? out_me_data_i_0__10_ : 
                               (N564)? out_me_data_i[26] : 
                               (N566)? out_me_data_i[42] : 
                               (N568)? out_me_data_i[58] : 
@@ -21727,7 +21978,7 @@ module bsg_sbox
                               (N565)? out_me_data_i[90] : 
                               (N567)? out_me_data_i[106] : 
                               (N569)? out_me_data_i[122] : 1'b0;
-  assign out_me_data_o[121] = (N562)? out_me_data_i[9] : 
+  assign out_me_data_o[121] = (N562)? out_me_data_i_0__9_ : 
                               (N564)? out_me_data_i[25] : 
                               (N566)? out_me_data_i[41] : 
                               (N568)? out_me_data_i[57] : 
@@ -21735,7 +21986,7 @@ module bsg_sbox
                               (N565)? out_me_data_i[89] : 
                               (N567)? out_me_data_i[105] : 
                               (N569)? out_me_data_i[121] : 1'b0;
-  assign out_me_data_o[120] = (N562)? out_me_data_i[8] : 
+  assign out_me_data_o[120] = (N562)? out_me_data_i_0__8_ : 
                               (N564)? out_me_data_i[24] : 
                               (N566)? out_me_data_i[40] : 
                               (N568)? out_me_data_i[56] : 
@@ -21743,7 +21994,7 @@ module bsg_sbox
                               (N565)? out_me_data_i[88] : 
                               (N567)? out_me_data_i[104] : 
                               (N569)? out_me_data_i[120] : 1'b0;
-  assign out_me_data_o[119] = (N562)? out_me_data_i[7] : 
+  assign out_me_data_o[119] = (N562)? out_me_data_i_0__7_ : 
                               (N564)? out_me_data_i[23] : 
                               (N566)? out_me_data_i[39] : 
                               (N568)? out_me_data_i[55] : 
@@ -21751,7 +22002,7 @@ module bsg_sbox
                               (N565)? out_me_data_i[87] : 
                               (N567)? out_me_data_i[103] : 
                               (N569)? out_me_data_i[119] : 1'b0;
-  assign out_me_data_o[118] = (N562)? out_me_data_i[6] : 
+  assign out_me_data_o[118] = (N562)? out_me_data_i_0__6_ : 
                               (N564)? out_me_data_i[22] : 
                               (N566)? out_me_data_i[38] : 
                               (N568)? out_me_data_i[54] : 
@@ -21759,7 +22010,7 @@ module bsg_sbox
                               (N565)? out_me_data_i[86] : 
                               (N567)? out_me_data_i[102] : 
                               (N569)? out_me_data_i[118] : 1'b0;
-  assign out_me_data_o[117] = (N562)? out_me_data_i[5] : 
+  assign out_me_data_o[117] = (N562)? out_me_data_i_0__5_ : 
                               (N564)? out_me_data_i[21] : 
                               (N566)? out_me_data_i[37] : 
                               (N568)? out_me_data_i[53] : 
@@ -21767,7 +22018,7 @@ module bsg_sbox
                               (N565)? out_me_data_i[85] : 
                               (N567)? out_me_data_i[101] : 
                               (N569)? out_me_data_i[117] : 1'b0;
-  assign out_me_data_o[116] = (N562)? out_me_data_i[4] : 
+  assign out_me_data_o[116] = (N562)? out_me_data_i_0__4_ : 
                               (N564)? out_me_data_i[20] : 
                               (N566)? out_me_data_i[36] : 
                               (N568)? out_me_data_i[52] : 
@@ -21775,7 +22026,7 @@ module bsg_sbox
                               (N565)? out_me_data_i[84] : 
                               (N567)? out_me_data_i[100] : 
                               (N569)? out_me_data_i[116] : 1'b0;
-  assign out_me_data_o[115] = (N562)? out_me_data_i[3] : 
+  assign out_me_data_o[115] = (N562)? out_me_data_i_0__3_ : 
                               (N564)? out_me_data_i[19] : 
                               (N566)? out_me_data_i[35] : 
                               (N568)? out_me_data_i[51] : 
@@ -21783,7 +22034,7 @@ module bsg_sbox
                               (N565)? out_me_data_i[83] : 
                               (N567)? out_me_data_i[99] : 
                               (N569)? out_me_data_i[115] : 1'b0;
-  assign out_me_data_o[114] = (N562)? out_me_data_i[2] : 
+  assign out_me_data_o[114] = (N562)? out_me_data_i_0__2_ : 
                               (N564)? out_me_data_i[18] : 
                               (N566)? out_me_data_i[34] : 
                               (N568)? out_me_data_i[50] : 
@@ -21791,7 +22042,7 @@ module bsg_sbox
                               (N565)? out_me_data_i[82] : 
                               (N567)? out_me_data_i[98] : 
                               (N569)? out_me_data_i[114] : 1'b0;
-  assign out_me_data_o[113] = (N562)? out_me_data_i[1] : 
+  assign out_me_data_o[113] = (N562)? out_me_data_i_0__1_ : 
                               (N564)? out_me_data_i[17] : 
                               (N566)? out_me_data_i[33] : 
                               (N568)? out_me_data_i[49] : 
@@ -21799,7 +22050,7 @@ module bsg_sbox
                               (N565)? out_me_data_i[81] : 
                               (N567)? out_me_data_i[97] : 
                               (N569)? out_me_data_i[113] : 1'b0;
-  assign out_me_data_o[112] = (N562)? out_me_data_i[0] : 
+  assign out_me_data_o[112] = (N562)? out_me_data_i_0__0_ : 
                               (N564)? out_me_data_i[16] : 
                               (N566)? out_me_data_i[32] : 
                               (N568)? out_me_data_i[48] : 
@@ -21899,111 +22150,111 @@ module bsg_sbox
   assign N389 = bk_dpath_sel_r[12] & bk_dpath_sel_r[13];
   assign in_data_o[95] = (N48)? in_data_i[95] : 
                          (N49)? in_data_i[111] : 
-                         (N50)? in_data_i[127] : 1'b0;
+                         (N50)? in_data_i_7__15_ : 1'b0;
   assign N48 = N413;
   assign N49 = fwd_dpath_sel_r_15;
   assign N50 = fwd_dpath_sel_r_16;
   assign in_data_o[94] = (N48)? in_data_i[94] : 
                          (N49)? in_data_i[110] : 
-                         (N50)? in_data_i[126] : 1'b0;
+                         (N50)? in_data_i_7__14_ : 1'b0;
   assign in_data_o[93] = (N48)? in_data_i[93] : 
                          (N49)? in_data_i[109] : 
-                         (N50)? in_data_i[125] : 1'b0;
+                         (N50)? in_data_i_7__13_ : 1'b0;
   assign in_data_o[92] = (N48)? in_data_i[92] : 
                          (N49)? in_data_i[108] : 
-                         (N50)? in_data_i[124] : 1'b0;
+                         (N50)? in_data_i_7__12_ : 1'b0;
   assign in_data_o[91] = (N48)? in_data_i[91] : 
                          (N49)? in_data_i[107] : 
-                         (N50)? in_data_i[123] : 1'b0;
+                         (N50)? in_data_i_7__11_ : 1'b0;
   assign in_data_o[90] = (N48)? in_data_i[90] : 
                          (N49)? in_data_i[106] : 
-                         (N50)? in_data_i[122] : 1'b0;
+                         (N50)? in_data_i_7__10_ : 1'b0;
   assign in_data_o[89] = (N48)? in_data_i[89] : 
                          (N49)? in_data_i[105] : 
-                         (N50)? in_data_i[121] : 1'b0;
+                         (N50)? in_data_i_7__9_ : 1'b0;
   assign in_data_o[88] = (N48)? in_data_i[88] : 
                          (N49)? in_data_i[104] : 
-                         (N50)? in_data_i[120] : 1'b0;
+                         (N50)? in_data_i_7__8_ : 1'b0;
   assign in_data_o[87] = (N48)? in_data_i[87] : 
                          (N49)? in_data_i[103] : 
-                         (N50)? in_data_i[119] : 1'b0;
+                         (N50)? in_data_i_7__7_ : 1'b0;
   assign in_data_o[86] = (N48)? in_data_i[86] : 
                          (N49)? in_data_i[102] : 
-                         (N50)? in_data_i[118] : 1'b0;
+                         (N50)? in_data_i_7__6_ : 1'b0;
   assign in_data_o[85] = (N48)? in_data_i[85] : 
                          (N49)? in_data_i[101] : 
-                         (N50)? in_data_i[117] : 1'b0;
+                         (N50)? in_data_i_7__5_ : 1'b0;
   assign in_data_o[84] = (N48)? in_data_i[84] : 
                          (N49)? in_data_i[100] : 
-                         (N50)? in_data_i[116] : 1'b0;
+                         (N50)? in_data_i_7__4_ : 1'b0;
   assign in_data_o[83] = (N48)? in_data_i[83] : 
                          (N49)? in_data_i[99] : 
-                         (N50)? in_data_i[115] : 1'b0;
+                         (N50)? in_data_i_7__3_ : 1'b0;
   assign in_data_o[82] = (N48)? in_data_i[82] : 
                          (N49)? in_data_i[98] : 
-                         (N50)? in_data_i[114] : 1'b0;
+                         (N50)? in_data_i_7__2_ : 1'b0;
   assign in_data_o[81] = (N48)? in_data_i[81] : 
                          (N49)? in_data_i[97] : 
-                         (N50)? in_data_i[113] : 1'b0;
+                         (N50)? in_data_i_7__1_ : 1'b0;
   assign in_data_o[80] = (N48)? in_data_i[80] : 
                          (N49)? in_data_i[96] : 
-                         (N50)? in_data_i[112] : 1'b0;
-  assign out_me_data_o[47] = (N51)? out_me_data_i[15] : 
+                         (N50)? in_data_i_7__0_ : 1'b0;
+  assign out_me_data_o[47] = (N51)? out_me_data_i_0__15_ : 
                              (N52)? out_me_data_i[31] : 
                              (N53)? out_me_data_i[47] : 1'b0;
   assign N51 = N269;
   assign N52 = bk_dpath_sel_r_6;
   assign N53 = bk_dpath_sel_r_7;
-  assign out_me_data_o[46] = (N51)? out_me_data_i[14] : 
+  assign out_me_data_o[46] = (N51)? out_me_data_i_0__14_ : 
                              (N52)? out_me_data_i[30] : 
                              (N53)? out_me_data_i[46] : 1'b0;
-  assign out_me_data_o[45] = (N51)? out_me_data_i[13] : 
+  assign out_me_data_o[45] = (N51)? out_me_data_i_0__13_ : 
                              (N52)? out_me_data_i[29] : 
                              (N53)? out_me_data_i[45] : 1'b0;
-  assign out_me_data_o[44] = (N51)? out_me_data_i[12] : 
+  assign out_me_data_o[44] = (N51)? out_me_data_i_0__12_ : 
                              (N52)? out_me_data_i[28] : 
                              (N53)? out_me_data_i[44] : 1'b0;
-  assign out_me_data_o[43] = (N51)? out_me_data_i[11] : 
+  assign out_me_data_o[43] = (N51)? out_me_data_i_0__11_ : 
                              (N52)? out_me_data_i[27] : 
                              (N53)? out_me_data_i[43] : 1'b0;
-  assign out_me_data_o[42] = (N51)? out_me_data_i[10] : 
+  assign out_me_data_o[42] = (N51)? out_me_data_i_0__10_ : 
                              (N52)? out_me_data_i[26] : 
                              (N53)? out_me_data_i[42] : 1'b0;
-  assign out_me_data_o[41] = (N51)? out_me_data_i[9] : 
+  assign out_me_data_o[41] = (N51)? out_me_data_i_0__9_ : 
                              (N52)? out_me_data_i[25] : 
                              (N53)? out_me_data_i[41] : 1'b0;
-  assign out_me_data_o[40] = (N51)? out_me_data_i[8] : 
+  assign out_me_data_o[40] = (N51)? out_me_data_i_0__8_ : 
                              (N52)? out_me_data_i[24] : 
                              (N53)? out_me_data_i[40] : 1'b0;
-  assign out_me_data_o[39] = (N51)? out_me_data_i[7] : 
+  assign out_me_data_o[39] = (N51)? out_me_data_i_0__7_ : 
                              (N52)? out_me_data_i[23] : 
                              (N53)? out_me_data_i[39] : 1'b0;
-  assign out_me_data_o[38] = (N51)? out_me_data_i[6] : 
+  assign out_me_data_o[38] = (N51)? out_me_data_i_0__6_ : 
                              (N52)? out_me_data_i[22] : 
                              (N53)? out_me_data_i[38] : 1'b0;
-  assign out_me_data_o[37] = (N51)? out_me_data_i[5] : 
+  assign out_me_data_o[37] = (N51)? out_me_data_i_0__5_ : 
                              (N52)? out_me_data_i[21] : 
                              (N53)? out_me_data_i[37] : 1'b0;
-  assign out_me_data_o[36] = (N51)? out_me_data_i[4] : 
+  assign out_me_data_o[36] = (N51)? out_me_data_i_0__4_ : 
                              (N52)? out_me_data_i[20] : 
                              (N53)? out_me_data_i[36] : 1'b0;
-  assign out_me_data_o[35] = (N51)? out_me_data_i[3] : 
+  assign out_me_data_o[35] = (N51)? out_me_data_i_0__3_ : 
                              (N52)? out_me_data_i[19] : 
                              (N53)? out_me_data_i[35] : 1'b0;
-  assign out_me_data_o[34] = (N51)? out_me_data_i[2] : 
+  assign out_me_data_o[34] = (N51)? out_me_data_i_0__2_ : 
                              (N52)? out_me_data_i[18] : 
                              (N53)? out_me_data_i[34] : 1'b0;
-  assign out_me_data_o[33] = (N51)? out_me_data_i[1] : 
+  assign out_me_data_o[33] = (N51)? out_me_data_i_0__1_ : 
                              (N52)? out_me_data_i[17] : 
                              (N53)? out_me_data_i[33] : 1'b0;
-  assign out_me_data_o[32] = (N51)? out_me_data_i[0] : 
+  assign out_me_data_o[32] = (N51)? out_me_data_i_0__0_ : 
                              (N52)? out_me_data_i[16] : 
                              (N53)? out_me_data_i[32] : 1'b0;
   assign in_data_o[63] = (N54)? in_data_i[63] : 
                          (N55)? in_data_i[79] : 
                          (N56)? in_data_i[95] : 
                          (N57)? in_data_i[111] : 
-                         (N58)? in_data_i[127] : 1'b0;
+                         (N58)? in_data_i_7__15_ : 1'b0;
   assign N54 = N293;
   assign N55 = N294;
   assign N56 = N295;
@@ -22013,83 +22264,83 @@ module bsg_sbox
                          (N55)? in_data_i[78] : 
                          (N56)? in_data_i[94] : 
                          (N57)? in_data_i[110] : 
-                         (N58)? in_data_i[126] : 1'b0;
+                         (N58)? in_data_i_7__14_ : 1'b0;
   assign in_data_o[61] = (N54)? in_data_i[61] : 
                          (N55)? in_data_i[77] : 
                          (N56)? in_data_i[93] : 
                          (N57)? in_data_i[109] : 
-                         (N58)? in_data_i[125] : 1'b0;
+                         (N58)? in_data_i_7__13_ : 1'b0;
   assign in_data_o[60] = (N54)? in_data_i[60] : 
                          (N55)? in_data_i[76] : 
                          (N56)? in_data_i[92] : 
                          (N57)? in_data_i[108] : 
-                         (N58)? in_data_i[124] : 1'b0;
+                         (N58)? in_data_i_7__12_ : 1'b0;
   assign in_data_o[59] = (N54)? in_data_i[59] : 
                          (N55)? in_data_i[75] : 
                          (N56)? in_data_i[91] : 
                          (N57)? in_data_i[107] : 
-                         (N58)? in_data_i[123] : 1'b0;
+                         (N58)? in_data_i_7__11_ : 1'b0;
   assign in_data_o[58] = (N54)? in_data_i[58] : 
                          (N55)? in_data_i[74] : 
                          (N56)? in_data_i[90] : 
                          (N57)? in_data_i[106] : 
-                         (N58)? in_data_i[122] : 1'b0;
+                         (N58)? in_data_i_7__10_ : 1'b0;
   assign in_data_o[57] = (N54)? in_data_i[57] : 
                          (N55)? in_data_i[73] : 
                          (N56)? in_data_i[89] : 
                          (N57)? in_data_i[105] : 
-                         (N58)? in_data_i[121] : 1'b0;
+                         (N58)? in_data_i_7__9_ : 1'b0;
   assign in_data_o[56] = (N54)? in_data_i[56] : 
                          (N55)? in_data_i[72] : 
                          (N56)? in_data_i[88] : 
                          (N57)? in_data_i[104] : 
-                         (N58)? in_data_i[120] : 1'b0;
+                         (N58)? in_data_i_7__8_ : 1'b0;
   assign in_data_o[55] = (N54)? in_data_i[55] : 
                          (N55)? in_data_i[71] : 
                          (N56)? in_data_i[87] : 
                          (N57)? in_data_i[103] : 
-                         (N58)? in_data_i[119] : 1'b0;
+                         (N58)? in_data_i_7__7_ : 1'b0;
   assign in_data_o[54] = (N54)? in_data_i[54] : 
                          (N55)? in_data_i[70] : 
                          (N56)? in_data_i[86] : 
                          (N57)? in_data_i[102] : 
-                         (N58)? in_data_i[118] : 1'b0;
+                         (N58)? in_data_i_7__6_ : 1'b0;
   assign in_data_o[53] = (N54)? in_data_i[53] : 
                          (N55)? in_data_i[69] : 
                          (N56)? in_data_i[85] : 
                          (N57)? in_data_i[101] : 
-                         (N58)? in_data_i[117] : 1'b0;
+                         (N58)? in_data_i_7__5_ : 1'b0;
   assign in_data_o[52] = (N54)? in_data_i[52] : 
                          (N55)? in_data_i[68] : 
                          (N56)? in_data_i[84] : 
                          (N57)? in_data_i[100] : 
-                         (N58)? in_data_i[116] : 1'b0;
+                         (N58)? in_data_i_7__4_ : 1'b0;
   assign in_data_o[51] = (N54)? in_data_i[51] : 
                          (N55)? in_data_i[67] : 
                          (N56)? in_data_i[83] : 
                          (N57)? in_data_i[99] : 
-                         (N58)? in_data_i[115] : 1'b0;
+                         (N58)? in_data_i_7__3_ : 1'b0;
   assign in_data_o[50] = (N54)? in_data_i[50] : 
                          (N55)? in_data_i[66] : 
                          (N56)? in_data_i[82] : 
                          (N57)? in_data_i[98] : 
-                         (N58)? in_data_i[114] : 1'b0;
+                         (N58)? in_data_i_7__2_ : 1'b0;
   assign in_data_o[49] = (N54)? in_data_i[49] : 
                          (N55)? in_data_i[65] : 
                          (N56)? in_data_i[81] : 
                          (N57)? in_data_i[97] : 
-                         (N58)? in_data_i[113] : 1'b0;
+                         (N58)? in_data_i_7__1_ : 1'b0;
   assign in_data_o[48] = (N54)? in_data_i[48] : 
                          (N55)? in_data_i[64] : 
                          (N56)? in_data_i[80] : 
                          (N57)? in_data_i[96] : 
-                         (N58)? in_data_i[112] : 1'b0;
+                         (N58)? in_data_i_7__0_ : 1'b0;
   assign in_data_o[47] = (N59)? in_data_i[47] : 
                          (N60)? in_data_i[63] : 
                          (N61)? in_data_i[79] : 
                          (N62)? in_data_i[95] : 
                          (N63)? in_data_i[111] : 
-                         (N64)? in_data_i[127] : 1'b0;
+                         (N64)? in_data_i_7__15_ : 1'b0;
   assign N59 = N236;
   assign N60 = N238;
   assign N61 = N240;
@@ -22101,98 +22352,98 @@ module bsg_sbox
                          (N61)? in_data_i[78] : 
                          (N62)? in_data_i[94] : 
                          (N63)? in_data_i[110] : 
-                         (N64)? in_data_i[126] : 1'b0;
+                         (N64)? in_data_i_7__14_ : 1'b0;
   assign in_data_o[45] = (N59)? in_data_i[45] : 
                          (N60)? in_data_i[61] : 
                          (N61)? in_data_i[77] : 
                          (N62)? in_data_i[93] : 
                          (N63)? in_data_i[109] : 
-                         (N64)? in_data_i[125] : 1'b0;
+                         (N64)? in_data_i_7__13_ : 1'b0;
   assign in_data_o[44] = (N59)? in_data_i[44] : 
                          (N60)? in_data_i[60] : 
                          (N61)? in_data_i[76] : 
                          (N62)? in_data_i[92] : 
                          (N63)? in_data_i[108] : 
-                         (N64)? in_data_i[124] : 1'b0;
+                         (N64)? in_data_i_7__12_ : 1'b0;
   assign in_data_o[43] = (N59)? in_data_i[43] : 
                          (N60)? in_data_i[59] : 
                          (N61)? in_data_i[75] : 
                          (N62)? in_data_i[91] : 
                          (N63)? in_data_i[107] : 
-                         (N64)? in_data_i[123] : 1'b0;
+                         (N64)? in_data_i_7__11_ : 1'b0;
   assign in_data_o[42] = (N59)? in_data_i[42] : 
                          (N60)? in_data_i[58] : 
                          (N61)? in_data_i[74] : 
                          (N62)? in_data_i[90] : 
                          (N63)? in_data_i[106] : 
-                         (N64)? in_data_i[122] : 1'b0;
+                         (N64)? in_data_i_7__10_ : 1'b0;
   assign in_data_o[41] = (N59)? in_data_i[41] : 
                          (N60)? in_data_i[57] : 
                          (N61)? in_data_i[73] : 
                          (N62)? in_data_i[89] : 
                          (N63)? in_data_i[105] : 
-                         (N64)? in_data_i[121] : 1'b0;
+                         (N64)? in_data_i_7__9_ : 1'b0;
   assign in_data_o[40] = (N59)? in_data_i[40] : 
                          (N60)? in_data_i[56] : 
                          (N61)? in_data_i[72] : 
                          (N62)? in_data_i[88] : 
                          (N63)? in_data_i[104] : 
-                         (N64)? in_data_i[120] : 1'b0;
+                         (N64)? in_data_i_7__8_ : 1'b0;
   assign in_data_o[39] = (N59)? in_data_i[39] : 
                          (N60)? in_data_i[55] : 
                          (N61)? in_data_i[71] : 
                          (N62)? in_data_i[87] : 
                          (N63)? in_data_i[103] : 
-                         (N64)? in_data_i[119] : 1'b0;
+                         (N64)? in_data_i_7__7_ : 1'b0;
   assign in_data_o[38] = (N59)? in_data_i[38] : 
                          (N60)? in_data_i[54] : 
                          (N61)? in_data_i[70] : 
                          (N62)? in_data_i[86] : 
                          (N63)? in_data_i[102] : 
-                         (N64)? in_data_i[118] : 1'b0;
+                         (N64)? in_data_i_7__6_ : 1'b0;
   assign in_data_o[37] = (N59)? in_data_i[37] : 
                          (N60)? in_data_i[53] : 
                          (N61)? in_data_i[69] : 
                          (N62)? in_data_i[85] : 
                          (N63)? in_data_i[101] : 
-                         (N64)? in_data_i[117] : 1'b0;
+                         (N64)? in_data_i_7__5_ : 1'b0;
   assign in_data_o[36] = (N59)? in_data_i[36] : 
                          (N60)? in_data_i[52] : 
                          (N61)? in_data_i[68] : 
                          (N62)? in_data_i[84] : 
                          (N63)? in_data_i[100] : 
-                         (N64)? in_data_i[116] : 1'b0;
+                         (N64)? in_data_i_7__4_ : 1'b0;
   assign in_data_o[35] = (N59)? in_data_i[35] : 
                          (N60)? in_data_i[51] : 
                          (N61)? in_data_i[67] : 
                          (N62)? in_data_i[83] : 
                          (N63)? in_data_i[99] : 
-                         (N64)? in_data_i[115] : 1'b0;
+                         (N64)? in_data_i_7__3_ : 1'b0;
   assign in_data_o[34] = (N59)? in_data_i[34] : 
                          (N60)? in_data_i[50] : 
                          (N61)? in_data_i[66] : 
                          (N62)? in_data_i[82] : 
                          (N63)? in_data_i[98] : 
-                         (N64)? in_data_i[114] : 1'b0;
+                         (N64)? in_data_i_7__2_ : 1'b0;
   assign in_data_o[33] = (N59)? in_data_i[33] : 
                          (N60)? in_data_i[49] : 
                          (N61)? in_data_i[65] : 
                          (N62)? in_data_i[81] : 
                          (N63)? in_data_i[97] : 
-                         (N64)? in_data_i[113] : 1'b0;
+                         (N64)? in_data_i_7__1_ : 1'b0;
   assign in_data_o[32] = (N59)? in_data_i[32] : 
                          (N60)? in_data_i[48] : 
                          (N61)? in_data_i[64] : 
                          (N62)? in_data_i[80] : 
                          (N63)? in_data_i[96] : 
-                         (N64)? in_data_i[112] : 1'b0;
+                         (N64)? in_data_i_7__0_ : 1'b0;
   assign in_data_o[31] = (N65)? in_data_i[31] : 
                          (N66)? in_data_i[47] : 
                          (N67)? in_data_i[63] : 
                          (N68)? in_data_i[79] : 
                          (N69)? in_data_i[95] : 
                          (N70)? in_data_i[111] : 
-                         (N71)? in_data_i[127] : 1'b0;
+                         (N71)? in_data_i_7__15_ : 1'b0;
   assign N65 = N178;
   assign N66 = N180;
   assign N67 = N182;
@@ -22206,106 +22457,106 @@ module bsg_sbox
                          (N68)? in_data_i[78] : 
                          (N69)? in_data_i[94] : 
                          (N70)? in_data_i[110] : 
-                         (N71)? in_data_i[126] : 1'b0;
+                         (N71)? in_data_i_7__14_ : 1'b0;
   assign in_data_o[29] = (N65)? in_data_i[29] : 
                          (N66)? in_data_i[45] : 
                          (N67)? in_data_i[61] : 
                          (N68)? in_data_i[77] : 
                          (N69)? in_data_i[93] : 
                          (N70)? in_data_i[109] : 
-                         (N71)? in_data_i[125] : 1'b0;
+                         (N71)? in_data_i_7__13_ : 1'b0;
   assign in_data_o[28] = (N65)? in_data_i[28] : 
                          (N66)? in_data_i[44] : 
                          (N67)? in_data_i[60] : 
                          (N68)? in_data_i[76] : 
                          (N69)? in_data_i[92] : 
                          (N70)? in_data_i[108] : 
-                         (N71)? in_data_i[124] : 1'b0;
+                         (N71)? in_data_i_7__12_ : 1'b0;
   assign in_data_o[27] = (N65)? in_data_i[27] : 
                          (N66)? in_data_i[43] : 
                          (N67)? in_data_i[59] : 
                          (N68)? in_data_i[75] : 
                          (N69)? in_data_i[91] : 
                          (N70)? in_data_i[107] : 
-                         (N71)? in_data_i[123] : 1'b0;
+                         (N71)? in_data_i_7__11_ : 1'b0;
   assign in_data_o[26] = (N65)? in_data_i[26] : 
                          (N66)? in_data_i[42] : 
                          (N67)? in_data_i[58] : 
                          (N68)? in_data_i[74] : 
                          (N69)? in_data_i[90] : 
                          (N70)? in_data_i[106] : 
-                         (N71)? in_data_i[122] : 1'b0;
+                         (N71)? in_data_i_7__10_ : 1'b0;
   assign in_data_o[25] = (N65)? in_data_i[25] : 
                          (N66)? in_data_i[41] : 
                          (N67)? in_data_i[57] : 
                          (N68)? in_data_i[73] : 
                          (N69)? in_data_i[89] : 
                          (N70)? in_data_i[105] : 
-                         (N71)? in_data_i[121] : 1'b0;
+                         (N71)? in_data_i_7__9_ : 1'b0;
   assign in_data_o[24] = (N65)? in_data_i[24] : 
                          (N66)? in_data_i[40] : 
                          (N67)? in_data_i[56] : 
                          (N68)? in_data_i[72] : 
                          (N69)? in_data_i[88] : 
                          (N70)? in_data_i[104] : 
-                         (N71)? in_data_i[120] : 1'b0;
+                         (N71)? in_data_i_7__8_ : 1'b0;
   assign in_data_o[23] = (N65)? in_data_i[23] : 
                          (N66)? in_data_i[39] : 
                          (N67)? in_data_i[55] : 
                          (N68)? in_data_i[71] : 
                          (N69)? in_data_i[87] : 
                          (N70)? in_data_i[103] : 
-                         (N71)? in_data_i[119] : 1'b0;
+                         (N71)? in_data_i_7__7_ : 1'b0;
   assign in_data_o[22] = (N65)? in_data_i[22] : 
                          (N66)? in_data_i[38] : 
                          (N67)? in_data_i[54] : 
                          (N68)? in_data_i[70] : 
                          (N69)? in_data_i[86] : 
                          (N70)? in_data_i[102] : 
-                         (N71)? in_data_i[118] : 1'b0;
+                         (N71)? in_data_i_7__6_ : 1'b0;
   assign in_data_o[21] = (N65)? in_data_i[21] : 
                          (N66)? in_data_i[37] : 
                          (N67)? in_data_i[53] : 
                          (N68)? in_data_i[69] : 
                          (N69)? in_data_i[85] : 
                          (N70)? in_data_i[101] : 
-                         (N71)? in_data_i[117] : 1'b0;
+                         (N71)? in_data_i_7__5_ : 1'b0;
   assign in_data_o[20] = (N65)? in_data_i[20] : 
                          (N66)? in_data_i[36] : 
                          (N67)? in_data_i[52] : 
                          (N68)? in_data_i[68] : 
                          (N69)? in_data_i[84] : 
                          (N70)? in_data_i[100] : 
-                         (N71)? in_data_i[116] : 1'b0;
+                         (N71)? in_data_i_7__4_ : 1'b0;
   assign in_data_o[19] = (N65)? in_data_i[19] : 
                          (N66)? in_data_i[35] : 
                          (N67)? in_data_i[51] : 
                          (N68)? in_data_i[67] : 
                          (N69)? in_data_i[83] : 
                          (N70)? in_data_i[99] : 
-                         (N71)? in_data_i[115] : 1'b0;
+                         (N71)? in_data_i_7__3_ : 1'b0;
   assign in_data_o[18] = (N65)? in_data_i[18] : 
                          (N66)? in_data_i[34] : 
                          (N67)? in_data_i[50] : 
                          (N68)? in_data_i[66] : 
                          (N69)? in_data_i[82] : 
                          (N70)? in_data_i[98] : 
-                         (N71)? in_data_i[114] : 1'b0;
+                         (N71)? in_data_i_7__2_ : 1'b0;
   assign in_data_o[17] = (N65)? in_data_i[17] : 
                          (N66)? in_data_i[33] : 
                          (N67)? in_data_i[49] : 
                          (N68)? in_data_i[65] : 
                          (N69)? in_data_i[81] : 
                          (N70)? in_data_i[97] : 
-                         (N71)? in_data_i[113] : 1'b0;
+                         (N71)? in_data_i_7__1_ : 1'b0;
   assign in_data_o[16] = (N65)? in_data_i[16] : 
                          (N66)? in_data_i[32] : 
                          (N67)? in_data_i[48] : 
                          (N68)? in_data_i[64] : 
                          (N69)? in_data_i[80] : 
                          (N70)? in_data_i[96] : 
-                         (N71)? in_data_i[112] : 1'b0;
-  assign out_me_data_o[111] = (N72)? out_me_data_i[15] : 
+                         (N71)? in_data_i_7__0_ : 1'b0;
+  assign out_me_data_o[111] = (N72)? out_me_data_i_0__15_ : 
                               (N73)? out_me_data_i[31] : 
                               (N74)? out_me_data_i[47] : 
                               (N75)? out_me_data_i[63] : 
@@ -22319,112 +22570,112 @@ module bsg_sbox
   assign N76 = N499;
   assign N77 = N501;
   assign N78 = N503;
-  assign out_me_data_o[110] = (N72)? out_me_data_i[14] : 
+  assign out_me_data_o[110] = (N72)? out_me_data_i_0__14_ : 
                               (N73)? out_me_data_i[30] : 
                               (N74)? out_me_data_i[46] : 
                               (N75)? out_me_data_i[62] : 
                               (N76)? out_me_data_i[78] : 
                               (N77)? out_me_data_i[94] : 
                               (N78)? out_me_data_i[110] : 1'b0;
-  assign out_me_data_o[109] = (N72)? out_me_data_i[13] : 
+  assign out_me_data_o[109] = (N72)? out_me_data_i_0__13_ : 
                               (N73)? out_me_data_i[29] : 
                               (N74)? out_me_data_i[45] : 
                               (N75)? out_me_data_i[61] : 
                               (N76)? out_me_data_i[77] : 
                               (N77)? out_me_data_i[93] : 
                               (N78)? out_me_data_i[109] : 1'b0;
-  assign out_me_data_o[108] = (N72)? out_me_data_i[12] : 
+  assign out_me_data_o[108] = (N72)? out_me_data_i_0__12_ : 
                               (N73)? out_me_data_i[28] : 
                               (N74)? out_me_data_i[44] : 
                               (N75)? out_me_data_i[60] : 
                               (N76)? out_me_data_i[76] : 
                               (N77)? out_me_data_i[92] : 
                               (N78)? out_me_data_i[108] : 1'b0;
-  assign out_me_data_o[107] = (N72)? out_me_data_i[11] : 
+  assign out_me_data_o[107] = (N72)? out_me_data_i_0__11_ : 
                               (N73)? out_me_data_i[27] : 
                               (N74)? out_me_data_i[43] : 
                               (N75)? out_me_data_i[59] : 
                               (N76)? out_me_data_i[75] : 
                               (N77)? out_me_data_i[91] : 
                               (N78)? out_me_data_i[107] : 1'b0;
-  assign out_me_data_o[106] = (N72)? out_me_data_i[10] : 
+  assign out_me_data_o[106] = (N72)? out_me_data_i_0__10_ : 
                               (N73)? out_me_data_i[26] : 
                               (N74)? out_me_data_i[42] : 
                               (N75)? out_me_data_i[58] : 
                               (N76)? out_me_data_i[74] : 
                               (N77)? out_me_data_i[90] : 
                               (N78)? out_me_data_i[106] : 1'b0;
-  assign out_me_data_o[105] = (N72)? out_me_data_i[9] : 
+  assign out_me_data_o[105] = (N72)? out_me_data_i_0__9_ : 
                               (N73)? out_me_data_i[25] : 
                               (N74)? out_me_data_i[41] : 
                               (N75)? out_me_data_i[57] : 
                               (N76)? out_me_data_i[73] : 
                               (N77)? out_me_data_i[89] : 
                               (N78)? out_me_data_i[105] : 1'b0;
-  assign out_me_data_o[104] = (N72)? out_me_data_i[8] : 
+  assign out_me_data_o[104] = (N72)? out_me_data_i_0__8_ : 
                               (N73)? out_me_data_i[24] : 
                               (N74)? out_me_data_i[40] : 
                               (N75)? out_me_data_i[56] : 
                               (N76)? out_me_data_i[72] : 
                               (N77)? out_me_data_i[88] : 
                               (N78)? out_me_data_i[104] : 1'b0;
-  assign out_me_data_o[103] = (N72)? out_me_data_i[7] : 
+  assign out_me_data_o[103] = (N72)? out_me_data_i_0__7_ : 
                               (N73)? out_me_data_i[23] : 
                               (N74)? out_me_data_i[39] : 
                               (N75)? out_me_data_i[55] : 
                               (N76)? out_me_data_i[71] : 
                               (N77)? out_me_data_i[87] : 
                               (N78)? out_me_data_i[103] : 1'b0;
-  assign out_me_data_o[102] = (N72)? out_me_data_i[6] : 
+  assign out_me_data_o[102] = (N72)? out_me_data_i_0__6_ : 
                               (N73)? out_me_data_i[22] : 
                               (N74)? out_me_data_i[38] : 
                               (N75)? out_me_data_i[54] : 
                               (N76)? out_me_data_i[70] : 
                               (N77)? out_me_data_i[86] : 
                               (N78)? out_me_data_i[102] : 1'b0;
-  assign out_me_data_o[101] = (N72)? out_me_data_i[5] : 
+  assign out_me_data_o[101] = (N72)? out_me_data_i_0__5_ : 
                               (N73)? out_me_data_i[21] : 
                               (N74)? out_me_data_i[37] : 
                               (N75)? out_me_data_i[53] : 
                               (N76)? out_me_data_i[69] : 
                               (N77)? out_me_data_i[85] : 
                               (N78)? out_me_data_i[101] : 1'b0;
-  assign out_me_data_o[100] = (N72)? out_me_data_i[4] : 
+  assign out_me_data_o[100] = (N72)? out_me_data_i_0__4_ : 
                               (N73)? out_me_data_i[20] : 
                               (N74)? out_me_data_i[36] : 
                               (N75)? out_me_data_i[52] : 
                               (N76)? out_me_data_i[68] : 
                               (N77)? out_me_data_i[84] : 
                               (N78)? out_me_data_i[100] : 1'b0;
-  assign out_me_data_o[99] = (N72)? out_me_data_i[3] : 
+  assign out_me_data_o[99] = (N72)? out_me_data_i_0__3_ : 
                              (N73)? out_me_data_i[19] : 
                              (N74)? out_me_data_i[35] : 
                              (N75)? out_me_data_i[51] : 
                              (N76)? out_me_data_i[67] : 
                              (N77)? out_me_data_i[83] : 
                              (N78)? out_me_data_i[99] : 1'b0;
-  assign out_me_data_o[98] = (N72)? out_me_data_i[2] : 
+  assign out_me_data_o[98] = (N72)? out_me_data_i_0__2_ : 
                              (N73)? out_me_data_i[18] : 
                              (N74)? out_me_data_i[34] : 
                              (N75)? out_me_data_i[50] : 
                              (N76)? out_me_data_i[66] : 
                              (N77)? out_me_data_i[82] : 
                              (N78)? out_me_data_i[98] : 1'b0;
-  assign out_me_data_o[97] = (N72)? out_me_data_i[1] : 
+  assign out_me_data_o[97] = (N72)? out_me_data_i_0__1_ : 
                              (N73)? out_me_data_i[17] : 
                              (N74)? out_me_data_i[33] : 
                              (N75)? out_me_data_i[49] : 
                              (N76)? out_me_data_i[65] : 
                              (N77)? out_me_data_i[81] : 
                              (N78)? out_me_data_i[97] : 1'b0;
-  assign out_me_data_o[96] = (N72)? out_me_data_i[0] : 
+  assign out_me_data_o[96] = (N72)? out_me_data_i_0__0_ : 
                              (N73)? out_me_data_i[16] : 
                              (N74)? out_me_data_i[32] : 
                              (N75)? out_me_data_i[48] : 
                              (N76)? out_me_data_i[64] : 
                              (N77)? out_me_data_i[80] : 
                              (N78)? out_me_data_i[96] : 1'b0;
-  assign out_me_data_o[95] = (N79)? out_me_data_i[15] : 
+  assign out_me_data_o[95] = (N79)? out_me_data_i_0__15_ : 
                              (N80)? out_me_data_i[31] : 
                              (N81)? out_me_data_i[47] : 
                              (N82)? out_me_data_i[63] : 
@@ -22436,97 +22687,97 @@ module bsg_sbox
   assign N82 = N446;
   assign N83 = N442;
   assign N84 = N444;
-  assign out_me_data_o[94] = (N79)? out_me_data_i[14] : 
+  assign out_me_data_o[94] = (N79)? out_me_data_i_0__14_ : 
                              (N80)? out_me_data_i[30] : 
                              (N81)? out_me_data_i[46] : 
                              (N82)? out_me_data_i[62] : 
                              (N83)? out_me_data_i[78] : 
                              (N84)? out_me_data_i[94] : 1'b0;
-  assign out_me_data_o[93] = (N79)? out_me_data_i[13] : 
+  assign out_me_data_o[93] = (N79)? out_me_data_i_0__13_ : 
                              (N80)? out_me_data_i[29] : 
                              (N81)? out_me_data_i[45] : 
                              (N82)? out_me_data_i[61] : 
                              (N83)? out_me_data_i[77] : 
                              (N84)? out_me_data_i[93] : 1'b0;
-  assign out_me_data_o[92] = (N79)? out_me_data_i[12] : 
+  assign out_me_data_o[92] = (N79)? out_me_data_i_0__12_ : 
                              (N80)? out_me_data_i[28] : 
                              (N81)? out_me_data_i[44] : 
                              (N82)? out_me_data_i[60] : 
                              (N83)? out_me_data_i[76] : 
                              (N84)? out_me_data_i[92] : 1'b0;
-  assign out_me_data_o[91] = (N79)? out_me_data_i[11] : 
+  assign out_me_data_o[91] = (N79)? out_me_data_i_0__11_ : 
                              (N80)? out_me_data_i[27] : 
                              (N81)? out_me_data_i[43] : 
                              (N82)? out_me_data_i[59] : 
                              (N83)? out_me_data_i[75] : 
                              (N84)? out_me_data_i[91] : 1'b0;
-  assign out_me_data_o[90] = (N79)? out_me_data_i[10] : 
+  assign out_me_data_o[90] = (N79)? out_me_data_i_0__10_ : 
                              (N80)? out_me_data_i[26] : 
                              (N81)? out_me_data_i[42] : 
                              (N82)? out_me_data_i[58] : 
                              (N83)? out_me_data_i[74] : 
                              (N84)? out_me_data_i[90] : 1'b0;
-  assign out_me_data_o[89] = (N79)? out_me_data_i[9] : 
+  assign out_me_data_o[89] = (N79)? out_me_data_i_0__9_ : 
                              (N80)? out_me_data_i[25] : 
                              (N81)? out_me_data_i[41] : 
                              (N82)? out_me_data_i[57] : 
                              (N83)? out_me_data_i[73] : 
                              (N84)? out_me_data_i[89] : 1'b0;
-  assign out_me_data_o[88] = (N79)? out_me_data_i[8] : 
+  assign out_me_data_o[88] = (N79)? out_me_data_i_0__8_ : 
                              (N80)? out_me_data_i[24] : 
                              (N81)? out_me_data_i[40] : 
                              (N82)? out_me_data_i[56] : 
                              (N83)? out_me_data_i[72] : 
                              (N84)? out_me_data_i[88] : 1'b0;
-  assign out_me_data_o[87] = (N79)? out_me_data_i[7] : 
+  assign out_me_data_o[87] = (N79)? out_me_data_i_0__7_ : 
                              (N80)? out_me_data_i[23] : 
                              (N81)? out_me_data_i[39] : 
                              (N82)? out_me_data_i[55] : 
                              (N83)? out_me_data_i[71] : 
                              (N84)? out_me_data_i[87] : 1'b0;
-  assign out_me_data_o[86] = (N79)? out_me_data_i[6] : 
+  assign out_me_data_o[86] = (N79)? out_me_data_i_0__6_ : 
                              (N80)? out_me_data_i[22] : 
                              (N81)? out_me_data_i[38] : 
                              (N82)? out_me_data_i[54] : 
                              (N83)? out_me_data_i[70] : 
                              (N84)? out_me_data_i[86] : 1'b0;
-  assign out_me_data_o[85] = (N79)? out_me_data_i[5] : 
+  assign out_me_data_o[85] = (N79)? out_me_data_i_0__5_ : 
                              (N80)? out_me_data_i[21] : 
                              (N81)? out_me_data_i[37] : 
                              (N82)? out_me_data_i[53] : 
                              (N83)? out_me_data_i[69] : 
                              (N84)? out_me_data_i[85] : 1'b0;
-  assign out_me_data_o[84] = (N79)? out_me_data_i[4] : 
+  assign out_me_data_o[84] = (N79)? out_me_data_i_0__4_ : 
                              (N80)? out_me_data_i[20] : 
                              (N81)? out_me_data_i[36] : 
                              (N82)? out_me_data_i[52] : 
                              (N83)? out_me_data_i[68] : 
                              (N84)? out_me_data_i[84] : 1'b0;
-  assign out_me_data_o[83] = (N79)? out_me_data_i[3] : 
+  assign out_me_data_o[83] = (N79)? out_me_data_i_0__3_ : 
                              (N80)? out_me_data_i[19] : 
                              (N81)? out_me_data_i[35] : 
                              (N82)? out_me_data_i[51] : 
                              (N83)? out_me_data_i[67] : 
                              (N84)? out_me_data_i[83] : 1'b0;
-  assign out_me_data_o[82] = (N79)? out_me_data_i[2] : 
+  assign out_me_data_o[82] = (N79)? out_me_data_i_0__2_ : 
                              (N80)? out_me_data_i[18] : 
                              (N81)? out_me_data_i[34] : 
                              (N82)? out_me_data_i[50] : 
                              (N83)? out_me_data_i[66] : 
                              (N84)? out_me_data_i[82] : 1'b0;
-  assign out_me_data_o[81] = (N79)? out_me_data_i[1] : 
+  assign out_me_data_o[81] = (N79)? out_me_data_i_0__1_ : 
                              (N80)? out_me_data_i[17] : 
                              (N81)? out_me_data_i[33] : 
                              (N82)? out_me_data_i[49] : 
                              (N83)? out_me_data_i[65] : 
                              (N84)? out_me_data_i[81] : 1'b0;
-  assign out_me_data_o[80] = (N79)? out_me_data_i[0] : 
+  assign out_me_data_o[80] = (N79)? out_me_data_i_0__0_ : 
                              (N80)? out_me_data_i[16] : 
                              (N81)? out_me_data_i[32] : 
                              (N82)? out_me_data_i[48] : 
                              (N83)? out_me_data_i[64] : 
                              (N84)? out_me_data_i[80] : 1'b0;
-  assign out_me_data_o[79] = (N85)? out_me_data_i[15] : 
+  assign out_me_data_o[79] = (N85)? out_me_data_i_0__15_ : 
                              (N86)? out_me_data_i[31] : 
                              (N87)? out_me_data_i[47] : 
                              (N88)? out_me_data_i[63] : 
@@ -22536,77 +22787,77 @@ module bsg_sbox
   assign N87 = N388;
   assign N88 = N389;
   assign N89 = bk_dpath_sel_r[14];
-  assign out_me_data_o[78] = (N85)? out_me_data_i[14] : 
+  assign out_me_data_o[78] = (N85)? out_me_data_i_0__14_ : 
                              (N86)? out_me_data_i[30] : 
                              (N87)? out_me_data_i[46] : 
                              (N88)? out_me_data_i[62] : 
                              (N89)? out_me_data_i[78] : 1'b0;
-  assign out_me_data_o[77] = (N85)? out_me_data_i[13] : 
+  assign out_me_data_o[77] = (N85)? out_me_data_i_0__13_ : 
                              (N86)? out_me_data_i[29] : 
                              (N87)? out_me_data_i[45] : 
                              (N88)? out_me_data_i[61] : 
                              (N89)? out_me_data_i[77] : 1'b0;
-  assign out_me_data_o[76] = (N85)? out_me_data_i[12] : 
+  assign out_me_data_o[76] = (N85)? out_me_data_i_0__12_ : 
                              (N86)? out_me_data_i[28] : 
                              (N87)? out_me_data_i[44] : 
                              (N88)? out_me_data_i[60] : 
                              (N89)? out_me_data_i[76] : 1'b0;
-  assign out_me_data_o[75] = (N85)? out_me_data_i[11] : 
+  assign out_me_data_o[75] = (N85)? out_me_data_i_0__11_ : 
                              (N86)? out_me_data_i[27] : 
                              (N87)? out_me_data_i[43] : 
                              (N88)? out_me_data_i[59] : 
                              (N89)? out_me_data_i[75] : 1'b0;
-  assign out_me_data_o[74] = (N85)? out_me_data_i[10] : 
+  assign out_me_data_o[74] = (N85)? out_me_data_i_0__10_ : 
                              (N86)? out_me_data_i[26] : 
                              (N87)? out_me_data_i[42] : 
                              (N88)? out_me_data_i[58] : 
                              (N89)? out_me_data_i[74] : 1'b0;
-  assign out_me_data_o[73] = (N85)? out_me_data_i[9] : 
+  assign out_me_data_o[73] = (N85)? out_me_data_i_0__9_ : 
                              (N86)? out_me_data_i[25] : 
                              (N87)? out_me_data_i[41] : 
                              (N88)? out_me_data_i[57] : 
                              (N89)? out_me_data_i[73] : 1'b0;
-  assign out_me_data_o[72] = (N85)? out_me_data_i[8] : 
+  assign out_me_data_o[72] = (N85)? out_me_data_i_0__8_ : 
                              (N86)? out_me_data_i[24] : 
                              (N87)? out_me_data_i[40] : 
                              (N88)? out_me_data_i[56] : 
                              (N89)? out_me_data_i[72] : 1'b0;
-  assign out_me_data_o[71] = (N85)? out_me_data_i[7] : 
+  assign out_me_data_o[71] = (N85)? out_me_data_i_0__7_ : 
                              (N86)? out_me_data_i[23] : 
                              (N87)? out_me_data_i[39] : 
                              (N88)? out_me_data_i[55] : 
                              (N89)? out_me_data_i[71] : 1'b0;
-  assign out_me_data_o[70] = (N85)? out_me_data_i[6] : 
+  assign out_me_data_o[70] = (N85)? out_me_data_i_0__6_ : 
                              (N86)? out_me_data_i[22] : 
                              (N87)? out_me_data_i[38] : 
                              (N88)? out_me_data_i[54] : 
                              (N89)? out_me_data_i[70] : 1'b0;
-  assign out_me_data_o[69] = (N85)? out_me_data_i[5] : 
+  assign out_me_data_o[69] = (N85)? out_me_data_i_0__5_ : 
                              (N86)? out_me_data_i[21] : 
                              (N87)? out_me_data_i[37] : 
                              (N88)? out_me_data_i[53] : 
                              (N89)? out_me_data_i[69] : 1'b0;
-  assign out_me_data_o[68] = (N85)? out_me_data_i[4] : 
+  assign out_me_data_o[68] = (N85)? out_me_data_i_0__4_ : 
                              (N86)? out_me_data_i[20] : 
                              (N87)? out_me_data_i[36] : 
                              (N88)? out_me_data_i[52] : 
                              (N89)? out_me_data_i[68] : 1'b0;
-  assign out_me_data_o[67] = (N85)? out_me_data_i[3] : 
+  assign out_me_data_o[67] = (N85)? out_me_data_i_0__3_ : 
                              (N86)? out_me_data_i[19] : 
                              (N87)? out_me_data_i[35] : 
                              (N88)? out_me_data_i[51] : 
                              (N89)? out_me_data_i[67] : 1'b0;
-  assign out_me_data_o[66] = (N85)? out_me_data_i[2] : 
+  assign out_me_data_o[66] = (N85)? out_me_data_i_0__2_ : 
                              (N86)? out_me_data_i[18] : 
                              (N87)? out_me_data_i[34] : 
                              (N88)? out_me_data_i[50] : 
                              (N89)? out_me_data_i[66] : 1'b0;
-  assign out_me_data_o[65] = (N85)? out_me_data_i[1] : 
+  assign out_me_data_o[65] = (N85)? out_me_data_i_0__1_ : 
                              (N86)? out_me_data_i[17] : 
                              (N87)? out_me_data_i[33] : 
                              (N88)? out_me_data_i[49] : 
                              (N89)? out_me_data_i[65] : 1'b0;
-  assign out_me_data_o[64] = (N85)? out_me_data_i[0] : 
+  assign out_me_data_o[64] = (N85)? out_me_data_i_0__0_ : 
                              (N86)? out_me_data_i[16] : 
                              (N87)? out_me_data_i[32] : 
                              (N88)? out_me_data_i[48] : 
@@ -22618,14 +22869,14 @@ module bsg_sbox
   assign N576 = N574 | N575;
   assign N574 = N572 | N573;
   assign N572 = N570 | N571;
-  assign N570 = in_v_i[7] & sbox_0__fi1hot_fwd_sel_one_hot_r_0__7_;
-  assign N571 = in_v_i[6] & sbox_0__fi1hot_fwd_sel_one_hot_r_0__6_;
-  assign N573 = in_v_i[5] & sbox_0__fi1hot_fwd_sel_one_hot_r_0__5_;
-  assign N575 = in_v_i[4] & sbox_0__fi1hot_fwd_sel_one_hot_r_0__4_;
-  assign N577 = in_v_i[3] & sbox_0__fi1hot_fwd_sel_one_hot_r_0__3_;
-  assign N579 = in_v_i[2] & sbox_0__fi1hot_fwd_sel_one_hot_r_0__2_;
-  assign N581 = in_v_i[1] & sbox_0__fi1hot_fwd_sel_one_hot_r_0__1_;
-  assign N583 = in_v_i[0] & sbox_0__fi1hot_fwd_sel_one_hot_r_0__0_;
+  assign N570 = in_v_i[7] & \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__7_ ;
+  assign N571 = in_v_i[6] & \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__6_ ;
+  assign N573 = in_v_i[5] & \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__5_ ;
+  assign N575 = in_v_i[4] & \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__4_ ;
+  assign N577 = in_v_i[3] & \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__3_ ;
+  assign N579 = in_v_i[2] & \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__2_ ;
+  assign N581 = in_v_i[1] & \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__1_ ;
+  assign N583 = in_v_i[0] & \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__0_ ;
   assign N98 = ~bk_sel_r[0];
   assign N99 = ~bk_sel_r[1];
   assign N100 = N98 & N99;
@@ -22690,14 +22941,14 @@ module bsg_sbox
   assign N590 = N588 | N589;
   assign N588 = N586 | N587;
   assign N586 = N584 | N585;
-  assign N584 = in_v_i[7] & sbox_1__fi1hot_fwd_sel_one_hot_r_1__7_;
-  assign N585 = in_v_i[6] & sbox_1__fi1hot_fwd_sel_one_hot_r_1__6_;
-  assign N587 = in_v_i[5] & sbox_1__fi1hot_fwd_sel_one_hot_r_1__5_;
-  assign N589 = in_v_i[4] & sbox_1__fi1hot_fwd_sel_one_hot_r_1__4_;
-  assign N591 = in_v_i[3] & sbox_1__fi1hot_fwd_sel_one_hot_r_1__3_;
-  assign N593 = in_v_i[2] & sbox_1__fi1hot_fwd_sel_one_hot_r_1__2_;
-  assign N595 = in_v_i[1] & sbox_1__fi1hot_fwd_sel_one_hot_r_1__1_;
-  assign N597 = in_v_i[0] & sbox_1__fi1hot_fwd_sel_one_hot_r_1__0_;
+  assign N584 = in_v_i[7] & \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__7_ ;
+  assign N585 = in_v_i[6] & \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__6_ ;
+  assign N587 = in_v_i[5] & \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__5_ ;
+  assign N589 = in_v_i[4] & \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__4_ ;
+  assign N591 = in_v_i[3] & \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__3_ ;
+  assign N593 = in_v_i[2] & \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__2_ ;
+  assign N595 = in_v_i[1] & \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__1_ ;
+  assign N597 = in_v_i[0] & \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__0_ ;
   assign N163 = ~bk_sel_r[3];
   assign N164 = ~bk_sel_r[4];
   assign N165 = N163 & N164;
@@ -22748,14 +22999,14 @@ module bsg_sbox
   assign N604 = N602 | N603;
   assign N602 = N600 | N601;
   assign N600 = N598 | N599;
-  assign N598 = in_v_i[7] & sbox_2__fi1hot_fwd_sel_one_hot_r_2__7_;
-  assign N599 = in_v_i[6] & sbox_2__fi1hot_fwd_sel_one_hot_r_2__6_;
-  assign N601 = in_v_i[5] & sbox_2__fi1hot_fwd_sel_one_hot_r_2__5_;
-  assign N603 = in_v_i[4] & sbox_2__fi1hot_fwd_sel_one_hot_r_2__4_;
-  assign N605 = in_v_i[3] & sbox_2__fi1hot_fwd_sel_one_hot_r_2__3_;
-  assign N607 = in_v_i[2] & sbox_2__fi1hot_fwd_sel_one_hot_r_2__2_;
-  assign N609 = in_v_i[1] & sbox_2__fi1hot_fwd_sel_one_hot_r_2__1_;
-  assign N611 = in_v_i[0] & sbox_2__fi1hot_fwd_sel_one_hot_r_2__0_;
+  assign N598 = in_v_i[7] & \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__7_ ;
+  assign N599 = in_v_i[6] & \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__6_ ;
+  assign N601 = in_v_i[5] & \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__5_ ;
+  assign N603 = in_v_i[4] & \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__4_ ;
+  assign N605 = in_v_i[3] & \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__3_ ;
+  assign N607 = in_v_i[2] & \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__2_ ;
+  assign N609 = in_v_i[1] & \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__1_ ;
+  assign N611 = in_v_i[0] & \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__0_ ;
   assign N221 = ~bk_sel_r[6];
   assign N222 = ~bk_sel_r[7];
   assign N223 = N221 & N222;
@@ -22805,14 +23056,14 @@ module bsg_sbox
   assign N618 = N616 | N617;
   assign N616 = N614 | N615;
   assign N614 = N612 | N613;
-  assign N612 = in_v_i[7] & sbox_3__fi1hot_fwd_sel_one_hot_r_3__7_;
-  assign N613 = in_v_i[6] & sbox_3__fi1hot_fwd_sel_one_hot_r_3__6_;
-  assign N615 = in_v_i[5] & sbox_3__fi1hot_fwd_sel_one_hot_r_3__5_;
-  assign N617 = in_v_i[4] & sbox_3__fi1hot_fwd_sel_one_hot_r_3__4_;
-  assign N619 = in_v_i[3] & sbox_3__fi1hot_fwd_sel_one_hot_r_3__3_;
-  assign N621 = in_v_i[2] & sbox_3__fi1hot_fwd_sel_one_hot_r_3__2_;
-  assign N623 = in_v_i[1] & sbox_3__fi1hot_fwd_sel_one_hot_r_3__1_;
-  assign N625 = in_v_i[0] & sbox_3__fi1hot_fwd_sel_one_hot_r_3__0_;
+  assign N612 = in_v_i[7] & \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__7_ ;
+  assign N613 = in_v_i[6] & \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__6_ ;
+  assign N615 = in_v_i[5] & \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__5_ ;
+  assign N617 = in_v_i[4] & \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__4_ ;
+  assign N619 = in_v_i[3] & \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__3_ ;
+  assign N621 = in_v_i[2] & \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__2_ ;
+  assign N623 = in_v_i[1] & \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__1_ ;
+  assign N625 = in_v_i[0] & \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__0_ ;
   assign N278 = ~bk_sel_r[9];
   assign N279 = ~bk_sel_r[10];
   assign N280 = N278 & N279;
@@ -22868,14 +23119,14 @@ module bsg_sbox
   assign N632 = N630 | N631;
   assign N630 = N628 | N629;
   assign N628 = N626 | N627;
-  assign N626 = in_v_i[7] & sbox_4__fi1hot_fwd_sel_one_hot_r_4__7_;
-  assign N627 = in_v_i[6] & sbox_4__fi1hot_fwd_sel_one_hot_r_4__6_;
-  assign N629 = in_v_i[5] & sbox_4__fi1hot_fwd_sel_one_hot_r_4__5_;
-  assign N631 = in_v_i[4] & sbox_4__fi1hot_fwd_sel_one_hot_r_4__4_;
-  assign N633 = in_v_i[3] & sbox_4__fi1hot_fwd_sel_one_hot_r_4__3_;
-  assign N635 = in_v_i[2] & sbox_4__fi1hot_fwd_sel_one_hot_r_4__2_;
-  assign N637 = in_v_i[1] & sbox_4__fi1hot_fwd_sel_one_hot_r_4__1_;
-  assign N639 = in_v_i[0] & sbox_4__fi1hot_fwd_sel_one_hot_r_4__0_;
+  assign N626 = in_v_i[7] & \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__7_ ;
+  assign N627 = in_v_i[6] & \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__6_ ;
+  assign N629 = in_v_i[5] & \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__5_ ;
+  assign N631 = in_v_i[4] & \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__4_ ;
+  assign N633 = in_v_i[3] & \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__3_ ;
+  assign N635 = in_v_i[2] & \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__2_ ;
+  assign N637 = in_v_i[1] & \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__1_ ;
+  assign N639 = in_v_i[0] & \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__0_ ;
   assign N338 = ~bk_sel_r[12];
   assign N339 = ~bk_sel_r[13];
   assign N340 = N338 & N339;
@@ -22931,14 +23182,14 @@ module bsg_sbox
   assign N646 = N644 | N645;
   assign N644 = N642 | N643;
   assign N642 = N640 | N641;
-  assign N640 = in_v_i[7] & sbox_5__fi1hot_fwd_sel_one_hot_r_5__7_;
-  assign N641 = in_v_i[6] & sbox_5__fi1hot_fwd_sel_one_hot_r_5__6_;
-  assign N643 = in_v_i[5] & sbox_5__fi1hot_fwd_sel_one_hot_r_5__5_;
-  assign N645 = in_v_i[4] & sbox_5__fi1hot_fwd_sel_one_hot_r_5__4_;
-  assign N647 = in_v_i[3] & sbox_5__fi1hot_fwd_sel_one_hot_r_5__3_;
-  assign N649 = in_v_i[2] & sbox_5__fi1hot_fwd_sel_one_hot_r_5__2_;
-  assign N651 = in_v_i[1] & sbox_5__fi1hot_fwd_sel_one_hot_r_5__1_;
-  assign N653 = in_v_i[0] & sbox_5__fi1hot_fwd_sel_one_hot_r_5__0_;
+  assign N640 = in_v_i[7] & \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__7_ ;
+  assign N641 = in_v_i[6] & \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__6_ ;
+  assign N643 = in_v_i[5] & \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__5_ ;
+  assign N645 = in_v_i[4] & \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__4_ ;
+  assign N647 = in_v_i[3] & \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__3_ ;
+  assign N649 = in_v_i[2] & \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__2_ ;
+  assign N651 = in_v_i[1] & \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__1_ ;
+  assign N653 = in_v_i[0] & \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__0_ ;
   assign N398 = ~bk_sel_r[15];
   assign N399 = ~bk_sel_r[16];
   assign N400 = N398 & N399;
@@ -22988,14 +23239,14 @@ module bsg_sbox
   assign N660 = N658 | N659;
   assign N658 = N656 | N657;
   assign N656 = N654 | N655;
-  assign N654 = in_v_i[7] & sbox_6__fi1hot_fwd_sel_one_hot_r_6__7_;
-  assign N655 = in_v_i[6] & sbox_6__fi1hot_fwd_sel_one_hot_r_6__6_;
-  assign N657 = in_v_i[5] & sbox_6__fi1hot_fwd_sel_one_hot_r_6__5_;
-  assign N659 = in_v_i[4] & sbox_6__fi1hot_fwd_sel_one_hot_r_6__4_;
-  assign N661 = in_v_i[3] & sbox_6__fi1hot_fwd_sel_one_hot_r_6__3_;
-  assign N663 = in_v_i[2] & sbox_6__fi1hot_fwd_sel_one_hot_r_6__2_;
-  assign N665 = in_v_i[1] & sbox_6__fi1hot_fwd_sel_one_hot_r_6__1_;
-  assign N667 = in_v_i[0] & sbox_6__fi1hot_fwd_sel_one_hot_r_6__0_;
+  assign N654 = in_v_i[7] & \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__7_ ;
+  assign N655 = in_v_i[6] & \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__6_ ;
+  assign N657 = in_v_i[5] & \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__5_ ;
+  assign N659 = in_v_i[4] & \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__4_ ;
+  assign N661 = in_v_i[3] & \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__3_ ;
+  assign N663 = in_v_i[2] & \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__2_ ;
+  assign N665 = in_v_i[1] & \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__1_ ;
+  assign N667 = in_v_i[0] & \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__0_ ;
   assign N455 = ~bk_sel_r[18];
   assign N456 = ~bk_sel_r[19];
   assign N457 = N455 & N456;
@@ -23046,14 +23297,14 @@ module bsg_sbox
   assign N674 = N672 | N673;
   assign N672 = N670 | N671;
   assign N670 = N668 | N669;
-  assign N668 = in_v_i[7] & sbox_7__fi1hot_fwd_sel_one_hot_r_7__7_;
-  assign N669 = in_v_i[6] & sbox_7__fi1hot_fwd_sel_one_hot_r_7__6_;
-  assign N671 = in_v_i[5] & sbox_7__fi1hot_fwd_sel_one_hot_r_7__5_;
-  assign N673 = in_v_i[4] & sbox_7__fi1hot_fwd_sel_one_hot_r_7__4_;
-  assign N675 = in_v_i[3] & sbox_7__fi1hot_fwd_sel_one_hot_r_7__3_;
-  assign N677 = in_v_i[2] & sbox_7__fi1hot_fwd_sel_one_hot_r_7__2_;
-  assign N679 = in_v_i[1] & sbox_7__fi1hot_fwd_sel_one_hot_r_7__1_;
-  assign N681 = in_v_i[0] & sbox_7__fi1hot_fwd_sel_one_hot_r_7__0_;
+  assign N668 = in_v_i[7] & \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__7_ ;
+  assign N669 = in_v_i[6] & \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__6_ ;
+  assign N671 = in_v_i[5] & \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__5_ ;
+  assign N673 = in_v_i[4] & \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__4_ ;
+  assign N675 = in_v_i[3] & \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__3_ ;
+  assign N677 = in_v_i[2] & \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__2_ ;
+  assign N679 = in_v_i[1] & \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__1_ ;
+  assign N681 = in_v_i[0] & \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__0_ ;
   assign N513 = ~bk_sel_r[21];
   assign N514 = ~bk_sel_r[22];
   assign N515 = N513 & N514;
@@ -23114,82 +23365,152 @@ module bsg_sbox
 
   always @(posedge clk_i) begin
     if(1'b1) begin
-      { fwd_sel_r[23:0] } <= { fwd_sel[23:0] };
-      fwd_dpath_sel_r_18 <= fwd_dpath_sel[18];
-      fwd_dpath_sel_r_16 <= fwd_dpath_sel[16];
-      fwd_dpath_sel_r_15 <= fwd_dpath_sel[15];
-      { fwd_dpath_sel_r[13:0] } <= { fwd_dpath_sel[13:0] };
-      { bk_sel_r[23:0] } <= { bk_sel[23:0] };
-      { bk_dpath_sel_r[23:12] } <= { bk_dpath_sel[23:12] };
-      bk_dpath_sel_r_10 <= bk_dpath_sel[10];
-      bk_dpath_sel_r_9 <= bk_dpath_sel[9];
-      bk_dpath_sel_r_7 <= bk_dpath_sel[7];
-      bk_dpath_sel_r_6 <= bk_dpath_sel[6];
-      bk_dpath_sel_r_3 <= bk_dpath_sel[3];
-      sbox_0__fi1hot_fwd_sel_one_hot_r_0__7_ <= N97;
-      sbox_0__fi1hot_fwd_sel_one_hot_r_0__6_ <= N96;
-      sbox_0__fi1hot_fwd_sel_one_hot_r_0__5_ <= N95;
-      sbox_0__fi1hot_fwd_sel_one_hot_r_0__4_ <= N94;
-      sbox_0__fi1hot_fwd_sel_one_hot_r_0__3_ <= N93;
-      sbox_0__fi1hot_fwd_sel_one_hot_r_0__2_ <= N92;
-      sbox_0__fi1hot_fwd_sel_one_hot_r_0__1_ <= N91;
-      sbox_0__fi1hot_fwd_sel_one_hot_r_0__0_ <= N90;
-      sbox_1__fi1hot_fwd_sel_one_hot_r_1__7_ <= N162;
-      sbox_1__fi1hot_fwd_sel_one_hot_r_1__6_ <= N161;
-      sbox_1__fi1hot_fwd_sel_one_hot_r_1__5_ <= N160;
-      sbox_1__fi1hot_fwd_sel_one_hot_r_1__4_ <= N159;
-      sbox_1__fi1hot_fwd_sel_one_hot_r_1__3_ <= N158;
-      sbox_1__fi1hot_fwd_sel_one_hot_r_1__2_ <= N157;
-      sbox_1__fi1hot_fwd_sel_one_hot_r_1__1_ <= N156;
-      sbox_1__fi1hot_fwd_sel_one_hot_r_1__0_ <= N155;
-      sbox_2__fi1hot_fwd_sel_one_hot_r_2__7_ <= N220;
-      sbox_2__fi1hot_fwd_sel_one_hot_r_2__6_ <= N219;
-      sbox_2__fi1hot_fwd_sel_one_hot_r_2__5_ <= N218;
-      sbox_2__fi1hot_fwd_sel_one_hot_r_2__4_ <= N217;
-      sbox_2__fi1hot_fwd_sel_one_hot_r_2__3_ <= N216;
-      sbox_2__fi1hot_fwd_sel_one_hot_r_2__2_ <= N215;
-      sbox_2__fi1hot_fwd_sel_one_hot_r_2__1_ <= N214;
-      sbox_2__fi1hot_fwd_sel_one_hot_r_2__0_ <= N213;
-      sbox_3__fi1hot_fwd_sel_one_hot_r_3__7_ <= N277;
-      sbox_3__fi1hot_fwd_sel_one_hot_r_3__6_ <= N276;
-      sbox_3__fi1hot_fwd_sel_one_hot_r_3__5_ <= N275;
-      sbox_3__fi1hot_fwd_sel_one_hot_r_3__4_ <= N274;
-      sbox_3__fi1hot_fwd_sel_one_hot_r_3__3_ <= N273;
-      sbox_3__fi1hot_fwd_sel_one_hot_r_3__2_ <= N272;
-      sbox_3__fi1hot_fwd_sel_one_hot_r_3__1_ <= N271;
-      sbox_3__fi1hot_fwd_sel_one_hot_r_3__0_ <= N270;
-      sbox_4__fi1hot_fwd_sel_one_hot_r_4__7_ <= N337;
-      sbox_4__fi1hot_fwd_sel_one_hot_r_4__6_ <= N336;
-      sbox_4__fi1hot_fwd_sel_one_hot_r_4__5_ <= N335;
-      sbox_4__fi1hot_fwd_sel_one_hot_r_4__4_ <= N334;
-      sbox_4__fi1hot_fwd_sel_one_hot_r_4__3_ <= N333;
-      sbox_4__fi1hot_fwd_sel_one_hot_r_4__2_ <= N332;
-      sbox_4__fi1hot_fwd_sel_one_hot_r_4__1_ <= N331;
-      sbox_4__fi1hot_fwd_sel_one_hot_r_4__0_ <= N330;
-      sbox_5__fi1hot_fwd_sel_one_hot_r_5__7_ <= N397;
-      sbox_5__fi1hot_fwd_sel_one_hot_r_5__6_ <= N396;
-      sbox_5__fi1hot_fwd_sel_one_hot_r_5__5_ <= N395;
-      sbox_5__fi1hot_fwd_sel_one_hot_r_5__4_ <= N394;
-      sbox_5__fi1hot_fwd_sel_one_hot_r_5__3_ <= N393;
-      sbox_5__fi1hot_fwd_sel_one_hot_r_5__2_ <= N392;
-      sbox_5__fi1hot_fwd_sel_one_hot_r_5__1_ <= N391;
-      sbox_5__fi1hot_fwd_sel_one_hot_r_5__0_ <= N390;
-      sbox_6__fi1hot_fwd_sel_one_hot_r_6__7_ <= N454;
-      sbox_6__fi1hot_fwd_sel_one_hot_r_6__6_ <= N453;
-      sbox_6__fi1hot_fwd_sel_one_hot_r_6__5_ <= N452;
-      sbox_6__fi1hot_fwd_sel_one_hot_r_6__4_ <= N451;
-      sbox_6__fi1hot_fwd_sel_one_hot_r_6__3_ <= N450;
-      sbox_6__fi1hot_fwd_sel_one_hot_r_6__2_ <= N449;
-      sbox_6__fi1hot_fwd_sel_one_hot_r_6__1_ <= N448;
-      sbox_6__fi1hot_fwd_sel_one_hot_r_6__0_ <= N447;
-      sbox_7__fi1hot_fwd_sel_one_hot_r_7__7_ <= N512;
-      sbox_7__fi1hot_fwd_sel_one_hot_r_7__6_ <= N511;
-      sbox_7__fi1hot_fwd_sel_one_hot_r_7__5_ <= N510;
-      sbox_7__fi1hot_fwd_sel_one_hot_r_7__4_ <= N509;
-      sbox_7__fi1hot_fwd_sel_one_hot_r_7__3_ <= N508;
-      sbox_7__fi1hot_fwd_sel_one_hot_r_7__2_ <= N507;
-      sbox_7__fi1hot_fwd_sel_one_hot_r_7__1_ <= N506;
-      sbox_7__fi1hot_fwd_sel_one_hot_r_7__0_ <= N505;
+      fwd_sel_r_23_sv2v_reg <= fwd_sel[23];
+      fwd_sel_r_22_sv2v_reg <= fwd_sel[22];
+      fwd_sel_r_21_sv2v_reg <= fwd_sel[21];
+      fwd_sel_r_20_sv2v_reg <= fwd_sel[20];
+      fwd_sel_r_19_sv2v_reg <= fwd_sel[19];
+      fwd_sel_r_18_sv2v_reg <= fwd_sel[18];
+      fwd_sel_r_17_sv2v_reg <= fwd_sel[17];
+      fwd_sel_r_16_sv2v_reg <= fwd_sel[16];
+      fwd_sel_r_15_sv2v_reg <= fwd_sel[15];
+      fwd_sel_r_14_sv2v_reg <= fwd_sel[14];
+      fwd_sel_r_13_sv2v_reg <= fwd_sel[13];
+      fwd_sel_r_12_sv2v_reg <= fwd_sel[12];
+      fwd_sel_r_11_sv2v_reg <= fwd_sel[11];
+      fwd_sel_r_10_sv2v_reg <= fwd_sel[10];
+      fwd_sel_r_9_sv2v_reg <= fwd_sel[9];
+      fwd_sel_r_8_sv2v_reg <= fwd_sel[8];
+      fwd_sel_r_7_sv2v_reg <= fwd_sel[7];
+      fwd_sel_r_6_sv2v_reg <= fwd_sel[6];
+      fwd_sel_r_5_sv2v_reg <= fwd_sel[5];
+      fwd_sel_r_4_sv2v_reg <= fwd_sel[4];
+      fwd_sel_r_3_sv2v_reg <= fwd_sel[3];
+      fwd_sel_r_2_sv2v_reg <= fwd_sel[2];
+      fwd_sel_r_1_sv2v_reg <= fwd_sel[1];
+      fwd_sel_r_0_sv2v_reg <= fwd_sel[0];
+      fwd_dpath_sel_r_18_sv2v_reg <= fwd_dpath_sel[18];
+      fwd_dpath_sel_r_16_sv2v_reg <= fwd_dpath_sel[16];
+      fwd_dpath_sel_r_15_sv2v_reg <= fwd_dpath_sel[15];
+      fwd_dpath_sel_r_13_sv2v_reg <= fwd_dpath_sel[13];
+      fwd_dpath_sel_r_12_sv2v_reg <= fwd_dpath_sel[12];
+      fwd_dpath_sel_r_11_sv2v_reg <= fwd_dpath_sel[11];
+      fwd_dpath_sel_r_10_sv2v_reg <= fwd_dpath_sel[10];
+      fwd_dpath_sel_r_9_sv2v_reg <= fwd_dpath_sel[9];
+      fwd_dpath_sel_r_8_sv2v_reg <= fwd_dpath_sel[8];
+      fwd_dpath_sel_r_7_sv2v_reg <= fwd_dpath_sel[7];
+      fwd_dpath_sel_r_6_sv2v_reg <= fwd_dpath_sel[6];
+      fwd_dpath_sel_r_5_sv2v_reg <= fwd_dpath_sel[5];
+      fwd_dpath_sel_r_4_sv2v_reg <= fwd_dpath_sel[4];
+      fwd_dpath_sel_r_3_sv2v_reg <= fwd_dpath_sel[3];
+      fwd_dpath_sel_r_2_sv2v_reg <= fwd_dpath_sel[2];
+      fwd_dpath_sel_r_1_sv2v_reg <= fwd_dpath_sel[1];
+      fwd_dpath_sel_r_0_sv2v_reg <= fwd_dpath_sel[0];
+      bk_sel_r_23_sv2v_reg <= bk_sel[23];
+      bk_sel_r_22_sv2v_reg <= bk_sel[22];
+      bk_sel_r_21_sv2v_reg <= bk_sel[21];
+      bk_sel_r_20_sv2v_reg <= bk_sel[20];
+      bk_sel_r_19_sv2v_reg <= bk_sel[19];
+      bk_sel_r_18_sv2v_reg <= bk_sel[18];
+      bk_sel_r_17_sv2v_reg <= bk_sel[17];
+      bk_sel_r_16_sv2v_reg <= bk_sel[16];
+      bk_sel_r_15_sv2v_reg <= bk_sel[15];
+      bk_sel_r_14_sv2v_reg <= bk_sel[14];
+      bk_sel_r_13_sv2v_reg <= bk_sel[13];
+      bk_sel_r_12_sv2v_reg <= bk_sel[12];
+      bk_sel_r_11_sv2v_reg <= bk_sel[11];
+      bk_sel_r_10_sv2v_reg <= bk_sel[10];
+      bk_sel_r_9_sv2v_reg <= bk_sel[9];
+      bk_sel_r_8_sv2v_reg <= bk_sel[8];
+      bk_sel_r_7_sv2v_reg <= bk_sel[7];
+      bk_sel_r_6_sv2v_reg <= bk_sel[6];
+      bk_sel_r_5_sv2v_reg <= bk_sel[5];
+      bk_sel_r_4_sv2v_reg <= bk_sel[4];
+      bk_sel_r_3_sv2v_reg <= bk_sel[3];
+      bk_sel_r_2_sv2v_reg <= bk_sel[2];
+      bk_sel_r_1_sv2v_reg <= bk_sel[1];
+      bk_sel_r_0_sv2v_reg <= bk_sel[0];
+      bk_dpath_sel_r_23_sv2v_reg <= bk_dpath_sel[23];
+      bk_dpath_sel_r_22_sv2v_reg <= bk_dpath_sel[22];
+      bk_dpath_sel_r_21_sv2v_reg <= bk_dpath_sel[21];
+      bk_dpath_sel_r_20_sv2v_reg <= bk_dpath_sel[20];
+      bk_dpath_sel_r_19_sv2v_reg <= bk_dpath_sel[19];
+      bk_dpath_sel_r_18_sv2v_reg <= bk_dpath_sel[18];
+      bk_dpath_sel_r_17_sv2v_reg <= bk_dpath_sel[17];
+      bk_dpath_sel_r_16_sv2v_reg <= bk_dpath_sel[16];
+      bk_dpath_sel_r_15_sv2v_reg <= bk_dpath_sel[15];
+      bk_dpath_sel_r_14_sv2v_reg <= bk_dpath_sel[14];
+      bk_dpath_sel_r_13_sv2v_reg <= bk_dpath_sel[13];
+      bk_dpath_sel_r_12_sv2v_reg <= bk_dpath_sel[12];
+      bk_dpath_sel_r_10_sv2v_reg <= bk_dpath_sel[10];
+      bk_dpath_sel_r_9_sv2v_reg <= bk_dpath_sel[9];
+      bk_dpath_sel_r_7_sv2v_reg <= bk_dpath_sel[7];
+      bk_dpath_sel_r_6_sv2v_reg <= bk_dpath_sel[6];
+      bk_dpath_sel_r_3_sv2v_reg <= bk_dpath_sel[3];
+      \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__7__sv2v_reg  <= N97;
+      \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__6__sv2v_reg  <= N96;
+      \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__5__sv2v_reg  <= N95;
+      \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__4__sv2v_reg  <= N94;
+      \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__3__sv2v_reg  <= N93;
+      \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__2__sv2v_reg  <= N92;
+      \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__1__sv2v_reg  <= N91;
+      \sbox_0_.fi1hot.fwd_sel_one_hot_r_0__0__sv2v_reg  <= N90;
+      \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__7__sv2v_reg  <= N162;
+      \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__6__sv2v_reg  <= N161;
+      \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__5__sv2v_reg  <= N160;
+      \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__4__sv2v_reg  <= N159;
+      \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__3__sv2v_reg  <= N158;
+      \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__2__sv2v_reg  <= N157;
+      \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__1__sv2v_reg  <= N156;
+      \sbox_1_.fi1hot.fwd_sel_one_hot_r_1__0__sv2v_reg  <= N155;
+      \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__7__sv2v_reg  <= N220;
+      \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__6__sv2v_reg  <= N219;
+      \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__5__sv2v_reg  <= N218;
+      \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__4__sv2v_reg  <= N217;
+      \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__3__sv2v_reg  <= N216;
+      \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__2__sv2v_reg  <= N215;
+      \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__1__sv2v_reg  <= N214;
+      \sbox_2_.fi1hot.fwd_sel_one_hot_r_2__0__sv2v_reg  <= N213;
+      \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__7__sv2v_reg  <= N277;
+      \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__6__sv2v_reg  <= N276;
+      \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__5__sv2v_reg  <= N275;
+      \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__4__sv2v_reg  <= N274;
+      \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__3__sv2v_reg  <= N273;
+      \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__2__sv2v_reg  <= N272;
+      \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__1__sv2v_reg  <= N271;
+      \sbox_3_.fi1hot.fwd_sel_one_hot_r_3__0__sv2v_reg  <= N270;
+      \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__7__sv2v_reg  <= N337;
+      \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__6__sv2v_reg  <= N336;
+      \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__5__sv2v_reg  <= N335;
+      \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__4__sv2v_reg  <= N334;
+      \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__3__sv2v_reg  <= N333;
+      \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__2__sv2v_reg  <= N332;
+      \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__1__sv2v_reg  <= N331;
+      \sbox_4_.fi1hot.fwd_sel_one_hot_r_4__0__sv2v_reg  <= N330;
+      \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__7__sv2v_reg  <= N397;
+      \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__6__sv2v_reg  <= N396;
+      \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__5__sv2v_reg  <= N395;
+      \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__4__sv2v_reg  <= N394;
+      \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__3__sv2v_reg  <= N393;
+      \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__2__sv2v_reg  <= N392;
+      \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__1__sv2v_reg  <= N391;
+      \sbox_5_.fi1hot.fwd_sel_one_hot_r_5__0__sv2v_reg  <= N390;
+      \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__7__sv2v_reg  <= N454;
+      \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__6__sv2v_reg  <= N453;
+      \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__5__sv2v_reg  <= N452;
+      \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__4__sv2v_reg  <= N451;
+      \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__3__sv2v_reg  <= N450;
+      \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__2__sv2v_reg  <= N449;
+      \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__1__sv2v_reg  <= N448;
+      \sbox_6_.fi1hot.fwd_sel_one_hot_r_6__0__sv2v_reg  <= N447;
+      \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__7__sv2v_reg  <= N512;
+      \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__6__sv2v_reg  <= N511;
+      \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__5__sv2v_reg  <= N510;
+      \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__4__sv2v_reg  <= N509;
+      \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__3__sv2v_reg  <= N508;
+      \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__2__sv2v_reg  <= N507;
+      \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__1__sv2v_reg  <= N506;
+      \sbox_7_.fi1hot.fwd_sel_one_hot_r_7__0__sv2v_reg  <= N505;
     end 
   end
 

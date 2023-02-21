@@ -61,30 +61,28 @@ module bsg_round_robin_2_to_2
   input reset_i;
   wire [1:0] ready_o,v_o;
   wire [31:0] data_o;
-  wire N0,N1,N2,N3,N4,N5,N6,N7,N8,N9,N10;
-  reg head_r;
-  assign N6 = (N0)? 1'b0 : 
-              (N1)? N5 : 1'b0;
-  assign N0 = reset_i;
-  assign N1 = N4;
-  assign data_o = (N2)? { data_i[15:0], data_i[31:16] } : 
-                  (N3)? data_i : 1'b0;
-  assign N2 = head_r;
-  assign N3 = N7;
-  assign v_o = (N2)? { v_i[0:0], v_i[1:1] } : 
-               (N3)? v_i : 1'b0;
-  assign ready_o = (N2)? { ready_i[0:0], ready_i[1:1] } : 
-                   (N3)? ready_i : 1'b0;
-  assign N4 = ~reset_i;
-  assign N5 = N9 ^ N10;
-  assign N9 = head_r ^ N8;
-  assign N8 = v_i[1] & ready_o[1];
-  assign N10 = v_i[0] & ready_o[0];
-  assign N7 = ~head_r;
+  wire N0,N1,head_r,N2,N3,N4,N5,N6;
+  reg head_r_sv2v_reg;
+  assign head_r = head_r_sv2v_reg;
+  assign data_o = (N0)? { data_i[15:0], data_i[31:16] } : 
+                  (N1)? data_i : 1'b0;
+  assign N0 = head_r;
+  assign N1 = N3;
+  assign v_o = (N0)? { v_i[0:0], v_i[1:1] } : 
+               (N1)? v_i : 1'b0;
+  assign ready_o = (N0)? { ready_i[0:0], ready_i[1:1] } : 
+                   (N1)? ready_i : 1'b0;
+  assign N2 = N5 ^ N6;
+  assign N5 = head_r ^ N4;
+  assign N4 = v_i[1] & ready_o[1];
+  assign N6 = v_i[0] & ready_o[0];
+  assign N3 = ~head_r;
 
   always @(posedge clk_i) begin
-    if(1'b1) begin
-      head_r <= N6;
+    if(reset_i) begin
+      head_r_sv2v_reg <= 1'b0;
+    end else if(1'b1) begin
+      head_r_sv2v_reg <= N2;
     end 
   end
 

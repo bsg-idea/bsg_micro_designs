@@ -61,7 +61,46 @@ module bsg_mem_1r1w_synth_width_p16_els_p2_read_write_same_addr_p0_harden_p0
   input r_v_i;
   wire [15:0] r_data_o;
   wire N0,N1,N2,N3,N4,N5,N7,N8;
-  reg [31:0] mem;
+  wire [31:0] mem;
+  reg mem_31_sv2v_reg,mem_30_sv2v_reg,mem_29_sv2v_reg,mem_28_sv2v_reg,mem_27_sv2v_reg,
+  mem_26_sv2v_reg,mem_25_sv2v_reg,mem_24_sv2v_reg,mem_23_sv2v_reg,mem_22_sv2v_reg,
+  mem_21_sv2v_reg,mem_20_sv2v_reg,mem_19_sv2v_reg,mem_18_sv2v_reg,mem_17_sv2v_reg,
+  mem_16_sv2v_reg,mem_15_sv2v_reg,mem_14_sv2v_reg,mem_13_sv2v_reg,mem_12_sv2v_reg,
+  mem_11_sv2v_reg,mem_10_sv2v_reg,mem_9_sv2v_reg,mem_8_sv2v_reg,mem_7_sv2v_reg,
+  mem_6_sv2v_reg,mem_5_sv2v_reg,mem_4_sv2v_reg,mem_3_sv2v_reg,mem_2_sv2v_reg,
+  mem_1_sv2v_reg,mem_0_sv2v_reg;
+  assign mem[31] = mem_31_sv2v_reg;
+  assign mem[30] = mem_30_sv2v_reg;
+  assign mem[29] = mem_29_sv2v_reg;
+  assign mem[28] = mem_28_sv2v_reg;
+  assign mem[27] = mem_27_sv2v_reg;
+  assign mem[26] = mem_26_sv2v_reg;
+  assign mem[25] = mem_25_sv2v_reg;
+  assign mem[24] = mem_24_sv2v_reg;
+  assign mem[23] = mem_23_sv2v_reg;
+  assign mem[22] = mem_22_sv2v_reg;
+  assign mem[21] = mem_21_sv2v_reg;
+  assign mem[20] = mem_20_sv2v_reg;
+  assign mem[19] = mem_19_sv2v_reg;
+  assign mem[18] = mem_18_sv2v_reg;
+  assign mem[17] = mem_17_sv2v_reg;
+  assign mem[16] = mem_16_sv2v_reg;
+  assign mem[15] = mem_15_sv2v_reg;
+  assign mem[14] = mem_14_sv2v_reg;
+  assign mem[13] = mem_13_sv2v_reg;
+  assign mem[12] = mem_12_sv2v_reg;
+  assign mem[11] = mem_11_sv2v_reg;
+  assign mem[10] = mem_10_sv2v_reg;
+  assign mem[9] = mem_9_sv2v_reg;
+  assign mem[8] = mem_8_sv2v_reg;
+  assign mem[7] = mem_7_sv2v_reg;
+  assign mem[6] = mem_6_sv2v_reg;
+  assign mem[5] = mem_5_sv2v_reg;
+  assign mem[4] = mem_4_sv2v_reg;
+  assign mem[3] = mem_3_sv2v_reg;
+  assign mem[2] = mem_2_sv2v_reg;
+  assign mem[1] = mem_1_sv2v_reg;
+  assign mem[0] = mem_0_sv2v_reg;
   assign r_data_o[15] = (N3)? mem[15] : 
                         (N0)? mem[31] : 1'b0;
   assign N0 = r_addr_i[0];
@@ -105,10 +144,40 @@ module bsg_mem_1r1w_synth_width_p16_els_p2_read_write_same_addr_p0_harden_p0
 
   always @(posedge w_clk_i) begin
     if(N8) begin
-      { mem[31:16] } <= { w_data_i[15:0] };
+      mem_31_sv2v_reg <= w_data_i[15];
+      mem_30_sv2v_reg <= w_data_i[14];
+      mem_29_sv2v_reg <= w_data_i[13];
+      mem_28_sv2v_reg <= w_data_i[12];
+      mem_27_sv2v_reg <= w_data_i[11];
+      mem_26_sv2v_reg <= w_data_i[10];
+      mem_25_sv2v_reg <= w_data_i[9];
+      mem_24_sv2v_reg <= w_data_i[8];
+      mem_23_sv2v_reg <= w_data_i[7];
+      mem_22_sv2v_reg <= w_data_i[6];
+      mem_21_sv2v_reg <= w_data_i[5];
+      mem_20_sv2v_reg <= w_data_i[4];
+      mem_19_sv2v_reg <= w_data_i[3];
+      mem_18_sv2v_reg <= w_data_i[2];
+      mem_17_sv2v_reg <= w_data_i[1];
+      mem_16_sv2v_reg <= w_data_i[0];
     end 
     if(N7) begin
-      { mem[15:0] } <= { w_data_i[15:0] };
+      mem_15_sv2v_reg <= w_data_i[15];
+      mem_14_sv2v_reg <= w_data_i[14];
+      mem_13_sv2v_reg <= w_data_i[13];
+      mem_12_sv2v_reg <= w_data_i[12];
+      mem_11_sv2v_reg <= w_data_i[11];
+      mem_10_sv2v_reg <= w_data_i[10];
+      mem_9_sv2v_reg <= w_data_i[9];
+      mem_8_sv2v_reg <= w_data_i[8];
+      mem_7_sv2v_reg <= w_data_i[7];
+      mem_6_sv2v_reg <= w_data_i[6];
+      mem_5_sv2v_reg <= w_data_i[5];
+      mem_4_sv2v_reg <= w_data_i[4];
+      mem_3_sv2v_reg <= w_data_i[3];
+      mem_2_sv2v_reg <= w_data_i[2];
+      mem_1_sv2v_reg <= w_data_i[1];
+      mem_0_sv2v_reg <= w_data_i[0];
     end 
   end
 
@@ -178,9 +247,13 @@ module bsg_two_fifo_width_p16
   output ready_o;
   output v_o;
   wire [15:0] data_o;
-  wire ready_o,v_o,N0,N1,enq_i,n_0_net_,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11,N12,N13,N14,
-  N15,N16,N17,N18,N19,N20,N21,N22,N23,N24;
-  reg full_r,tail_r,head_r,empty_r;
+  wire ready_o,v_o,enq_i,tail_r,_0_net_,head_r,empty_r,full_r,N0,N1,N2,N3,N4,N5,N6,N7,
+  N8,N9,N10,N11,N12,N13,N14;
+  reg full_r_sv2v_reg,tail_r_sv2v_reg,head_r_sv2v_reg,empty_r_sv2v_reg;
+  assign full_r = full_r_sv2v_reg;
+  assign tail_r = tail_r_sv2v_reg;
+  assign head_r = head_r_sv2v_reg;
+  assign empty_r = empty_r_sv2v_reg;
 
   bsg_mem_1r1w_width_p16_els_p2_read_write_same_addr_p0
   mem_1r1w
@@ -190,57 +263,48 @@ module bsg_two_fifo_width_p16
     .w_v_i(enq_i),
     .w_addr_i(tail_r),
     .w_data_i(data_i),
-    .r_v_i(n_0_net_),
+    .r_v_i(_0_net_),
     .r_addr_i(head_r),
     .r_data_o(data_o)
   );
 
-  assign N9 = (N0)? 1'b1 : 
-              (N1)? N5 : 1'b0;
-  assign N0 = N3;
-  assign N1 = N2;
-  assign N10 = (N0)? 1'b0 : 
-               (N1)? N4 : 1'b0;
-  assign N11 = (N0)? 1'b1 : 
-               (N1)? yumi_i : 1'b0;
-  assign N12 = (N0)? 1'b0 : 
-               (N1)? N6 : 1'b0;
-  assign N13 = (N0)? 1'b1 : 
-               (N1)? N7 : 1'b0;
-  assign N14 = (N0)? 1'b0 : 
-               (N1)? N8 : 1'b0;
-  assign n_0_net_ = ~empty_r;
+  assign _0_net_ = ~empty_r;
   assign v_o = ~empty_r;
   assign ready_o = ~full_r;
-  assign enq_i = v_i & N15;
-  assign N15 = ~full_r;
-  assign N2 = ~reset_i;
-  assign N3 = reset_i;
-  assign N5 = enq_i;
-  assign N4 = ~tail_r;
-  assign N6 = ~head_r;
-  assign N7 = N17 | N19;
-  assign N17 = empty_r & N16;
-  assign N16 = ~enq_i;
-  assign N19 = N18 & N16;
-  assign N18 = N15 & yumi_i;
-  assign N8 = N23 | N24;
-  assign N23 = N21 & N22;
-  assign N21 = N20 & enq_i;
-  assign N20 = ~empty_r;
-  assign N22 = ~yumi_i;
-  assign N24 = full_r & N22;
+  assign enq_i = v_i & N5;
+  assign N5 = ~full_r;
+  assign N1 = enq_i;
+  assign N0 = ~tail_r;
+  assign N2 = ~head_r;
+  assign N3 = N7 | N9;
+  assign N7 = empty_r & N6;
+  assign N6 = ~enq_i;
+  assign N9 = N8 & N6;
+  assign N8 = N5 & yumi_i;
+  assign N4 = N13 | N14;
+  assign N13 = N11 & N12;
+  assign N11 = N10 & enq_i;
+  assign N10 = ~empty_r;
+  assign N12 = ~yumi_i;
+  assign N14 = full_r & N12;
 
   always @(posedge clk_i) begin
-    if(1'b1) begin
-      full_r <= N14;
-      empty_r <= N13;
+    if(reset_i) begin
+      full_r_sv2v_reg <= 1'b0;
+      empty_r_sv2v_reg <= 1'b1;
+    end else if(1'b1) begin
+      full_r_sv2v_reg <= N4;
+      empty_r_sv2v_reg <= N3;
     end 
-    if(N9) begin
-      tail_r <= N10;
+    if(reset_i) begin
+      tail_r_sv2v_reg <= 1'b0;
+    end else if(N1) begin
+      tail_r_sv2v_reg <= N0;
     end 
-    if(N11) begin
-      head_r <= N12;
+    if(reset_i) begin
+      head_r_sv2v_reg <= 1'b0;
+    end else if(yumi_i) begin
+      head_r_sv2v_reg <= N2;
     end 
   end
 

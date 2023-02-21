@@ -65,51 +65,45 @@ module bsg_round_robin_arb_inputs_p2
   input yumi_i;
   output v_o;
   wire [1:0] grants_o,sel_one_hot_o;
-  wire [0:0] tag_o;
-  wire v_o,N0,N1,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11,N12,N13,N14,N15,N16,N17,N18,N19,N20,
-  N21,N22;
-  reg [0:0] last_r;
-  assign N13 = N0 & N1;
+  wire [0:0] tag_o,last_r;
+  wire v_o,N0,N1,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11,N12,N13,N14,N15;
+  reg last_r_0_sv2v_reg;
+  assign last_r[0] = last_r_0_sv2v_reg;
+  assign N11 = N0 & N1;
   assign N0 = ~reqs_i[1];
   assign N1 = ~reqs_i[0];
-  assign N14 = reqs_i[1] & N2;
+  assign N12 = reqs_i[1] & N2;
   assign N2 = ~last_r[0];
-  assign N15 = N3 & reqs_i[0] & N4;
+  assign N13 = N3 & reqs_i[0] & N4;
   assign N3 = ~reqs_i[1];
   assign N4 = ~last_r[0];
-  assign N16 = reqs_i[0] & last_r[0];
-  assign N17 = reqs_i[1] & N5 & last_r[0];
+  assign N14 = reqs_i[0] & last_r[0];
+  assign N15 = reqs_i[1] & N5 & last_r[0];
   assign N5 = ~reqs_i[0];
   assign sel_one_hot_o = (N6)? { 1'b0, 1'b0 } : 
                          (N7)? { 1'b1, 1'b0 } : 
                          (N8)? { 1'b0, 1'b1 } : 
                          (N9)? { 1'b0, 1'b1 } : 
                          (N10)? { 1'b1, 1'b0 } : 1'b0;
-  assign N6 = N13;
-  assign N7 = N14;
-  assign N8 = N15;
-  assign N9 = N16;
-  assign N10 = N17;
+  assign N6 = N11;
+  assign N7 = N12;
+  assign N8 = N13;
+  assign N9 = N14;
+  assign N10 = N15;
   assign tag_o[0] = (N6)? 1'b0 : 
                     (N7)? 1'b1 : 
                     (N8)? 1'b0 : 
                     (N9)? 1'b0 : 
                     (N10)? 1'b1 : 1'b0;
-  assign N20 = (N11)? 1'b0 : 
-               (N12)? tag_o[0] : 1'b0;
-  assign N11 = reset_i;
-  assign N12 = N19;
   assign grants_o[1] = sel_one_hot_o[1] & grants_en_i;
   assign grants_o[0] = sel_one_hot_o[0] & grants_en_i;
   assign v_o = reqs_i[1] | reqs_i[0];
-  assign N18 = ~yumi_i;
-  assign N19 = ~reset_i;
-  assign N21 = N18 & N19;
-  assign N22 = ~N21;
 
   always @(posedge clk_i) begin
-    if(N22) begin
-      { last_r[0:0] } <= { N20 };
+    if(reset_i) begin
+      last_r_0_sv2v_reg <= 1'b0;
+    end else if(yumi_i) begin
+      last_r_0_sv2v_reg <= tag_o[0];
     end 
   end
 
@@ -196,7 +190,7 @@ module bsg_crossbar_o_by_i_i_els_p2_o_els_p1_width_p16
   wire [15:0] o;
 
   bsg_mux_one_hot_width_p16_els_p2
-  genblk1_0__mux_one_hot
+  \genblk1_0_.mux_one_hot 
   (
     .data_i(i),
     .sel_one_hot_i(sel_oi_one_hot_i),
@@ -230,37 +224,37 @@ module bsg_round_robin_n_to_1
   input reset_i;
   input yumi_i;
   output v_o;
-  wire [1:0] yumi_o,greedy_grants_lo;
+  wire [1:0] yumi_o,\greedy.grants_lo ;
   wire [15:0] data_o;
   wire [0:0] tag_o;
-  wire v_o,n_1_net_,SYNOPSYS_UNCONNECTED_1,SYNOPSYS_UNCONNECTED_2;
+  wire v_o,_1_net_,sv2v_dc_1,sv2v_dc_2;
 
   bsg_round_robin_arb_inputs_p2
-  greedy_rr_arb_ctrl
+  \greedy.rr_arb_ctrl 
   (
     .clk_i(clk_i),
     .reset_i(reset_i),
     .grants_en_i(1'b1),
     .reqs_i(v_i),
-    .grants_o(greedy_grants_lo),
-    .sel_one_hot_o({ SYNOPSYS_UNCONNECTED_1, SYNOPSYS_UNCONNECTED_2 }),
+    .grants_o(\greedy.grants_lo ),
+    .sel_one_hot_o({ sv2v_dc_1, sv2v_dc_2 }),
     .v_o(v_o),
     .tag_o(tag_o[0]),
-    .yumi_i(n_1_net_)
+    .yumi_i(_1_net_)
   );
 
 
   bsg_crossbar_o_by_i_i_els_p2_o_els_p1_width_p16
-  greedy_xbar
+  \greedy.xbar 
   (
     .i(data_i),
-    .sel_oi_one_hot_i(greedy_grants_lo),
+    .sel_oi_one_hot_i(\greedy.grants_lo ),
     .o(data_o)
   );
 
-  assign n_1_net_ = yumi_i & v_o;
-  assign yumi_o[1] = greedy_grants_lo[1] & yumi_i;
-  assign yumi_o[0] = greedy_grants_lo[0] & yumi_i;
+  assign _1_net_ = yumi_i & v_o;
+  assign yumi_o[1] = \greedy.grants_lo [1] & yumi_i;
+  assign yumi_o[0] = \greedy.grants_lo [0] & yumi_i;
 
 endmodule
 
