@@ -1,4 +1,4 @@
-create_clock -period [expr 1.0*100] -name clk [get_ports clk_i]
+create_clock -period [expr $::env(FO4_VAL)*100] -name clk [get_ports clk_i]
 set_clock_uncertainty 0 [get_clock clk]
 set_input_delay 0 -clock clk [all_inputs]
 set_load 1.0 [all_outputs]
