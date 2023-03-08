@@ -3429,196 +3429,196 @@ module bsg_cache_to_dram_ctrl
   assign N109 = N107 | N108;
   assign N110 = ~req_state_r;
 
-  always @(N90 or posedge N62) begin
+  always @(N90 or N62) begin
     if(N62) begin
       addr_n_27_sv2v_reg <= N90;
     end 
   end
 
 
-  always @(N89 or posedge N62) begin
+  always @(N89 or N62) begin
     if(N62) begin
       addr_n_26_sv2v_reg <= N89;
     end 
   end
 
 
-  always @(N88 or posedge N62) begin
+  always @(N88 or N62) begin
     if(N62) begin
       addr_n_25_sv2v_reg <= N88;
     end 
   end
 
 
-  always @(N87 or posedge N62) begin
+  always @(N87 or N62) begin
     if(N62) begin
       addr_n_24_sv2v_reg <= N87;
     end 
   end
 
 
-  always @(N86 or posedge N62) begin
+  always @(N86 or N62) begin
     if(N62) begin
       addr_n_23_sv2v_reg <= N86;
     end 
   end
 
 
-  always @(N85 or posedge N62) begin
+  always @(N85 or N62) begin
     if(N62) begin
       addr_n_22_sv2v_reg <= N85;
     end 
   end
 
 
-  always @(N84 or posedge N62) begin
+  always @(N84 or N62) begin
     if(N62) begin
       addr_n_21_sv2v_reg <= N84;
     end 
   end
 
 
-  always @(N83 or posedge N62) begin
+  always @(N83 or N62) begin
     if(N62) begin
       addr_n_20_sv2v_reg <= N83;
     end 
   end
 
 
-  always @(N82 or posedge N62) begin
+  always @(N82 or N62) begin
     if(N62) begin
       addr_n_19_sv2v_reg <= N82;
     end 
   end
 
 
-  always @(N81 or posedge N62) begin
+  always @(N81 or N62) begin
     if(N62) begin
       addr_n_18_sv2v_reg <= N81;
     end 
   end
 
 
-  always @(N80 or posedge N62) begin
+  always @(N80 or N62) begin
     if(N62) begin
       addr_n_17_sv2v_reg <= N80;
     end 
   end
 
 
-  always @(N79 or posedge N62) begin
+  always @(N79 or N62) begin
     if(N62) begin
       addr_n_16_sv2v_reg <= N79;
     end 
   end
 
 
-  always @(N78 or posedge N62) begin
+  always @(N78 or N62) begin
     if(N62) begin
       addr_n_15_sv2v_reg <= N78;
     end 
   end
 
 
-  always @(N77 or posedge N62) begin
+  always @(N77 or N62) begin
     if(N62) begin
       addr_n_14_sv2v_reg <= N77;
     end 
   end
 
 
-  always @(N76 or posedge N62) begin
+  always @(N76 or N62) begin
     if(N62) begin
       addr_n_13_sv2v_reg <= N76;
     end 
   end
 
 
-  always @(N75 or posedge N62) begin
+  always @(N75 or N62) begin
     if(N62) begin
       addr_n_12_sv2v_reg <= N75;
     end 
   end
 
 
-  always @(N74 or posedge N62) begin
+  always @(N74 or N62) begin
     if(N62) begin
       addr_n_11_sv2v_reg <= N74;
     end 
   end
 
 
-  always @(N73 or posedge N62) begin
+  always @(N73 or N62) begin
     if(N62) begin
       addr_n_10_sv2v_reg <= N73;
     end 
   end
 
 
-  always @(N72 or posedge N62) begin
+  always @(N72 or N62) begin
     if(N62) begin
       addr_n_9_sv2v_reg <= N72;
     end 
   end
 
 
-  always @(N71 or posedge N62) begin
+  always @(N71 or N62) begin
     if(N62) begin
       addr_n_8_sv2v_reg <= N71;
     end 
   end
 
 
-  always @(N70 or posedge N62) begin
+  always @(N70 or N62) begin
     if(N62) begin
       addr_n_7_sv2v_reg <= N70;
     end 
   end
 
 
-  always @(N69 or posedge N62) begin
+  always @(N69 or N62) begin
     if(N62) begin
       addr_n_6_sv2v_reg <= N69;
     end 
   end
 
 
-  always @(N68 or posedge N62) begin
+  always @(N68 or N62) begin
     if(N62) begin
       addr_n_5_sv2v_reg <= N68;
     end 
   end
 
 
-  always @(N67 or posedge N62) begin
+  always @(N67 or N62) begin
     if(N62) begin
       addr_n_4_sv2v_reg <= N67;
     end 
   end
 
 
-  always @(N66 or posedge N62) begin
+  always @(N66 or N62) begin
     if(N62) begin
       addr_n_3_sv2v_reg <= N66;
     end 
   end
 
 
-  always @(N65 or posedge N62) begin
+  always @(N65 or N62) begin
     if(N62) begin
       addr_n_2_sv2v_reg <= N65;
     end 
   end
 
 
-  always @(N64 or posedge N62) begin
+  always @(N64 or N62) begin
     if(N62) begin
       addr_n_1_sv2v_reg <= N64;
     end 
   end
 
 
-  always @(N63 or posedge N62) begin
+  always @(N63 or N62) begin
     if(N62) begin
       addr_n_0_sv2v_reg <= N63;
     end 
