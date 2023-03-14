@@ -21,9 +21,11 @@
 //
 // merged bsg_counter_up_down_variable into this module june 2018
 
-module bsg_counter_up_down #( parameter max_val_p    = -1
-                                     , parameter init_val_p   = -1
-                                     , parameter max_step_p   = -1
+`include "bsg_defines.v"
+
+module bsg_counter_up_down #( parameter `BSG_INV_PARAM(max_val_p    )
+                                     , parameter `BSG_INV_PARAM(init_val_p   )
+                                     , parameter `BSG_INV_PARAM(max_step_p   )
 
                                      //localpara
                                      , parameter step_width_lp =
@@ -57,11 +59,13 @@ always_ff @(posedge clk_i)
 
 //synopsys translate_off
   always_ff @ (negedge clk_i) begin
-    if ((count_o==max_val_p) & up_i   & (reset_i === 1'b0))
+	  if ((count_o==max_val_p) & up_i & ~down_i  & (reset_i === 1'b0))
 		  $display("%m error: counter overflow at time %t", $time);
-	  if ((count_o==0)         & down_i & (reset_i === 1'b0))
+	  if ((count_o==0)          & down_i & ~up_i & (reset_i === 1'b0))
 		  $display("%m error: counter underflow at time %t", $time);
   end
 //synopsys translate_on
 
 endmodule
+
+`BSG_ABSTRACT_MODULE(bsg_counter_up_down)

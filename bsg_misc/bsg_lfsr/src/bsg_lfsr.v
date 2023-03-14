@@ -1,7 +1,9 @@
 // note XOR mask starts at bit 0; which may
 // be shifted from mathematician's notation.
 
-module bsg_lfsr #(parameter width_p=-1
+`include "bsg_defines.v"
+
+module bsg_lfsr #(parameter `BSG_INV_PARAM(width_p)
                   , init_val_p = 1 // an initial value of zero is typically the null point for LFSR's.
                   , xor_mask_p = 0)
    (input clk
@@ -51,4 +53,6 @@ module bsg_lfsr #(parameter width_p=-1
    
 
 endmodule // bsg_lfsr
+
+`BSG_ABSTRACT_MODULE(bsg_lfsr)
 

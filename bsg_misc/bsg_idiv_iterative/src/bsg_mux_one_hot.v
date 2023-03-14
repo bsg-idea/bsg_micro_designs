@@ -1,5 +1,7 @@
 
-module bsg_mux_one_hot #(parameter width_p="inv"
+`include "bsg_defines.v"
+
+module bsg_mux_one_hot #(parameter `BSG_INV_PARAM(width_p)
                          , els_p=1
 			 , harden_p=1
                          )
@@ -29,5 +31,12 @@ module bsg_mux_one_hot #(parameter width_p="inv"
 
         assign data_o[i] = | gather;
      end
+
+   if (els_p == 0)
+     begin : zero
+        assign data_o = '0;
+     end
+
 endmodule
 
+`BSG_ABSTRACT_MODULE(bsg_mux_one_hot)

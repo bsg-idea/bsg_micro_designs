@@ -4,7 +4,9 @@
  *  synthesized multiplier
  */
 
-module bsg_mul_synth #(parameter width_p="inv")
+`include "bsg_defines.v"
+
+module bsg_mul_synth #(parameter `BSG_INV_PARAM(width_p))
 (
   input [width_p-1:0] a_i
   , input [width_p-1:0] b_i
@@ -15,3 +17,5 @@ module bsg_mul_synth #(parameter width_p="inv")
   assign o = a_i * b_i;
 
 endmodule
+
+`BSG_ABSTRACT_MODULE(bsg_mul_synth)

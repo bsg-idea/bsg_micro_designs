@@ -1,11 +1,11 @@
 ###################################################################
 
-# Created by write_sdc on Tue Feb 14 11:03:34 2023
+# Created by write_sdc on Mon Mar 13 19:58:32 2023
 
 ###################################################################
 set sdc_version 2.1
 
-set_load -pin_load 1 [get_ports ready_o]
+set_load -pin_load 1 [get_ports ready_and_o]
 set_load -pin_load 1 [get_ports valid_o]
 set_load -pin_load 1 [get_ports {data_o[31]}]
 set_load -pin_load 1 [get_ports {data_o[30]}]
@@ -2093,7 +2093,7 @@ set_input_delay -clock clk  0  [get_ports {data_i[2]}]
 set_input_delay -clock clk  0  [get_ports {data_i[1]}]
 set_input_delay -clock clk  0  [get_ports {data_i[0]}]
 set_input_delay -clock clk  0  [get_ports yumi_i]
-set_output_delay -clock clk  0  [get_ports ready_o]
+set_output_delay -clock clk  0  [get_ports ready_and_o]
 set_output_delay -clock clk  0  [get_ports valid_o]
 set_output_delay -clock clk  0  [get_ports {data_o[31]}]
 set_output_delay -clock clk  0  [get_ports {data_o[30]}]

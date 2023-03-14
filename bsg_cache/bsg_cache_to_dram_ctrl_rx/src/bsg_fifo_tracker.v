@@ -3,7 +3,9 @@
 // MBT 7/7/16
 //
 
-module bsg_fifo_tracker #(parameter els_p           = -1
+`include "bsg_defines.v"
+
+module bsg_fifo_tracker #(parameter `BSG_INV_PARAM(els_p           )
                           , ptr_width_lp = `BSG_SAFE_CLOG2(els_p)
                           )
    (input   clk_i
@@ -57,6 +59,7 @@ module bsg_fifo_tracker #(parameter els_p           = -1
    // for reset, last op is deque, so
    // equal w and r pointers signal empty FIFO
 
+   // synopsys sync_set_reset "reset_i"
    always_ff @(posedge clk_i)
      if (reset_i)
        begin
@@ -93,3 +96,5 @@ module bsg_fifo_tracker #(parameter els_p           = -1
    assign empty_o = empty;
 
 endmodule // bsg_fifo_tracker
+
+`BSG_ABSTRACT_MODULE(bsg_fifo_tracker)

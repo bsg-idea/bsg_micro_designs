@@ -1,10 +1,11 @@
 ###################################################################
 
-# Created by write_sdc on Tue Mar 7 14:42:14 2023
+# Created by write_sdc on Mon Mar 13 20:37:19 2023
 
 ###################################################################
 set sdc_version 2.1
 
+set_load -pin_load 1 [get_ports {num_zero_o[5]}]
 set_load -pin_load 1 [get_ports {num_zero_o[4]}]
 set_load -pin_load 1 [get_ports {num_zero_o[3]}]
 set_load -pin_load 1 [get_ports {num_zero_o[2]}]
@@ -44,6 +45,7 @@ set_input_delay -clock vclk  0  [get_ports {a_i[3]}]
 set_input_delay -clock vclk  0  [get_ports {a_i[2]}]
 set_input_delay -clock vclk  0  [get_ports {a_i[1]}]
 set_input_delay -clock vclk  0  [get_ports {a_i[0]}]
+set_output_delay -clock vclk  0  [get_ports {num_zero_o[5]}]
 set_output_delay -clock vclk  0  [get_ports {num_zero_o[4]}]
 set_output_delay -clock vclk  0  [get_ports {num_zero_o[3]}]
 set_output_delay -clock vclk  0  [get_ports {num_zero_o[2]}]

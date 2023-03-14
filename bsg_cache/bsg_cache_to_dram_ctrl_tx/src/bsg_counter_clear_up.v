@@ -3,7 +3,9 @@
 // clear occurs first, and then the up.
 //
 
-module bsg_counter_clear_up #(parameter max_val_p     = -1
+`include "bsg_defines.v"
+
+module bsg_counter_clear_up #(parameter `BSG_INV_PARAM(max_val_p)
 			      // this originally had an "invalid" default value of -1
 			      // which is a bad choice for a counter
 			     ,parameter init_val_p   = `BSG_UNDEFINED_IN_SIM('0)
@@ -27,10 +29,17 @@ module bsg_counter_clear_up #(parameter max_val_p     = -1
 
    always_ff @(posedge clk_i)
      begin
-        if (reset_i)
+        if (reset_i) begin
           count_o <= init_val_p;
-        else
-	  count_o <= clear_i ? (ptr_width_lp ' (up_i) ) : (count_o+(ptr_width_lp ' (up_i)));
+        end
+        else begin
+          if (clear_i) begin
+            count_o <=  ptr_width_lp'(up_i);
+          end
+          else if (up_i) begin
+            count_o <= count_o + 1'b1;
+          end
+        end
      end
 
 //synopsys translate_off
@@ -44,3 +53,5 @@ module bsg_counter_clear_up #(parameter max_val_p     = -1
 //synopsys translate_on
 
 endmodule
+
+`BSG_ABSTRACT_MODULE(bsg_counter_clear_up)

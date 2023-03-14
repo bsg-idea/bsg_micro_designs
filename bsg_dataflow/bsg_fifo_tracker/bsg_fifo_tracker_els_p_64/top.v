@@ -118,7 +118,7 @@ module bsg_fifo_tracker
   output full_o;
   output empty_o;
   wire [5:0] wptr_r_o,rptr_r_o,rptr_n_o;
-  wire full_o,empty_o,N0,N1,N2,enq_r,deq_r,N3,equal_ptrs,sv2v_dc_1,sv2v_dc_2,sv2v_dc_3,
+  wire full_o,empty_o,enq_r,deq_r,N0,equal_ptrs,sv2v_dc_1,sv2v_dc_2,sv2v_dc_3,
   sv2v_dc_4,sv2v_dc_5,sv2v_dc_6;
   reg deq_r_sv2v_reg,enq_r_sv2v_reg;
   assign deq_r = deq_r_sv2v_reg;
@@ -146,11 +146,7 @@ module bsg_fifo_tracker
   );
 
   assign equal_ptrs = rptr_r_o == wptr_r_o;
-  assign N3 = (N0)? 1'b1 : 
-              (N2)? 1'b0 : 1'b0;
-  assign N0 = N1;
-  assign N1 = enq_i | deq_i;
-  assign N2 = ~N1;
+  assign N0 = enq_i | deq_i;
   assign empty_o = equal_ptrs & deq_r;
   assign full_o = equal_ptrs & enq_r;
 
@@ -158,7 +154,7 @@ module bsg_fifo_tracker
     if(reset_i) begin
       deq_r_sv2v_reg <= 1'b1;
       enq_r_sv2v_reg <= 1'b0;
-    end else if(N3) begin
+    end else if(N0) begin
       deq_r_sv2v_reg <= deq_i;
       enq_r_sv2v_reg <= enq_i;
     end 

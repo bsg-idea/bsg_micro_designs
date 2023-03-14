@@ -19,8 +19,10 @@
  *
  */
 
+`include "bsg_defines.v"
+
 module bsg_fpu_clz
-  #(parameter width_p="inv"
+  #(parameter `BSG_INV_PARAM(width_p)
     , localparam lg_width_lp=`BSG_SAFE_CLOG2(width_p)
   )
   (
@@ -45,3 +47,5 @@ module bsg_fpu_clz
   );
   
 endmodule
+
+`BSG_ABSTRACT_MODULE(bsg_fpu_clz)

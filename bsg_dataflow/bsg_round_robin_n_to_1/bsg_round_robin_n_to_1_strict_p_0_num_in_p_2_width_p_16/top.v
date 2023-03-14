@@ -190,7 +190,7 @@ module bsg_crossbar_o_by_i_i_els_p2_o_els_p1_width_p16
   wire [15:0] o;
 
   bsg_mux_one_hot_width_p16_els_p2
-  \genblk1_0_.mux_one_hot 
+  \l_0_.mux_one_hot 
   (
     .data_i(i),
     .sel_one_hot_i(sel_oi_one_hot_i),
@@ -230,7 +230,7 @@ module bsg_round_robin_n_to_1
   wire v_o,_1_net_,sv2v_dc_1,sv2v_dc_2;
 
   bsg_round_robin_arb_inputs_p2
-  \greedy.rr_arb_ctrl 
+  \greedy.scan0.rr_arb_ctrl 
   (
     .clk_i(clk_i),
     .reset_i(reset_i),

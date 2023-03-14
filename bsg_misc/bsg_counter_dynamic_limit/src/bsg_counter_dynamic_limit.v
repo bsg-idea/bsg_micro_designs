@@ -2,7 +2,9 @@
 // from zero to overflow value. (it would get limit_i+1 different
 // values during this counting).
 // module renamed from bsg_counter_w_overflow
-module bsg_counter_dynamic_limit #(parameter width_p = -1)
+`include "bsg_defines.v"
+
+module bsg_counter_dynamic_limit #(parameter `BSG_INV_PARAM(width_p ))
 
             ( input                      clk_i
             , input                      reset_i
@@ -20,3 +22,5 @@ always_ff @ (posedge clk_i)
     counter_o <= counter_o + width_p'(1);
 
 endmodule
+
+`BSG_ABSTRACT_MODULE(bsg_counter_dynamic_limit)

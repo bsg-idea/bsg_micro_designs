@@ -1,6 +1,6 @@
 ###################################################################
 
-# Created by write_sdc on Tue Mar 7 15:13:45 2023
+# Created by write_sdc on Mon Mar 13 21:10:11 2023
 
 ###################################################################
 set sdc_version 2.1
@@ -21,6 +21,7 @@ set_load -pin_load 1 [get_ports {o[3]}]
 set_load -pin_load 1 [get_ports {o[2]}]
 set_load -pin_load 1 [get_ports {o[1]}]
 set_load -pin_load 1 [get_ports {o[0]}]
+set_load -pin_load 1 [get_ports v_o]
 create_clock -name vclk  -period 90  -waveform {0 45}
 set_clock_uncertainty 0  [get_clocks vclk]
 set_input_delay -clock vclk  0  [get_ports {i[15]}]
@@ -55,3 +56,4 @@ set_output_delay -clock vclk  0  [get_ports {o[3]}]
 set_output_delay -clock vclk  0  [get_ports {o[2]}]
 set_output_delay -clock vclk  0  [get_ports {o[1]}]
 set_output_delay -clock vclk  0  [get_ports {o[0]}]
+set_output_delay -clock vclk  0  [get_ports v_o]

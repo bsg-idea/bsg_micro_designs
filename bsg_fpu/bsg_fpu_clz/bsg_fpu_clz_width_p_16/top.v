@@ -108,23 +108,25 @@ endmodule
 module bsg_priority_encode_one_hot_out_width_p16_lo_to_hi_p1
 (
   i,
-  o
+  o,
+  v_o
 );
 
   input [15:0] i;
   output [15:0] o;
+  output v_o;
   wire [15:0] o;
-  wire N0,N1,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11,N12,N13,N14;
-  wire [15:1] scan_lo;
+  wire v_o,N0,N1,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11,N12,N13,N14;
+  wire [14:1] scan_lo;
 
   bsg_scan_width_p16_or_p1_lo_to_hi_p1
-  \genblk1.scan 
+  \nw1.scan 
   (
     .i(i),
-    .o({ scan_lo, o[0:0] })
+    .o({ v_o, scan_lo, o[0:0] })
   );
 
-  assign o[15] = scan_lo[15] & N0;
+  assign o[15] = v_o & N0;
   assign N0 = ~scan_lo[14];
   assign o[14] = scan_lo[14] & N1;
   assign N1 = ~scan_lo[13];
@@ -159,140 +161,6 @@ endmodule
 
 
 
-module bsg_encode_one_hot_width_p1
-(
-  i,
-  addr_o,
-  v_o
-);
-
-  input [0:0] i;
-  output [0:0] addr_o;
-  output v_o;
-  wire [0:0] addr_o;
-  wire v_o;
-  assign v_o = i[0];
-  assign addr_o[0] = 1'b0;
-
-endmodule
-
-
-
-module bsg_encode_one_hot_width_p2
-(
-  i,
-  addr_o,
-  v_o
-);
-
-  input [1:0] i;
-  output [0:0] addr_o;
-  output v_o;
-  wire [0:0] addr_o,\aligned.vs ;
-  wire v_o;
-  wire [1:0] \aligned.addrs ;
-
-  bsg_encode_one_hot_width_p1
-  \aligned.left 
-  (
-    .i(i[0]),
-    .addr_o(\aligned.addrs [0]),
-    .v_o(\aligned.vs [0])
-  );
-
-
-  bsg_encode_one_hot_width_p1
-  \aligned.right 
-  (
-    .i(i[1]),
-    .addr_o(\aligned.addrs [1]),
-    .v_o(addr_o[0])
-  );
-
-  assign v_o = addr_o[0] | \aligned.vs [0];
-
-endmodule
-
-
-
-module bsg_encode_one_hot_width_p4
-(
-  i,
-  addr_o,
-  v_o
-);
-
-  input [3:0] i;
-  output [1:0] addr_o;
-  output v_o;
-  wire [1:0] addr_o,\aligned.addrs ;
-  wire v_o;
-  wire [0:0] \aligned.vs ;
-
-  bsg_encode_one_hot_width_p2
-  \aligned.left 
-  (
-    .i(i[1:0]),
-    .addr_o(\aligned.addrs [0]),
-    .v_o(\aligned.vs [0])
-  );
-
-
-  bsg_encode_one_hot_width_p2
-  \aligned.right 
-  (
-    .i(i[3:2]),
-    .addr_o(\aligned.addrs [1]),
-    .v_o(addr_o[1])
-  );
-
-  assign v_o = addr_o[1] | \aligned.vs [0];
-  assign addr_o[0] = \aligned.addrs [0] | \aligned.addrs [1];
-
-endmodule
-
-
-
-module bsg_encode_one_hot_width_p8
-(
-  i,
-  addr_o,
-  v_o
-);
-
-  input [7:0] i;
-  output [2:0] addr_o;
-  output v_o;
-  wire [2:0] addr_o;
-  wire v_o;
-  wire [3:0] \aligned.addrs ;
-  wire [0:0] \aligned.vs ;
-
-  bsg_encode_one_hot_width_p4
-  \aligned.left 
-  (
-    .i(i[3:0]),
-    .addr_o(\aligned.addrs [1:0]),
-    .v_o(\aligned.vs [0])
-  );
-
-
-  bsg_encode_one_hot_width_p4
-  \aligned.right 
-  (
-    .i(i[7:4]),
-    .addr_o(\aligned.addrs [3:2]),
-    .v_o(addr_o[2])
-  );
-
-  assign v_o = addr_o[2] | \aligned.vs [0];
-  assign addr_o[1] = \aligned.addrs [1] | \aligned.addrs [3];
-  assign addr_o[0] = \aligned.addrs [0] | \aligned.addrs [2];
-
-endmodule
-
-
-
 module bsg_encode_one_hot_width_p16_lo_to_hi_p1
 (
   i,
@@ -304,31 +172,35 @@ module bsg_encode_one_hot_width_p16_lo_to_hi_p1
   output [3:0] addr_o;
   output v_o;
   wire [3:0] addr_o;
-  wire v_o;
-  wire [5:0] \aligned.addrs ;
-  wire [0:0] \aligned.vs ;
-
-  bsg_encode_one_hot_width_p8
-  \aligned.left 
-  (
-    .i(i[7:0]),
-    .addr_o(\aligned.addrs [2:0]),
-    .v_o(\aligned.vs [0])
-  );
-
-
-  bsg_encode_one_hot_width_p8
-  \aligned.right 
-  (
-    .i(i[15:8]),
-    .addr_o(\aligned.addrs [5:3]),
-    .v_o(addr_o[3])
-  );
-
-  assign v_o = addr_o[3] | \aligned.vs [0];
-  assign addr_o[2] = \aligned.addrs [2] | \aligned.addrs [5];
-  assign addr_o[1] = \aligned.addrs [1] | \aligned.addrs [4];
-  assign addr_o[0] = \aligned.addrs [0] | \aligned.addrs [3];
+  wire v_o,v_3__0_,v_2__12_,v_2__8_,v_2__4_,v_2__0_,v_1__14_,v_1__12_,v_1__10_,v_1__8_,
+  v_1__6_,v_1__4_,v_1__2_,v_1__0_,addr_3__9_,addr_3__8_,addr_3__1_,addr_3__0_,
+  addr_2__12_,addr_2__8_,addr_2__4_,addr_2__0_;
+  assign v_1__0_ = i[1] | i[0];
+  assign v_1__2_ = i[3] | i[2];
+  assign v_1__4_ = i[5] | i[4];
+  assign v_1__6_ = i[7] | i[6];
+  assign v_1__8_ = i[9] | i[8];
+  assign v_1__10_ = i[11] | i[10];
+  assign v_1__12_ = i[13] | i[12];
+  assign v_1__14_ = i[15] | i[14];
+  assign v_2__0_ = v_1__2_ | v_1__0_;
+  assign addr_2__0_ = i[1] | i[3];
+  assign v_2__4_ = v_1__6_ | v_1__4_;
+  assign addr_2__4_ = i[5] | i[7];
+  assign v_2__8_ = v_1__10_ | v_1__8_;
+  assign addr_2__8_ = i[9] | i[11];
+  assign v_2__12_ = v_1__14_ | v_1__12_;
+  assign addr_2__12_ = i[13] | i[15];
+  assign v_3__0_ = v_2__4_ | v_2__0_;
+  assign addr_3__1_ = v_1__2_ | v_1__6_;
+  assign addr_3__0_ = addr_2__0_ | addr_2__4_;
+  assign addr_o[3] = v_2__12_ | v_2__8_;
+  assign addr_3__9_ = v_1__10_ | v_1__14_;
+  assign addr_3__8_ = addr_2__8_ | addr_2__12_;
+  assign v_o = addr_o[3] | v_3__0_;
+  assign addr_o[2] = v_2__4_ | v_2__12_;
+  assign addr_o[1] = addr_3__1_ | addr_3__9_;
+  assign addr_o[0] = addr_3__0_ | addr_3__8_;
 
 endmodule
 
@@ -352,7 +224,8 @@ module bsg_priority_encode_width_p16_lo_to_hi_p1
   a
   (
     .i(i),
-    .o(enc_lo)
+    .o(enc_lo),
+    .v_o(v_o)
   );
 
 
@@ -360,8 +233,7 @@ module bsg_priority_encode_width_p16_lo_to_hi_p1
   b
   (
     .i(enc_lo),
-    .addr_o(addr_o),
-    .v_o(v_o)
+    .addr_o(addr_o)
   );
 
 

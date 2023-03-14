@@ -1,7 +1,9 @@
 // This module works as an extender accross the chip. It
 // has valid/ready protocol on both sides. 
 
-module bsg_relay_fifo #(parameter width_p="inv")
+`include "bsg_defines.v"
+
+module bsg_relay_fifo #(parameter `BSG_INV_PARAM(width_p))
     ( input clk_i
     , input reset_i
 
@@ -36,3 +38,5 @@ bsg_two_fifo #(.width_p(width_p)) two_fifo
     );
 
 endmodule
+
+`BSG_ABSTRACT_MODULE(bsg_relay_fifo)

@@ -5,8 +5,10 @@
 // reads are asynchronous
 //
 
-module bsg_mem_1r1w #(parameter width_p=-1
-                      , parameter els_p=-1
+`include "bsg_defines.v"
+
+module bsg_mem_1r1w #(parameter `BSG_INV_PARAM(width_p)
+                      ,parameter `BSG_INV_PARAM(els_p)
                       , parameter read_write_same_addr_p=0
                       , parameter addr_width_lp=`BSG_SAFE_CLOG2(els_p)
                       , parameter harden_p=0
@@ -16,20 +18,19 @@ module bsg_mem_1r1w #(parameter width_p=-1
 
     , input                     w_v_i
     , input [addr_width_lp-1:0] w_addr_i
-    , input [width_p-1:0]       w_data_i
+    , input [`BSG_SAFE_MINUS(width_p, 1):0]       w_data_i
 
     // currently unused
     , input                      r_v_i
     , input [addr_width_lp-1:0]  r_addr_i
 
-    , output logic [width_p-1:0] r_data_o
+    , output logic [`BSG_SAFE_MINUS(width_p, 1):0] r_data_o
     );
 
    bsg_mem_1r1w_synth
      #(.width_p(width_p)
        ,.els_p(els_p)
        ,.read_write_same_addr_p(read_write_same_addr_p)
-       ,.harden_p(harden_p)
        ) synth
        (.*);
 
@@ -37,7 +38,7 @@ module bsg_mem_1r1w #(parameter width_p=-1
 
    initial
      begin
-	if (read_write_same_addr_p || (width_p*els_p >= 64))
+	if (width_p*els_p > 256)
           $display("## %L: instantiating width_p=%d, els_p=%d, read_write_same_addr_p=%d, harden_p=%d (%m)"
                    ,width_p,els_p,read_write_same_addr_p,harden_p);
      end
@@ -55,3 +56,5 @@ module bsg_mem_1r1w #(parameter width_p=-1
    //synopsys translate_on
 
 endmodule
+
+`BSG_ABSTRACT_MODULE(bsg_mem_1r1w)

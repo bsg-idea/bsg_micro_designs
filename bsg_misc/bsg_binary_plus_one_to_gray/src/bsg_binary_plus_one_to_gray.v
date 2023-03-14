@@ -40,7 +40,10 @@
  111  111       11     0111      0100              100
  */
 
-module bsg_binary_plus_one_to_gray #(parameter width_p = -1)
+
+`include "bsg_defines.v"
+
+module bsg_binary_plus_one_to_gray #(parameter `BSG_INV_PARAM(width_p ))
    (input [width_p-1:0] binary_i
     , output [width_p-1:0] gray_o
     );
@@ -59,3 +62,5 @@ module bsg_binary_plus_one_to_gray #(parameter width_p = -1)
    assign gray_o = (binary_i >> 1) ^ (binary_i) ^ edge_detect;
 
 endmodule
+
+`BSG_ABSTRACT_MODULE(bsg_binary_plus_one_to_gray)

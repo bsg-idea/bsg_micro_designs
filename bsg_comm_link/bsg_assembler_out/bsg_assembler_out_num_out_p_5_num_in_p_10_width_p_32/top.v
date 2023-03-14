@@ -48,7 +48,7 @@ endmodule
 
 
 
-module bsg_mem_1r1w_synth_width_p32_els_p2_read_write_same_addr_p0_harden_p0
+module bsg_mem_1r1w_synth_width_p32_els_p2_read_write_same_addr_p0
 (
   w_clk_i,
   w_reset_i,
@@ -70,149 +70,153 @@ module bsg_mem_1r1w_synth_width_p32_els_p2_read_write_same_addr_p0_harden_p0
   input r_v_i;
   wire [31:0] r_data_o;
   wire N0,N1,N2,N3,N4,N5,N7,N8;
-  wire [63:0] mem;
-  reg mem_63_sv2v_reg,mem_62_sv2v_reg,mem_61_sv2v_reg,mem_60_sv2v_reg,mem_59_sv2v_reg,
-  mem_58_sv2v_reg,mem_57_sv2v_reg,mem_56_sv2v_reg,mem_55_sv2v_reg,mem_54_sv2v_reg,
-  mem_53_sv2v_reg,mem_52_sv2v_reg,mem_51_sv2v_reg,mem_50_sv2v_reg,mem_49_sv2v_reg,
-  mem_48_sv2v_reg,mem_47_sv2v_reg,mem_46_sv2v_reg,mem_45_sv2v_reg,mem_44_sv2v_reg,
-  mem_43_sv2v_reg,mem_42_sv2v_reg,mem_41_sv2v_reg,mem_40_sv2v_reg,mem_39_sv2v_reg,
-  mem_38_sv2v_reg,mem_37_sv2v_reg,mem_36_sv2v_reg,mem_35_sv2v_reg,mem_34_sv2v_reg,
-  mem_33_sv2v_reg,mem_32_sv2v_reg,mem_31_sv2v_reg,mem_30_sv2v_reg,mem_29_sv2v_reg,
-  mem_28_sv2v_reg,mem_27_sv2v_reg,mem_26_sv2v_reg,mem_25_sv2v_reg,mem_24_sv2v_reg,
-  mem_23_sv2v_reg,mem_22_sv2v_reg,mem_21_sv2v_reg,mem_20_sv2v_reg,mem_19_sv2v_reg,
-  mem_18_sv2v_reg,mem_17_sv2v_reg,mem_16_sv2v_reg,mem_15_sv2v_reg,mem_14_sv2v_reg,
-  mem_13_sv2v_reg,mem_12_sv2v_reg,mem_11_sv2v_reg,mem_10_sv2v_reg,mem_9_sv2v_reg,
-  mem_8_sv2v_reg,mem_7_sv2v_reg,mem_6_sv2v_reg,mem_5_sv2v_reg,mem_4_sv2v_reg,
-  mem_3_sv2v_reg,mem_2_sv2v_reg,mem_1_sv2v_reg,mem_0_sv2v_reg;
-  assign mem[63] = mem_63_sv2v_reg;
-  assign mem[62] = mem_62_sv2v_reg;
-  assign mem[61] = mem_61_sv2v_reg;
-  assign mem[60] = mem_60_sv2v_reg;
-  assign mem[59] = mem_59_sv2v_reg;
-  assign mem[58] = mem_58_sv2v_reg;
-  assign mem[57] = mem_57_sv2v_reg;
-  assign mem[56] = mem_56_sv2v_reg;
-  assign mem[55] = mem_55_sv2v_reg;
-  assign mem[54] = mem_54_sv2v_reg;
-  assign mem[53] = mem_53_sv2v_reg;
-  assign mem[52] = mem_52_sv2v_reg;
-  assign mem[51] = mem_51_sv2v_reg;
-  assign mem[50] = mem_50_sv2v_reg;
-  assign mem[49] = mem_49_sv2v_reg;
-  assign mem[48] = mem_48_sv2v_reg;
-  assign mem[47] = mem_47_sv2v_reg;
-  assign mem[46] = mem_46_sv2v_reg;
-  assign mem[45] = mem_45_sv2v_reg;
-  assign mem[44] = mem_44_sv2v_reg;
-  assign mem[43] = mem_43_sv2v_reg;
-  assign mem[42] = mem_42_sv2v_reg;
-  assign mem[41] = mem_41_sv2v_reg;
-  assign mem[40] = mem_40_sv2v_reg;
-  assign mem[39] = mem_39_sv2v_reg;
-  assign mem[38] = mem_38_sv2v_reg;
-  assign mem[37] = mem_37_sv2v_reg;
-  assign mem[36] = mem_36_sv2v_reg;
-  assign mem[35] = mem_35_sv2v_reg;
-  assign mem[34] = mem_34_sv2v_reg;
-  assign mem[33] = mem_33_sv2v_reg;
-  assign mem[32] = mem_32_sv2v_reg;
-  assign mem[31] = mem_31_sv2v_reg;
-  assign mem[30] = mem_30_sv2v_reg;
-  assign mem[29] = mem_29_sv2v_reg;
-  assign mem[28] = mem_28_sv2v_reg;
-  assign mem[27] = mem_27_sv2v_reg;
-  assign mem[26] = mem_26_sv2v_reg;
-  assign mem[25] = mem_25_sv2v_reg;
-  assign mem[24] = mem_24_sv2v_reg;
-  assign mem[23] = mem_23_sv2v_reg;
-  assign mem[22] = mem_22_sv2v_reg;
-  assign mem[21] = mem_21_sv2v_reg;
-  assign mem[20] = mem_20_sv2v_reg;
-  assign mem[19] = mem_19_sv2v_reg;
-  assign mem[18] = mem_18_sv2v_reg;
-  assign mem[17] = mem_17_sv2v_reg;
-  assign mem[16] = mem_16_sv2v_reg;
-  assign mem[15] = mem_15_sv2v_reg;
-  assign mem[14] = mem_14_sv2v_reg;
-  assign mem[13] = mem_13_sv2v_reg;
-  assign mem[12] = mem_12_sv2v_reg;
-  assign mem[11] = mem_11_sv2v_reg;
-  assign mem[10] = mem_10_sv2v_reg;
-  assign mem[9] = mem_9_sv2v_reg;
-  assign mem[8] = mem_8_sv2v_reg;
-  assign mem[7] = mem_7_sv2v_reg;
-  assign mem[6] = mem_6_sv2v_reg;
-  assign mem[5] = mem_5_sv2v_reg;
-  assign mem[4] = mem_4_sv2v_reg;
-  assign mem[3] = mem_3_sv2v_reg;
-  assign mem[2] = mem_2_sv2v_reg;
-  assign mem[1] = mem_1_sv2v_reg;
-  assign mem[0] = mem_0_sv2v_reg;
-  assign r_data_o[31] = (N3)? mem[31] : 
-                        (N0)? mem[63] : 1'b0;
+  wire [63:0] \nz.mem ;
+  reg \nz.mem_63_sv2v_reg ,\nz.mem_62_sv2v_reg ,\nz.mem_61_sv2v_reg ,
+  \nz.mem_60_sv2v_reg ,\nz.mem_59_sv2v_reg ,\nz.mem_58_sv2v_reg ,\nz.mem_57_sv2v_reg ,
+  \nz.mem_56_sv2v_reg ,\nz.mem_55_sv2v_reg ,\nz.mem_54_sv2v_reg ,\nz.mem_53_sv2v_reg ,
+  \nz.mem_52_sv2v_reg ,\nz.mem_51_sv2v_reg ,\nz.mem_50_sv2v_reg ,\nz.mem_49_sv2v_reg ,
+  \nz.mem_48_sv2v_reg ,\nz.mem_47_sv2v_reg ,\nz.mem_46_sv2v_reg ,\nz.mem_45_sv2v_reg ,
+  \nz.mem_44_sv2v_reg ,\nz.mem_43_sv2v_reg ,\nz.mem_42_sv2v_reg ,
+  \nz.mem_41_sv2v_reg ,\nz.mem_40_sv2v_reg ,\nz.mem_39_sv2v_reg ,\nz.mem_38_sv2v_reg ,
+  \nz.mem_37_sv2v_reg ,\nz.mem_36_sv2v_reg ,\nz.mem_35_sv2v_reg ,\nz.mem_34_sv2v_reg ,
+  \nz.mem_33_sv2v_reg ,\nz.mem_32_sv2v_reg ,\nz.mem_31_sv2v_reg ,\nz.mem_30_sv2v_reg ,
+  \nz.mem_29_sv2v_reg ,\nz.mem_28_sv2v_reg ,\nz.mem_27_sv2v_reg ,\nz.mem_26_sv2v_reg ,
+  \nz.mem_25_sv2v_reg ,\nz.mem_24_sv2v_reg ,\nz.mem_23_sv2v_reg ,
+  \nz.mem_22_sv2v_reg ,\nz.mem_21_sv2v_reg ,\nz.mem_20_sv2v_reg ,\nz.mem_19_sv2v_reg ,
+  \nz.mem_18_sv2v_reg ,\nz.mem_17_sv2v_reg ,\nz.mem_16_sv2v_reg ,\nz.mem_15_sv2v_reg ,
+  \nz.mem_14_sv2v_reg ,\nz.mem_13_sv2v_reg ,\nz.mem_12_sv2v_reg ,\nz.mem_11_sv2v_reg ,
+  \nz.mem_10_sv2v_reg ,\nz.mem_9_sv2v_reg ,\nz.mem_8_sv2v_reg ,\nz.mem_7_sv2v_reg ,
+  \nz.mem_6_sv2v_reg ,\nz.mem_5_sv2v_reg ,\nz.mem_4_sv2v_reg ,\nz.mem_3_sv2v_reg ,
+  \nz.mem_2_sv2v_reg ,\nz.mem_1_sv2v_reg ,\nz.mem_0_sv2v_reg ;
+  assign \nz.mem [63] = \nz.mem_63_sv2v_reg ;
+  assign \nz.mem [62] = \nz.mem_62_sv2v_reg ;
+  assign \nz.mem [61] = \nz.mem_61_sv2v_reg ;
+  assign \nz.mem [60] = \nz.mem_60_sv2v_reg ;
+  assign \nz.mem [59] = \nz.mem_59_sv2v_reg ;
+  assign \nz.mem [58] = \nz.mem_58_sv2v_reg ;
+  assign \nz.mem [57] = \nz.mem_57_sv2v_reg ;
+  assign \nz.mem [56] = \nz.mem_56_sv2v_reg ;
+  assign \nz.mem [55] = \nz.mem_55_sv2v_reg ;
+  assign \nz.mem [54] = \nz.mem_54_sv2v_reg ;
+  assign \nz.mem [53] = \nz.mem_53_sv2v_reg ;
+  assign \nz.mem [52] = \nz.mem_52_sv2v_reg ;
+  assign \nz.mem [51] = \nz.mem_51_sv2v_reg ;
+  assign \nz.mem [50] = \nz.mem_50_sv2v_reg ;
+  assign \nz.mem [49] = \nz.mem_49_sv2v_reg ;
+  assign \nz.mem [48] = \nz.mem_48_sv2v_reg ;
+  assign \nz.mem [47] = \nz.mem_47_sv2v_reg ;
+  assign \nz.mem [46] = \nz.mem_46_sv2v_reg ;
+  assign \nz.mem [45] = \nz.mem_45_sv2v_reg ;
+  assign \nz.mem [44] = \nz.mem_44_sv2v_reg ;
+  assign \nz.mem [43] = \nz.mem_43_sv2v_reg ;
+  assign \nz.mem [42] = \nz.mem_42_sv2v_reg ;
+  assign \nz.mem [41] = \nz.mem_41_sv2v_reg ;
+  assign \nz.mem [40] = \nz.mem_40_sv2v_reg ;
+  assign \nz.mem [39] = \nz.mem_39_sv2v_reg ;
+  assign \nz.mem [38] = \nz.mem_38_sv2v_reg ;
+  assign \nz.mem [37] = \nz.mem_37_sv2v_reg ;
+  assign \nz.mem [36] = \nz.mem_36_sv2v_reg ;
+  assign \nz.mem [35] = \nz.mem_35_sv2v_reg ;
+  assign \nz.mem [34] = \nz.mem_34_sv2v_reg ;
+  assign \nz.mem [33] = \nz.mem_33_sv2v_reg ;
+  assign \nz.mem [32] = \nz.mem_32_sv2v_reg ;
+  assign \nz.mem [31] = \nz.mem_31_sv2v_reg ;
+  assign \nz.mem [30] = \nz.mem_30_sv2v_reg ;
+  assign \nz.mem [29] = \nz.mem_29_sv2v_reg ;
+  assign \nz.mem [28] = \nz.mem_28_sv2v_reg ;
+  assign \nz.mem [27] = \nz.mem_27_sv2v_reg ;
+  assign \nz.mem [26] = \nz.mem_26_sv2v_reg ;
+  assign \nz.mem [25] = \nz.mem_25_sv2v_reg ;
+  assign \nz.mem [24] = \nz.mem_24_sv2v_reg ;
+  assign \nz.mem [23] = \nz.mem_23_sv2v_reg ;
+  assign \nz.mem [22] = \nz.mem_22_sv2v_reg ;
+  assign \nz.mem [21] = \nz.mem_21_sv2v_reg ;
+  assign \nz.mem [20] = \nz.mem_20_sv2v_reg ;
+  assign \nz.mem [19] = \nz.mem_19_sv2v_reg ;
+  assign \nz.mem [18] = \nz.mem_18_sv2v_reg ;
+  assign \nz.mem [17] = \nz.mem_17_sv2v_reg ;
+  assign \nz.mem [16] = \nz.mem_16_sv2v_reg ;
+  assign \nz.mem [15] = \nz.mem_15_sv2v_reg ;
+  assign \nz.mem [14] = \nz.mem_14_sv2v_reg ;
+  assign \nz.mem [13] = \nz.mem_13_sv2v_reg ;
+  assign \nz.mem [12] = \nz.mem_12_sv2v_reg ;
+  assign \nz.mem [11] = \nz.mem_11_sv2v_reg ;
+  assign \nz.mem [10] = \nz.mem_10_sv2v_reg ;
+  assign \nz.mem [9] = \nz.mem_9_sv2v_reg ;
+  assign \nz.mem [8] = \nz.mem_8_sv2v_reg ;
+  assign \nz.mem [7] = \nz.mem_7_sv2v_reg ;
+  assign \nz.mem [6] = \nz.mem_6_sv2v_reg ;
+  assign \nz.mem [5] = \nz.mem_5_sv2v_reg ;
+  assign \nz.mem [4] = \nz.mem_4_sv2v_reg ;
+  assign \nz.mem [3] = \nz.mem_3_sv2v_reg ;
+  assign \nz.mem [2] = \nz.mem_2_sv2v_reg ;
+  assign \nz.mem [1] = \nz.mem_1_sv2v_reg ;
+  assign \nz.mem [0] = \nz.mem_0_sv2v_reg ;
+  assign r_data_o[31] = (N3)? \nz.mem [31] : 
+                        (N0)? \nz.mem [63] : 1'b0;
   assign N0 = r_addr_i[0];
-  assign r_data_o[30] = (N3)? mem[30] : 
-                        (N0)? mem[62] : 1'b0;
-  assign r_data_o[29] = (N3)? mem[29] : 
-                        (N0)? mem[61] : 1'b0;
-  assign r_data_o[28] = (N3)? mem[28] : 
-                        (N0)? mem[60] : 1'b0;
-  assign r_data_o[27] = (N3)? mem[27] : 
-                        (N0)? mem[59] : 1'b0;
-  assign r_data_o[26] = (N3)? mem[26] : 
-                        (N0)? mem[58] : 1'b0;
-  assign r_data_o[25] = (N3)? mem[25] : 
-                        (N0)? mem[57] : 1'b0;
-  assign r_data_o[24] = (N3)? mem[24] : 
-                        (N0)? mem[56] : 1'b0;
-  assign r_data_o[23] = (N3)? mem[23] : 
-                        (N0)? mem[55] : 1'b0;
-  assign r_data_o[22] = (N3)? mem[22] : 
-                        (N0)? mem[54] : 1'b0;
-  assign r_data_o[21] = (N3)? mem[21] : 
-                        (N0)? mem[53] : 1'b0;
-  assign r_data_o[20] = (N3)? mem[20] : 
-                        (N0)? mem[52] : 1'b0;
-  assign r_data_o[19] = (N3)? mem[19] : 
-                        (N0)? mem[51] : 1'b0;
-  assign r_data_o[18] = (N3)? mem[18] : 
-                        (N0)? mem[50] : 1'b0;
-  assign r_data_o[17] = (N3)? mem[17] : 
-                        (N0)? mem[49] : 1'b0;
-  assign r_data_o[16] = (N3)? mem[16] : 
-                        (N0)? mem[48] : 1'b0;
-  assign r_data_o[15] = (N3)? mem[15] : 
-                        (N0)? mem[47] : 1'b0;
-  assign r_data_o[14] = (N3)? mem[14] : 
-                        (N0)? mem[46] : 1'b0;
-  assign r_data_o[13] = (N3)? mem[13] : 
-                        (N0)? mem[45] : 1'b0;
-  assign r_data_o[12] = (N3)? mem[12] : 
-                        (N0)? mem[44] : 1'b0;
-  assign r_data_o[11] = (N3)? mem[11] : 
-                        (N0)? mem[43] : 1'b0;
-  assign r_data_o[10] = (N3)? mem[10] : 
-                        (N0)? mem[42] : 1'b0;
-  assign r_data_o[9] = (N3)? mem[9] : 
-                       (N0)? mem[41] : 1'b0;
-  assign r_data_o[8] = (N3)? mem[8] : 
-                       (N0)? mem[40] : 1'b0;
-  assign r_data_o[7] = (N3)? mem[7] : 
-                       (N0)? mem[39] : 1'b0;
-  assign r_data_o[6] = (N3)? mem[6] : 
-                       (N0)? mem[38] : 1'b0;
-  assign r_data_o[5] = (N3)? mem[5] : 
-                       (N0)? mem[37] : 1'b0;
-  assign r_data_o[4] = (N3)? mem[4] : 
-                       (N0)? mem[36] : 1'b0;
-  assign r_data_o[3] = (N3)? mem[3] : 
-                       (N0)? mem[35] : 1'b0;
-  assign r_data_o[2] = (N3)? mem[2] : 
-                       (N0)? mem[34] : 1'b0;
-  assign r_data_o[1] = (N3)? mem[1] : 
-                       (N0)? mem[33] : 1'b0;
-  assign r_data_o[0] = (N3)? mem[0] : 
-                       (N0)? mem[32] : 1'b0;
+  assign r_data_o[30] = (N3)? \nz.mem [30] : 
+                        (N0)? \nz.mem [62] : 1'b0;
+  assign r_data_o[29] = (N3)? \nz.mem [29] : 
+                        (N0)? \nz.mem [61] : 1'b0;
+  assign r_data_o[28] = (N3)? \nz.mem [28] : 
+                        (N0)? \nz.mem [60] : 1'b0;
+  assign r_data_o[27] = (N3)? \nz.mem [27] : 
+                        (N0)? \nz.mem [59] : 1'b0;
+  assign r_data_o[26] = (N3)? \nz.mem [26] : 
+                        (N0)? \nz.mem [58] : 1'b0;
+  assign r_data_o[25] = (N3)? \nz.mem [25] : 
+                        (N0)? \nz.mem [57] : 1'b0;
+  assign r_data_o[24] = (N3)? \nz.mem [24] : 
+                        (N0)? \nz.mem [56] : 1'b0;
+  assign r_data_o[23] = (N3)? \nz.mem [23] : 
+                        (N0)? \nz.mem [55] : 1'b0;
+  assign r_data_o[22] = (N3)? \nz.mem [22] : 
+                        (N0)? \nz.mem [54] : 1'b0;
+  assign r_data_o[21] = (N3)? \nz.mem [21] : 
+                        (N0)? \nz.mem [53] : 1'b0;
+  assign r_data_o[20] = (N3)? \nz.mem [20] : 
+                        (N0)? \nz.mem [52] : 1'b0;
+  assign r_data_o[19] = (N3)? \nz.mem [19] : 
+                        (N0)? \nz.mem [51] : 1'b0;
+  assign r_data_o[18] = (N3)? \nz.mem [18] : 
+                        (N0)? \nz.mem [50] : 1'b0;
+  assign r_data_o[17] = (N3)? \nz.mem [17] : 
+                        (N0)? \nz.mem [49] : 1'b0;
+  assign r_data_o[16] = (N3)? \nz.mem [16] : 
+                        (N0)? \nz.mem [48] : 1'b0;
+  assign r_data_o[15] = (N3)? \nz.mem [15] : 
+                        (N0)? \nz.mem [47] : 1'b0;
+  assign r_data_o[14] = (N3)? \nz.mem [14] : 
+                        (N0)? \nz.mem [46] : 1'b0;
+  assign r_data_o[13] = (N3)? \nz.mem [13] : 
+                        (N0)? \nz.mem [45] : 1'b0;
+  assign r_data_o[12] = (N3)? \nz.mem [12] : 
+                        (N0)? \nz.mem [44] : 1'b0;
+  assign r_data_o[11] = (N3)? \nz.mem [11] : 
+                        (N0)? \nz.mem [43] : 1'b0;
+  assign r_data_o[10] = (N3)? \nz.mem [10] : 
+                        (N0)? \nz.mem [42] : 1'b0;
+  assign r_data_o[9] = (N3)? \nz.mem [9] : 
+                       (N0)? \nz.mem [41] : 1'b0;
+  assign r_data_o[8] = (N3)? \nz.mem [8] : 
+                       (N0)? \nz.mem [40] : 1'b0;
+  assign r_data_o[7] = (N3)? \nz.mem [7] : 
+                       (N0)? \nz.mem [39] : 1'b0;
+  assign r_data_o[6] = (N3)? \nz.mem [6] : 
+                       (N0)? \nz.mem [38] : 1'b0;
+  assign r_data_o[5] = (N3)? \nz.mem [5] : 
+                       (N0)? \nz.mem [37] : 1'b0;
+  assign r_data_o[4] = (N3)? \nz.mem [4] : 
+                       (N0)? \nz.mem [36] : 1'b0;
+  assign r_data_o[3] = (N3)? \nz.mem [3] : 
+                       (N0)? \nz.mem [35] : 1'b0;
+  assign r_data_o[2] = (N3)? \nz.mem [2] : 
+                       (N0)? \nz.mem [34] : 1'b0;
+  assign r_data_o[1] = (N3)? \nz.mem [1] : 
+                       (N0)? \nz.mem [33] : 1'b0;
+  assign r_data_o[0] = (N3)? \nz.mem [0] : 
+                       (N0)? \nz.mem [32] : 1'b0;
   assign N5 = ~w_addr_i[0];
   assign { N8, N7 } = (N1)? { w_addr_i[0:0], N5 } : 
                       (N2)? { 1'b0, 1'b0 } : 1'b0;
@@ -223,72 +227,72 @@ module bsg_mem_1r1w_synth_width_p32_els_p2_read_write_same_addr_p0_harden_p0
 
   always @(posedge w_clk_i) begin
     if(N8) begin
-      mem_63_sv2v_reg <= w_data_i[31];
-      mem_62_sv2v_reg <= w_data_i[30];
-      mem_61_sv2v_reg <= w_data_i[29];
-      mem_60_sv2v_reg <= w_data_i[28];
-      mem_59_sv2v_reg <= w_data_i[27];
-      mem_58_sv2v_reg <= w_data_i[26];
-      mem_57_sv2v_reg <= w_data_i[25];
-      mem_56_sv2v_reg <= w_data_i[24];
-      mem_55_sv2v_reg <= w_data_i[23];
-      mem_54_sv2v_reg <= w_data_i[22];
-      mem_53_sv2v_reg <= w_data_i[21];
-      mem_52_sv2v_reg <= w_data_i[20];
-      mem_51_sv2v_reg <= w_data_i[19];
-      mem_50_sv2v_reg <= w_data_i[18];
-      mem_49_sv2v_reg <= w_data_i[17];
-      mem_48_sv2v_reg <= w_data_i[16];
-      mem_47_sv2v_reg <= w_data_i[15];
-      mem_46_sv2v_reg <= w_data_i[14];
-      mem_45_sv2v_reg <= w_data_i[13];
-      mem_44_sv2v_reg <= w_data_i[12];
-      mem_43_sv2v_reg <= w_data_i[11];
-      mem_42_sv2v_reg <= w_data_i[10];
-      mem_41_sv2v_reg <= w_data_i[9];
-      mem_40_sv2v_reg <= w_data_i[8];
-      mem_39_sv2v_reg <= w_data_i[7];
-      mem_38_sv2v_reg <= w_data_i[6];
-      mem_37_sv2v_reg <= w_data_i[5];
-      mem_36_sv2v_reg <= w_data_i[4];
-      mem_35_sv2v_reg <= w_data_i[3];
-      mem_34_sv2v_reg <= w_data_i[2];
-      mem_33_sv2v_reg <= w_data_i[1];
-      mem_32_sv2v_reg <= w_data_i[0];
+      \nz.mem_63_sv2v_reg  <= w_data_i[31];
+      \nz.mem_62_sv2v_reg  <= w_data_i[30];
+      \nz.mem_61_sv2v_reg  <= w_data_i[29];
+      \nz.mem_60_sv2v_reg  <= w_data_i[28];
+      \nz.mem_59_sv2v_reg  <= w_data_i[27];
+      \nz.mem_58_sv2v_reg  <= w_data_i[26];
+      \nz.mem_57_sv2v_reg  <= w_data_i[25];
+      \nz.mem_56_sv2v_reg  <= w_data_i[24];
+      \nz.mem_55_sv2v_reg  <= w_data_i[23];
+      \nz.mem_54_sv2v_reg  <= w_data_i[22];
+      \nz.mem_53_sv2v_reg  <= w_data_i[21];
+      \nz.mem_52_sv2v_reg  <= w_data_i[20];
+      \nz.mem_51_sv2v_reg  <= w_data_i[19];
+      \nz.mem_50_sv2v_reg  <= w_data_i[18];
+      \nz.mem_49_sv2v_reg  <= w_data_i[17];
+      \nz.mem_48_sv2v_reg  <= w_data_i[16];
+      \nz.mem_47_sv2v_reg  <= w_data_i[15];
+      \nz.mem_46_sv2v_reg  <= w_data_i[14];
+      \nz.mem_45_sv2v_reg  <= w_data_i[13];
+      \nz.mem_44_sv2v_reg  <= w_data_i[12];
+      \nz.mem_43_sv2v_reg  <= w_data_i[11];
+      \nz.mem_42_sv2v_reg  <= w_data_i[10];
+      \nz.mem_41_sv2v_reg  <= w_data_i[9];
+      \nz.mem_40_sv2v_reg  <= w_data_i[8];
+      \nz.mem_39_sv2v_reg  <= w_data_i[7];
+      \nz.mem_38_sv2v_reg  <= w_data_i[6];
+      \nz.mem_37_sv2v_reg  <= w_data_i[5];
+      \nz.mem_36_sv2v_reg  <= w_data_i[4];
+      \nz.mem_35_sv2v_reg  <= w_data_i[3];
+      \nz.mem_34_sv2v_reg  <= w_data_i[2];
+      \nz.mem_33_sv2v_reg  <= w_data_i[1];
+      \nz.mem_32_sv2v_reg  <= w_data_i[0];
     end 
     if(N7) begin
-      mem_31_sv2v_reg <= w_data_i[31];
-      mem_30_sv2v_reg <= w_data_i[30];
-      mem_29_sv2v_reg <= w_data_i[29];
-      mem_28_sv2v_reg <= w_data_i[28];
-      mem_27_sv2v_reg <= w_data_i[27];
-      mem_26_sv2v_reg <= w_data_i[26];
-      mem_25_sv2v_reg <= w_data_i[25];
-      mem_24_sv2v_reg <= w_data_i[24];
-      mem_23_sv2v_reg <= w_data_i[23];
-      mem_22_sv2v_reg <= w_data_i[22];
-      mem_21_sv2v_reg <= w_data_i[21];
-      mem_20_sv2v_reg <= w_data_i[20];
-      mem_19_sv2v_reg <= w_data_i[19];
-      mem_18_sv2v_reg <= w_data_i[18];
-      mem_17_sv2v_reg <= w_data_i[17];
-      mem_16_sv2v_reg <= w_data_i[16];
-      mem_15_sv2v_reg <= w_data_i[15];
-      mem_14_sv2v_reg <= w_data_i[14];
-      mem_13_sv2v_reg <= w_data_i[13];
-      mem_12_sv2v_reg <= w_data_i[12];
-      mem_11_sv2v_reg <= w_data_i[11];
-      mem_10_sv2v_reg <= w_data_i[10];
-      mem_9_sv2v_reg <= w_data_i[9];
-      mem_8_sv2v_reg <= w_data_i[8];
-      mem_7_sv2v_reg <= w_data_i[7];
-      mem_6_sv2v_reg <= w_data_i[6];
-      mem_5_sv2v_reg <= w_data_i[5];
-      mem_4_sv2v_reg <= w_data_i[4];
-      mem_3_sv2v_reg <= w_data_i[3];
-      mem_2_sv2v_reg <= w_data_i[2];
-      mem_1_sv2v_reg <= w_data_i[1];
-      mem_0_sv2v_reg <= w_data_i[0];
+      \nz.mem_31_sv2v_reg  <= w_data_i[31];
+      \nz.mem_30_sv2v_reg  <= w_data_i[30];
+      \nz.mem_29_sv2v_reg  <= w_data_i[29];
+      \nz.mem_28_sv2v_reg  <= w_data_i[28];
+      \nz.mem_27_sv2v_reg  <= w_data_i[27];
+      \nz.mem_26_sv2v_reg  <= w_data_i[26];
+      \nz.mem_25_sv2v_reg  <= w_data_i[25];
+      \nz.mem_24_sv2v_reg  <= w_data_i[24];
+      \nz.mem_23_sv2v_reg  <= w_data_i[23];
+      \nz.mem_22_sv2v_reg  <= w_data_i[22];
+      \nz.mem_21_sv2v_reg  <= w_data_i[21];
+      \nz.mem_20_sv2v_reg  <= w_data_i[20];
+      \nz.mem_19_sv2v_reg  <= w_data_i[19];
+      \nz.mem_18_sv2v_reg  <= w_data_i[18];
+      \nz.mem_17_sv2v_reg  <= w_data_i[17];
+      \nz.mem_16_sv2v_reg  <= w_data_i[16];
+      \nz.mem_15_sv2v_reg  <= w_data_i[15];
+      \nz.mem_14_sv2v_reg  <= w_data_i[14];
+      \nz.mem_13_sv2v_reg  <= w_data_i[13];
+      \nz.mem_12_sv2v_reg  <= w_data_i[12];
+      \nz.mem_11_sv2v_reg  <= w_data_i[11];
+      \nz.mem_10_sv2v_reg  <= w_data_i[10];
+      \nz.mem_9_sv2v_reg  <= w_data_i[9];
+      \nz.mem_8_sv2v_reg  <= w_data_i[8];
+      \nz.mem_7_sv2v_reg  <= w_data_i[7];
+      \nz.mem_6_sv2v_reg  <= w_data_i[6];
+      \nz.mem_5_sv2v_reg  <= w_data_i[5];
+      \nz.mem_4_sv2v_reg  <= w_data_i[4];
+      \nz.mem_3_sv2v_reg  <= w_data_i[3];
+      \nz.mem_2_sv2v_reg  <= w_data_i[2];
+      \nz.mem_1_sv2v_reg  <= w_data_i[1];
+      \nz.mem_0_sv2v_reg  <= w_data_i[0];
     end 
   end
 
@@ -319,7 +323,7 @@ module bsg_mem_1r1w_width_p32_els_p2_read_write_same_addr_p0
   input r_v_i;
   wire [31:0] r_data_o;
 
-  bsg_mem_1r1w_synth_width_p32_els_p2_read_write_same_addr_p0_harden_p0
+  bsg_mem_1r1w_synth_width_p32_els_p2_read_write_same_addr_p0
   synth
   (
     .w_clk_i(w_clk_i),
@@ -843,140 +847,6 @@ endmodule
 
 
 
-module bsg_encode_one_hot_width_p1
-(
-  i,
-  addr_o,
-  v_o
-);
-
-  input [0:0] i;
-  output [0:0] addr_o;
-  output v_o;
-  wire [0:0] addr_o;
-  wire v_o;
-  assign v_o = i[0];
-  assign addr_o[0] = 1'b0;
-
-endmodule
-
-
-
-module bsg_encode_one_hot_width_p2
-(
-  i,
-  addr_o,
-  v_o
-);
-
-  input [1:0] i;
-  output [0:0] addr_o;
-  output v_o;
-  wire [0:0] addr_o,\aligned.vs ;
-  wire v_o;
-  wire [1:0] \aligned.addrs ;
-
-  bsg_encode_one_hot_width_p1
-  \aligned.left 
-  (
-    .i(i[0]),
-    .addr_o(\aligned.addrs [0]),
-    .v_o(\aligned.vs [0])
-  );
-
-
-  bsg_encode_one_hot_width_p1
-  \aligned.right 
-  (
-    .i(i[1]),
-    .addr_o(\aligned.addrs [1]),
-    .v_o(addr_o[0])
-  );
-
-  assign v_o = addr_o[0] | \aligned.vs [0];
-
-endmodule
-
-
-
-module bsg_encode_one_hot_width_p4
-(
-  i,
-  addr_o,
-  v_o
-);
-
-  input [3:0] i;
-  output [1:0] addr_o;
-  output v_o;
-  wire [1:0] addr_o,\aligned.addrs ;
-  wire v_o;
-  wire [0:0] \aligned.vs ;
-
-  bsg_encode_one_hot_width_p2
-  \aligned.left 
-  (
-    .i(i[1:0]),
-    .addr_o(\aligned.addrs [0]),
-    .v_o(\aligned.vs [0])
-  );
-
-
-  bsg_encode_one_hot_width_p2
-  \aligned.right 
-  (
-    .i(i[3:2]),
-    .addr_o(\aligned.addrs [1]),
-    .v_o(addr_o[1])
-  );
-
-  assign v_o = addr_o[1] | \aligned.vs [0];
-  assign addr_o[0] = \aligned.addrs [0] | \aligned.addrs [1];
-
-endmodule
-
-
-
-module bsg_encode_one_hot_width_p8
-(
-  i,
-  addr_o,
-  v_o
-);
-
-  input [7:0] i;
-  output [2:0] addr_o;
-  output v_o;
-  wire [2:0] addr_o;
-  wire v_o;
-  wire [3:0] \aligned.addrs ;
-  wire [0:0] \aligned.vs ;
-
-  bsg_encode_one_hot_width_p4
-  \aligned.left 
-  (
-    .i(i[3:0]),
-    .addr_o(\aligned.addrs [1:0]),
-    .v_o(\aligned.vs [0])
-  );
-
-
-  bsg_encode_one_hot_width_p4
-  \aligned.right 
-  (
-    .i(i[7:4]),
-    .addr_o(\aligned.addrs [3:2]),
-    .v_o(addr_o[2])
-  );
-
-  assign v_o = addr_o[2] | \aligned.vs [0];
-  assign addr_o[1] = \aligned.addrs [1] | \aligned.addrs [3];
-  assign addr_o[0] = \aligned.addrs [0] | \aligned.addrs [2];
-
-endmodule
-
-
-
 module bsg_encode_one_hot_width_p6
 (
   i,
@@ -988,16 +858,18 @@ module bsg_encode_one_hot_width_p6
   output [2:0] addr_o;
   output v_o;
   wire [2:0] addr_o;
-  wire v_o;
-
-  bsg_encode_one_hot_width_p8
-  \unaligned.align 
-  (
-    .i({ 1'b0, 1'b0, i }),
-    .addr_o(addr_o),
-    .v_o(v_o)
-  );
-
+  wire v_o,v_2__0_,v_1__6_,v_1__4_,v_1__2_,v_1__0_,addr_2__4_,addr_2__0_;
+  assign v_1__0_ = i[1] | i[0];
+  assign v_1__2_ = i[3] | i[2];
+  assign v_1__4_ = i[5] | i[4];
+  assign v_1__6_ = 1'b0 | 1'b0;
+  assign v_2__0_ = v_1__2_ | v_1__0_;
+  assign addr_2__0_ = i[1] | i[3];
+  assign addr_o[2] = v_1__6_ | v_1__4_;
+  assign addr_2__4_ = i[5] | 1'b0;
+  assign v_o = addr_o[2] | v_2__0_;
+  assign addr_o[1] = v_1__2_ | v_1__6_;
+  assign addr_o[0] = addr_2__0_ | addr_2__4_;
 
 endmodule
 

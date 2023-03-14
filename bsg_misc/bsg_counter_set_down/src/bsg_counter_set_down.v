@@ -3,7 +3,9 @@
 // we do not output an overflow flag because there is no == that we would
 // want to amortize the cost of
 
-module bsg_counter_set_down #(parameter width_p="inv", parameter init_val_p='0, parameter set_and_down_exclusive_p=0)
+`include "bsg_defines.v"
+
+module bsg_counter_set_down #(parameter `BSG_INV_PARAM(width_p), parameter init_val_p='0, parameter set_and_down_exclusive_p=0)
   (input clk_i
    , input reset_i
    , input set_i
@@ -61,3 +63,5 @@ module bsg_counter_set_down #(parameter width_p="inv", parameter init_val_p='0, 
 `endif
       
 endmodule
+
+`BSG_ABSTRACT_MODULE(bsg_counter_set_down)

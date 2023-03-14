@@ -1,11 +1,11 @@
 ###################################################################
 
-# Created by write_sdc on Tue Mar 7 14:54:27 2023
+# Created by write_sdc on Mon Mar 13 20:50:19 2023
 
 ###################################################################
 set sdc_version 2.1
 
-set_load -pin_load 1 [get_ports ready_o]
+set_load -pin_load 1 [get_ports ready_and_o]
 set_load -pin_load 1 [get_ports v_o]
 set_load -pin_load 1 [get_ports {quotient_o[31]}]
 set_load -pin_load 1 [get_ports {quotient_o[30]}]
@@ -142,7 +142,7 @@ set_input_delay -clock clk  0  [get_ports {divisor_i[1]}]
 set_input_delay -clock clk  0  [get_ports {divisor_i[0]}]
 set_input_delay -clock clk  0  [get_ports signed_div_i]
 set_input_delay -clock clk  0  [get_ports yumi_i]
-set_output_delay -clock clk  0  [get_ports ready_o]
+set_output_delay -clock clk  0  [get_ports ready_and_o]
 set_output_delay -clock clk  0  [get_ports v_o]
 set_output_delay -clock clk  0  [get_ports {quotient_o[31]}]
 set_output_delay -clock clk  0  [get_ports {quotient_o[30]}]

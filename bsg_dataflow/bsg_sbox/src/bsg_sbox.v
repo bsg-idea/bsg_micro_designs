@@ -16,9 +16,11 @@
 // use less area, at the cost of complexity and wire congestion.
 //
 
+`include "bsg_defines.v"
+
 module bsg_sbox
-  #(parameter   num_channels_p    = "inv"
-    , parameter channel_width_p   = "inv"
+  #(parameter `BSG_INV_PARAM(  num_channels_p    )
+    , parameter `BSG_INV_PARAM(channel_width_p   )
     , parameter pipeline_indir_p  = 0
     , parameter pipeline_outdir_p = 0
     , parameter one_hot_p         = 1
@@ -186,6 +188,8 @@ module bsg_sbox
 
 
 endmodule
+
+`BSG_ABSTRACT_MODULE(bsg_sbox)
 
 //
 // end SBOX
