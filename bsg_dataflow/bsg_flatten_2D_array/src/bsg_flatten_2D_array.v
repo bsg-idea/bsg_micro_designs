@@ -1,5 +1,7 @@
-module bsg_flatten_2D_array #(parameter   width_p = -1
-                              , parameter items_p = -1)
+`include "bsg_defines.v"
+
+module bsg_flatten_2D_array #(parameter `BSG_INV_PARAM(  width_p )
+                              , parameter `BSG_INV_PARAM(items_p ))
    (input [width_p-1:0]            i [items_p-1:0]
     , output [width_p*items_p-1:0] o
     );
@@ -12,3 +14,5 @@ module bsg_flatten_2D_array #(parameter   width_p = -1
      end
 
 endmodule
+
+`BSG_ABSTRACT_MODULE(bsg_flatten_2D_array)

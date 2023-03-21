@@ -19,16 +19,22 @@
  */
 
 
-module bsg_expand_bitmask #(parameter in_width_p="inv", expand_p="inv")
+`include "bsg_defines.v"
+
+module bsg_expand_bitmask #(parameter `BSG_INV_PARAM(in_width_p)
+                           ,parameter `BSG_INV_PARAM(expand_p)
+                           ,localparam safe_expand_lp = `BSG_MAX(expand_p, 1))
 (
   input [in_width_p-1:0] i
-  , output logic [(in_width_p*expand_p)-1:0] o
+  , output logic [(in_width_p*safe_expand_lp)-1:0] o
 );
 
 
   always_comb
     for (integer k = 0; k < in_width_p; k++)
-      o[expand_p*k+:expand_p] = {expand_p{i[k]}};
+      o[safe_expand_lp*k+:safe_expand_lp] = {safe_expand_lp{i[k]}};
 
 
 endmodule
+
+`BSG_ABSTRACT_MODULE(bsg_expand_bitmask)

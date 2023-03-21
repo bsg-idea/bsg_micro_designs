@@ -22,7 +22,9 @@
 //    4) bsg_fsb_node_level_shift_node_domain
 //          -- All level shifters in same power domain as the node module
 //
-module bsg_fsb_node_level_shift_fsb_domain #(parameter ring_width_p = "inv")
+`include "bsg_defines.v"
+
+module bsg_fsb_node_level_shift_fsb_domain #(parameter `BSG_INV_PARAM(ring_width_p ))
 (
   input  en_ls_i,
 
@@ -116,3 +118,5 @@ bsg_level_shift_up_down_sink #(.width_p(1)) n2f_ready_ls_inst
 );
 
 endmodule
+
+`BSG_ABSTRACT_MODULE(bsg_fsb_node_level_shift_fsb_domain)

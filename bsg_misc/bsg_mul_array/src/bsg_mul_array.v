@@ -8,7 +8,9 @@
  *	@author Tommy Jung
  */
 
-module bsg_mul_array #(parameter width_p="inv", pipeline_p="inv")
+`include "bsg_defines.v"
+
+module bsg_mul_array #(parameter `BSG_INV_PARAM(width_p), `BSG_INV_PARAM(pipeline_p))
   (
     input clk_i
     ,	input rst_i
@@ -96,3 +98,5 @@ module bsg_mul_array #(parameter width_p="inv", pipeline_p="inv")
   assign o[width_p-2:0] = prod_accum[width_p-2][width_p-2:0];
 
 endmodule
+
+`BSG_ABSTRACT_MODULE(bsg_mul_array)

@@ -5,7 +5,9 @@
 //
 //
 
-module bsg_wait_after_reset  #(parameter lg_wait_cycles_p="inv")
+`include "bsg_defines.v"
+
+module bsg_wait_after_reset  #(parameter `BSG_INV_PARAM(lg_wait_cycles_p))
    (input reset_i
     , input clk_i
     , output reg ready_r_o);
@@ -26,3 +28,5 @@ module bsg_wait_after_reset  #(parameter lg_wait_cycles_p="inv")
             counter_r <= counter_r + 1;
      end
 endmodule
+
+`BSG_ABSTRACT_MODULE(bsg_wait_after_reset)

@@ -59,7 +59,7 @@ yosys_run: envsub_sdc result_folder
 	&& export SYNTH_YOSYS_IN_SDC=$p \
 	&& export SYNTH_YOSYS_IN_V=$(dir $p)../top.v \
 	&& export SYNTH_YOSYS_OUT_V=$(OUTPUT_DIR)/yosys_out_v/$(DESIGN_NAME)/$(shell echo $p | rev | cut -d/ -f3 | rev)/yosys_out.v \
-	&& $(YOSYS_BUILD_DIR)/yosys -c $(TOP_DIR)/cfg/yosys.tcl 2>&1 | tee -i $(OUTPUT_DIR)/logs/$(DESIGN_NAME)/$(shell echo $p | rev | cut -d/ -f3 | rev)/$(notdir $p).log;) 
+	&& $(YOSYS_BUILD_DIR)/yosys -c $(TOP_DIR)/yosys.tcl 2>&1 | tee -i $(OUTPUT_DIR)/logs/$(DESIGN_NAME)/$(shell echo $p | rev | cut -d/ -f3 | rev)/$(notdir $p).log;) 
 
 # envsub selected sdc files
 envsub_sdc:
@@ -76,7 +76,7 @@ result_folder:
 	
 # dump out the data in a csv file
 data_dump:
-	python3 $(TOP_DIR)/scripts/py/data_dump.py
+	python3 $(TOP_DIR)/data_dump.py
 
 # cleaning up
 clean_tools: 

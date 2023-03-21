@@ -10,7 +10,9 @@
 // we omit the data part as it is just duplication.
 //
 
-module bsg_round_robin_1_to_n #(parameter width_p = "inv"
+`include "bsg_defines.v"
+
+module bsg_round_robin_1_to_n #(parameter `BSG_INV_PARAM(width_p )
                                 ,parameter num_out_p = 2)
    (input  clk_i
     , input  reset_i
@@ -58,4 +60,6 @@ module bsg_round_robin_1_to_n #(parameter width_p = "inv"
      end
 
 endmodule
+
+`BSG_ABSTRACT_MODULE(bsg_round_robin_1_to_n)
 

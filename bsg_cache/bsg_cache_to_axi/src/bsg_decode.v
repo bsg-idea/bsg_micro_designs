@@ -4,7 +4,9 @@
  *  https://www.youtube.com/watch?v=RvnkAtWcKYg
  */
 
-module bsg_decode #(parameter num_out_p="inv")
+`include "bsg_defines.v"
+
+module bsg_decode #(parameter `BSG_INV_PARAM(num_out_p))
 (
   input [`BSG_SAFE_CLOG2(num_out_p)-1:0] i
   ,output logic [num_out_p-1:0] o
@@ -20,3 +22,5 @@ module bsg_decode #(parameter num_out_p="inv")
   end
 
 endmodule
+
+`BSG_ABSTRACT_MODULE(bsg_decode)

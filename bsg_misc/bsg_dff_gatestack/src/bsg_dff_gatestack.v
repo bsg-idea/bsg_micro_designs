@@ -1,4 +1,6 @@
-module bsg_dff_gatestack #(width_p="inv", harden_p=1)
+`include "bsg_defines.v"
+
+module bsg_dff_gatestack #(`BSG_INV_PARAM(width_p), harden_p=1)
    (input [width_p-1:0] i0
     , input [width_p-1:0] i1
     , output logic [width_p-1:0] o
@@ -13,3 +15,5 @@ module bsg_dff_gatestack #(width_p="inv", harden_p=1)
      end
 
 endmodule
+
+`BSG_ABSTRACT_MODULE(bsg_dff_gatestack)

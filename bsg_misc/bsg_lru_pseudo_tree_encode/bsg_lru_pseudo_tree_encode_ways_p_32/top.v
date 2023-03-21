@@ -35,7 +35,7 @@ module bsg_lru_pseudo_tree_encode
   assign way_id_o[4] = way_id_o_4_;
 
   bsg_mux
-  \rank_1_.nz.mux 
+  \lru.rank_1_.nz.mux 
   (
     .data_i(lru_i[2:1]),
     .sel_i(way_id_o_4_),
@@ -44,7 +44,7 @@ module bsg_lru_pseudo_tree_encode
 
 
   bsg_mux
-  \rank_2_.nz.mux 
+  \lru.rank_2_.nz.mux 
   (
     .data_i(lru_i[6:3]),
     .sel_i({ way_id_o_4_, way_id_o[3:3] }),
@@ -53,7 +53,7 @@ module bsg_lru_pseudo_tree_encode
 
 
   bsg_mux
-  \rank_3_.nz.mux 
+  \lru.rank_3_.nz.mux 
   (
     .data_i(lru_i[14:7]),
     .sel_i({ way_id_o_4_, way_id_o[3:2] }),
@@ -62,7 +62,7 @@ module bsg_lru_pseudo_tree_encode
 
 
   bsg_mux
-  \rank_4_.nz.mux 
+  \lru.rank_4_.nz.mux 
   (
     .data_i(lru_i[30:15]),
     .sel_i({ way_id_o_4_, way_id_o[3:1] }),

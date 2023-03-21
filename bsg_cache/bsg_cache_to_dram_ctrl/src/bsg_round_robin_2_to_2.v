@@ -1,7 +1,9 @@
 // this is intended for round robining
 // on the input to a pair of fifos.
 
-module bsg_round_robin_2_to_2 #(parameter width_p = -1
+`include "bsg_defines.v"
+
+module bsg_round_robin_2_to_2 #(parameter `BSG_INV_PARAM(width_p )
 				)
    (input clk_i
     , input reset_i
@@ -28,4 +30,6 @@ module bsg_round_robin_2_to_2 #(parameter width_p = -1
    assign ready_o = head_r ? { ready_i[0], ready_i[1] } : ready_i;
 
 endmodule // bsg_round_robin_2_to_2
+
+`BSG_ABSTRACT_MODULE(bsg_round_robin_2_to_2)
 

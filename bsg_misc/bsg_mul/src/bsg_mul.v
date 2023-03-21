@@ -1,5 +1,7 @@
 
-module bsg_mul #(parameter width_p="inv"
+`include "bsg_defines.v"
+
+module bsg_mul #(parameter `BSG_INV_PARAM(width_p)
                  ,harden_p=1
                  )
    (input    [width_p-1:0]   x_i
@@ -22,3 +24,5 @@ module bsg_mul #(parameter width_p="inv"
 
 
 endmodule
+
+`BSG_ABSTRACT_MODULE(bsg_mul)

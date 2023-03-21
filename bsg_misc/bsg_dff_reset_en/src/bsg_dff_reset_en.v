@@ -2,8 +2,10 @@
  *  bsg_dff_reset_en.v
  */
 
+`include "bsg_defines.v"
+
 module bsg_dff_reset_en
-  #(parameter width_p="inv"
+  #(parameter `BSG_INV_PARAM(width_p)
     , parameter reset_val_p=0
     , parameter harden_p=0
   )
@@ -31,3 +33,5 @@ module bsg_dff_reset_en
   end
 
 endmodule
+
+`BSG_ABSTRACT_MODULE(bsg_dff_reset_en)

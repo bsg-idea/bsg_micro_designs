@@ -78,7 +78,7 @@ module bsg_launch_sync_sync_async_reset_posedge_6_unit
   assign oclk_data_o[1] = oclk_data_o_1_sv2v_reg;
   assign oclk_data_o[0] = oclk_data_o_0_sv2v_reg;
 
-  always @(posedge iclk_i or posedge iclk_reset_i) begin
+  always @(posedge iclk_i or iclk_reset_i) begin
     if(iclk_reset_i) begin
       iclk_data_o_5_sv2v_reg <= 1'b0;
       iclk_data_o_4_sv2v_reg <= 1'b0;
@@ -97,7 +97,7 @@ module bsg_launch_sync_sync_async_reset_posedge_6_unit
   end
 
 
-  always @(posedge oclk_i or posedge iclk_reset_i) begin
+  always @(posedge oclk_i or iclk_reset_i) begin
     if(iclk_reset_i) begin
       bsg_SYNC_1_r_5_sv2v_reg <= 1'b0;
       bsg_SYNC_1_r_4_sv2v_reg <= 1'b0;
@@ -227,7 +227,7 @@ module bsg_async_ptr_gray
   assign N6 = w_ptr_p1_r[2] ^ w_ptr_p1_r[1];
   assign N7 = w_ptr_p1_r[1] ^ w_ptr_p1_r[0];
 
-  always @(posedge w_clk_i or posedge w_reset_i) begin
+  always @(posedge w_clk_i or w_reset_i) begin
     if(w_reset_i) begin
       w_ptr_p1_r_5_sv2v_reg <= 1'b0;
       w_ptr_p1_r_4_sv2v_reg <= 1'b0;

@@ -7,23 +7,33 @@
 // they should use bsg_mem_1rw_sync_mask_write_bit.
 //
 
+`include "bsg_defines.v"
+
 module bsg_mem_1rw_sync_mask_write_bit_synth
-  #(parameter width_p=-1
-    , parameter els_p=-1
+  #(parameter `BSG_INV_PARAM(width_p)
+    , parameter `BSG_INV_PARAM(els_p)
     , parameter latch_last_read_p=0
     , parameter addr_width_lp=`BSG_SAFE_CLOG2(els_p)
    )
    (input   clk_i
     , input reset_i
-    , input [width_p-1:0] data_i
+    , input [`BSG_SAFE_MINUS(width_p, 1):0] data_i
     , input [addr_width_lp-1:0] addr_i
     , input v_i
-    , input [width_p-1:0] w_mask_i
+    , input [`BSG_SAFE_MINUS(width_p, 1):0] w_mask_i
     , input w_i
-    , output logic [width_p-1:0]  data_o
+    , output logic [`BSG_SAFE_MINUS(width_p, 1):0]  data_o
     );
 
    wire unused = reset_i;
+
+   if (width_p == 0)
+    begin: z
+      wire unused0 = &{clk_i, data_i, addr_i, v_i, w_mask_i, w_i};
+      assign data_o = '0;
+    end
+   else
+    begin: nz
 
    logic [addr_width_lp-1:0] addr_r;
    logic [width_p-1:0] mem [els_p-1:0];
@@ -87,11 +97,19 @@ module bsg_mem_1rw_sync_mask_write_bit_synth
        mem[addr_i] <= data_n;
 
 `else 
+ 
+// this code does not map correctly with Xilinx Ultrascale FPGAs 
+// in Vivado, substitute this file with hard/ultrascale_plus/bsg_mem/bsg_mem_1rw_sync_mask_write_bit.v
+      
+`BSG_VIVADO_SYNTH_FAILS
+      
    always_ff @(posedge clk_i)
      if (v_i & w_i)
        for (integer i = 0; i < width_p; i=i+1)
          if (w_mask_i[i])
            mem[addr_i][i] <= data_i[i];
 `endif
-
+   end
 endmodule
+
+`BSG_ABSTRACT_MODULE(bsg_mem_1rw_sync_mask_write_bit_synth)

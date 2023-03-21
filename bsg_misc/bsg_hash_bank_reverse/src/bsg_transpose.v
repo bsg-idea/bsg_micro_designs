@@ -1,5 +1,7 @@
-module bsg_transpose #(width_p="inv"
-		       ,els_p="inv"
+`include "bsg_defines.v"
+
+module bsg_transpose #(`BSG_INV_PARAM(width_p)
+		       ,`BSG_INV_PARAM(els_p)
 		       ) (input    [els_p-1:0  ][width_p-1:0] i
 			  , output [width_p-1:0][els_p-1:0]   o
 			  );
@@ -14,3 +16,5 @@ module bsg_transpose #(width_p="inv"
      end
     
 endmodule
+
+`BSG_ABSTRACT_MODULE(bsg_transpose)

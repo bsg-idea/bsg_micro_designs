@@ -1,5 +1,7 @@
-module bsg_reduce_segmented #(parameter segments_p = "inv"
-                              ,parameter segment_width_p = "inv"
+`include "bsg_defines.v"
+
+module bsg_reduce_segmented #(parameter `BSG_INV_PARAM(segments_p )
+                              ,parameter `BSG_INV_PARAM(segment_width_p )
 
                   , parameter xor_p = 0
                   , parameter and_p = 0
@@ -33,3 +35,5 @@ module bsg_reduce_segmented #(parameter segments_p = "inv"
   end
     
 endmodule
+
+`BSG_ABSTRACT_MODULE(bsg_reduce_segmented)

@@ -14,7 +14,9 @@
 // save area by using this module.
 //
 
-module bsg_one_fifo #(parameter width_p="inv"
+`include "bsg_defines.v"
+
+module bsg_one_fifo #(parameter `BSG_INV_PARAM(width_p)
                       )
    (input clk_i
     , input reset_i
@@ -45,10 +47,12 @@ module bsg_one_fifo #(parameter width_p="inv"
   bsg_dff_en #(.width_p(width_p), .harden_p(0)) dff
   (.clk_i
    ,.data_i
-   // although technically it is okay to just look at v_i
+   // although technically it is okay to just look at v_o
    // this will cause unnecessary toggling of flip flops
    ,.en_i(v_i & ready_o)
    ,.data_o
   );
 
 endmodule
+
+`BSG_ABSTRACT_MODULE(bsg_one_fifo)

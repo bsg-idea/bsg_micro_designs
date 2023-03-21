@@ -16,9 +16,11 @@
  */
 
 
+`include "bsg_defines.v"
+
 module bsg_fpu_classify
-  #(parameter e_p="inv"
-    , parameter m_p="inv"
+  #(parameter `BSG_INV_PARAM(e_p)
+    , parameter `BSG_INV_PARAM(m_p)
 
     , parameter width_lp=(e_p+m_p+1)
     , parameter out_width_lp=width_lp
@@ -67,3 +69,5 @@ module bsg_fpu_classify
   assign class_o[out_width_lp-1:10] = '0;
 
 endmodule
+
+`BSG_ABSTRACT_MODULE(bsg_fpu_classify)

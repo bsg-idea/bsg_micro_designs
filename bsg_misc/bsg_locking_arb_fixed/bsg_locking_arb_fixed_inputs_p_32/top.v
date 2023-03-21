@@ -357,21 +357,23 @@ endmodule
 module bsg_priority_encode_one_hot_out_width_p32_lo_to_hi_p0
 (
   i,
-  o
+  o,
+  v_o
 );
 
   input [31:0] i;
   output [31:0] o;
+  output v_o;
   wire [31:0] o;
-  wire N0,N1,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11,N12,N13,N14,N15,N16,N17,N18,N19,N20,N21,
-  N22,N23,N24,N25,N26,N27,N28,N29,N30;
-  wire [30:0] scan_lo;
+  wire v_o,N0,N1,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11,N12,N13,N14,N15,N16,N17,N18,N19,N20,
+  N21,N22,N23,N24,N25,N26,N27,N28,N29,N30;
+  wire [30:1] scan_lo;
 
   bsg_scan_width_p32_or_p1_lo_to_hi_p0
-  \genblk1.scan 
+  \nw1.scan 
   (
     .i(i),
-    .o({ o[31:31], scan_lo })
+    .o({ o[31:31], scan_lo, v_o })
   );
 
   assign o[30] = scan_lo[30] & N0;
@@ -434,7 +436,7 @@ module bsg_priority_encode_one_hot_out_width_p32_lo_to_hi_p0
   assign N28 = ~scan_lo[3];
   assign o[1] = scan_lo[1] & N29;
   assign N29 = ~scan_lo[2];
-  assign o[0] = scan_lo[0] & N30;
+  assign o[0] = v_o & N30;
   assign N30 = ~scan_lo[1];
 
 endmodule
