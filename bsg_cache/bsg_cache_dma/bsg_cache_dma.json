@@ -9,6 +9,7 @@
         "src/bsg_counter_clear_up.v",
         "src/bsg_fifo_tracker.v",
         "src/bsg_circular_ptr.v",
+        "src/bsg_expand_bitmask.v",
         "src/bsg_fifo_1r1w_small.v",
         "src/bsg_mem_1r1w.v",
         "src/bsg_mem_1r1w_synth.v",

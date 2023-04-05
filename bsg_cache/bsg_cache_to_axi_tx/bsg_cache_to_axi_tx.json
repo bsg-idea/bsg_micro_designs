@@ -13,6 +13,7 @@
         "src/bsg_decode_with_v.v",
         "src/bsg_decode.v",
         "src/bsg_counter_clear_up.v",
+        "src/bsg_expand_bitmask.v",
         "src/bsg_fifo_1r1w_small_hardened.v",
         "src/bsg_fifo_1r1w_small_unhardened.v",
         "src/bsg_mem_1r1w_sync.v",
