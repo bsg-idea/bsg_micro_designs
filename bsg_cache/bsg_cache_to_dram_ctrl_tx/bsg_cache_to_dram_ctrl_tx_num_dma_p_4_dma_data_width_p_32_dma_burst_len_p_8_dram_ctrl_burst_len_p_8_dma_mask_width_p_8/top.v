@@ -109,6 +109,61 @@ endmodule
 
 
 
+module bsg_expand_bitmask_in_width_p8_expand_p4
+(
+  i,
+  o
+);
+
+  input [7:0] i;
+  output [31:0] o;
+  wire [31:0] o;
+  wire o_31_,o_27_,o_23_,o_19_,o_15_,o_11_,o_7_,o_3_;
+  assign o_31_ = i[7];
+  assign o[28] = o_31_;
+  assign o[29] = o_31_;
+  assign o[30] = o_31_;
+  assign o[31] = o_31_;
+  assign o_27_ = i[6];
+  assign o[24] = o_27_;
+  assign o[25] = o_27_;
+  assign o[26] = o_27_;
+  assign o[27] = o_27_;
+  assign o_23_ = i[5];
+  assign o[20] = o_23_;
+  assign o[21] = o_23_;
+  assign o[22] = o_23_;
+  assign o[23] = o_23_;
+  assign o_19_ = i[4];
+  assign o[16] = o_19_;
+  assign o[17] = o_19_;
+  assign o[18] = o_19_;
+  assign o[19] = o_19_;
+  assign o_15_ = i[3];
+  assign o[12] = o_15_;
+  assign o[13] = o_15_;
+  assign o[14] = o_15_;
+  assign o[15] = o_15_;
+  assign o_11_ = i[2];
+  assign o[8] = o_11_;
+  assign o[9] = o_11_;
+  assign o[10] = o_11_;
+  assign o[11] = o_11_;
+  assign o_7_ = i[1];
+  assign o[4] = o_7_;
+  assign o[5] = o_7_;
+  assign o[6] = o_7_;
+  assign o[7] = o_7_;
+  assign o_3_ = i[0];
+  assign o[0] = o_3_;
+  assign o[1] = o_3_;
+  assign o[2] = o_3_;
+  assign o[3] = o_3_;
+
+endmodule
+
+
+
 module bsg_cache_to_dram_ctrl_tx
 (
   clk_i,
@@ -189,7 +244,7 @@ module bsg_cache_to_dram_ctrl_tx
   );
 
 
-  bsg_expand_bitmask
+  bsg_expand_bitmask_in_width_p8_expand_p4
   expand
   (
     .i(dma_mask_i),
