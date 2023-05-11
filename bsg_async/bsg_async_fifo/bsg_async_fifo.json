@@ -6,55 +6,56 @@
         "src/bsg_mem_1r1w.v",
         "src/bsg_mem_1r1w_synth.v",
         "src/bsg_async_ptr_gray.v",
-        "src/bsg_launch_sync_sync.v"
+        "src/bsg_launch_sync_sync.v",
+        "src/bsg_and.v"
     ],
     "run_config": [
         {
             "constraints": [
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_enq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_data_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_deq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_full_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_data_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_valid_o",
                     "type": "output"
@@ -78,56 +79,56 @@
             "design_size": "small",
             "name": "bsg_async_fifo_small_w_clk_30_FO4_r_clk_30_FO4",
             "parameters": [
-                "lg_size_p=10",
+                "lg_size_p=3",
                 "width_p=16"
             ]
         },
         {
             "constraints": [
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_enq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_data_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_deq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_full_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_data_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_valid_o",
                     "type": "output"
@@ -151,56 +152,56 @@
             "design_size": "small",
             "name": "bsg_async_fifo_small_w_clk_30_FO4_r_clk_40_FO4",
             "parameters": [
-                "lg_size_p=10",
+                "lg_size_p=3",
                 "width_p=16"
             ]
         },
         {
             "constraints": [
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_enq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_data_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_deq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_full_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_data_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_valid_o",
                     "type": "output"
@@ -224,56 +225,56 @@
             "design_size": "small",
             "name": "bsg_async_fifo_small_w_clk_30_FO4_r_clk_50_FO4",
             "parameters": [
-                "lg_size_p=10",
+                "lg_size_p=3",
                 "width_p=16"
             ]
         },
         {
             "constraints": [
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_enq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_data_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_deq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_full_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_data_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_valid_o",
                     "type": "output"
@@ -297,56 +298,56 @@
             "design_size": "small",
             "name": "bsg_async_fifo_small_w_clk_30_FO4_r_clk_60_FO4",
             "parameters": [
-                "lg_size_p=10",
+                "lg_size_p=3",
                 "width_p=16"
             ]
         },
         {
             "constraints": [
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_enq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_data_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_deq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_full_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_data_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_valid_o",
                     "type": "output"
@@ -370,56 +371,56 @@
             "design_size": "small",
             "name": "bsg_async_fifo_small_w_clk_40_FO4_r_clk_30_FO4",
             "parameters": [
-                "lg_size_p=10",
+                "lg_size_p=3",
                 "width_p=16"
             ]
         },
         {
             "constraints": [
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_enq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_data_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_deq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_full_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_data_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_valid_o",
                     "type": "output"
@@ -443,56 +444,56 @@
             "design_size": "small",
             "name": "bsg_async_fifo_small_w_clk_40_FO4_r_clk_40_FO4",
             "parameters": [
-                "lg_size_p=10",
+                "lg_size_p=3",
                 "width_p=16"
             ]
         },
         {
             "constraints": [
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_enq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_data_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_deq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_full_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_data_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_valid_o",
                     "type": "output"
@@ -516,56 +517,56 @@
             "design_size": "small",
             "name": "bsg_async_fifo_small_w_clk_40_FO4_r_clk_50_FO4",
             "parameters": [
-                "lg_size_p=10",
+                "lg_size_p=3",
                 "width_p=16"
             ]
         },
         {
             "constraints": [
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_enq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_data_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_deq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_full_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_data_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_valid_o",
                     "type": "output"
@@ -589,56 +590,56 @@
             "design_size": "small",
             "name": "bsg_async_fifo_small_w_clk_40_FO4_r_clk_60_FO4",
             "parameters": [
-                "lg_size_p=10",
+                "lg_size_p=3",
                 "width_p=16"
             ]
         },
         {
             "constraints": [
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_enq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_data_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_deq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_full_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_data_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_valid_o",
                     "type": "output"
@@ -662,56 +663,56 @@
             "design_size": "small",
             "name": "bsg_async_fifo_small_w_clk_50_FO4_r_clk_30_FO4",
             "parameters": [
-                "lg_size_p=10",
+                "lg_size_p=3",
                 "width_p=16"
             ]
         },
         {
             "constraints": [
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_enq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_data_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_deq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_full_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_data_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_valid_o",
                     "type": "output"
@@ -735,56 +736,56 @@
             "design_size": "small",
             "name": "bsg_async_fifo_small_w_clk_50_FO4_r_clk_40_FO4",
             "parameters": [
-                "lg_size_p=10",
+                "lg_size_p=3",
                 "width_p=16"
             ]
         },
         {
             "constraints": [
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_enq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_data_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_deq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_full_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_data_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_valid_o",
                     "type": "output"
@@ -808,56 +809,56 @@
             "design_size": "small",
             "name": "bsg_async_fifo_small_w_clk_50_FO4_r_clk_50_FO4",
             "parameters": [
-                "lg_size_p=10",
+                "lg_size_p=3",
                 "width_p=16"
             ]
         },
         {
             "constraints": [
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_enq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_data_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_deq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_full_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_data_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_valid_o",
                     "type": "output"
@@ -881,56 +882,56 @@
             "design_size": "small",
             "name": "bsg_async_fifo_small_w_clk_50_FO4_r_clk_60_FO4",
             "parameters": [
-                "lg_size_p=10",
+                "lg_size_p=3",
                 "width_p=16"
             ]
         },
         {
             "constraints": [
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_enq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_data_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_deq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_full_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_data_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_valid_o",
                     "type": "output"
@@ -954,56 +955,56 @@
             "design_size": "small",
             "name": "bsg_async_fifo_small_w_clk_60_FO4_r_clk_30_FO4",
             "parameters": [
-                "lg_size_p=10",
+                "lg_size_p=3",
                 "width_p=16"
             ]
         },
         {
             "constraints": [
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_enq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_data_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_deq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_full_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_data_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_valid_o",
                     "type": "output"
@@ -1027,56 +1028,56 @@
             "design_size": "small",
             "name": "bsg_async_fifo_small_w_clk_60_FO4_r_clk_40_FO4",
             "parameters": [
-                "lg_size_p=10",
+                "lg_size_p=3",
                 "width_p=16"
             ]
         },
         {
             "constraints": [
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_enq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_data_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_deq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_full_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_data_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_valid_o",
                     "type": "output"
@@ -1100,56 +1101,56 @@
             "design_size": "small",
             "name": "bsg_async_fifo_small_w_clk_60_FO4_r_clk_50_FO4",
             "parameters": [
-                "lg_size_p=10",
+                "lg_size_p=3",
                 "width_p=16"
             ]
         },
         {
             "constraints": [
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_enq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_data_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_deq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_full_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_data_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_valid_o",
                     "type": "output"
@@ -1173,56 +1174,56 @@
             "design_size": "small",
             "name": "bsg_async_fifo_small_w_clk_60_FO4_r_clk_60_FO4",
             "parameters": [
-                "lg_size_p=10",
+                "lg_size_p=3",
                 "width_p=16"
             ]
         },
         {
             "constraints": [
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_enq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_data_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_deq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_full_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_data_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_valid_o",
                     "type": "output"
@@ -1246,56 +1247,56 @@
             "design_size": "medium",
             "name": "bsg_async_fifo_medium_w_clk_30_FO4_r_clk_30_FO4",
             "parameters": [
-                "lg_size_p=10",
+                "lg_size_p=3",
                 "width_p=32"
             ]
         },
         {
             "constraints": [
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_enq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_data_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_deq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_full_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_data_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_valid_o",
                     "type": "output"
@@ -1319,56 +1320,56 @@
             "design_size": "medium",
             "name": "bsg_async_fifo_medium_w_clk_30_FO4_r_clk_40_FO4",
             "parameters": [
-                "lg_size_p=10",
+                "lg_size_p=3",
                 "width_p=32"
             ]
         },
         {
             "constraints": [
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_enq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_data_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_deq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_full_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_data_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_valid_o",
                     "type": "output"
@@ -1392,56 +1393,56 @@
             "design_size": "medium",
             "name": "bsg_async_fifo_medium_w_clk_30_FO4_r_clk_50_FO4",
             "parameters": [
-                "lg_size_p=10",
+                "lg_size_p=3",
                 "width_p=32"
             ]
         },
         {
             "constraints": [
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_enq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_data_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_deq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_full_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_data_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_valid_o",
                     "type": "output"
@@ -1465,56 +1466,56 @@
             "design_size": "medium",
             "name": "bsg_async_fifo_medium_w_clk_30_FO4_r_clk_60_FO4",
             "parameters": [
-                "lg_size_p=10",
+                "lg_size_p=3",
                 "width_p=32"
             ]
         },
         {
             "constraints": [
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_enq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_data_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_deq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_full_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_data_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_valid_o",
                     "type": "output"
@@ -1538,56 +1539,56 @@
             "design_size": "medium",
             "name": "bsg_async_fifo_medium_w_clk_40_FO4_r_clk_30_FO4",
             "parameters": [
-                "lg_size_p=10",
+                "lg_size_p=3",
                 "width_p=32"
             ]
         },
         {
             "constraints": [
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_enq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_data_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_deq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_full_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_data_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_valid_o",
                     "type": "output"
@@ -1611,56 +1612,56 @@
             "design_size": "medium",
             "name": "bsg_async_fifo_medium_w_clk_40_FO4_r_clk_40_FO4",
             "parameters": [
-                "lg_size_p=10",
+                "lg_size_p=3",
                 "width_p=32"
             ]
         },
         {
             "constraints": [
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_enq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_data_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_deq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_full_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_data_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_valid_o",
                     "type": "output"
@@ -1684,56 +1685,56 @@
             "design_size": "medium",
             "name": "bsg_async_fifo_medium_w_clk_40_FO4_r_clk_50_FO4",
             "parameters": [
-                "lg_size_p=10",
+                "lg_size_p=3",
                 "width_p=32"
             ]
         },
         {
             "constraints": [
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_enq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_data_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_deq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_full_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_data_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_valid_o",
                     "type": "output"
@@ -1757,56 +1758,56 @@
             "design_size": "medium",
             "name": "bsg_async_fifo_medium_w_clk_40_FO4_r_clk_60_FO4",
             "parameters": [
-                "lg_size_p=10",
+                "lg_size_p=3",
                 "width_p=32"
             ]
         },
         {
             "constraints": [
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_enq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_data_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_deq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_full_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_data_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_valid_o",
                     "type": "output"
@@ -1830,56 +1831,56 @@
             "design_size": "medium",
             "name": "bsg_async_fifo_medium_w_clk_50_FO4_r_clk_30_FO4",
             "parameters": [
-                "lg_size_p=10",
+                "lg_size_p=3",
                 "width_p=32"
             ]
         },
         {
             "constraints": [
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_enq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_data_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_deq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_full_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_data_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_valid_o",
                     "type": "output"
@@ -1903,56 +1904,56 @@
             "design_size": "medium",
             "name": "bsg_async_fifo_medium_w_clk_50_FO4_r_clk_40_FO4",
             "parameters": [
-                "lg_size_p=10",
+                "lg_size_p=3",
                 "width_p=32"
             ]
         },
         {
             "constraints": [
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_enq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_data_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_deq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_full_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_data_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_valid_o",
                     "type": "output"
@@ -1976,56 +1977,56 @@
             "design_size": "medium",
             "name": "bsg_async_fifo_medium_w_clk_50_FO4_r_clk_50_FO4",
             "parameters": [
-                "lg_size_p=10",
+                "lg_size_p=3",
                 "width_p=32"
             ]
         },
         {
             "constraints": [
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_enq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_data_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_deq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_full_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_data_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_valid_o",
                     "type": "output"
@@ -2049,56 +2050,56 @@
             "design_size": "medium",
             "name": "bsg_async_fifo_medium_w_clk_50_FO4_r_clk_60_FO4",
             "parameters": [
-                "lg_size_p=10",
+                "lg_size_p=3",
                 "width_p=32"
             ]
         },
         {
             "constraints": [
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_enq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_data_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_deq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_full_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_data_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_valid_o",
                     "type": "output"
@@ -2122,56 +2123,56 @@
             "design_size": "medium",
             "name": "bsg_async_fifo_medium_w_clk_60_FO4_r_clk_30_FO4",
             "parameters": [
-                "lg_size_p=10",
+                "lg_size_p=3",
                 "width_p=32"
             ]
         },
         {
             "constraints": [
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_enq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_data_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_deq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_full_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_data_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_valid_o",
                     "type": "output"
@@ -2195,56 +2196,56 @@
             "design_size": "medium",
             "name": "bsg_async_fifo_medium_w_clk_60_FO4_r_clk_40_FO4",
             "parameters": [
-                "lg_size_p=10",
+                "lg_size_p=3",
                 "width_p=32"
             ]
         },
         {
             "constraints": [
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_enq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_data_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_deq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_full_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_data_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_valid_o",
                     "type": "output"
@@ -2268,56 +2269,56 @@
             "design_size": "medium",
             "name": "bsg_async_fifo_medium_w_clk_60_FO4_r_clk_50_FO4",
             "parameters": [
-                "lg_size_p=10",
+                "lg_size_p=3",
                 "width_p=32"
             ]
         },
         {
             "constraints": [
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_enq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_data_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_reset_i",
                     "type": "input"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_deq_i",
                     "type": "input"
                 },
                 {
-                    "clock": "wclk",
+                    "clock": "w_clk",
                     "delay": "0",
                     "port": "w_full_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_data_o",
                     "type": "output"
                 },
                 {
-                    "clock": "rclk",
+                    "clock": "r_clk",
                     "delay": "0",
                     "port": "r_valid_o",
                     "type": "output"
@@ -2341,7 +2342,7 @@
             "design_size": "medium",
             "name": "bsg_async_fifo_medium_w_clk_60_FO4_r_clk_60_FO4",
             "parameters": [
-                "lg_size_p=10",
+                "lg_size_p=3",
                 "width_p=32"
             ]
         }

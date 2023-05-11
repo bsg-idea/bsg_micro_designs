@@ -30712,6 +30712,31 @@ endmodule
 
 
 
+module bsg_expand_bitmask_in_width_p2_expand_p4
+(
+  i,
+  o
+);
+
+  input [1:0] i;
+  output [7:0] o;
+  wire [7:0] o;
+  wire o_7_,o_3_;
+  assign o_7_ = i[1];
+  assign o[4] = o_7_;
+  assign o[5] = o_7_;
+  assign o[6] = o_7_;
+  assign o[7] = o_7_;
+  assign o_3_ = i[0];
+  assign o[0] = o_3_;
+  assign o[1] = o_3_;
+  assign o[2] = o_3_;
+  assign o[3] = o_3_;
+
+endmodule
+
+
+
 module bsg_mux_width_p4_els_p2
 (
   data_i,
@@ -30761,6 +30786,26 @@ module bsg_mux_width_p1_els_p4
   assign N3 = N0 & sel_i[1];
   assign N4 = sel_i[0] & N1;
   assign N5 = sel_i[0] & sel_i[1];
+
+endmodule
+
+
+
+module bsg_expand_bitmask_in_width_p1_expand_p4
+(
+  i,
+  o
+);
+
+  input [0:0] i;
+  output [3:0] o;
+  wire [3:0] o;
+  wire o_3_;
+  assign o_3_ = i[0];
+  assign o[0] = o_3_;
+  assign o[1] = o_3_;
+  assign o[2] = o_3_;
+  assign o[3] = o_3_;
 
 endmodule
 
@@ -31209,7 +31254,7 @@ module bsg_cache_dma_addr_width_p28_data_width_p32_block_size_in_words_p4_sets_p
   );
 
 
-  bsg_expand_bitmask
+  bsg_expand_bitmask_in_width_p2_expand_p4
   expand0
   (
     .i(dma_way_mask),
@@ -31235,7 +31280,7 @@ module bsg_cache_dma_addr_width_p28_data_width_p32_block_size_in_words_p4_sets_p
   );
 
 
-  bsg_expand_bitmask
+  bsg_expand_bitmask_in_width_p1_expand_p4
   expand1
   (
     .i(track_bits_offset_picked[0]),
@@ -32383,6 +32428,96 @@ endmodule
 
 
 
+module bsg_expand_bitmask_in_width_p4_expand_p1
+(
+  i,
+  o
+);
+
+  input [3:0] i;
+  output [3:0] o;
+  wire [3:0] o;
+  assign o[3] = i[3];
+  assign o[2] = i[2];
+  assign o[1] = i[1];
+  assign o[0] = i[0];
+
+endmodule
+
+
+
+module bsg_expand_bitmask_in_width_p2_expand_p2
+(
+  i,
+  o
+);
+
+  input [1:0] i;
+  output [3:0] o;
+  wire [3:0] o;
+  wire o_3_,o_1_;
+  assign o_3_ = i[1];
+  assign o[2] = o_3_;
+  assign o[3] = o_3_;
+  assign o_1_ = i[0];
+  assign o[0] = o_1_;
+  assign o[1] = o_1_;
+
+endmodule
+
+
+
+module bsg_expand_bitmask_in_width_p4_expand_p8
+(
+  i,
+  o
+);
+
+  input [3:0] i;
+  output [31:0] o;
+  wire [31:0] o;
+  wire o_31_,o_23_,o_15_,o_7_;
+  assign o_31_ = i[3];
+  assign o[24] = o_31_;
+  assign o[25] = o_31_;
+  assign o[26] = o_31_;
+  assign o[27] = o_31_;
+  assign o[28] = o_31_;
+  assign o[29] = o_31_;
+  assign o[30] = o_31_;
+  assign o[31] = o_31_;
+  assign o_23_ = i[2];
+  assign o[16] = o_23_;
+  assign o[17] = o_23_;
+  assign o[18] = o_23_;
+  assign o[19] = o_23_;
+  assign o[20] = o_23_;
+  assign o[21] = o_23_;
+  assign o[22] = o_23_;
+  assign o[23] = o_23_;
+  assign o_15_ = i[1];
+  assign o[8] = o_15_;
+  assign o[9] = o_15_;
+  assign o[10] = o_15_;
+  assign o[11] = o_15_;
+  assign o[12] = o_15_;
+  assign o[13] = o_15_;
+  assign o[14] = o_15_;
+  assign o[15] = o_15_;
+  assign o_7_ = i[0];
+  assign o[0] = o_7_;
+  assign o[1] = o_7_;
+  assign o[2] = o_7_;
+  assign o[3] = o_7_;
+  assign o[4] = o_7_;
+  assign o[5] = o_7_;
+  assign o[6] = o_7_;
+  assign o[7] = o_7_;
+
+endmodule
+
+
+
 module bsg_mux_width_p8_els_p4
 (
   data_i,
@@ -33206,7 +33341,7 @@ module bsg_cache
   );
 
 
-  bsg_expand_bitmask
+  bsg_expand_bitmask_in_width_p1_expand_p4
   expand0
   (
     .i(sbuf_burst_offset_decode[0]),
@@ -33286,7 +33421,7 @@ module bsg_cache
   );
 
 
-  bsg_expand_bitmask
+  bsg_expand_bitmask_in_width_p4_expand_p1
   \sbuf_in_sel_0_.exp 
   (
     .i(\sbuf_in_sel_0_.decode_lo ),
@@ -33302,7 +33437,7 @@ module bsg_cache
   );
 
 
-  bsg_expand_bitmask
+  bsg_expand_bitmask_in_width_p2_expand_p2
   \sbuf_in_sel_1_.exp 
   (
     .i(\sbuf_in_sel_1_.decode_lo ),
@@ -33318,7 +33453,7 @@ module bsg_cache
   );
 
 
-  bsg_expand_bitmask
+  bsg_expand_bitmask_in_width_p1_expand_p4
   \sbuf_in_sel_2_.exp 
   (
     .i(\sbuf_in_sel_2_.decode_lo [0]),
@@ -33390,7 +33525,7 @@ module bsg_cache
   );
 
 
-  bsg_expand_bitmask
+  bsg_expand_bitmask_in_width_p4_expand_p8
   mask_v_expand
   (
     .i(mask_v_r),

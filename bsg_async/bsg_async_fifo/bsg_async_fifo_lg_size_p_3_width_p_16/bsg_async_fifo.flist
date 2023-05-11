@@ -1,0 +1,12 @@
++define+SYNTHESIS
++define+DEBUG=0
+-pvalue+lg_size_p=3
+-pvalue+width_p=16
++incdir+/mnt/users/ssd0/homes/bpage1/bsg/bsg_ppa_regression/utils/sv2v/results/basejump_stl_regression/basejump_stl/bsg_misc/
+/mnt/users/ssd0/homes/bpage1/bsg/bsg_ppa_regression/utils/sv2v/results/basejump_stl_regression/basejump_stl/bsg_misc/bsg_defines.v
+/mnt/users/ssd0/homes/bpage1/bsg/bsg_ppa_regression/utils/sv2v/results/basejump_stl_regression/basejump_stl/bsg_async/bsg_async_fifo.v
+/mnt/users/ssd0/homes/bpage1/bsg/bsg_ppa_regression/utils/sv2v/results/basejump_stl_regression/basejump_stl/bsg_mem/bsg_mem_1r1w.v
+/mnt/users/ssd0/homes/bpage1/bsg/bsg_ppa_regression/utils/sv2v/results/basejump_stl_regression/basejump_stl/bsg_mem/bsg_mem_1r1w_synth.v
+/mnt/users/ssd0/homes/bpage1/bsg/bsg_ppa_regression/utils/sv2v/results/basejump_stl_regression/basejump_stl/bsg_async/bsg_async_ptr_gray.v
+/mnt/users/ssd0/homes/bpage1/bsg/bsg_ppa_regression/utils/sv2v/results/basejump_stl_regression/basejump_stl/bsg_async/bsg_launch_sync_sync.v
+/mnt/users/ssd0/homes/bpage1/bsg/bsg_ppa_regression/utils/sv2v/results/basejump_stl_regression/basejump_stl/bsg_misc/bsg_and.v
